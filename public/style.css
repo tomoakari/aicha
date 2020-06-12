@@ -1,0 +1,191 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 2em 1em;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+}
+
+form {
+  background-color: #eee;
+  display: grid;
+  grid-gap: 1em;
+  padding: 1em;
+  max-width: 40ch;
+}
+
+.toppage_container{
+  text-align: center;
+}
+.toppage_container > form{
+  margin: auto;
+  margin-top: 50px;
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+input:focus {
+    border:solid 1px #EEA34A;
+}
+
+form button {
+  background-color: #bbbbf2;
+  border: 2px solid currentColor;
+  border-radius: .25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: lavender;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+
+
+.button {
+  background-color: #b0c4de;
+  border: 0.1rem solid #b0c4de;
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding: 0 2rem;
+}
+.button.button-outline,
+button.button-outline{
+  color: #b0c4de;
+}
+
+
+ul#chat{
+  list-style: none;
+}
+
+.chat-container{
+  padding: 10px;
+}
+.chatinput{
+  width: 500px;
+  height: 45px;
+  display: inline;
+}
+
+div.chatarea {
+  height: 200px;
+  width: 100%;
+  overflow: auto;
+  padding: 5px;
+}
+
+.flex{
+  padding: 2.5% 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.note{
+  font-size: 3px;
+}
+
+.center{
+  text-align: center;
+}
+
+.hidden{
+  display: none;
+}
+
+#container{
+}
+
+video{
+  object-fit: cover;
+}
+.myvideo-container video{
+  /*
+  width: 160px; 
+  height: 120px; 
+  border: 1px solid black;
+  */
+  width: 100%;
+}
+.membersvideo{
+  margin: 2px;
+  /*
+  width: 240px;
+  height: 180px;
+  */
+  width: 100%;
+}
+
+.membername{
+  position: relative;
+    top: -30px;
+    left: 20px;
+    color: white;
+  margin-bottom: -2.5rem;
+}
+
+#container > div{
+  position: relative;
+  display: inline-block;  
+}
+form{
+  background-color: transparent;
+}
+
+.chatSlide{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  /*background-color: rgba(255,255,255,0.2);*/
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5));
+}
+
+.chatToggle{
+  position: fixed;
+  right: 10px;
+  bottom:0px;
+  z-index: 200;
+}
+.chatform{
+  display: inline;
+}
+
+.header-button{
+  text-align: right;
+  margin: 8px;
+}
+.videoarea{
+  position: relative;
+  background-color: white;
+  z-index: 500;
+}
+.chatlist > li{
+  list-style: none;
+}

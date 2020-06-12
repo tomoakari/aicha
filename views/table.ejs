@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- table_name %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/sidemenu.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    
+    <!-- ヘッダー -->
+    <div class="header">
+      <div class="header-button">
+        <button
+          id="startbutton"
+          type="button"
+          class="button"
+          onclick="startVideo();"
+        >
+          <i class="fas fa-video"></i>
+        </button>
+        <button
+          id="stopbutton"
+          type="button"
+          class="button button-outline hidden"
+          onclick="stopVideo();"
+        >
+          <i class="fas fa-video-slash"></i>
+        </button>
+        <button
+          type="button"
+          class="button button-outline"
+          onclick="connect();"
+        >
+          <i class="fas fa-wifi"></i>
+        </button>
+        <button type="button" class="button button-outline" onclick="hangUp();">
+          <i class="fas fa-poo"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- サイドメニュー -->
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+      <ul id="app" class="sidebarMenuInner">
+        <li>
+          <%- user_name %>
+        </li>
+        <li v-for="member in loginmembers" :key="member.user_id">
+          {{ member.user_name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- 参加者ビデオエリア -->
+    <div id="container" class="row">
+      <div class="col-sm-3">
+        <video id="local_video" class="membersvideo" autoplay></video>
+        <p class="membername"><%- user_name %></p>
+      </div>
+    </div>
+
+    <!-- チャットエリア -->
+
+    <button id="chatToggle" class="button chatToggle">
+      <i class="far fa-comment-alt"></i>
+    </button>
+    <div id="chatSlide" class="chatSlide">
+      <div class="chat-container row">
+        <div class="chatarea col-sm-12">
+          <ul id="chat">
+            <li>ようこそ、<%- user_name %>さん！ 右上のビデオボタンでスタートしてください</li>
+          </ul>
+        </div>
+      </div>
+
+      <form onsubmit="return sendChat();" class="chatform">
+        <input
+          id="input_msg"
+          class="chatinput"
+          autocomplete="off"
+          placeholder="chat"
+        />
+        <button id="sendbutton" class="button button-outline">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+    
+    <!-- リソースなど -->
+    <div class="hidden">
+      <input id="table_id" value="<%- table_id %>" />
+      <input id="user_name" value="<%- user_name %>" />
+    </div>
+
+    <audio id="se" preload>
+      <source
+        src="https://cdn.glitch.com/8f09de38-a9c6-48f9-8633-252d0280a419%2Fse_maoudamashii_onepoint22.mp3?v=1589963341824"
+        type="audio/mp3"
+      />
+    </audio>
+  </body>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/vue.js"></script>
+  <script src="/script.js"></script>
+</html>
