@@ -336,6 +336,7 @@ function startVideo() {
       console.error("getUserMedia error:", error);
       return;
     });
+    return false;
 }
 
 // stop local video
@@ -347,6 +348,8 @@ function stopVideo() {
   // ボタンの表示を切り替え
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
+
+  return false;
 }
 
 //
