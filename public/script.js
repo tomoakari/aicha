@@ -353,11 +353,13 @@ function stopVideo() {
 }
 
 function startVoice(){
+  alert(localVideo.volume);
   localVideo.volume = 1;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
 function stopVoice(){
+  alert(localVideo.volume);
   localVideo.volume = 0;
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
