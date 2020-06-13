@@ -30,7 +30,7 @@ var options = {
 };
 var express = require("express");
 var app = express();
-var server = require("https").createServer(option, app);
+var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
 var port = process.env.PORT || 8443;
 
