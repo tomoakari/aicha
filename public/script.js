@@ -352,6 +352,18 @@ function stopVideo() {
   return false;
 }
 
+function startVoice(){
+  localVideo.volume = 1;
+  $("#mutebutton").removeClass("hidden");
+  $("#unmutebutton").addClass("hidden");
+}
+function stopVoice(){
+  localVideo.volume = 0;
+  $("#unmutebutton").removeClass("hidden");
+  $("#mutebutton").addClass("hidden");
+}
+
+
 //
 function sendChat() {
   var text = $("#user_name").val() + " : " + $("#input_msg").val();
@@ -697,7 +709,7 @@ window.onload = function() {
     sendBeing();
   }, 5000);
 
-  
+
   startVideo();
   
 };
