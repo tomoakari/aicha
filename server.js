@@ -93,8 +93,8 @@ app.post("/", (request, response) => {
     table_name: request.body.table_name
   };
   // レンダリングを行う
-  response.render("./table.ejs", data);
-  // response.sendFile(__dirname + "/views/table.html");
+  // response.render("./table.ejs", data); //旧バージョン
+  response.render("./room.ejs", data);
 });
 
 // ファイル置き場
