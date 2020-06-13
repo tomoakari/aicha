@@ -711,6 +711,7 @@ window.onload = function() {
     sendBeing();
   }, 5000);
 
+  autoScroll();
 
   startVideo();
   
@@ -735,17 +736,14 @@ function copyToClipboard() {
 }
 
 // オートスクロール
-jQuery( function() {
-	autoScroll();
-} );
-var $scrollY = 0;
+var scrollY = 0;
 function autoScroll() {
-	var $sampleBox = jQuery( '#chat-container' );
-	$sampleBox.scrollTop( ++$scrollY );
-	if( $scrollY < $sampleBox[0].scrollHeight - $sampleBox[0].clientHeight ){
-	setTimeout( "autoScroll()", 20 );
-	}else{
-	$scrollY = 0;
-	$sampleBox.scrollTop( 0 );
-	setTimeout( "autoScroll()", 20 );
+	var sampleBox = document.getElementById("chat-container");
+	sampleBox.scrollTop = ++scrollY;
+	if( scrollY < sampleBox.scrollHeight - sampleBox.clientHeight ){
+		setTimeout( "autoScroll()", 20 );
+		}else{
+			scrollY = 0;
+			sampleBox.scrollTop = 0;
+			setTimeout( "autoScroll()", 20 );
 }}
