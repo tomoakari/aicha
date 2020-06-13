@@ -127,27 +127,25 @@
             </div>
           </div>
 
+          <form onsubmit="return sendChat();">
+            <div class="footercontrol">
+              <ul>
+                <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
+                <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
+                <li class="button primary"><i class="fas fa-microphone"></i></li>
+                <li class="button "><i class="fas fa-microphone-slash"></i></li>
+              </ul>
+              <input
+                type="text"
+                id="input_msg"
+                placeholder="chat"
+                autocomplete="off"
+                class="chat-input"
+              />
+              <input type="submit" value="Send" class="primary sendbutton" />
+            </div>
+          </form>
 
-
-            <form onsubmit="return sendChat();">
-              <div class="footercontrol">
-
-                <ul>
-                  <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
-                  <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
-                  <li class="button primary"><i class="fas fa-microphone"></i></li>
-                  <li class="button "><i class="fas fa-microphone-slash"></i></li>
-                </ul>
-                <input
-                  type="text"
-                  id="input_msg"
-                  placeholder="chat"
-                  autocomplete="off"
-                  class="chat-input"
-                />
-                <input type="submit" value="Send" class="primary" />
-                </div>
-            </form>
         </div>
       </div>
 

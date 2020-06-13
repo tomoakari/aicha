@@ -199,9 +199,13 @@ form{
   position: fixed;
   bottom: 10px;
   z-index: 300;
+  display: inline-flex;
 }
 .chat-input{
   width: 500px !important;
+}
+.sendbutton{
+  margin-left: 5px;
 }
 
 .hidden{
