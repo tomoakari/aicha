@@ -55,9 +55,9 @@ app.use(bodyParser.json());
 // トップ
 app.get("/", (request, response) => {
   
-  const testmode = 2; // 0:通常モード、 1:テストモード
+  const testmode = 0; // 0:通常モード、 1:テストモード
   
-  if(testmode==0){
+  if(testmode==1){
     var data = {
         user_name: 'name',
         table_id: 'table_id',
