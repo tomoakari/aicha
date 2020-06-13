@@ -711,7 +711,7 @@ window.onload = function() {
     sendBeing();
   }, 5000);
 
-  autoScroll();
+  // autoScroll();
 
   startVideo();
   
@@ -739,7 +739,7 @@ function copyToClipboard() {
 var scrollY = 0;
 function autoScroll() {
 	var sampleBox = document.getElementById("chat-container");
-	sampleBox.scrollTop = ++scrollY;
+	sampleBox.scrollTop = scrollY + 1;
 	if( scrollY < sampleBox.scrollHeight - sampleBox.clientHeight ){
 		setTimeout( "autoScroll()", 20 );
 		}else{
