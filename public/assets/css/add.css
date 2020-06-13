@@ -1,11 +1,20 @@
-.chatvideo{
+.dammyvideo{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/*
 .chatarea{
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+*/
+
+.videoarea{
+  position: relative;
+  z-index: 300;
+  background-color: #ffffff;
+  padding-bottom: 20px;
 }

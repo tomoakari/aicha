@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title><%- table_name %></title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/add.css" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="assets/js/jquery.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- ヘッダーエリア -->
+          <header id="header">
+            <ul class="icons">
+              <li>
+                <a href="#" class="icon brands fa-twitter"
+                  ><span class="label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-facebook-f"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-snapchat-ghost"
+                  ><span class="label">Snapchat</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-medium-m"
+                  ><span class="label">Medium</span></a
+                >
+              </li>
+            </ul>
+          </header>
+
+          <!-- ビデオエリア -->
+          <div class="content videoarea">
+            <div id="container" class="row">
+
+              <!--
+              <div class="col-3 col-12-medium">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  alt=""
+                  class="dammyvideo"
+                />
+              </div>
+              -->
+              <div class="col-3 col-12-small">
+                <video id="local_video" class=" membersvideo" autoplay></video>
+                <p class="membername"><%- user_name %></p>
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+              <div class="col-3 col-12-small blankVideo">
+                <img
+                  src="/assets/images/dammy.jpg"
+                  class="dammyvideo"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- チャットエリア -->
+          <div class="chatarea">
+            <div class="chat-container">
+                <ul id="chat">
+                  <li>ようこそ、<%- user_name %>さん！ 右下のボタンでスタートしてください</li>
+                </ul>
+            </div>
+          </div>
+
+          
+            <form method="post" action="#">
+              <div class="footercontrol">
+              
+                  <input
+                    type="text"
+                    id="input_msg"
+                    placeholder="chat"
+                    autocomplete="off"
+                    class="chat-input"
+                  />
+                </div>
+
+                <div  class="inline-button">
+                  <input type="submit" value="Send" class="primary" />
+                  <input type="button" value="Video" class="primary" id="startbutton" onclick="startVideo();"/>
+                  <input type="submit" value="Video" class="default hidden" id="stopbutton" onclick="stopVideo();"/>
+                  <input type="submit" value="Voice" class="default" />
+                </div>
+              
+
+            </form>
+        </div>
+      </div>
+
+      <!-- サイドバー -->
+      <div id="sidebar">
+        <div class="inner" id="app">
+          <!-- Search -->
+          <section id="search" class="alt">
+            <%- table_name %>
+          </section>
+
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Chatting（○○人）</h2>
+            </header>
+            <ul>
+              <li><%- user_name %></li>
+              <li v-for="member in loginmembers" :key="member.user_id">
+                {{ member.user_name }}
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; AIFORUS.Inc All rights reserved. :
+              <a href="https://aiforus.co.jp/">https://aiforus.co.jp/</a>. 
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- リソースなど -->
+    <div class="hidden">
+      <input id="table_id" value="<%- table_id %>" />
+      <input id="user_name" value="<%- user_name %>" />
+    </div>
+    <audio id="se" preload>
+      <source
+        src="https://cdn.glitch.com/8f09de38-a9c6-48f9-8633-252d0280a419%2Fse_maoudamashii_onepoint22.mp3?v=1589963341824"
+        type="audio/mp3"
+      />
+    </audio>
+
+    <!-- Scripts -->
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+  <script src="/vue.js"></script>
+  <script src="/script.js"></script>
+  </body>
+</html>

@@ -221,7 +221,7 @@ function attachVideo(id, stream) {
   playVideo(video, stream);
   video.volume = 1.0;
 
-  $("#remote_video_" + id).wrap('<div class="col-sm-3" id="video_container_' + id + '"/>');
+  $("#remote_video_" + id).wrap('<div class="col-3 col-12-small" id="video_container_' + id + '"/>');
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
   );
@@ -234,6 +234,9 @@ function detachVideo(id) {
 
   // $('#remote_video_'+id).remove();
   $("#video_container_" + id).remove();
+
+  // ダミービデオ要素を追加
+  addBlankVideoElement();
 }
 
 function isRemoteVideoAttached(id) {
@@ -265,12 +268,15 @@ function deleteRemoteVideoElement(id) {
 }
 
 function createVideoElement(elementId) {
+
+  // ダミービデオを一つ削除
+  removeBlankVideoElement();
+
+  // ビデオ要素を作成
   let video = document.createElement("video");
-  // video.width = "240";
-  // video.height = "180";
   video.id = elementId;
   video.className = "membersvideo";
-  container.appendChild(video);
+  container.prepend(video);
   return video;
 }
 
@@ -291,6 +297,21 @@ function removeVideoWrapperElement(elementId) {
   //container.remove(wrapper);
   $("#"+elementId).remove();
 }
+
+// ダミーのビデオを削除する
+function removeBlankVideoElement(){
+  //$(".blankVideo").each(function(elm){
+  //  elm.remove();
+  //});
+  $(".blankVideo")[0].remove();
+}
+
+// ダミーのビデオを追加する
+function addBlankVideoElement(){
+  $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dammy.jpg" class="dammyvideo"/></div>');
+}
+
+// function
 
 // ----------------------------------------------------------------
 // ---------------------- ボタン操作  -----------------------

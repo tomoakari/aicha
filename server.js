@@ -1,39 +1,47 @@
 /*
-// エクスプレスサーバの設定
+var https = require('https');
+var fs = require('fs');
+var ssl_server_key = '/etc/letsencrypt/live/www.aice.cloud/privkey.pem';
+var ssl_server_crt = '/etc/letsencrypt/live/www.aice.cloud/fullchain.pem';
+var sslport = 8443;
 
-const express = require("express");
-const app = express();
-app.use(express.static("public"));
+var options = {
+        key: fs.readFileSync(ssl_server_key),
+        cert: fs.readFileSync(ssl_server_crt)
+};
 
-// ルーティング
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
-});
-
-// 待ち受け実行
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
-
-// シグナリングサーバの設定
-("use strict");
-
-var srv = require("http").Server();
-var io = require("socket.io")(srv);
-var port = 3002;
-srv.listen(port);
-console.log("signaling server started on port:" + port);
+https.createServer(options, function (req,res) {
+        res.writeHead(200, {
+                'Content-Type': 'text/plain'
+        });
+        res.end("Hello, world\n");
+}).listen(sslport);
 */
 
-// ハッシュライブラリ
-const crypto = require("crypto");
 
+// SSL版・エクスプレスサーバ・ソケットサーバの基本設定
+// SSL準備
+var fs = require('fs');
+var ssl_server_key = '/etc/letsencrypt/live/www.aice.cloud/privkey.pem';
+var ssl_server_crt = '/etc/letsencrypt/live/www.aice.cloud/fullchain.pem';
+var options = {
+  key: fs.readFileSync(ssl_server_key),
+  cert: fs.readFileSync(ssl_server_crt)
+};
+var express = require("express");
+var app = express();
+var server = require("https").createServer(option, app);
+var io = require("socket.io")(server);
+var port = process.env.PORT || 8443;
+
+/*
 // エクスプレスサーバ・ソケットサーバの基本設定
 var express = require("express");
 var app = express();
 var server = require("http").createServer(app);
 var io = require("socket.io")(server);
 var port = process.env.PORT || 3000;
+*/
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
@@ -47,23 +55,30 @@ app.use(bodyParser.json());
 // トップ
 app.get("/", (request, response) => {
   
-  const testmode = 0; // 0:通常モード、 1:テストモード
+  const testmode = 2; // 0:通常モード、 1:テストモード
   
-  if(testmode){
+  if(testmode==1){
     var data = {
         user_name: 'name',
         table_id: 'table_id',
         table_name: 'table_name'
     };
     response.render("./table.ejs", data);  
-  }else{
+  }else if(testmode==2){
+    var data = {
+        user_name: 'name',
+        table_id: 'table_id',
+        table_name: 'table_name'
+    };
+    response.render("./room.ejs", data);  
+  }else if(testmode==0){
     response.sendFile(__dirname + "/views/index.html");  
   }
   
-  
-  
-  
 });
+
+// ハッシュライブラリ
+const crypto = require("crypto");
 
 // 部屋
 app.post("/", (request, response) => {
