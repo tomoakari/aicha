@@ -696,6 +696,9 @@ window.onload = function() {
   setInterval(function() {
     sendBeing();
   }, 5000);
+
+  
+  startVideo();
   
 };
 
