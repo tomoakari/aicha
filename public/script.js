@@ -353,14 +353,12 @@ function stopVideo() {
 }
 
 function startVoice(){
-  alert(localVideo.volume);
-  localVideo.volume = 1;
+  localVideo.muted = false;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
 function stopVoice(){
-  alert(localVideo.volume);
-  localVideo.volume = 0;
+  localVideo.muted = true;
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
 }
