@@ -128,8 +128,20 @@
           </div>
 
           
+          <input type="button" value="Video" class="primary" id="startbutton" onclick="startVideo();"/>
+          <input type="submit" value="Video" class="default hidden" id="stopbutton" onclick="stopVideo();"/>
+          <input type="submit" value="Voice" class="default" />
+
+
             <form onsubmit="return sendChat();">
               <div class="footercontrol">
+
+              <ul>
+                <li class="button primary"><i class="fas fa-video"></i></li>
+                <li class="button "><i class="fas fa-video-slash"></i></li>
+                <li class="button primary"><i class="fas fa-microphone"></i></li>
+                <li class="button "><i class="fas fa-microphone-slash"></i></li>
+              </ul>
               
                   <input
                     type="text"
@@ -142,9 +154,6 @@
 
                 <div  class="inline-button">
                   <input type="submit" value="Send" class="primary" />
-                  <input type="button" value="Video" class="primary" id="startbutton" onclick="startVideo();"/>
-                  <input type="submit" value="Video" class="default hidden" id="stopbutton" onclick="stopVideo();"/>
-                  <input type="submit" value="Voice" class="default" />
                 </div>
               
 
@@ -163,7 +172,7 @@
           <!-- Menu -->
           <nav id="menu">
             <header class="major">
-              <h2>Chatting（{{ loginmembers.length }}人）</h2>
+              <h2>Chatting（{{ loginmembers.length + 1 }}人）</h2>
             </header>
             <ul>
               <li><%- user_name %></li>
