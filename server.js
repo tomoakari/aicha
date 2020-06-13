@@ -57,7 +57,7 @@ app.get("/", (request, response) => {
   
   const testmode = 2; // 0:通常モード、 1:テストモード
   
-  if(testmode==1){
+  if(testmode==0){
     var data = {
         user_name: 'name',
         table_id: 'table_id',
