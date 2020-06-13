@@ -66,7 +66,7 @@ footer {
   border-top: 1px solid lightgrey;
 }
 
-
+/*
 .button {
   background-color: #b0c4de;
   border: 0.1rem solid #b0c4de;
@@ -79,7 +79,7 @@ footer {
 button.button-outline{
   color: #b0c4de;
 }
-
+*/
 
 ul#chat{
   list-style: none;

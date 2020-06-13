@@ -127,18 +127,14 @@
             </div>
           </div>
 
-          
-          <input type="button" value="Video" class="primary" id="startbutton" onclick="startVideo();"/>
-          <input type="submit" value="Video" class="default hidden" id="stopbutton" onclick="stopVideo();"/>
-          <input type="submit" value="Voice" class="default" />
 
 
             <form onsubmit="return sendChat();">
               <div class="footercontrol">
 
               <ul>
-                <li class="button primary"><i class="fas fa-video"></i></li>
-                <li class="button "><i class="fas fa-video-slash"></i></li>
+                <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
+                <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
                 <li class="button primary"><i class="fas fa-microphone"></i></li>
                 <li class="button "><i class="fas fa-microphone-slash"></i></li>
               </ul>
