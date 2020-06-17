@@ -358,7 +358,7 @@ function startVoice(){
   $("#unmutebutton").addClass("hidden");
 }
 function stopVoice(){
-  localVideo.muted = true;
+  localVideo.volume = true;
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
 }
