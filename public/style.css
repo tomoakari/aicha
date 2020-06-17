@@ -203,9 +203,11 @@ form{
 }
 .chat-input{
   width: 500px !important;
+  margin-left: 5px;
 }
 .sendbutton{
   margin-left: 5px;
+  margin-top: 4px;
 }
 
 
@@ -214,4 +216,8 @@ form{
 }
 .rightarea{
   width: 30%;
+}
+
+.chat-container > ul > li {
+  word-break : break-all;
 }

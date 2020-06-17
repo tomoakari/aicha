@@ -19,7 +19,7 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
   </head>
-  <body class="is-preload">
+  <body class="is-preload" id="app">
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -133,10 +133,7 @@
 
               </td>
               <td class="rightarea">
-
-                <header class="major">
-                  <h2>Chatting（{{ loginmembers.length + 1 }}人）</h2>
-                </header>
+                
                 <ul>
                   <li><%- user_name %></li>
                   <li v-for="member in loginmembers" :key="member.user_id">
@@ -174,10 +171,10 @@
 
       <!-- サイドバー -->
       <div id="sidebar">
-        <div class="inner" id="app">
+        <div class="inner">
           <!-- Search -->
           <section id="search" class="alt">
-            <%- table_name %>
+            <%- table_name %> （{{ loginmembers.length + 1 }}人）
           </section>
 
           <!-- Menu -->
