@@ -118,14 +118,37 @@
             </div>
           </div>
 
-          <!-- チャットエリア -->
-          <div class="chatarea">
-            <div class="chat-container">
-                <ul id="chat">
-                  <li>ようこそ、<%- user_name %>さん！ 右下のボタンでスタートしてください</li>
+          <table>
+            <tr>
+              <td class="leftarea">
+
+                <!-- チャットエリア -->
+                <div class="chatarea">
+                  <div class="chat-container">
+                      <ul id="chat">
+                        <li>ようこそ、<%- user_name %>さん！ 右下のボタンでスタートしてください</li>
+                      </ul>
+                  </div>
+                </div>
+
+              </td>
+              <td class="rightarea">
+
+                <header class="major">
+                  <h2>Chatting（{{ loginmembers.length + 1 }}人）</h2>
+                </header>
+                <ul>
+                  <li><%- user_name %></li>
+                  <li v-for="member in loginmembers" :key="member.user_id">
+                    {{ member.user_name }}
+                  </li>
                 </ul>
-            </div>
-          </div>
+
+              </td>
+            </tr>
+          </table>
+
+          
 
           <form onsubmit="return sendChat();">
             <div class="footercontrol">
@@ -159,15 +182,7 @@
 
           <!-- Menu -->
           <nav id="menu">
-            <header class="major">
-              <h2>Chatting（{{ loginmembers.length + 1 }}人）</h2>
-            </header>
-            <ul>
-              <li><%- user_name %></li>
-              <li v-for="member in loginmembers" :key="member.user_id">
-                {{ member.user_name }}
-              </li>
-            </ul>
+            
           </nav>
 
           <!-- Footer -->

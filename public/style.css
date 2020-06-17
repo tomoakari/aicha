@@ -207,3 +207,11 @@ form{
 .sendbutton{
   margin-left: 5px;
 }
+
+
+.leftarea{
+  width: 70%;
+}
+.rightarea{
+  width: 30%;
+}
