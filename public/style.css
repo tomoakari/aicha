@@ -200,6 +200,7 @@ form{
   bottom: 10px;
   z-index: 300;
   display: inline-flex;
+  background-color: #ffffff;
 }
 .chat-input{
   width: 500px !important;

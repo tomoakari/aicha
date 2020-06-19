@@ -367,9 +367,12 @@ function stopVoice(){
 //
 function sendChat() {
   var text = $("#user_name").val() + " : " + $("#input_msg").val();
-  $("#chat").append($("<li>").text(text));
+  if(text){
+    $("#chat").append($("<li>").text(text));
   socket.emit("chat", text);
   $("#input_msg").val("");
+  }
+  
   return false;
 }
 
