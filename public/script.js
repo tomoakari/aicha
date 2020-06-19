@@ -367,7 +367,7 @@ function stopVoice(){
 //
 function sendChat() {
   var text = $("#user_name").val() + " : " + $("#input_msg").val();
-  if(text){
+  if(text !== ""){
     $("#chat").append($("<li>").text(text));
   socket.emit("chat", text);
   $("#input_msg").val("");
