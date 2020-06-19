@@ -366,10 +366,10 @@ function stopVoice(){
 
 //
 function sendChat() {
-  var text = $("#user_name").val() + " : " + $("#input_msg").val();
-  if(text.length == 0){
+  if($("#input_msg").val().length == 0){
     toastr.error("文字を入力してください");
   }else{
+    var text = $("#user_name").val() + " : " + $("#input_msg").val();
     $("#chat").append($("<li>").text(text));
     socket.emit("chat", text);
     $("#input_msg").val("");
