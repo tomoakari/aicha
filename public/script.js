@@ -367,7 +367,7 @@ function stopVoice(){
 //
 function sendChat() {
   var text = $("#user_name").val() + " : " + $("#input_msg").val();
-  if(text == ""){
+  if(text.length == 0){
     toastr.error("文字を入力してください");
   }else{
     $("#chat").append($("<li>").text(text));
