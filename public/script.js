@@ -714,7 +714,7 @@ window.onload = function() {
 
   // autoScroll();
 
-  startVideo();
+  //startVideo();
   
 };
 
