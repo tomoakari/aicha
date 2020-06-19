@@ -319,7 +319,7 @@ function addBlankVideoElement(){
 
 // start local video
 function startVideo() {
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+  getDeviceStream({ video: false, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function(stream) {
       // success
       localStream = stream;
