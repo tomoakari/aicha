@@ -221,3 +221,14 @@ form{
 .chat-container > ul > li {
   word-break : break-all;
 }
+
+.roomlist_title{
+  margin: 0px;
+  padding: 0px;
+}
+
+.user_list{
+  padding: 0px;
+  margin: 0px;
+  font-size: 120%;
+}
