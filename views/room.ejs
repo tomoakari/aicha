@@ -126,7 +126,7 @@
                 <div class="chatarea">
                   <div class="chat-container">
                       <ul id="chat">
-                        <li>ようこそ、<%- user_name %>さん！ 右下のボタンでスタートしてください</li>
+                        <li>ようこそ、<%- user_name %>さん！ 左下のボタンでスタートしてください</li>
                       </ul>
                   </div>
                 </div>
@@ -137,7 +137,7 @@
                 <!-- Menu -->
           <nav id="menu">
             <header class="major">
-              <h2>Chatting（{{ loginmembers.length + 1 }}人）</h2>
+              参加者（{{ loginmembers.length + 1 }}人）
             </header>
           </nav>
                 
@@ -180,8 +180,13 @@
       <div id="sidebar">
         <div class="inner" >
           <!-- Search -->
+          <nav id="menu">
+            <header class="major">
+              <h2>ルームリスト</h2>
+            </header>
+          </nav>
           <section id="search" class="alt">
-            <%- table_name %>
+            ルーム名：<%- table_name %>
           </section>
 
           <!-- Footer -->
