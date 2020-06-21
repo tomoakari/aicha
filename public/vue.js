@@ -1,5 +1,5 @@
 var vo = new Vue({
-  el: "#wrapper",
+  el: "#app",
 
   data: {
     members: [
