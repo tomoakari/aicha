@@ -99,6 +99,7 @@ socket.on("user disconnected", function(evt) {
 
 socket.on("chat", function(msg) {
   // $("#chat").append($("<li>").text(msg));
+  alert("get message:" + msg);
   chatVue.addContent(msg);
 });
 
@@ -371,8 +372,10 @@ function sendChat() {
     toastr.error("文字を入力してください");
   }else{
     var text = $("#user_name").val() + " : " + $("#input_msg").val();
-    $("#chat").append($("<li>").text(text));
+    //$("#chat").append($("<li>").text(text));
     socket.emit("chat", text);
+
+    chatVue.addContent(msg);
     $("#input_msg").val("");
   }
   
