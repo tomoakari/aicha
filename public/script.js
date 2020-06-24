@@ -355,14 +355,14 @@ function stopVideo() {
 
 function startVoice(){
   var tracks = localStream.getAudioTracks();
-  tracks[0].start();
+  tracks[0].muted = false;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
 
 function stopVoice(){
   var tracks = localStream.getAudioTracks();
-  tracks[0].stop();
+  tracks[0].muted = true;
    $("#unmutebutton").removeClass("hidden");
    $("#mutebutton").addClass("hidden");
 }
