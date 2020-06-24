@@ -112,7 +112,6 @@ var chatVue = new Vue({
   methods: {
     // チャットメッセージを受信したら呼ばれる
     addContent: function(msg) {
-      alert("");
       var date = new Date();
       var a = date.getTime();
       var nowtime = Math.floor(a / 1000);
@@ -120,8 +119,8 @@ var chatVue = new Vue({
           id: nowtime,
           text: msg
         }
-      this.addContent.push(newMessage);
-      //this.scrollBottom();
+      this.contents.push(newMessage);
+      this.scrollBottom();
     },
     // スクロール位置を一番下に移動
     scrollBottom() {
