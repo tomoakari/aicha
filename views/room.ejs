@@ -115,50 +115,56 @@
             </div>
           </div>
 
-          <div class="footercontrol">
-          <table>
-            <tr>
-              <td class="leftarea">
-
-                <!-- チャットエリア -->
-                <div class="chatarea">
-                  <div class="chat-container">
-                      <ul id="chat">
-                        <li>ようこそ、<%- user_name %>さん！ 早速あいさつしてみましょう</li>
+          <div class="footercontrol row">
+            <div class="col-12">
+              <table>
+                <tr>
+                  <td class="leftarea">
+    
+                    <!-- チャットエリア
+                    <div class="chatarea">
+                      <div class="chat-container">
+                          <ul id="chat">
+                            <li>ようこそ、<%- user_name %>さん！ 早速あいさつしてみましょう</li>
+                          </ul>
+                      </div>
+                    </div>
+                     -->
+                    <div class="chatarea">
+                      <ul id="chatapp">
+                        <template v-for="item in contents">
+                          <li class="">{{ item.text }}</li>
+                        </template>
                       </ul>
-                  </div>
-                </div>
-                <ul id="chatapp">
-                  <template v-for="item in contents">
-                    <li class="">{{ item.text }}</li>
-                  </template>
-                </ul>
-                
-
-              </td>
-              <td class="rightarea" id="app">
-
-                <!-- Menu -->
-                <nav class="roomlist_title">
-                  <header class="major">
-                    <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
-                  </header>
-                </nav>
-                
-                <ul>
-                  <li><%- user_name %></li>
-                  <li v-for="member in loginmembers" :key="member.user_id">
-                    {{ member.user_name }}
-                  </li>
-                </ul>
-
-              </td>
-            </tr>
-          </table>
-
+                    </div>
+                    
+    
+                  </td>
+                  <td class="rightarea" id="app">
+    
+                    <!-- Menu -->
+                    <nav class="roomlist_title">
+                      <header class="major">
+                        <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
+                      </header>
+                    </nav>
+                    
+                    <ul>
+                      <li><%- user_name %></li>
+                      <li v-for="member in loginmembers" :key="member.user_id">
+                        {{ member.user_name }}
+                      </li>
+                    </ul>
+    
+                  </td>
+                </tr>
+              </table>
+    
+            </div>
           
           
-          <form onsubmit="return sendChat();">
+          <div class="col-12">
+            <form onsubmit="return sendChat();">
             
               <ul>
                 <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
@@ -174,9 +180,10 @@
                     class="chat-input"
                   />
                 </li>
-              </ul>
-              
-          </form>
+              </ul>            
+            </form>
+          </div>
+          
           </div>
 
         </div>

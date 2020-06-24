@@ -98,7 +98,8 @@ socket.on("user disconnected", function(evt) {
 });
 
 socket.on("chat", function(msg) {
-  $("#chat").append($("<li>").text(msg));
+  // $("#chat").append($("<li>").text(msg));
+  chatVue.addContent(msg);
 });
 
 socket.on("alert", function(msg) {
@@ -373,9 +374,6 @@ function sendChat() {
     $("#chat").append($("<li>").text(text));
     socket.emit("chat", text);
     $("#input_msg").val("");
-
-
-    chatVue.addContent("aaaaa");
   }
   
   return false;
