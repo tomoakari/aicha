@@ -90,7 +90,7 @@ ul#chat{
   padding: 10px;
 }
 .chatinput{
-  width: 500px;
+  width: 100%;
   height: 45px;
   display: inline;
 }

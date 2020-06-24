@@ -167,22 +167,25 @@
               
               <div class="col-12">
                 <form onsubmit="return sendChat();">
-                
-                  <ul>
-                    <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
-                    <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
-                    <li class="button primary hidden" id="unmutebutton" onclick="startVoice_()"><i class="fas fa-microphone"></i></li>
-                    <li class="button " id="mutebutton" onclick="stopVoice_()"><i class="fas fa-microphone-slash"></i></li>
-                    <li>
+                  <div class="row">
+                    <div class="col-4">
+                      <ul>
+                        <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
+                        <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
+                        <li class="button primary hidden" id="unmutebutton" onclick="startVoice_()"><i class="fas fa-microphone"></i></li>
+                        <li class="button " id="mutebutton" onclick="stopVoice_()"><i class="fas fa-microphone-slash"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-8">
                       <input
-                        type="text"
-                        id="input_msg"
-                        placeholder="Enterで送信"
-                        autocomplete="off"
-                        class="chat-input"
-                      />
-                    </li>
-                  </ul>            
+                          type="text"
+                          id="input_msg"
+                          placeholder="Enterで送信"
+                          autocomplete="off"
+                          class="chat-input"
+                        />
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
