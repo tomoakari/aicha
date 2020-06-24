@@ -354,37 +354,15 @@ function stopVideo() {
 }
 
 function startVoice(){
-  localStream.getAudioTracks().volume(1);
-  localVideo.muted = false;
+  var tracks = localStream.getAudioTracks();
+  tracks[0].start();
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
+
 function stopVoice(){
-
-  /*
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
-  .then(function(stream) {
-    // success
-    var tracks = stream.getAudioTracks();
-    tracks[0].stop();
-
-    // ボタンの表示を切り替え
-  $("#unmutebutton").removeClass("hidden");
-  $("#mutebutton").addClass("hidden");
-
-  })
-  .catch(function(error) {
-    // error
-    console.error("getUserMedia error:", error);
-    return;
-  });
-  return false;
-  */
-
   var tracks = localStream.getAudioTracks();
   tracks[0].stop();
-  //localStream.getAudioTracks().volume(0);
-   //localVideo.volume = true;
    $("#unmutebutton").removeClass("hidden");
    $("#mutebutton").addClass("hidden");
 }
