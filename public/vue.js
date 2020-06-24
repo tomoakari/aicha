@@ -120,7 +120,7 @@ var chatVue = new Vue({
           text: msg
         }
       this.addContent.push(newMessage);
-      this.scrollBottom();
+      //this.scrollBottom();
     },
     // スクロール位置を一番下に移動
     scrollBottom() {
