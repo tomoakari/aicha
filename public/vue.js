@@ -112,6 +112,7 @@ var chatVue = new Vue({
   methods: {
     // チャットメッセージを受信したら呼ばれる
     addContent: function(msg) {
+      alert("");
       var date = new Date();
       var a = date.getTime();
       var nowtime = Math.floor(a / 1000);
