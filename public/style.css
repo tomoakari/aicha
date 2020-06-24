@@ -236,9 +236,9 @@ input.chat-input{
 
 .member-container{
   position: absolute;
-  bottom: 0px;
+  bottom: 200px;
 }
 
-.footercontrol > div > div > table > tr {
+.footercontrol > div > div > table > tbody > tr {
   background-color:#ffffff;
 }
