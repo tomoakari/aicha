@@ -242,3 +242,8 @@ input.chat-input{
 .footercontrol > div > div > table > tbody > tr {
   background-color:#ffffff;
 }
+
+.sidefooter{
+  position: absolute;
+  bottom: 20px;
+}
