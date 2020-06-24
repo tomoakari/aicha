@@ -22,7 +22,10 @@ form {
   display: grid;
   grid-gap: 1em;
   padding: 1em;
-  /*max-width: 40ch;*/
+}
+
+form.entry{
+  max-width: 40ch;
 }
 
 .toppage_container{
@@ -234,4 +237,8 @@ input.chat-input{
 .member-container{
   position: absolute;
   bottom: 0px;
+}
+
+.footercontrol > div > div > table > tr {
+  background-color:#ffffff;
 }
