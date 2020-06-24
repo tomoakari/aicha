@@ -365,7 +365,7 @@ function stopVoice(){
   .then(function(stream) {
     // success
     var tracks = stream.getAudioTracks();
-    tracks[0].volume(0);
+    tracks[0].stop();
 
     // ボタンの表示を切り替え
   $("#unmutebutton").removeClass("hidden");
