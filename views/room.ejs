@@ -143,19 +143,21 @@
                     </td>
                     <td class="rightarea" id="app">
       
-                      <!-- Menu -->
-                      <nav class="roomlist_title">
-                        <header class="major">
-                          <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
-                        </header>
-                      </nav>
+                      <div class="member-container">
+                        <nav class="roomlist_title">
+                          <header class="major">
+                            <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
+                          </header>
+                        </nav>
+                        
+                        <ul>
+                          <li><%- user_name %></li>
+                          <li v-for="member in loginmembers" :key="member.user_id">
+                            {{ member.user_name }}
+                          </li>
+                        </ul>
+                      </div>
                       
-                      <ul>
-                        <li><%- user_name %></li>
-                        <li v-for="member in loginmembers" :key="member.user_id">
-                          {{ member.user_name }}
-                        </li>
-                      </ul>
       
                     </td>
                   </tr>
