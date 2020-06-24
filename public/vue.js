@@ -1,4 +1,12 @@
-var vo = new Vue({
+/**
+ * ライブラリ読み込み
+ */
+const vueSeamless  = window.vueSeamlessScroll;
+
+/**
+ * ルームメンバーを管理するVue
+ */
+var memberVue = new Vue({
   el: "#app",
 
   data: {
@@ -63,5 +71,62 @@ var vo = new Vue({
       }
 
     }
+  }
+});
+
+
+/**
+ * チャットのコンテンツを制御するVue
+ */
+var chatVue = new Vue({
+  el: "#chatapp",
+
+  data: {
+    contents: [
+      {
+        id: 1,
+        text: "ようこそ！ 左下のビデオボタンでスタートしてください"
+      }
+    ]
+  },
+
+  computed: {
+    loginmembers: function() {
+      var viewList = [];
+
+      var date = new Date();
+      var a = date.getTime();
+      var nowtime = Math.floor(a / 1000);
+
+      for (var i in this.members) {
+        var member = this.members[i];
+
+        if (Number(member.timestamp) > nowtime - 10) {
+          viewList.push(member);
+        }
+      }
+      return viewList;
+    }
+  },
+
+  methods: {
+    // チャットメッセージを受信したら呼ばれる
+    addContent: function(msg) {
+      var date = new Date();
+      var a = date.getTime();
+      var nowtime = Math.floor(a / 1000);
+      var newMessage = {
+          id: nowtime,
+          text: msg
+        }
+      this.addContent.push(newMessage);
+      this.scrollBottom();
+    },
+    // スクロール位置を一番下に移動
+    scrollBottom() {
+      this.$nextTick(() => {
+        window.scrollTo(0, document.body.clientHeight)
+      })
+    },
   }
 });

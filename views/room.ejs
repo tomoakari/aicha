@@ -115,6 +115,7 @@
             </div>
           </div>
 
+          <div class="footercontrol">
           <table>
             <tr>
               <td class="leftarea">
@@ -127,6 +128,12 @@
                       </ul>
                   </div>
                 </div>
+                <ul id="chatapp">
+                  <template v-for="item in contents">
+                    <li class="" id="{{item.id}}">{{ item.text }}</li>
+                  </template>
+                </ul>
+                
 
               </td>
               <td class="rightarea" id="app">
@@ -150,9 +157,9 @@
           </table>
 
           
-
+          
           <form onsubmit="return sendChat();">
-            <div class="footercontrol">
+            
               <ul>
                 <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
                 <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
@@ -169,9 +176,8 @@
                 </li>
               </ul>
               
-              
-            </div>
           </form>
+          </div>
 
         </div>
       </div>
@@ -222,9 +228,9 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
     <script src="/socket.io/socket.io.js"></script>
-  <script src="/vue.js"></script>
-  <script src="/script.js"></script>
+    <script src="/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-seamless-scroll@1.1.17/dist/vue-seamless-scroll.min.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

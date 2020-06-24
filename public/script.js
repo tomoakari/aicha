@@ -373,6 +373,9 @@ function sendChat() {
     $("#chat").append($("<li>").text(text));
     socket.emit("chat", text);
     $("#input_msg").val("");
+
+
+    chatVue.addContent("aaaaa");
   }
   
   return false;
