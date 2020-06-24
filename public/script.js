@@ -375,7 +375,7 @@ function sendChat() {
     $("#input_msg").val("");
 
 
-    chatVue.addContent("aaaaa");
+    //chatVue.addContent("aaaaa");
   }
   
   return false;
