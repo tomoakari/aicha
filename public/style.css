@@ -202,7 +202,7 @@ form{
   display: inline-flex;
   background-color: #ffffff;
 }
-.chat-input{
+input.chat-input{
   width: 500px !important;
   margin-left: 5px;
 }
