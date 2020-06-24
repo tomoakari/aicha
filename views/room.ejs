@@ -115,74 +115,77 @@
             </div>
           </div>
 
-          <div class="footercontrol row">
-            <div class="col-12">
-              <table>
-                <tr>
-                  <td class="leftarea">
-    
-                    <!-- チャットエリア
-                    <div class="chatarea">
-                      <div class="chat-container">
-                          <ul id="chat">
-                            <li>ようこそ、<%- user_name %>さん！ 早速あいさつしてみましょう</li>
-                          </ul>
+          <div class="content footercontrol">
+            <div class="row">
+              <div class="col-12">
+                <table>
+                  <tr>
+                    <td class="leftarea">
+      
+                      <!-- チャットエリア
+                      <div class="chatarea">
+                        <div class="chat-container">
+                            <ul id="chat">
+                              <li>ようこそ、<%- user_name %>さん！ 早速あいさつしてみましょう</li>
+                            </ul>
+                        </div>
                       </div>
-                    </div>
-                     -->
-                    <div class="chatarea">
-                      <ul id="chatapp">
-                        <template v-for="item in contents">
-                          <li class="">{{ item.text }}</li>
-                        </template>
+                      -->
+                      <div class="chatarea">
+                        <ul id="chatapp">
+                          <template v-for="item in contents">
+                            <li class="">{{ item.text }}</li>
+                          </template>
+                        </ul>
+                      </div>
+                      
+      
+                    </td>
+                    <td class="rightarea" id="app">
+      
+                      <!-- Menu -->
+                      <nav class="roomlist_title">
+                        <header class="major">
+                          <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
+                        </header>
+                      </nav>
+                      
+                      <ul>
+                        <li><%- user_name %></li>
+                        <li v-for="member in loginmembers" :key="member.user_id">
+                          {{ member.user_name }}
+                        </li>
                       </ul>
-                    </div>
-                    
-    
-                  </td>
-                  <td class="rightarea" id="app">
-    
-                    <!-- Menu -->
-                    <nav class="roomlist_title">
-                      <header class="major">
-                        <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
-                      </header>
-                    </nav>
-                    
-                    <ul>
-                      <li><%- user_name %></li>
-                      <li v-for="member in loginmembers" :key="member.user_id">
-                        {{ member.user_name }}
-                      </li>
-                    </ul>
-    
-                  </td>
-                </tr>
-              </table>
-    
+      
+                    </td>
+                  </tr>
+                </table>
+      
+              </div>
+                
+              
+              
+              <div class="col-12">
+                <form onsubmit="return sendChat();">
+                
+                  <ul>
+                    <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
+                    <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
+                    <li class="button primary hidden" id="unmutebutton" onclick="startVoice_()"><i class="fas fa-microphone"></i></li>
+                    <li class="button " id="mutebutton" onclick="stopVoice_()"><i class="fas fa-microphone-slash"></i></li>
+                    <li>
+                      <input
+                        type="text"
+                        id="input_msg"
+                        placeholder="Enterで送信"
+                        autocomplete="off"
+                        class="chat-input"
+                      />
+                    </li>
+                  </ul>            
+                </form>
+              </div>
             </div>
-          
-          
-          <div class="col-12">
-            <form onsubmit="return sendChat();">
-            
-              <ul>
-                <li class="button primary" id="startbutton" onclick="startVideo();"><i class="fas fa-video"></i></li>
-                <li class="button" id="stopbutton" onclick="stopVideo();"><i class="fas fa-video-slash"></i></li>
-                <li class="button primary hidden" id="unmutebutton" onclick="startVoice_()"><i class="fas fa-microphone"></i></li>
-                <li class="button " id="mutebutton" onclick="stopVoice_()"><i class="fas fa-microphone-slash"></i></li>
-                <li>
-                  <input
-                    type="text"
-                    id="input_msg"
-                    placeholder="Enterで送信"
-                    autocomplete="off"
-                    class="chat-input"
-                  />
-                </li>
-              </ul>            
-            </form>
-          </div>
           
           </div>
 
