@@ -117,7 +117,7 @@ socket.on("being", function(msg) {
   }
   
   // メンバー一覧を更新する  
-  vo.updateMemberList(msg);
+  memberVue.updateMemberList(msg);
 
 });
 
