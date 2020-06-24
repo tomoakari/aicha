@@ -361,6 +361,7 @@ function startVoice(){
 }
 function stopVoice(){
 
+  /*
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
   .then(function(stream) {
     // success
@@ -378,11 +379,14 @@ function stopVoice(){
     return;
   });
   return false;
+  */
 
+  var tracks = localStream.getAudioTracks();
+  tracks[0].stop();
   //localStream.getAudioTracks().volume(0);
-  // localVideo.volume = true;
-  // $("#unmutebutton").removeClass("hidden");
-  // $("#mutebutton").addClass("hidden");
+   //localVideo.volume = true;
+   $("#unmutebutton").removeClass("hidden");
+   $("#mutebutton").addClass("hidden");
 }
 
 
