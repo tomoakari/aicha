@@ -230,7 +230,7 @@ input.chat-input{
 
 .user_list{
   padding: 0px;
-  margin: 0px;
+  margin: 0px !important;
   font-size: 120%;
 }
 

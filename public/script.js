@@ -354,12 +354,14 @@ function stopVideo() {
 }
 
 function startVoice(){
-  localVideo.muted = false;
+  localStream.getAudioTracks().volume(1);
+  // localVideo.muted = false;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
 function stopVoice(){
-  localVideo.volume = true;
+  localStream.getAudioTracks().volume(0);
+  // localVideo.volume = true;
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
 }
