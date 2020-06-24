@@ -364,7 +364,8 @@ function stopVoice(){
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
   .then(function(stream) {
     // success
-    stream.getAudioTracks().volume(0);
+    var tracks = stream.getAudioTracks();
+    tracks[0].volume(0);
 
     // ボタンの表示を切り替え
   $("#unmutebutton").removeClass("hidden");
