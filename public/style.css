@@ -118,9 +118,6 @@ div.chatarea {
   display: none;
 }
 
-#container{
-}
-
 video{
   object-fit: cover;
 }
@@ -200,12 +197,7 @@ form{
   display: inline-flex;
   background-color: #ffffff;
 }
-input.chat-input{
-  /*
-  width: 500px !important;
-  margin-left: 5px;
-  */
-}
+
 .sendbutton{
   margin-left: 5px;
   margin-top: 4px;
@@ -248,7 +240,9 @@ input.chat-input{
   bottom: 20px;
 }
 
+
 /*
+ * レイアウト調整
 */
 
 table.flametable{
@@ -257,7 +251,7 @@ table.flametable{
 }
 
 table.flametable > tbody > tr {
-  height: calc(50vh - 50px);
+  height: calc(50vh - 100px);
 }
 
 table.flametable > tbody > tr.inputtr {
@@ -266,4 +260,12 @@ table.flametable > tbody > tr.inputtr {
 
 body{
   margin: 0px !important;
+}
+
+form {
+  margin: 0px !important;
+}
+
+div.chatarea {
+  height: calc(50vh - 100px);
 }
