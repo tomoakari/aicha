@@ -130,7 +130,7 @@ var chatVue = new Vue({
       })
     },
     scrollToEnd: function() {    	
-      var container = this.$el.querySelector("#chatscrollarea");
+      var container = $('#chatscrollarea');
       container.scrollTop = container.scrollHeight;
     }
   }
