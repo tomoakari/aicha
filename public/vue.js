@@ -126,7 +126,7 @@ var chatVue = new Vue({
     scrollToEnd: function() {    	
       var container = document.getElementById('chatscrollarea');
       alert(container.scrollHeight);
-      container.scrollTop = container.scrollHeight;
+      container.scrollTop = container.scrollHeight + 50;
     }
   }
 });
