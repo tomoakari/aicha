@@ -124,7 +124,7 @@ var chatVue = new Vue({
       
       var $this = this;
         Vue.nextTick(function() {
-          this.scrollToEnd();
+          $this.scrollToEnd();
         });
     },
     scrollToEnd: function() {    	
