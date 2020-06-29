@@ -21,152 +21,89 @@
     <div id="wrapper">
       <!-- Main -->
       <div id="main">
-        <div class="inner maxheightclass">
-          <!-- ヘッダーエリア -->
-          <header id="header">
-            <ul class="icons">
-              <li>
-                <a href="#" class="icon brands fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-snapchat-ghost"
-                  ><span class="label">Snapchat</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-medium-m"
-                  ><span class="label">Medium</span></a
-                >
-              </li>
-            </ul>
-          </header>
+        <div class="inner">
 
-          <!-- ビデオエリア -->
-          <div class="content videoarea">
-            <div id="container" class="row">
-
-              <!--
-              <div class="col-3 col-12-medium">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  alt=""
-                  class="dammyvideo"
-                />
-              </div>
-              -->
-              <div class="col-3 col-12-small">
-                <video id="local_video" class=" membersvideo" autoplay></video>
-                <p class="membername"><%- user_name %></p>
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-              <div class="col-3 col-12-small blankVideo">
-                <img
-                  src="/assets/images/dammy.jpg"
-                  class="dammyvideo"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="content footercontrol">
-            <div class="row">
-              <div class="col-12">
-                <table>
-                  <tr>
-                    <td class="leftarea">
-      
-                      <!-- チャットエリア
-                      <div class="chatarea">
-                        <div class="chat-container">
-                            <ul id="chat">
-                              <li>ようこそ、<%- user_name %>さん！ 早速あいさつしてみましょう</li>
-                            </ul>
-                        </div>
-                      </div>
-                      -->
-                      <div class="chatarea">
-                        <ul id="chatapp">
-                          <template v-for="item in contents">
-                            <li class="">{{ item.text }}</li>
-                          </template>
-                        </ul>
-                      </div>
-                      
-      
-                    </td>
-                    <td class="rightarea" id="app">
-      
-                      <div class="member-container">
-                        <nav class="roomlist_title">
-                          <header class="major">
-                            <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
-                          </header>
-                        </nav>
-                        
-                        <ul>
-                          <li><%- user_name %></li>
-                          <li v-for="member in loginmembers" :key="member.user_id">
-                            {{ member.user_name }}
-                          </li>
-                        </ul>
-                      </div>
-                      
-      
-                    </td>
-                  </tr>
-                </table>
-      
-              </div>
-                
-              
-              
+          <table class="flametable">
+            <tr>
+              <td>
+                <div id="container" class="row">
+                  <div class="col-3 col-12-small">
+                    <video id="local_video" class=" membersvideo" autoplay></video>
+                    <p class="membername"><%- user_name %></p>
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                  <div class="col-3 col-12-small blankVideo">
+                    <img
+                      src="/assets/images/dammy.jpg"
+                      class="dammyvideo"
+                    />
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="leftarea">
+                <div class="chatarea">
+                  <ul id="chatapp">
+                    <template v-for="item in contents">
+                      <li class="">{{ item.text }}</li>
+                    </template>
+                  </ul>
+                </div>
+              </td>
+              <td class="rightarea" id="app">
+                <div class="member-container">
+                  <nav class="roomlist_title">
+                    <header class="major">
+                      <h2 class="user_list">参加者（{{ loginmembers.length + 1 }}人）</h2>
+                    </header>
+                  </nav>
+                  
+                  <ul>
+                    <li><%- user_name %></li>
+                    <li v-for="member in loginmembers" :key="member.user_id">
+                      {{ member.user_name }}
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr class="inputtr">
               <div class="col-12">
                 <form onsubmit="return sendChat();">
                   <div class="row">
@@ -190,9 +127,8 @@
                   </div>
                 </form>
               </div>
-            </div>
-          
-          </div>
+            </tr>
+          </table>
 
         </div>
       </div>

@@ -251,6 +251,14 @@ input.chat-input{
 /*
 */
 
-.maxheightclass{
-  height: 100vh !important;
+table.flametable{
+  height: 100vh;
+}
+
+table.flametable > tr {
+  height: calc(50vh - 50px);
+}
+
+table.flametable > tr.inputtr {
+  height: 100px;
 }
