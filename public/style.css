@@ -252,6 +252,7 @@ table.flametable{
 
 table.flametable > tbody > tr {
   height: calc(50vh - 100px);
+  background-color: #ffffff !important;
 }
 
 table.flametable > tbody > tr.inputtr {
