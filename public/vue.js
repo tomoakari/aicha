@@ -121,11 +121,15 @@ var chatVue = new Vue({
         }
       this.contents.push(newMessage);
       // this.scrollBottom();
-      this.scrollToEnd();
+      
+      var $this = this;
+        Vue.nextTick(function() {
+          this.scrollToEnd();
+        });
     },
     scrollToEnd: function() {    	
       var container = document.getElementById('chatscrollarea');
-      container.scrollTop = container.scrollHeight + 100;
+      container.scrollTop = container.scrollHeight;
     }
   }
 });
