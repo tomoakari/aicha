@@ -120,7 +120,8 @@ var chatVue = new Vue({
           text: msg
         }
       this.contents.push(newMessage);
-      this.scrollBottom();
+      // this.scrollBottom();
+      this.scrollToEnd();
     },
     // スクロール位置を一番下に移動
     scrollBottom() {
@@ -128,5 +129,9 @@ var chatVue = new Vue({
         window.scrollTo(0, document.body.clientHeight)
       })
     },
+    scrollToEnd: function() {    	
+      var container = this.$el.querySelector("#chatapp");
+      container.scrollTop = container.scrollHeight;
+    }
   }
 });
