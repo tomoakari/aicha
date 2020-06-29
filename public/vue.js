@@ -123,15 +123,9 @@ var chatVue = new Vue({
       // this.scrollBottom();
       this.scrollToEnd();
     },
-    // スクロール位置を一番下に移動
-    scrollBottom() {
-      this.$nextTick(() => {
-        window.scrollTo(0, document.body.clientHeight)
-      })
-    },
     scrollToEnd: function() {    	
-      alert('dd');
-      var container = this.$el.querySelector('#chatscrollarea');
+      var container = $('#chatscrollarea');
+      alert(container.scrollHeight);
       container.scrollTop = container.scrollHeight;
     }
   }
