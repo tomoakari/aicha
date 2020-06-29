@@ -255,10 +255,10 @@ table.flametable{
   height: 100vh;
 }
 
-table.flametable > tr {
+table.flametable > tbody > tr {
   height: calc(50vh - 50px);
 }
 
-table.flametable > tr.inputtr {
+table.flametable > tbody > tr.inputtr {
   height: 100px;
 }
