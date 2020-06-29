@@ -94,7 +94,7 @@ app.post("/", (request, response) => {
   };
   // レンダリングを行う
   // response.render("./table.ejs", data); //旧バージョン
-  response.render("./room.ejs", data);
+  response.render("./room2.ejs", data);
 });
 
 // ファイル置き場

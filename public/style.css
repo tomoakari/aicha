@@ -247,3 +247,10 @@ input.chat-input{
   position: absolute;
   bottom: 20px;
 }
+
+/*
+*/
+
+.bodyclass{
+  height: 100vh !important;
+}
