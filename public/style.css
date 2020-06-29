@@ -263,8 +263,8 @@ body{
   margin: 0px !important;
 }
 
-form {
-  margin: 0px !important;
+form.chatform {
+  margin: 0px;
 }
 
 div.chatarea {
