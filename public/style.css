@@ -253,6 +253,7 @@ input.chat-input{
 
 table.flametable{
   height: 100vh;
+  margin-bottom: 0px;
 }
 
 table.flametable > tbody > tr {
@@ -261,4 +262,8 @@ table.flametable > tbody > tr {
 
 table.flametable > tbody > tr.inputtr {
   height: 100px;
+}
+
+body{
+  margin: 0px !important;
 }
