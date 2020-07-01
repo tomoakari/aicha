@@ -77,9 +77,14 @@ app.get("/", (request, response) => {
   
 });
 
+// AIFORUS用トップ
+app.get("/aiforus", (request, response) => {
+    response.sendFile(__dirname + "/views/index_aiforus.html");  
+});
+
 // デモ用トップ
 app.get("/demo", (request, response) => {
-    response.sendFile(__dirname + "/views/index_demo.html");  
+  response.sendFile(__dirname + "/views/index_demo.html");  
 });
 
 // ハッシュライブラリ
