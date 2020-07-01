@@ -77,6 +77,11 @@ app.get("/", (request, response) => {
   
 });
 
+// デモ用トップ
+app.get("/demo", (request, response) => {
+    response.sendFile(__dirname + "/views/index_demo.html");  
+});
+
 // ハッシュライブラリ
 const crypto = require("crypto");
 
