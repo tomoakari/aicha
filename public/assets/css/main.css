@@ -1449,7 +1449,7 @@ table {
   margin: 0 0 2em 0;
   width: 100%; }
   table tbody tr {
-    border: solid 1px rgba(210, 215, 217, 0.75);
+    border: solid 1px rgba(210, 215, 217, 0.25);
     border-left: 0;
     border-right: 0; }
     table tbody tr:nth-child(2n + 1) {
