@@ -138,8 +138,8 @@ video{
 
 .membername{
   position: relative;
-    top: -30px;
-    left: 20px;
+    bottom: 35px;
+    left: 10px;
     color: white;
   margin-bottom: -2.5rem;
 }
