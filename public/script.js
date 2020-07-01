@@ -309,7 +309,7 @@ function removeBlankVideoElement(){
 
 // ダミーのビデオを追加する
 function addBlankVideoElement(){
-  $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dammy.png" class="dammyvideo"/></div>');
+  $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
 }
 
 // function
