@@ -261,7 +261,11 @@ table.flametable > tbody > tr {
 }
 
 table.flametable > tbody > tr.inputtr {
-  height: 100px;
+  height: 0px;
+}
+
+tr.inputtr > td{
+  padding-bottom: 0px;
 }
 
 body{
