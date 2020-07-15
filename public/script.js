@@ -712,9 +712,19 @@ function callMe() {
 }
 
 window.onload = function() {
+
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
+  var textdate = year + '年' + month + '月' + day + '日';
   
-  var text = $("#user_name").val() + "さんがログインしました";
+  var text = $("#user_name").val() + "さんが参加しました。";
   socket.emit("alert", text);
+  socket.emit("chat", text + "（" + textdate + "）");
+
+  var systemmesage = "SYSTEM : ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
+  chatVue.addContent(systemmesage);
 
   setInterval(function() {
     sendBeing();
