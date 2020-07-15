@@ -714,18 +714,18 @@ function callMe() {
 window.onload = function() {
 
   var today = new Date();
-  var year = today.getFullYear();
-  var month = today.getMonth() + 1;
-  var day = today.getDate();
+  // var year = today.getFullYear();
+  // var month = today.getMonth() + 1;
+  // var day = today.getDate();
   var hour = today.getHours();
   var minut = today.getMinutes();
-  var seccond = today.getSeconds();
+  // var seccond = today.getSeconds();
   // var textdate = year + '年' + month + '月' + day + '日';
-  var textdate = hour + '時' + minut + '分' + seccond + '秒';
+  var textdate = hour + '時' + minut + '分' ;
   
   var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
   socket.emit("alert", text);
-  socket.emit("chat", text + "（" + textdate + "）");
+  socket.emit("chat", text);
 
   var systemmesage = "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
   chatVue.addContent(systemmesage);
