@@ -331,7 +331,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // 音声をポーズ
-      stopVoice();
+      // stopVoice();
 
       // ビデオをポーズ
       stopVideo_();
@@ -402,7 +402,7 @@ function startVideo_(){
   $("#stopbutton").removeClass("hidden");
 }
 function stopVideo_() {
-  pauseVideo(localVideo);
+  // pauseVideo(localVideo);
   // var tracks = localStream.getTracks();
   // tracks[0].enabled = false;
   stopLocalStream(localStream);
