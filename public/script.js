@@ -320,7 +320,7 @@ function addBlankVideoElement(){
 
 // connect video
 function connectVideo() {
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+  getDeviceStream({ video: false, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function(stream) {
       // success
 
@@ -330,10 +330,7 @@ function connectVideo() {
       // 自分のビデオを再生する
       playVideo(localVideo, stream);
 
-      // 音声をポーズ
-      // stopVoice();
-
-      // ビデオをポーズ
+      // ビデオの送信をポーズ
       stopVideo_();
 
       // connect();
@@ -397,9 +394,32 @@ function stopVoice(){
 
 // ビデオON/OFFボタン（テスト）
 function startVideo_(){
-  playVideo(localVideo, localStream);
-  $("#startbutton").addClass("hidden");
-  $("#stopbutton").removeClass("hidden");
+
+  let voiceTracks = localStream.getAudioTracks();
+  let isVoiceOn = voiceTracks[0].enabled;
+
+  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+    .then(function(stream) {
+      // success
+      localStream = stream;
+      playVideo(localVideo, stream);
+
+      if(!isVoiceOn){
+        stopVoice();
+      }
+
+      // ボタンの表示を切り替え
+      $("#startbutton").addClass("hidden");
+      $("#stopbutton").removeClass("hidden");
+
+      connect();
+    })
+    .catch(function(error) {
+      // error
+      console.error("getUserMedia error:", error);
+      return;
+    });
+    return false;
 }
 function stopVideo_() {
   // pauseVideo(localVideo);
