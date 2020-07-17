@@ -386,7 +386,7 @@ function stopVoice(){
 
 // ビデオON/OFFボタン（テスト）
 function startVideo_(){
-  playVideo(localVideo, stream);
+  playVideo(localVideo, localStream);
   $("#startbutton").addClass("hidden");
   $("#stopbutton").removeClass("hidden");
 }
