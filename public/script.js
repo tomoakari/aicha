@@ -324,7 +324,7 @@ function connectVideo() {
     .then(function(stream) {
       // success
       localStream = stream;
-      pauseVideo(localVideo);
+      localStream.pause();
       //stopLocalStream(localStream);
       // playVideo(localVideo, stream);
       // connect();
