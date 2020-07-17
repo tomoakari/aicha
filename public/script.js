@@ -318,6 +318,24 @@ function addBlankVideoElement(){
 // ---------------------- ボタン操作  -----------------------
 // ----------------------------------------------------------------
 
+// connect video
+function connectVideo() {
+  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+    .then(function(stream) {
+      // success
+      localStream = stream;
+      // playVideo(localVideo, stream);
+      // connect();
+      callMe();
+    })
+    .catch(function(error) {
+      // error
+      console.error("getUserMedia error:", error);
+      return;
+    });
+    return false;
+}
+
 // start local video
 function startVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
@@ -344,7 +362,6 @@ function startVideo() {
 function stopVideo() {
   pauseVideo(localVideo);
   stopLocalStream(localStream);
-  localStream = null;
 
   // ボタンの表示を切り替え
   $("#startbutton").removeClass("hidden");
@@ -353,13 +370,13 @@ function stopVideo() {
   return false;
 }
 
+// マイクON/OFFボタン
 function startVoice(){
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
-
 function stopVoice(){
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
@@ -367,6 +384,12 @@ function stopVoice(){
    $("#mutebutton").addClass("hidden");
 }
 
+// ビデオON/OFFボタン（テスト）
+function startVideo_(){
+  playVideo(localVideo, stream);
+  $("#startbutton").addClass("hidden");
+  $("#stopbutton").removeClass("hidden");
+}
 
 //
 function sendChat() {
