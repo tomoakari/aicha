@@ -403,8 +403,9 @@ function startVideo_(){
 }
 function stopVideo_() {
   pauseVideo(localVideo);
-  var tracks = localStream.getTracks();
-  tracks[0].enabled = false;
+  // var tracks = localStream.getTracks();
+  // tracks[0].enabled = false;
+  stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
 }
