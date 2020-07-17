@@ -320,7 +320,7 @@ function addBlankVideoElement(){
 
 // connect video
 function connectVideo() {
-  getDeviceStream({ video: false, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function(stream) {
       // success
 
