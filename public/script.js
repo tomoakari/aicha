@@ -331,7 +331,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオの送信をポーズ
-      stopVideo_();
+      // stopVideo_();
 
       // connect();
       callMe();
