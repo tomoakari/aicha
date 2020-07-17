@@ -331,7 +331,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオの送信をポーズ
-      // stopVideo_();
+      stopVideo_();
 
       // connect();
       callMe();
@@ -422,10 +422,10 @@ function startVideo_(){
     return false;
 }
 function stopVideo_() {
-  // pauseVideo(localVideo);
-  // var tracks = localStream.getTracks();
-  // tracks[0].enabled = false;
-  stopLocalStream(localStream);
+  localStream.getVideoTracks().forEach((track) => {
+    track.stop();
+});
+  // stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
 }
