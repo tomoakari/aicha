@@ -323,10 +323,19 @@ function connectVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function(stream) {
       // success
+
+      // 取得したメディア情報をぶち込む
       localStream = stream;
-      //pauseVideo(localVideo);
-      stopLocalStream(localStream);
-      // playVideo(localVideo, stream);
+
+      // 自分のビデオを再生する
+      playVideo(localVideo, stream);
+
+      // 音声をポーズ
+      stopVoice();
+
+      // ビデオをポーズ
+      stopVideo_();
+
       // connect();
       callMe();
     })
@@ -391,6 +400,13 @@ function startVideo_(){
   playVideo(localVideo, localStream);
   $("#startbutton").addClass("hidden");
   $("#stopbutton").removeClass("hidden");
+}
+function stopVideo_() {
+  pauseVideo(localVideo);
+  var tracks = localStream.getTracks();
+  tracks[0].enabled = false;
+  $("#startbutton").removeClass("hidden");
+  $("#stopbutton").addClass("hidden");
 }
 
 //
