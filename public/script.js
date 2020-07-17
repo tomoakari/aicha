@@ -325,7 +325,7 @@ function connectVideo() {
       // success
       localStream = stream;
       pauseVideo(localVideo);
-      stopLocalStream(localStream);
+      //stopLocalStream(localStream);
       // playVideo(localVideo, stream);
       // connect();
       callMe();
