@@ -51,8 +51,14 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// ルーティング
-// トップ
+// ハッシュライブラリ
+const crypto = require("crypto");
+
+/**
+ * ルーティング
+ */
+
+// mtgトップ
 app.get("/", (request, response) => {
   
   const testmode = 0; // 0:通常モード、 1:テストモード
@@ -77,6 +83,23 @@ app.get("/", (request, response) => {
   
 });
 
+// パークトップ
+app.get("/park", (request, response) => {
+  
+  const testmode = 0; // 0:通常モード、 1:テストモード
+  
+  if(testmode==1){
+    var data = {
+        user_name: 'name',
+        table_id: 'table_id',
+        table_name: 'table_name'
+    };
+    response.render("./room_park.ejs", data);    
+  }else{
+    response.sendFile(__dirname + "/views/index_park.html");  
+  }
+});
+
 // AIFORUS用トップ
 app.get("/aiforus", (request, response) => {
     response.sendFile(__dirname + "/views/index_aiforus.html");  
@@ -87,10 +110,7 @@ app.get("/demo", (request, response) => {
   response.sendFile(__dirname + "/views/index_demo.html");  
 });
 
-// ハッシュライブラリ
-const crypto = require("crypto");
-
-// 部屋
+// mtg部屋
 app.post("/", (request, response) => {
   var table_id = crypto
     .createHash("md5")
@@ -105,6 +125,22 @@ app.post("/", (request, response) => {
   // レンダリングを行う
   // response.render("./table.ejs", data); //旧バージョン
   response.render("./room2.ejs", data);
+});
+
+// パーク部屋
+app.post("/park", (request, response) => {
+  var table_id = crypto
+    .createHash("md5")
+    .update(request.body.table_name)
+    .digest("hex");
+
+  var data = {
+    user_name: request.body.user_name,
+    table_id: table_id,
+    table_name: request.body.table_name
+  };
+  // レンダリングを行う
+  response.render("./room_park.ejs", data);
 });
 
 // ファイル置き場
