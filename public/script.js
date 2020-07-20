@@ -330,8 +330,9 @@ function connectVideo() {
       // 自分のビデオを再生する
       playVideo(localVideo, stream);
 
-      // ビデオの送信をポーズ
+      // ビデオ・音声の送信をポーズ
       stopVideo_();
+      stopVoice();
 
       connect();
     })
