@@ -334,7 +334,6 @@ function connectVideo() {
       stopVideo_();
 
       connect();
-      // callMe();
     })
     .catch(function(error) {
       // error
@@ -777,7 +776,7 @@ window.onload = function() {
 
   // autoScroll();
 
-  //startVideo();
+  connectVideo();
   
 };
 
