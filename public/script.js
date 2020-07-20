@@ -331,7 +331,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオの送信をポーズ
-      // stopVideo_();
+      stopVideo_();
 
       connect();
       // callMe();
@@ -351,8 +351,6 @@ function startVideo() {
       // success
       localStream = stream;
       playVideo(localVideo, stream);
-
-      
 
       // ボタンの表示を切り替え
       $("#startbutton").addClass("hidden");
