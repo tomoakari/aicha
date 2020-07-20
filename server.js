@@ -124,7 +124,7 @@ app.post("/", (request, response) => {
   };
   // レンダリングを行う
   // response.render("./table.ejs", data); //旧バージョン
-  response.render("./room2.ejs", data);
+  response.render("./room_mtg.ejs", data);
 });
 
 // パーク部屋
