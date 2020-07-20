@@ -331,10 +331,10 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオの送信をポーズ
-      stopVideo_();
+      // stopVideo_();
 
-      // connect();
-      callMe();
+      connect();
+      // callMe();
     })
     .catch(function(error) {
       // error
@@ -351,6 +351,8 @@ function startVideo() {
       // success
       localStream = stream;
       playVideo(localVideo, stream);
+
+      
 
       // ボタンの表示を切り替え
       $("#startbutton").addClass("hidden");
@@ -394,36 +396,15 @@ function stopVoice(){
 
 // ビデオON/OFFボタン（テスト）
 function startVideo_(){
-
-  let voiceTracks = localStream.getAudioTracks();
-  let isVoiceOn = voiceTracks[0].enabled;
-
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
-    .then(function(stream) {
-      // success
-      localStream = stream;
-      playVideo(localVideo, stream);
-
-      if(!isVoiceOn){
-        stopVoice();
-      }
-
-      // ボタンの表示を切り替え
-      $("#startbutton").addClass("hidden");
-      $("#stopbutton").removeClass("hidden");
-
-      connect();
-    })
-    .catch(function(error) {
-      // error
-      console.error("getUserMedia error:", error);
-      return;
-    });
-    return false;
+  localStream.getVideoTracks().forEach((track) => {
+    track.enabled = true;
+});
+  $("#stopbutton").removeClass("hidden");
+  $("#startbutton").addClass("hidden");
 }
 function stopVideo_() {
   localStream.getVideoTracks().forEach((track) => {
-    track.stop();
+    track.enabled = false;
 });
   // stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
