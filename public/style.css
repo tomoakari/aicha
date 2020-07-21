@@ -284,6 +284,7 @@ table.flametable > tbody > tr.inputtr {
 
 tr.inputtr > td{
   padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 body{
@@ -309,4 +310,12 @@ ul{
 
 input.chat-input{
   color: #393939;
+}
+
+html,
+body,
+div#wrapper,
+div#main,
+.flametable > tbody > tr > td{
+  padding-top: 0px;
 }
