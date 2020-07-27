@@ -90,6 +90,22 @@ app.get("/park", (request, response) => {
   
   if(testmode==1){
     var data = {
+        "roomlist":[{
+          "roomname": "IT",
+          "membercount":""
+        },{
+          "roomname": "政治",
+          "membercount":""
+        },{
+          "roomname": "音楽",
+          "membercount":""
+        },{
+          "roomname": "アニメ",
+          "membercount":""
+        },{
+          "roomname": "旅行",
+          "membercount":""
+        }],
         user_name: 'name',
         table_id: 'table_id',
         table_name: 'table_name'
