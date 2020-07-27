@@ -241,8 +241,8 @@ io.on("connection", function(socket) {
 
 // DBから部屋リストを取得
 function getRoomList(){
-  var data = {
-    "roomlist":[{
+  var data = [
+    {
       "roomname": "IT",
       "membercount":""
     },{
@@ -257,7 +257,6 @@ function getRoomList(){
     },{
       "roomname": "旅行",
       "membercount":""
-    }]
-  };
+    }];
   return data;
 }
