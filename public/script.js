@@ -814,6 +814,7 @@ function autoScroll() {
 
 
 function jumpOtherRoom(roomname) {
+  var xhr = new XMLHttpRequest();
   xhr.open('POST', '', true);
   xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
   // フォームに入力した値をリクエストとして設定
