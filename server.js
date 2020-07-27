@@ -243,6 +243,9 @@ io.on("connection", function(socket) {
 function getRoomList(){
   var data = [
     {
+      "roomname": "ロビー",
+      "membercount":""
+    },{
       "roomname": "IT",
       "membercount":""
     },{
@@ -263,6 +266,9 @@ function getRoomList(){
 function getRoomList2(){
   var data = {
     "roomlist":[{
+      "roomname": "ロビー",
+      "membercount":""
+    },{
       "roomname": "IT",
       "membercount":""
     },{
