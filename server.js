@@ -89,24 +89,7 @@ app.get("/park", (request, response) => {
   const testmode = 1; // 0:通常モード、 1:テストモード
   
   if(testmode==1){
-    var data = {
-        "roomlist":[{
-          "roomname": "IT",
-          "membercount":""
-        },{
-          "roomname": "政治",
-          "membercount":""
-        },{
-          "roomname": "音楽",
-          "membercount":""
-        },{
-          "roomname": "アニメ",
-          "membercount":""
-        },{
-          "roomname": "旅行",
-          "membercount":""
-        }]
-    };
+    const data = getRoomList();
     response.render("./index_park.ejs", data);    
   }else{
     response.sendFile(__dirname + "/views/index_park.html");  
@@ -148,6 +131,7 @@ app.post("/park", (request, response) => {
     .digest("hex");
 
   var data = {
+    roomlist: getRoomList(),
     user_name: request.body.user_name,
     table_id: table_id,
     table_name: request.body.table_name
@@ -254,3 +238,26 @@ io.on("connection", function(socket) {
     emitMessage("being", message);
   });
 });
+
+// DBから部屋リストを取得
+function getRoomList(){
+  var data = {
+    "roomlist":[{
+      "roomname": "IT",
+      "membercount":""
+    },{
+      "roomname": "政治",
+      "membercount":""
+    },{
+      "roomname": "音楽",
+      "membercount":""
+    },{
+      "roomname": "アニメ",
+      "membercount":""
+    },{
+      "roomname": "旅行",
+      "membercount":""
+    }]
+  };
+  return data;
+}

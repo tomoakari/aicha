@@ -217,11 +217,14 @@
               <h2><%- table_name %></h2>
             </header>
             
-              ルームリスト
+            <li>
+              <% roomlist.forEach(function(value, key){ %>
+                <ul onclick="jumpOtherRoom( value.roomname );"><%= value.roomname %></ul>
+              <% }) %>
+            </li>
             
           </nav>
           
-
           <!-- Footer -->
           <footer id="footer" class="sidefooter">
             <p class="copyright">

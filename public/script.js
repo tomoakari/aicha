@@ -811,3 +811,12 @@ function autoScroll() {
 			sampleBox.scrollTop = 0;
 			setTimeout( "autoScroll()", 20 );
 }}
+
+
+function jumpOtherRoom(roomname) {
+  xhr.open('POST', '', true);
+  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  // フォームに入力した値をリクエストとして設定
+  var request = "table_name=" + roomname + "&name=" + $("#user_name").val();
+  xhr.send(request);
+}

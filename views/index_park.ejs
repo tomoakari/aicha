@@ -35,7 +35,7 @@
         <input id="table_name" name="table_name" placeholder="部屋の名前" />
         -->
         <select id="table_name" name="table_name" class="roomselect" placeholder="部屋名">
-          <option value="" style="display: none;">部屋名</option>
+          <option value="" style="display: none; color: #696969">部屋名</option>
           <% roomlist.forEach(function(value, key){ %>
             <option value="<%= value.roomname %>"><%= value.roomname %></option>
           <% }) %>
