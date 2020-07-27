@@ -219,7 +219,7 @@
             
             <li>
               <% roomlist.forEach(function(value, key){ %>
-                <ul onclick="jumpOtherRoom( value.roomname );"><%= value.roomname %></ul>
+                <ul onclick="jumpOtherRoom('<%= value.roomname %>');"><%= value.roomname %></ul>
               <% }) %>
             </li>
             
