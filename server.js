@@ -86,7 +86,7 @@ app.get("/", (request, response) => {
 // パークトップ
 app.get("/park", (request, response) => {
   
-  const testmode = 0; // 0:通常モード、 1:テストモード
+  const testmode = 1; // 0:通常モード、 1:テストモード
   
   if(testmode==1){
     var data = {
