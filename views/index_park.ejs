@@ -39,8 +39,8 @@
           </button>
         </div>
 
-        <% roomlist.forEach(function(){ %>
-          <p><%= roomname %></p>
+        <% roomlist.forEach(function(roomname, membercount){ %>
+          <p><%= roomname %> ： <%= membercount %></p>
         <% }) %>
       </form>
 
