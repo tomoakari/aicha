@@ -91,9 +91,6 @@ app.get("/park", (request, response) => {
   if(testmode==1){
     var data = {
         "roomlist":[{
-          "roomname": "",
-          "membercount":""
-        },{
           "roomname": "IT",
           "membercount":""
         },{
