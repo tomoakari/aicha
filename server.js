@@ -91,6 +91,10 @@ app.get("/park", (request, response) => {
   if(testmode==1){
     var data = {
         "roomlist":[{
+          "roomname": "",
+          "membercount":""
+        },{
+        "roomlist":[{
           "roomname": "IT",
           "membercount":""
         },{
@@ -105,10 +109,7 @@ app.get("/park", (request, response) => {
         },{
           "roomname": "旅行",
           "membercount":""
-        }],
-        user_name: 'name',
-        table_id: 'table_id',
-        table_name: 'table_name'
+        }]
     };
     response.render("./index_park.ejs", data);    
   }else{
