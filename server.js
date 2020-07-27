@@ -89,7 +89,7 @@ app.get("/park", (request, response) => {
   const testmode = 1; // 0:通常モード、 1:テストモード
   
   if(testmode==1){
-    const data = getRoomList();
+    const data = getRoomList2();
     response.render("./index_park.ejs", data);    
   }else{
     response.sendFile(__dirname + "/views/index_park.html");  
@@ -259,4 +259,27 @@ function getRoomList(){
       "membercount":""
     }];
   return data;
+}// DBから部屋リストを取得
+function getRoomList2(){
+  var data = {
+    "roomlist":[{
+      "roomname": "IT",
+      "membercount":""
+    },{
+      "roomname": "政治",
+      "membercount":""
+    },{
+      "roomname": "音楽",
+      "membercount":""
+    },{
+      "roomname": "アニメ",
+      "membercount":""
+    },{
+      "roomname": "旅行",
+      "membercount":""
+    }]
+  };
+  return data;
 }
+
+
