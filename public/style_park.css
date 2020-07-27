@@ -151,8 +151,9 @@ video{
 
 .membername{
   position: relative;
-  bottom: 35px;
-  left: 10px;
+  bottom: 28px;
+  left: 0px;
+  font-size: 1px;
   color: white;
   margin-bottom: -2.5rem;
   text-shadow: 
@@ -274,7 +275,6 @@ table.flametable{
 }
 
 table.flametable > tbody > tr {
-  height: calc(50vh - 100px);
   background-color: #2a2a2a;
 }
 
