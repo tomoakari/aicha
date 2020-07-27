@@ -817,7 +817,7 @@ function jumpOtherRoom(roomname) {
 
   const param = {
     "table_name": roomname,
-    "name": $("#user_name").val()
+    "user_name": $("#user_name").val()
   }
   execPost('', param);
 }
