@@ -217,11 +217,11 @@
               <h2><%- table_name %></h2>
             </header>
             
-            <li>
+            <ul>
               <% roomlist.forEach(function(value, key){ %>
-                <ul onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"><a><%= value.roomname %></a></ul>
+                <li onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"><a><%= value.roomname %></a></li>
               <% }) %>
-            </li>
+              </ul>
             
           </nav>
           
