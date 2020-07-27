@@ -110,7 +110,7 @@ app.get("/park", (request, response) => {
         table_id: 'table_id',
         table_name: 'table_name'
     };
-    response.render("./room_park.ejs", data);    
+    response.render("./index_park.ejs", data);    
   }else{
     response.sendFile(__dirname + "/views/index_park.html");  
   }
