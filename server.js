@@ -94,7 +94,6 @@ app.get("/park", (request, response) => {
           "roomname": "",
           "membercount":""
         },{
-        "roomlist":[{
           "roomname": "IT",
           "membercount":""
         },{
