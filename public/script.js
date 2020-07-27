@@ -814,10 +814,40 @@ function autoScroll() {
 
 
 function jumpOtherRoom(roomname) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '', true);
-  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-  // フォームに入力した値をリクエストとして設定
-  var request = "table_name=" + roomname + "&name=" + $("#user_name").val();
-  xhr.send(request);
+
+  const param = {
+    "table_name": roomname,
+    "name": $("#user_name").val()
+  }
+  execPost('', param);
 }
+
+
+/**
+ * データをPOSTする
+ * @param String アクション
+ * @param Object POSTデータ連想配列
+ * 記述元Webページ http://fujiiyuuki.blogspot.jp/2010/09/formjspost.html
+ * サンプルコード
+ * <a onclick="execPost('/hoge', {'fuga':'fuga_val', 'piyo':'piyo_val'});return false;" href="#">POST送信</a>
+ */
+function execPost(action, data) {
+  // フォームの生成
+  var form = document.createElement("form");
+  form.setAttribute("action", action);
+  form.setAttribute("method", "post");
+  form.style.display = "none";
+  document.body.appendChild(form);
+  // パラメタの設定
+  if (data !== undefined) {
+   for (var paramName in data) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', paramName);
+    input.setAttribute('value', data[paramName]);
+    form.appendChild(input);
+   }
+  }
+  // submit
+  form.submit();
+ }
