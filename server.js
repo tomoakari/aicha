@@ -260,6 +260,9 @@ function getRoomList(){
     },{
       "roomname": "旅行",
       "membercount":""
+    },{
+      "roomname": "出会い",
+      "membercount":""
     }];
   return data;
 }// DBから部屋リストを取得
@@ -282,6 +285,9 @@ function getRoomList2(){
       "membercount":""
     },{
       "roomname": "旅行",
+      "membercount":""
+    },{
+      "roomname": "出会い",
       "membercount":""
     }]
   };
