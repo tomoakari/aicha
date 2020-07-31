@@ -350,7 +350,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオ・音声の送信をポーズ
-      stopVideo_();
+      stopVideo();
       stopVoice();
 
       connect();
