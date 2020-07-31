@@ -358,8 +358,13 @@ $("#unmutebutton").on('click', () =>{
     toastr.error("他の参加者が話し中です。");
   }else{
     startVoice();
+    setMicTimer();
   } 
 });
+
+function setMicTimer(){
+  
+}
 
 $("#mutebutton").on('click', () =>{
   stopVoice();

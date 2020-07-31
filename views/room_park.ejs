@@ -142,13 +142,14 @@
                       class="chat-input"
                     />
                 </div>
-                <div class="col-4">
+                <div class="col-4" id="timerApp">
                   <ul>
                     <li class="button primary" id="startbutton"><i class="fas fa-video"></i></li>
                     <li class="button hidden" id="stopbutton"><i class="fas fa-video-slash"></i></li>
                     <li class="button primary hidden" id="unmutebutton"><i class="fas fa-microphone"></i></li>
                     <li class="button" id="mutebutton"><i class="fas fa-microphone-slash"></i></li>
                   </ul>
+                  {{ countDown }}
                 </div>
               </div>
             </form>
@@ -203,6 +204,8 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/locale/ja.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>

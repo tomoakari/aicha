@@ -84,9 +84,7 @@ var memberVue = new Vue({
           exist_count ++;
         }
       });
-
     }
-    
   }
 });
 
@@ -149,3 +147,30 @@ var chatVue = new Vue({
     }
   }
 });
+
+/**
+ * 
+ */
+const timerVue = new Vue({
+  el: '#timerApp',
+  data: {
+      countDown:''
+  },
+})
+setInterval(function () {//一秒間に一回再取得
+  // diffメソッドを使って、日時の差を、ミリ秒で取得
+  // const diff = moment( '2021-01-01' ).diff( moment() );
+  const MAX_KEEP_TIME = 3000000;
+
+  // ミリ秒からdurationオブジェクトを生成
+  const duration = moment.duration( MAX_KEEP_TIME );
+
+  // 日・時・分・秒を取得
+  const days = Math.floor( duration.asDays());
+  const hours   = duration.hours();
+  const minutes = duration.minutes();
+  const seconds = duration.seconds();
+
+  //カウントダウンの結果を変数に代入
+  vm.countDown = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
+}, 1000);
