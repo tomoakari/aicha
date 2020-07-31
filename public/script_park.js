@@ -109,7 +109,6 @@ socket.on("alert", function(msg) {
 
 socket.on("being", function(msg) {
 
-  alert("being受信");
   var text = msg;
   const words = text.split("---");
   /*
