@@ -247,6 +247,10 @@ io.on("connection", function(socket) {
     emitMessage("releaseSignal", message);
   });
 
+  // 退出シグナルの配信
+  socket.on("leaveSignal", function(message) {
+    emitMessage("leaveSignal", message);
+  });
   
 });
 
