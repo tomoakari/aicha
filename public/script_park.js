@@ -867,12 +867,14 @@ function checkSendRestrict(){
   var a = date.getTime();
   var nowtime = Math.floor(a / 1000);
 
+  alert("sendTimeArr:" + sendTimeArr);
+
   // 配列がカラの時は送信OK（初回なので）
   if(sendTimeArr.length){
     setSendTime(nowtime);
     return true;
 
-  }else{
+  }else if(sendTimeArr.length == 5){
     if(sendTimeArr[0] + 60 < nowtime){
       // 送信OK
       setSendTime(nowtime);
@@ -881,6 +883,10 @@ function checkSendRestrict(){
       // 送信NG（60秒以内に送信しすぎの場合）
       return false;
     }
+  }else{
+    // 2~4回目は普通に送信OK
+    setSendTime(nowtime);
+    return true;
   }
 }
 
