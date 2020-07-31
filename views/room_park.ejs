@@ -173,7 +173,7 @@
                       {{ member.user_name }}
                     </li>
                     -->
-                    <template v-for="member in loginmembers">
+                    <template v-for="member in loginmembers" :key="member.user_id">
                       <li v-bind:id="'userlist_' + member.user_id">{{ member.user_name }}</li>
                     </template>
                   </ul>
