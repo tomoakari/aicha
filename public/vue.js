@@ -172,5 +172,5 @@ setInterval(function () {//一秒間に一回再取得
   const seconds = duration.seconds();
 
   //カウントダウンの結果を変数に代入
-  vm.countDown = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
+  timerVue.countDown = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
 }, 1000);
