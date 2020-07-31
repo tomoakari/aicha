@@ -121,21 +121,16 @@
                   
                   <ul>
                     <li id="userlist_myname"><%- user_name %></li>
-                    <!--
-                      <li v-for="member in loginmembers" :key="member.user_id">
+                    
+                      <li v-for="member in loginmembers" :key="member.user_id" v-bind:id="'userlist2_' + member.user_id">
                       {{ member.user_name }}
                     </li>
-                    -->
-                    <template v-for="member in loginmembers" :key="member.user_id">
+                    
+                    <template v-for="member in loginmembers">
                       <li v-bind:id="'userlist_' + member.user_id">{{ member.user_name }}</li>
                     </template>
                   </ul>
 
-                  <ul>
-                    <template v-for="member in members" :key="member.user_id">
-                      <li v-bind:id="'userlist2_' + member.user_id">{{ member.user_name }}</li>
-                    </template>
-                  </ul>
                 </div>
               </td>
             </tr>
