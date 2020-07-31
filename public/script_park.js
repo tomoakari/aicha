@@ -414,12 +414,15 @@ function sendChat() {
   if($("#input_msg").val().length == 0){
     toastr.error("文字を入力してください");
   }else{
-    var text = $("#user_name").val() + " : " + $("#input_msg").val();
-    //$("#chat").append($("<li>").text(text));
-    socket.emit("chat", text);
 
-    chatVue.addContent(text);
-    $("#input_msg").val("");
+    if(checkSendRestrict()){
+      var text = $("#user_name").val() + " : " + $("#input_msg").val();
+      socket.emit("chat", text);
+      chatVue.addContent(text);
+      $("#input_msg").val("");
+    }else{
+      toastr.error("連続投稿が制限されています。少し待ってください");
+    }
   }
   
   return false;
@@ -851,3 +854,43 @@ function execPost(action, data) {
   // submit
   form.submit();
  }
+
+
+
+ var sendTimeArr = [];
+
+/**
+ * 投稿制限をチェックする
+ */
+function checkSendRestrict(){
+  var date = new Date();
+  var a = date.getTime();
+  var nowtime = Math.floor(a / 1000);
+
+  // 配列がカラの時は送信OK（初回なので）
+  if(sendTimeArr[0]){
+    setSendTime(nowtime);
+    return true;
+
+  }else{
+    if(sendTimeArr[0] + 60 < nowtime){
+      // 送信OK
+      setSendTime(nowtime);
+      return true;
+    }else{
+      // 送信NG（60秒以内に送信しすぎの場合）
+      return false;
+    }
+  }
+}
+
+function setSendTime(timeInt){
+  // 配列の末尾に時間を格納
+  if(sendTimeArr.length <= 4){
+    sendTimeArr.push(timeInt);
+  } else {
+    // 配列の頭を削除して末尾に時間を格納
+    sendTimeArr.shift();
+    sendTimeArr.push(timeInt);
+  }
+}
