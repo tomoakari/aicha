@@ -108,12 +108,16 @@ socket.on("alert", function(msg) {
 });
 
 socket.on("being", function(msg) {
+
+  alert("being受信");
   var text = msg;
   const words = text.split("---");
+  /*
   // 名前欄を更新する
   if($("#user_name_" + words[1]).text() !== words[0]){
     $("#user_name_" + words[1]).text(words[0]);
   }
+  */
   // メンバー一覧を更新する  
   memberVue.updateMemberList(msg);
 });
@@ -854,8 +858,6 @@ window.onload = function() {
     sendBeing();
   }, 5000);
 
-  // autoScroll();
-
   connectVideo();
   
 };
@@ -877,19 +879,6 @@ function copyToClipboard() {
     // コピーをお知らせする
     alert("コピーできました！ : " + copyTarget.value);
 }
-
-// オートスクロール
-var scrollY = 0;
-function autoScroll() {
-	var sampleBox = document.getElementById("chat-container");
-	sampleBox.scrollTop = scrollY + 1;
-	if( scrollY < sampleBox.scrollHeight - sampleBox.clientHeight ){
-		setTimeout( "autoScroll()", 20 );
-		}else{
-			scrollY = 0;
-			sampleBox.scrollTop = 0;
-			setTimeout( "autoScroll()", 20 );
-}}
 
 
 function jumpOtherRoom(roomname) {
