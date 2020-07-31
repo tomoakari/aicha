@@ -421,7 +421,7 @@ function sendChat() {
       chatVue.addContent(text);
       $("#input_msg").val("");
     }else{
-      toastr.error("連続投稿が制限されています。少し待ってください");
+      toastr.error("連続投稿が制限されています。少し待ってください。");
     }
   }
   
@@ -867,15 +867,14 @@ function checkSendRestrict(){
   var a = date.getTime();
   var nowtime = Math.floor(a / 1000);
 
-  alert("sendTimeArr:" + sendTimeArr);
-
-  // 配列がカラの時は送信OK（初回なので）
-  if(sendTimeArr.length){
+  // 配列が４以下の時は送信OK
+  if(sendTimeArr.length <= 4){
     setSendTime(nowtime);
     return true;
 
-  }else if(sendTimeArr.length == 5){
-    if(sendTimeArr[0] + 60 < nowtime){
+  // 配列が５個以上のときは判定
+  }else{
+    if(nowtime - sendTimeArr[0] > 60){
       // 送信OK
       setSendTime(nowtime);
       return true;
@@ -883,10 +882,6 @@ function checkSendRestrict(){
       // 送信NG（60秒以内に送信しすぎの場合）
       return false;
     }
-  }else{
-    // 2~4回目は普通に送信OK
-    setSendTime(nowtime);
-    return true;
   }
 }
 
