@@ -358,13 +358,8 @@ $("#unmutebutton").on('click', () =>{
     toastr.error("他の参加者が話し中です。");
   }else{
     startVoice();
-    setMicTimer();
   } 
 });
-
-function setMicTimer(){
-  
-}
 
 $("#mutebutton").on('click', () =>{
   stopVoice();
@@ -373,6 +368,7 @@ $("#mutebutton").on('click', () =>{
 $(window).on('beforeunload', () =>{
   sendLeaveUser();
   stopVoice();
+  sendLeaveRoom();
 });
 
 // connect video
@@ -514,6 +510,16 @@ function sendReleaseSignal(){
 function sendLeaveUser(){
   var message = $("#user_name").val() + "---" + socket.id;
   socket.emit("leaveSignal", message);
+}
+
+function sendLeaveRoom(){
+  var today = new Date();
+  var hour = today.getHours();
+  var minut = today.getMinutes();
+  var textdate = hour + '時' + minut + '分' ;
+  
+  var text = $("#user_name").val() + "さんが退室しました。（" + textdate + "）";
+  socket.emit("chat", text);
 }
 
 
