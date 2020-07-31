@@ -122,7 +122,7 @@
                   <ul>
                     <li id="userlist_myname"><%- user_name %></li>
                     
-                      <li v-for="member in loginmembers" :key="member.user_id" v-bind:id="'userlist2_' + member.user_id">
+                      <li v-for="member in loginmembers" :key="member.user_id">
                       {{ member.user_name }}
                     </li>
                     
