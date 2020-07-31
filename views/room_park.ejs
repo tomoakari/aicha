@@ -168,11 +168,13 @@
                   
                   <ul>
                     <li><%- user_name %></li>
-                    <li v-for="member in loginmembers" :key="member.user_id">
+                    <!--
+                      <li v-for="member in loginmembers" :key="member.user_id">
                       {{ member.user_name }}
                     </li>
+                    -->
                     <template v-for="member in loginmembers">
-                      <li id={{ "userlist_" + member.user_id}} >{{ member.user_name }}</li>
+                      <li>{{ member.user_name }}　：　{{member.user_id}}</li>
                     </template>
                   </ul>
                 </div>
