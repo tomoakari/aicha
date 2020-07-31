@@ -421,7 +421,7 @@ function sendChat() {
       chatVue.addContent(text);
       $("#input_msg").val("");
     }else{
-      toastr.error("連続投稿が制限されています。少し待ってください。");
+      toastr.error("連続投稿は禁止されています。しばらくしてからお試しください。");
     }
   }
   
