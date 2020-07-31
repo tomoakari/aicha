@@ -324,3 +324,9 @@ div#main,
   background-color: #ffffff;
   height: 30px;
 }
+
+.footerfixarea{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

@@ -175,35 +175,34 @@
                 </div>
               </td>
             </tr>
-            
-
-                
-              
+            <tr class="inputtr">
+              <td colspan="2">
+                <div class="col-12">
+                  <form class="chatform" onsubmit="return sendChat();">
+                    <div class="row">
+                      <div class="col-4">
+                        <ul>
+                          <li class="button primary" id="startbutton"><i class="fas fa-video"></i></li>
+                          <li class="button hidden" id="stopbutton"><i class="fas fa-video-slash"></i></li>
+                          <li class="button primary hidden" id="unmutebutton"><i class="fas fa-microphone"></i></li>
+                          <li class="button" id="mutebutton"><i class="fas fa-microphone-slash"></i></li>
+                        </ul>
+                      </div>
+                      <div class="col-8">
+                        <input
+                            type="text"
+                            id="input_msg"
+                            placeholder="Enterで送信"
+                            autocomplete="off"
+                            class="chat-input"
+                          />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </td>
+            </tr>
           </table>
-
-          <div class="col-12 footerfixarea">
-            <form class="chatform" onsubmit="return sendChat();">
-              <div class="row">
-                <div class="col-4">
-                  <ul>
-                    <li class="button primary" id="startbutton"><i class="fas fa-video"></i></li>
-                    <li class="button hidden" id="stopbutton"><i class="fas fa-video-slash"></i></li>
-                    <li class="button primary hidden" id="unmutebutton"><i class="fas fa-microphone"></i></li>
-                    <li class="button" id="mutebutton"><i class="fas fa-microphone-slash"></i></li>
-                  </ul>
-                </div>
-                <div class="col-8">
-                  <input
-                      type="text"
-                      id="input_msg"
-                      placeholder="Enterで送信"
-                      autocomplete="off"
-                      class="chat-input"
-                    />
-                </div>
-              </div>
-            </form>
-          </div>
 
         </div>
       </div>
