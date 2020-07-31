@@ -368,6 +368,10 @@ $("#mutebutton").on('click', () =>{
   stopVoice();
 });
 
+$(window).on('beforeunload', () =>{
+  stopVoice();
+});
+
 // connect video
 function connectVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!

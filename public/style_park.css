@@ -340,7 +340,7 @@ div#main,
 }
 
 .unavailable{
-  background-color: black;
+  background-color: black !important;
 }
 
 
