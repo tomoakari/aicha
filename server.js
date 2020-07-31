@@ -84,7 +84,7 @@ app.get("/", (request, response) => {
 });
 
 // パークトップ
-app.get("/park", (request, response) => {
+app.get("/aicha", (request, response) => {
   
   const testmode = 1; // 0:通常モード、 1:テストモード
   
@@ -124,7 +124,7 @@ app.post("/", (request, response) => {
 });
 
 // パーク部屋
-app.post("/park", (request, response) => {
+app.post("/aicha", (request, response) => {
   var table_id = crypto
     .createHash("md5")
     .update(request.body.table_name)
