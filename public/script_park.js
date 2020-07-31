@@ -321,10 +321,21 @@ function addBlankVideoElement(){
 /**
  * イベントリスナ
  */
-$("#local_video").on('click', () =>{
-  alert("どうさしたよ");
+$("#startbutton").on('click', () =>{
+  startVideo();
 });
 
+$("#stopbutton").on('click', () =>{
+  stopVideo();
+});
+
+$("#unmutebutton").on('click', () =>{
+  startVoice();
+});
+
+$("#mutebutton").on('click', () =>{
+  stopVoice();
+});
 
 // connect video
 function connectVideo() {
@@ -352,6 +363,7 @@ function connectVideo() {
     return false;
 }
 
+/*
 // start local video
 function startVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
@@ -385,6 +397,7 @@ function stopVideo() {
 
   return false;
 }
+*/
 
 // マイクON/OFFボタン
 function startVoice(){
@@ -400,15 +413,15 @@ function stopVoice(){
    $("#mutebutton").addClass("hidden");
 }
 
-// ビデオON/OFFボタン（テスト）
-function startVideo_(){
+// ビデオON/OFFボタン
+function startVideo(){
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = true;
 });
   $("#stopbutton").removeClass("hidden");
   $("#startbutton").addClass("hidden");
 }
-function stopVideo_() {
+function stopVideo() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = false;
 });
