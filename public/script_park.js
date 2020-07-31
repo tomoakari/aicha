@@ -134,14 +134,11 @@ socket.on("releaseSignal", function(msg) {
   var text = msg;
   const words = text.split("---");
 
-
-  // 名前欄を更新する
-  if($("#user_name_" + words[1]).text() !== words[0]){
-    $("#user_name_" + words[1]).text(words[0]);
-  }
+  // マイク使用中ユーザの色を戻す
+  $("#userlist_" + words[1]).removeClass("nowtalking");
   
-  // メンバー一覧を更新する  
-  memberVue.updateMemberList(msg);
+  // マイクボタンを使用可にする
+  $("#unmutebutton").removeClass("unavailable");
 
 });
 
@@ -358,7 +355,13 @@ $("#stopbutton").on('click', () =>{
 });
 
 $("#unmutebutton").on('click', () =>{
-  startVoice();
+
+  var classStr = $("#unmutebutton").attr("class");
+  if (classStr.indexOf('unavailable') !== -1) {
+    toastr.error("他の参加者が話し中です。");
+  }else{
+    startVoice();
+  } 
 });
 
 $("#mutebutton").on('click', () =>{
@@ -436,12 +439,17 @@ function startVoice(){
   tracks[0].enabled = true;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
+  $("#userlist_myname").addClass("nowtalking");
 }
 function stopVoice(){
+
+  sendReleaseSignal();
+
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
    $("#unmutebutton").removeClass("hidden");
    $("#mutebutton").addClass("hidden");
+   $("#userlist_myname").removeClass("nowtalking");
 }
 
 // ビデオON/OFFボタン
