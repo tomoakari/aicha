@@ -30,7 +30,7 @@
         AICE cloudは様々な機能が簡単に使えるコミュニケーションエンジンです。Edge、iOS非対応。
       </span>
 
-      <form method="post" action="park" class="entry">
+      <form method="post" action="park" class="entry" onsubmit="return checkParams(this);">
         <!--
         <input id="table_name" name="table_name" placeholder="部屋の名前" />
         
@@ -53,6 +53,7 @@
       </form>
 
       <script>
+        // 部屋名の自動設定（使用しない）
         function setRoomName() {
           let url = document.location.href;
           let args = url.split("?");
@@ -64,10 +65,23 @@
           }
           return false;
         }
-        
         $(function () {
           setRoomName();
         });
+        
+        // 簡易入力チェック
+        function checkParams(form){
+          var obj = form.elements.user_name;
+          if(obj.value == ""){
+            alert("名前を入力してください。");
+            return false;
+          }else if(obj.value.indexOf('-') !== -1){
+            alert("名前には「-」を使用できません。");
+            return false;
+          }else{
+            return true;
+          }
+        }
       </script>
     </div>
   </body>
