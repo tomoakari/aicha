@@ -69,8 +69,24 @@ var memberVue = new Vue({
         }
         this.members.push(new_member);
       }
+    },
+
+    unsableUser: function(msg){
+      var text = msg;
+      const words = text.split("---");
+      const user_name = words[0];
+      const user_id = words[1];
+
+      // 一致するものがあったらtimestampを0にする
+      this.members.forEach((member, index) => {
+        if (member.user_id === user_id) {
+          this.$set(this.members[index], "timestamp", 0);
+          exist_count ++;
+        }
+      });
 
     }
+    
   }
 });
 
