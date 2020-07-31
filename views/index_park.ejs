@@ -33,14 +33,16 @@
       <form method="post" action="park" class="entry">
         <!--
         <input id="table_name" name="table_name" placeholder="部屋の名前" />
-        -->
+        
         <select id="table_name" name="table_name" class="roomselect" placeholder="部屋名">
           <option value="" style="display: none; color: #696969">部屋名</option>
           <% roomlist.forEach(function(value, key){ %>
             <option value="<%= value.roomname %>"><%= value.roomname %></option>
           <% }) %>
         </select>
-        <input id="user_name" name="user_name" placeholder="ニックネーム" />
+        -->
+        <hidden id="table_name" name="table_name" value="ロビー"></hidden>
+        <input id="user_name" name="user_name" maxlength="10" minlength="1" placeholder="ニックネーム" />
         <div class="center">
           <button class="button">
             <i class="fas fa-home"></i>
