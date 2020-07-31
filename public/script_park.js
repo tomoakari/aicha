@@ -318,6 +318,11 @@ function addBlankVideoElement(){
 // ---------------------- ボタン操作  -----------------------
 // ----------------------------------------------------------------
 
+$("#local_video").addEventListener('click', () =>{
+  alert("どうさしたよ");
+});
+
+
 // connect video
 function connectVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
