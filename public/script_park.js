@@ -858,6 +858,8 @@ function execPost(action, data) {
 
 
  var sendTimeArr = [];
+ const MAX_RAPIDFIRE = 5;
+ const COOL_TIME = 60;
 
 /**
  * 投稿制限をチェックする
@@ -868,26 +870,26 @@ function checkSendRestrict(){
   var nowtime = Math.floor(a / 1000);
 
   // 配列が４以下の時は送信OK
-  if(sendTimeArr.length <= 4){
+  if(sendTimeArr.length < MAX_RAPIDFIRE){
     setSendTime(nowtime);
     return true;
 
-  // 配列が５個以上のときは判定
+  // 配列が許容最大のときは判定
   }else{
-    if(nowtime - sendTimeArr[0] > 60){
+    if(nowtime - sendTimeArr[0] > COOL_TIME){
       // 送信OK
       setSendTime(nowtime);
       return true;
     }else{
-      // 送信NG（60秒以内に送信しすぎの場合）
+      // 送信NG（送信しすぎの場合）
       return false;
     }
   }
 }
 
 function setSendTime(timeInt){
-  // 配列長が５なら配列の頭を削除
-  if(sendTimeArr.length > 4){
+  // 配列長が最大なら配列の頭を削除
+  if(sendTimeArr.length >= MAX_RAPIDFIRE){
     sendTimeArr.shift();
   } 
   // 配列の末尾に時間を格納
