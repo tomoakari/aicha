@@ -114,11 +114,39 @@ socket.on("being", function(msg) {
   if($("#user_name_" + words[1]).text() !== words[0]){
     $("#user_name_" + words[1]).text(words[0]);
   }
+  // メンバー一覧を更新する  
+  memberVue.updateMemberList(msg);
+});
+
+socket.on("talkSignal", function(msg) {
+  var text = msg;
+  const words = text.split("---");
+
+  // マイク使用中ユーザの色を変える
+  $("#userlist_" + words[1]).addClass("nowtalking");
+
+  // マイクボタンを使用不可にする
+  $("#unmutebutton").addClass("unavailable");
+
+});
+
+socket.on("releaseSignal", function(msg) {
+  var text = msg;
+  const words = text.split("---");
+
+
+  // 名前欄を更新する
+  if($("#user_name_" + words[1]).text() !== words[0]){
+    $("#user_name_" + words[1]).text(words[0]);
+  }
   
   // メンバー一覧を更新する  
   memberVue.updateMemberList(msg);
 
 });
+
+
+
 
 // --- broadcast message to all members in room
 function emitRoom(msg) {
@@ -401,6 +429,9 @@ function stopVideo() {
 
 // マイクON/OFFボタン
 function startVoice(){
+
+  sendTalkSignal();
+
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
   $("#mutebutton").removeClass("hidden");
@@ -454,6 +485,18 @@ function sendBeing() {
   socket.emit("being", message);
   return false;
 }
+
+
+function sendTalkSignal(){
+  var message = $("#user_name").val() + "---" + socket.id;
+  socket.emit("talkSignal", message);
+}
+
+function sendReleaseSignal(){
+  var message = $("#user_name").val() + "---" + socket.id;
+  socket.emit("releaseSignal", message);
+}
+
 
 function stopLocalStream(stream) {
   let tracks = stream.getTracks();

@@ -331,6 +331,18 @@ div#main,
   width: 100%;
 }
 
+.nowtalking{
+  text-shadow: 
+    turquoise 1px 1px 15px,
+    turquoise -1px 1px 15px,
+    turquoise 1px -1px 15px, 
+    royalblue -1px -1px 15px;
+}
+
+.unavailable{
+  background-color: #696969;
+}
+
 
 
 

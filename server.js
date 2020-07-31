@@ -237,6 +237,17 @@ io.on("connection", function(socket) {
     console.log("being received. " + message);
     emitMessage("being", message);
   });
+
+  // マイク使用シグナルの配信
+  socket.on("talkSignal", function(message) {
+    emitMessage("talkSignal", message);
+  });
+  // マイクリリースシグナルの配信
+  socket.on("releaseSignal", function(message) {
+    emitMessage("releaseSignal", message);
+  });
+
+  
 });
 
 // DBから部屋リストを取得
