@@ -174,7 +174,7 @@
                     </li>
                     -->
                     <template v-for="member in loginmembers">
-                      <li>{{ member.user_name }}　：　{{member.user_id}}</li>
+                      <li v-bind:class="member.user_id">{{ member.user_name }}</li>
                     </template>
                   </ul>
                 </div>
