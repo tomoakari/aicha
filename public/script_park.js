@@ -415,7 +415,7 @@ function sendChat() {
     toastr.error("文字を入力してください");
   }else{
 
-    if(checkSendRestrict()){
+    if( checkSendRestrict() ){
       var text = $("#user_name").val() + " : " + $("#input_msg").val();
       socket.emit("chat", text);
       chatVue.addContent(text);
@@ -868,7 +868,7 @@ function checkSendRestrict(){
   var nowtime = Math.floor(a / 1000);
 
   // 配列がカラの時は送信OK（初回なので）
-  if(sendTimeArr[0]){
+  if(sendTimeArr.length){
     setSendTime(nowtime);
     return true;
 
@@ -885,12 +885,10 @@ function checkSendRestrict(){
 }
 
 function setSendTime(timeInt){
-  // 配列の末尾に時間を格納
-  if(sendTimeArr.length <= 4){
-    sendTimeArr.push(timeInt);
-  } else {
-    // 配列の頭を削除して末尾に時間を格納
+  // 配列長が５なら配列の頭を削除
+  if(sendTimeArr.length > 4){
     sendTimeArr.shift();
-    sendTimeArr.push(timeInt);
-  }
+  } 
+  // 配列の末尾に時間を格納
+  sendTimeArr.push(timeInt);
 }
