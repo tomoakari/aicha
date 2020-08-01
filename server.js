@@ -95,6 +95,10 @@ app.get("/aicha", (request, response) => {
     response.sendFile(__dirname + "/views/index_park.html");  
   }
 });
+// パークアクセス時にリダイレクト
+app.get("/chat", (request, response) => {
+  res.redirect('/hoge');
+});
 
 // AIFORUS用トップ
 app.get("/aiforus", (request, response) => {
