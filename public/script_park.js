@@ -932,7 +932,7 @@ function execPost(action, data) {
 
 
  var sendTimeArr = [];
- const MAX_RAPIDFIRE = 5;
+ const MAX_RAPIDFIRE = 10;
  const COOL_TIME = 60;
 
 /**
