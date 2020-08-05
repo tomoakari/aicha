@@ -97,7 +97,7 @@ app.get("/aicha", (request, response) => {
 });
 // パークアクセス時にAichaにリダイレクトする
 app.get("/chat", (request, response) => {
-  res.redirect('/aicha');
+  response.redirect('/aicha');
 });
 
 // AIFORUS用トップ
