@@ -12,11 +12,29 @@
 		<div class="header">
 			<div>あいちゃ<br>Powered by<br>AICE.CLOUD</div>
 		</div>
-		<br>
-		<div class="login"><br><br><br>
+		<form  method="post" action="" class="entry" onsubmit="return checkParams(this);">
+            <div class="login">
+                <input type="hidden" id="table_name" name="table_name" value="ロビー">
 				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
 				<input type="button" value="Login">
-        </div>
+            </div>    
+        </form>
+        
+        <script>
+            // 簡易入力チェック
+            function checkParams(form){
+              var obj = form.elements.user_name;
+              if(obj.value == ""){
+                alert("名前を入力してください。");
+                return false;
+              }else if(obj.value.indexOf('-') !== -1){
+                alert("名前には「-」を使用できません。");
+                return false;
+              }else{
+                return true;
+              }
+            }
+            
+          </script>
   </body>
 </html>
