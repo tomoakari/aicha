@@ -58,6 +58,10 @@ const crypto = require("crypto");
  * ルーティング
  */
 
+app.get("/test", (request, response) => {
+  response.sendFile(__dirname + "/views/test_index.html");  
+});
+
 // mtgトップ
 app.get("/", (request, response) => {
   
