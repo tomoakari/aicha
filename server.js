@@ -58,9 +58,26 @@ const crypto = require("crypto");
  * ルーティング
  */
 
+ // テスト
 app.get("/test", (request, response) => {
   response.sendFile(__dirname + "/views/test_index.html");  
 });
+app.post("/test", (request, response) => {
+  var table_id = crypto
+    .createHash("md5")
+    .update(request.body.table_name)
+    .digest("hex");
+
+  var data = {
+    roomlist: getRoomList(),
+    user_name: request.body.user_name,
+    table_id: table_id,
+    table_name: request.body.table_name
+  };
+  // レンダリングを行う
+  response.render("./test_room.ejs", data);
+});
+
 
 // mtgトップ
 app.get("/", (request, response) => {
