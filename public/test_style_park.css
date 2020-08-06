@@ -155,12 +155,12 @@ video {
 
 .membername {
   font-size: 1px;
-  color: white;
+  color: #696969;
   text-align: center;
   padding: 0px;
 }
 .playbutton {
-  font-size: 10px;
+  font-size: 50px;
   color: white;
   text-align: center;
   padding: 0px;
