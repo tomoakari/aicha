@@ -126,6 +126,10 @@ video {
   overflow-x: scroll;
 }
 
+.videoWrapper {
+  display: inline;
+}
+
 .membersvideo {
   width: 100px;
   height: 100px;
@@ -155,8 +159,8 @@ video {
 }
 
 #container > div {
-  position: relative;
-  display: inline-block;
+  /*position: relative;
+  display: inline-block;*/
 }
 form {
   background-color: transparent;
