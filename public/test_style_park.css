@@ -122,6 +122,8 @@ video {
 }
 
 .videoList {
+  width: 100%;
+  overflow-x: scroll;
 }
 
 .membersvideo {
@@ -138,17 +140,14 @@ video {
   border-radius: 50%;
   object-fit: cover;
   padding: 0px;
+  margin-bottom: 19px;
 }
 
 .membername {
-  position: relative;
-  bottom: 28px;
-  left: 0px;
   font-size: 1px;
   color: white;
-  margin-bottom: -2.5rem;
-  text-shadow: black 1px 1px 10px, black -1px 1px 10px, black 1px -1px 10px,
-    black -1px -1px 10px;
+  text-align: center;
+  padding: 0px;
 }
 
 #container {
