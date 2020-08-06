@@ -485,10 +485,10 @@ function toggleVideo() {
   localStream.getVideoTracks().forEach((track) => {
     if (track.enabled == true) {
       stopVideo();
-      $("#playbutton").removeClass("hidden");
+      $("#playbutton").removeClass("invisiblize");
     } else {
       startVideo();
-      $("#playbutton").addClass("hidden");
+      $("#playbutton").addClass("invisiblize");
     }
   });
 }

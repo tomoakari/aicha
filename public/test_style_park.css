@@ -168,6 +168,9 @@ video {
   bottom: 107px;
   opacity: 0.6;
 }
+.invisiblize {
+  opacity: 0;
+}
 
 #container {
   margin-left: -0.5em;
