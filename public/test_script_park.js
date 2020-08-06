@@ -297,8 +297,9 @@ function createVideoElement(elementId) {
   // ビデオ要素を作成
   let video = document.createElement("video");
   video.id = elementId;
-  video.className = "membersvideo";
-  container.prepend(video);
+  video.className = "membersvideo optionalvideo";
+  // container.prepend(video);
+  container.appendChild(video);
   return video;
 }
 

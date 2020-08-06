@@ -147,6 +147,10 @@ video {
   padding: 0px;
 }
 
+.optionalvideo {
+  margin-bottom: 57px;
+}
+/*
 .dummyvideo {
   width: 100px;
   height: 100px;
@@ -155,6 +159,7 @@ video {
   padding: 0px;
   margin-bottom: 76px;
 }
+*/
 
 .membername {
   font-size: 1px;
