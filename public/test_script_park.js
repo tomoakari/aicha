@@ -349,6 +349,10 @@ $("#stopbutton").on("click", () => {
   stopVideo();
 });
 
+$("#local_video").on("click", () => {
+  toggleVideo();
+});
+
 $("#unmutebutton").on("click", () => {
   var classStr = $("#unmutebutton").attr("class");
   if (classStr.indexOf("unavailable") !== -1) {
@@ -473,6 +477,15 @@ function stopVideo() {
   // stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
+}
+function toggleVideo() {
+  localStream.getVideoTracks().forEach((track) => {
+    if (track.enabled == true) {
+      stopVideo();
+    } else {
+      startVideo();
+    }
+  });
 }
 
 //

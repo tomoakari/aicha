@@ -159,6 +159,15 @@ video {
   text-align: center;
   padding: 0px;
 }
+.playbutton {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  position: relative;
+  bottom: 50px;
+  opacity: 0.8;
+}
 
 #container {
   margin-left: -0.5em;
