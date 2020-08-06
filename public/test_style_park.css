@@ -122,12 +122,12 @@ video {
 }
 
 .videoList {
-  width: 100%;
-  overflow-x: scroll;
+  width: max-content;
+  overflow: scroll;
 }
 
 .videoWrapper {
-  display: inline;
+  display: inline-block;
 }
 
 .membersvideo {
