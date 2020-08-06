@@ -352,6 +352,9 @@ $("#stopbutton").on("click", () => {
 $("#local_video").on("click", () => {
   toggleVideo();
 });
+$("#playbutton").on("click", () => {
+  toggleVideo();
+});
 
 $("#unmutebutton").on("click", () => {
   var classStr = $("#unmutebutton").attr("class");
@@ -482,8 +485,10 @@ function toggleVideo() {
   localStream.getVideoTracks().forEach((track) => {
     if (track.enabled == true) {
       stopVideo();
+      $("#playbutton").removeClass("hidden");
     } else {
       startVideo();
+      $("#playbutton").addClass("hidden");
     }
   });
 }

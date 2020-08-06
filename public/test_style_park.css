@@ -150,7 +150,7 @@ video {
   border-radius: 50%;
   object-fit: cover;
   padding: 0px;
-  margin-bottom: 19px;
+  margin-bottom: 76px;
 }
 
 .membername {
@@ -159,14 +159,14 @@ video {
   text-align: center;
   padding: 0px;
 }
-.playbutton {
+#playbutton {
   font-size: 50px;
   color: white;
   text-align: center;
   padding: 0px;
   position: relative;
-  bottom: 106px;
-  opacity: 0.8;
+  bottom: 107px;
+  opacity: 0.6;
 }
 
 #container {
