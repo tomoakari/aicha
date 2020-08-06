@@ -240,7 +240,7 @@ function attachVideo(id, stream) {
   video.volume = 1.0;
 
   $("#remote_video_" + id).wrap(
-    '<div class="col-1 col-12-small" id="video_container_' + id + '"/>'
+    '<div class="videoWrapper" id="video_container_' + id + '"/>'
   );
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
@@ -256,7 +256,8 @@ function detachVideo(id) {
   $("#video_container_" + id).remove();
 
   // ダミービデオ要素を追加
-  addBlankVideoElement();
+  // 今回はダミーは表示させない
+  // addBlankVideoElement();
 }
 
 function isRemoteVideoAttached(id) {
@@ -289,7 +290,8 @@ function deleteRemoteVideoElement(id) {
 
 function createVideoElement(elementId) {
   // ダミービデオを一つ削除
-  removeBlankVideoElement();
+  // 今回はダミー表示を使用しない
+  // removeBlankVideoElement();
 
   // ビデオ要素を作成
   let video = document.createElement("video");
@@ -319,9 +321,6 @@ function removeVideoWrapperElement(elementId) {
 
 // ダミーのビデオを削除する
 function removeBlankVideoElement() {
-  //$(".blankVideo").each(function(elm){
-  //  elm.remove();
-  //});
   $(".blankVideo")[0].remove();
 }
 
