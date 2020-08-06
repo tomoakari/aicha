@@ -121,9 +121,13 @@ video {
   object-fit: cover;
 }
 
-.videoList {
-  width: max-content;
+.videoArea {
+  width: 100%;
   overflow: scroll;
+}
+.videoSlider {
+  width: max-content;
+  white-space: nowrap;
 }
 
 .videoWrapper {
