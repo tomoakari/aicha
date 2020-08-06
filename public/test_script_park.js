@@ -109,6 +109,12 @@ socket.on("alert", function (msg) {
 });
 
 socket.on("being", function (msg) {
+  var text = msg;
+  const words = text.split("---");
+  // 名前欄を更新する
+  if ($("#user_name_" + words[1]).text() !== words[0]) {
+    $("#user_name_" + words[1]).text(words[0]);
+  }
   memberVue.updateMemberList(msg);
 });
 
