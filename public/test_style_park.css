@@ -124,6 +124,7 @@ video {
 
 .videoArea {
   position: fixed;
+  top: 0px;
   width: 100%;
   overflow: scroll;
 }
