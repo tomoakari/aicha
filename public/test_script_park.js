@@ -372,7 +372,9 @@ $(window).on("beforeunload", () => {
 function connectVideo() {
   var videoParam = {
     audio: true,
-    video: { width: 480, height: 480 },
+    video: {
+      frameRate: { ideal: 10, max: 15 },
+    },
   };
   getDeviceStream(videoParam) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function (stream) {
