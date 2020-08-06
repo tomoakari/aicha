@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
 }
@@ -25,14 +23,14 @@ form {
   padding: 1em;
 }
 
-form.entry{
+form.entry {
   max-width: 40ch;
 }
 
-.toppage_container{
+.toppage_container {
   text-align: center;
 }
-.toppage_container > form{
+.toppage_container > form {
   margin: auto;
   margin-top: 50px;
 }
@@ -46,13 +44,13 @@ input {
   border-radius: 3px;
 }
 input:focus {
-    border:solid 1px #EEA34A;
+  border: solid 1px #eea34a;
 }
 
 form button {
   background-color: #bbbbf2;
   border: 2px solid currentColor;
-  border-radius: .25em;
+  border-radius: 0.25em;
   cursor: pointer;
   font-size: inherit;
   line-height: 1.4em;
@@ -85,11 +83,11 @@ button.button-outline{
 }
 */
 
-ul#chat{
+ul#chat {
   list-style: none;
 }
 
-.chat-container{
+.chat-container {
   height: 200px;
   padding: 10px;
 }
@@ -100,121 +98,111 @@ div.chatarea {
   padding: 5px;
 }
 
-.flex{
+.flex {
   padding: 2.5% 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
 
-.note{
+.note {
   font-size: 3px;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-video{
-  object-fit: cover;
-}
-.myvideo-container video{
-  /*
-  width: 160px; 
-  height: 120px; 
-  border: 1px solid black;
-  */
-  width: 100%;
-}
-.membersvideo{
-  width: 100%;
-  height: 5vw;
+video {
   object-fit: cover;
 }
 
-.dummyvideo{
-  width: 100%;
-  height: 5vw;
+.videoList {
+}
+
+.membersvideo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   object-fit: cover;
+  padding: 0px;
 }
 
-.videoarea{
-  position: relative;
-  z-index: 300;
-  background-color: #ffffff;
-  padding-bottom: 20px;
+.dummyvideo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 0px;
 }
 
-.membername{
+.membername {
   position: relative;
   bottom: 28px;
   left: 0px;
   font-size: 1px;
   color: white;
   margin-bottom: -2.5rem;
-  text-shadow: 
-    black 1px 1px 10px,
-    black -1px 1px 10px,
-    black 1px -1px 10px, 
+  text-shadow: black 1px 1px 10px, black -1px 1px 10px, black 1px -1px 10px,
     black -1px -1px 10px;
 }
 
-#container{
+#container {
   margin-left: -0.5em;
 }
 
-#container > div{
+#container > div {
   position: relative;
-  display: inline-block;  
+  display: inline-block;
 }
-form{
+form {
   background-color: transparent;
 }
 
-.chatSlide{
+.chatSlide {
   position: absolute;
   width: 100%;
   bottom: 0;
   /*background-color: rgba(255,255,255,0.2);*/
-  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5));
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
 }
 
-.chatToggle{
+.chatToggle {
   position: fixed;
   right: 10px;
-  bottom:0px;
+  bottom: 0px;
   z-index: 200;
 }
-.chatform{
+.chatform {
   display: inline;
 }
 
-.header-button{
+.header-button {
   text-align: right;
   margin: 8px;
 }
-.videoarea{
+.videoarea {
   position: relative;
   background-color: white;
   z-index: 500;
 }
-.chatlist > li{
+.chatlist > li {
   list-style: none;
 }
 
-.inline-button{
-  display:inline-flex;
+.inline-button {
+  display: inline-flex;
   position: fixed;
   bottom: 10px;
   z-index: 300;
   right: 100px;
 }
 
-.footercontrol{
+.footercontrol {
   position: fixed;
   bottom: 10px;
   z-index: 300;
@@ -222,54 +210,52 @@ form{
   background-color: #ffffff;
 }
 
-.sendbutton{
+.sendbutton {
   margin-left: 5px;
   margin-top: 4px;
 }
 
-
-.leftarea{
+.leftarea {
   width: 75%;
 }
-.rightarea{
+.rightarea {
   width: 25%;
 }
 
 .chat-container > ul > li {
-  word-break : break-all;
+  word-break: break-all;
 }
 
-.roomlist_title{
+.roomlist_title {
   margin: 0px;
   padding: 0px;
 }
 
-.user_list{
+.user_list {
   padding: 0px;
   margin: 0px !important;
   font-size: 120%;
 }
 
-.member-container{
+.member-container {
   position: absolute;
   bottom: 130px;
 }
 
 .footercontrol > div > div > table > tbody > tr {
-  background-color:#2a2a2a;
+  background-color: #2a2a2a;
 }
 
-.sidefooter{
+.sidefooter {
   position: absolute;
   bottom: 20px;
 }
-
 
 /*
  * レイアウト調整
 */
 
-table.flametable{
+table.flametable {
   height: 100vh;
   margin-bottom: 0px;
 }
@@ -282,12 +268,12 @@ table.flametable > tbody > tr.inputtr {
   height: 0px;
 }
 
-tr.inputtr > td{
+tr.inputtr > td {
   padding-bottom: 0px;
   padding-top: 0px;
 }
 
-body{
+body {
   margin: 0px !important;
 }
 
@@ -300,15 +286,15 @@ div.chatarea {
   height: calc(100vh - 200px);
 }
 
-ul{
+ul {
   margin: 0px !important;
 }
 
-#sidebar{
+#sidebar {
   color: #393939;
 }
 
-input.chat-input{
+input.chat-input {
   color: #393939;
 }
 
@@ -316,35 +302,29 @@ html,
 body,
 div#wrapper,
 div#main,
-.flametable > tbody > tr > td{
+.flametable > tbody > tr > td {
   padding-top: 0px;
 }
 
-.roomselect{
+.roomselect {
   background-color: #ffffff;
   height: 30px;
 }
 
-.footerfixarea{
+.footerfixarea {
   position: fixed;
   bottom: 0px;
   width: 100%;
 }
 
-.nowtalking{
-  text-shadow: 
-    turquoise 1px 1px 15px,
-    turquoise -1px 1px 15px,
-    turquoise 1px -1px 15px, 
-    royalblue -1px -1px 15px;
+.nowtalking {
+  text-shadow: turquoise 1px 1px 15px, turquoise -1px 1px 15px,
+    turquoise 1px -1px 15px, royalblue -1px -1px 15px;
 }
 
-.unavailable{
+.unavailable {
   background-color: black !important;
 }
-
-
-
 
 /*
  フローティングアクションボタン
@@ -352,25 +332,29 @@ div#main,
   <i class="fa fa-share"></i>
  </a>
 */
-.fab {/*円の部分*/
+.fab {
+  /*円の部分*/
   display: block;
-  width: 56px;/*幅*/
-  height: 56px;/*高さ*/
-  background: #03a9f4;/*背景色*/
-  text-align: center;/*中央寄せ*/
-  border-radius: 50%;/*角丸く*/
-  transition: .3s;/*滑らかな動きに*/
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
+  width: 56px; /*幅*/
+  height: 56px; /*高さ*/
+  background: #03a9f4; /*背景色*/
+  text-align: center; /*中央寄せ*/
+  border-radius: 50%; /*角丸く*/
+  transition: 0.3s; /*滑らかな動きに*/
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24); /*影*/
   padding-top: 0ex;
 }
 
-.fab:hover {/*ホバー時*/
-box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+.fab:hover {
+  /*ホバー時*/
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
-.fab i {/*中央のアイコン*/
-color: white;
-line-height: 56px;/*＝幅と高さ*/
-font-size: 18px;/*サイズ*/
-padding-top: 0ex;
+.fab i {
+  /*中央のアイコン*/
+  color: white;
+  line-height: 56px; /*＝幅と高さ*/
+  font-size: 18px; /*サイズ*/
+  padding-top: 0ex;
 }
