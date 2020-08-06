@@ -3,7 +3,6 @@
 }
 
 body {
-  background: #2a2a2a;
   font-family: sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
@@ -252,10 +251,6 @@ form {
   bottom: 130px;
 }
 
-.footercontrol > div > div > table > tbody > tr {
-  background-color: #2a2a2a;
-}
-
 .sidefooter {
   position: absolute;
   bottom: 20px;
@@ -268,10 +263,6 @@ form {
 table.flametable {
   margin-top: 140px;
   margin-bottom: 0px;
-}
-
-table.flametable > tbody > tr {
-  background-color: #2a2a2a;
 }
 
 table.flametable > tbody > tr.inputtr {
