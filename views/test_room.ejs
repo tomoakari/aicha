@@ -13,8 +13,10 @@
 
     <link rel="stylesheet" href="/style_park.css" />
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -22,129 +24,51 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
-
           <table class="flametable">
             <tr>
               <td colspan="2">
                 <div id="container" class="row">
                   <div class="col-1 col-12-small">
-                    <video id="local_video" class=" membersvideo" autoplay></video>
+                    <video
+                      id="local_video"
+                      class="membersvideo"
+                      autoplay
+                    ></video>
                     <p class="membername"><%- user_name %></p>
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
                   <div class="col-1 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
+                    <img src="/assets/images/dummy.png" class="dummyvideo" />
                   </div>
-                  <!--
-                  <div class="col-3 col-12-small">
-                    <video id="local_video" class=" membersvideo" autoplay></video>
-                    <p class="membername"><%- user_name %></p>
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  <div class="col-3 col-12-small blankVideo">
-                    <img
-                      src="/assets/images/dummy.png"
-                      class="dummyvideo"
-                    />
-                  </div>
-                  -->
                 </div>
               </td>
             </tr>
@@ -162,10 +86,12 @@
                 <div class="">
                   <nav class="">
                     <header class="major">
-                      <h2 class="user_list"><%- table_name %>（{{ loginmembers.length + 1 }}人）</h2>
+                      <h2 class="user_list">
+                        <%- table_name %>（{{ loginmembers.length + 1 }}人）
+                      </h2>
                     </header>
                   </nav>
-                  
+
                   <ul>
                     <li><%- user_name %></li>
                     <li v-for="member in loginmembers" :key="member.user_id">
@@ -182,20 +108,28 @@
                     <div class="row">
                       <div class="col-4">
                         <ul>
-                          <li class="button primary" id="startbutton"><i class="fas fa-video"></i></li>
-                          <li class="button hidden" id="stopbutton"><i class="fas fa-video-slash"></i></li>
-                          <li class="button primary hidden" id="unmutebutton"><i class="fas fa-microphone"></i></li>
-                          <li class="button" id="mutebutton"><i class="fas fa-microphone-slash"></i></li>
+                          <li class="button primary" id="startbutton">
+                            <i class="fas fa-video"></i>
+                          </li>
+                          <li class="button hidden" id="stopbutton">
+                            <i class="fas fa-video-slash"></i>
+                          </li>
+                          <li class="button primary hidden" id="unmutebutton">
+                            <i class="fas fa-microphone"></i>
+                          </li>
+                          <li class="button" id="mutebutton">
+                            <i class="fas fa-microphone-slash"></i>
+                          </li>
                         </ul>
                       </div>
                       <div class="col-8">
                         <input
-                            type="text"
-                            id="input_msg"
-                            placeholder="Enterで送信"
-                            autocomplete="off"
-                            class="chat-input"
-                          />
+                          type="text"
+                          id="input_msg"
+                          placeholder="Enterで送信"
+                          autocomplete="off"
+                          class="chat-input"
+                        />
                       </div>
                     </div>
                   </form>
@@ -203,33 +137,35 @@
               </td>
             </tr>
           </table>
-
         </div>
       </div>
 
       <!-- サイドバー -->
       <div id="sidebar">
-        <div class="inner" >
+        <div class="inner">
           <!-- Search -->
 
           <nav id="menu">
             <header class="major">
               <h2><%- table_name %></h2>
             </header>
-            
+
             <ul>
               <% roomlist.forEach(function(value, key){ %>
-                <li onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"><a><%= value.roomname %></a></li>
+              <li
+                onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
+              >
+                <a><%= value.roomname %></a>
+              </li>
               <% }) %>
-              </ul>
-            
+            </ul>
           </nav>
-          
+
           <!-- Footer -->
           <footer id="footer" class="sidefooter">
             <p class="copyright">
               &copy; AIFORUS.Inc All rights reserved. :
-              <a href="https://aiforus.co.jp/">https://aiforus.co.jp/</a>. 
+              <a href="https://aiforus.co.jp/">https://aiforus.co.jp/</a>.
             </p>
           </footer>
         </div>
@@ -260,6 +196,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-seamless-scroll@1.1.17/dist/vue-seamless-scroll.min.js"></script>
-    <script src="/script_park.js"></script><!--  -->
+    <script src="/script_park.js"></script>
+    <!--  -->
   </body>
 </html>
