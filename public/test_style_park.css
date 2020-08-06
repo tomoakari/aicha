@@ -96,6 +96,7 @@ div.chatarea {
   width: 100%;
   overflow: auto;
   padding: 5px;
+  height: calc(100vh - 220px);
 }
 
 .flex {
@@ -265,7 +266,6 @@ form {
 
 table.flametable {
   margin-top: 140px;
-  height: calc(100vh - 140px);
   margin-bottom: 0px;
 }
 
@@ -289,10 +289,6 @@ body {
 form.chatform {
   margin: 0px;
   padding: 0px;
-}
-
-div.chatarea {
-  height: calc(100vh - 200px);
 }
 
 ul {
