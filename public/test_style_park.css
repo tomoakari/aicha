@@ -122,6 +122,7 @@ video {
 }
 
 .videoArea {
+  position: fixed;
   width: 100%;
   overflow: scroll;
 }
@@ -263,7 +264,8 @@ form {
 */
 
 table.flametable {
-  height: 100vh;
+  margin-top: 140px;
+  height: calc(100vh - 140px);
   margin-bottom: 0px;
 }
 
