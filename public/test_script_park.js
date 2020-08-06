@@ -373,6 +373,8 @@ function connectVideo() {
   var videoParam = {
     audio: true,
     video: {
+      width: 480,
+      height: 480,
       frameRate: { ideal: 10, max: 15 },
     },
   };
