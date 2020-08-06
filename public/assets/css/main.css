@@ -2203,7 +2203,7 @@ button,
   -ms-user-select: none;
   user-select: none;
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  /* font-family: "Roboto Slab", serif;*/
   font-weight: 400;
   letter-spacing: 0.075em;
   list-style: none;

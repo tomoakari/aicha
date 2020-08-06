@@ -127,6 +127,9 @@ video {
   width: 100%;
   overflow: scroll;
 }
+.videoArea::-webkit-scrollbar {
+  display: none;
+}
 .videoSlider {
   width: max-content;
   white-space: nowrap;
@@ -275,6 +278,9 @@ form {
 table.flametable {
   margin-top: 140px;
   margin-bottom: 0px;
+  position: relative;
+  z-index: 500;
+  color: #696969;
 }
 
 table.flametable > tbody > tr.inputtr {
@@ -300,7 +306,8 @@ ul {
 }
 
 #sidebar {
-  color: #393939;
+  color: #696969;
+  background-color: #caced1;
 }
 
 input.chat-input {
