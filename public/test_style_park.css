@@ -130,7 +130,7 @@ video {
 .videoArea::-webkit-scrollbar {
   display: none;
 }
-.videoSlider {
+#videoSlider {
   width: max-content;
   white-space: nowrap;
 }
