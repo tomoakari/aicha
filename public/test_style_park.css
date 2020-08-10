@@ -315,7 +315,9 @@ ul {
 
 #sidebar {
   color: #696969;
-  background-color: #1e90ff;
+  background-image: url(assets/images/login.jpg);
+  background-size: cover;
+  -webkit-filter: blur(5px);
 }
 
 input.chat-input {
