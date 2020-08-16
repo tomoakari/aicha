@@ -387,6 +387,14 @@ div#main,
   padding-top: 0ex;
 }
 
+.fab-green {
+  background: linear-gradient(#3cb371, #adff2f);
+}
+
+.fab-disable {
+  background: #696969;
+}
+
 /*背景画像の設定をする*/
 .bgImage {
   background: url(assets/images/login.jpg) no-repeat center;
