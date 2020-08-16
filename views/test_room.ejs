@@ -145,23 +145,23 @@
       <!-- サイドバー -->
       <div id="sidebar" class="bgImage">
         <div class="inner">
-          <!-- Search -->
+          <div class="roundclearbox">
+            <nav id="menu">
+              <header class="major">
+                <h2><%- table_name %></h2>
+              </header>
 
-          <nav id="menu">
-            <header class="major">
-              <h2><%- table_name %></h2>
-            </header>
-
-            <ul>
-              <% roomlist.forEach(function(value, key){ %>
-              <li
-                onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
-              >
-                <a><%= value.roomname %></a>
-              </li>
-              <% }) %>
-            </ul>
-          </nav>
+              <ul>
+                <% roomlist.forEach(function(value, key){ %>
+                <li
+                  onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
+                >
+                  <a><%= value.roomname %></a>
+                </li>
+                <% }) %>
+              </ul>
+            </nav>
+          </div>
 
           <!-- Footer -->
           <footer id="footer" class="sidefooter">
