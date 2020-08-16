@@ -395,6 +395,10 @@ div#main,
   background: #696969;
 }
 
+.fab-rainbow {
+  background: linear-gradient(#3cb371, #ffd700, #da70d6);
+}
+
 /*背景画像の設定をする*/
 .bgImage {
   background: url(assets/images/login.jpg) no-repeat center;
