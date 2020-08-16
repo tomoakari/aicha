@@ -313,7 +313,6 @@ ul {
 
 #sidebar {
   color: #696969;
-  background-color: #1e90ff;
 }
 
 input.chat-input {
@@ -346,6 +345,13 @@ div#main,
 
 .unavailable {
   background-color: black !important;
+}
+
+.roundclearbox {
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /*
