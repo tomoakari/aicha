@@ -143,33 +143,35 @@
       </div>
 
       <!-- サイドバー -->
-      <div id="sidebar" class="bgImage">
-        <div class="inner">
-          <div class="roundclearbox">
-            <nav id="menu">
-              <header class="major">
-                <h2><%- table_name %></h2>
-              </header>
+      <div id="sidebar">
+        <div class="bgImage">
+          <div class="inner">
+            <div class="roundclearbox">
+              <nav id="menu">
+                <header class="major">
+                  <h2><%- table_name %></h2>
+                </header>
 
-              <ul>
-                <% roomlist.forEach(function(value, key){ %>
-                <li
-                  onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
-                >
-                  <a><%= value.roomname %></a>
-                </li>
-                <% }) %>
-              </ul>
-            </nav>
+                <ul>
+                  <% roomlist.forEach(function(value, key){ %>
+                  <li
+                    onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
+                  >
+                    <a><%= value.roomname %></a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer" class="sidefooter">
+              <p class="copyright">
+                &copy; AIFORUS.Inc All rights reserved. :
+                <a href="https://aiforus.co.jp/">https://aiforus.co.jp/</a>.
+              </p>
+            </footer>
           </div>
-
-          <!-- Footer -->
-          <footer id="footer" class="sidefooter">
-            <p class="copyright">
-              &copy; AIFORUS.Inc All rights reserved. :
-              <a href="https://aiforus.co.jp/">https://aiforus.co.jp/</a>.
-            </p>
-          </footer>
         </div>
       </div>
     </div>
