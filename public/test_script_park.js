@@ -105,7 +105,7 @@ socket.on("chat", function (msg) {
 
 socket.on("alert", function (msg) {
   toastr.success(msg);
-  $("#se").get(0).play();
+  $("#alert_se").get(0).play();
 });
 
 socket.on("being", function (msg) {
@@ -461,6 +461,7 @@ function startVoice() {
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
   $("#userlist_myname").addClass("nowtalking");
+  $("#mic_se").get(0).play();
 }
 function stopVoice() {
   sendReleaseSignal();
@@ -470,6 +471,7 @@ function stopVoice() {
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
   $("#userlist_myname").removeClass("nowtalking");
+  $("#mic_se").get(0).play();
 }
 
 // ビデオON/OFFボタン
