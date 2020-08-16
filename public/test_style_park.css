@@ -348,9 +348,9 @@ div#main,
 }
 
 .roundclearbox {
-  padding: 5px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -394,6 +394,8 @@ div#main,
   position: relative;
   z-index: 0;
   overflow: hidden; /*ブラー効果でボヤけた部分を非表示*/
+  height: 100%;
+  padding: 10px;
 }
 
 /*:beforeにぼかし効果を設定する*/
