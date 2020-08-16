@@ -362,7 +362,7 @@ div#main,
 */
 .fab {
   /*円の部分*/
-  display: block;
+  /*display: block;*/
   width: 56px; /*幅*/
   height: 56px; /*高さ*/
   background: #03a9f4; /*背景色*/
