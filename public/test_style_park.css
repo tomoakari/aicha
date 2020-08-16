@@ -313,7 +313,6 @@ ul {
 
 #sidebar {
   color: #696969;
-  background-color: #1e90ff;
 }
 
 input.chat-input {
@@ -379,4 +378,27 @@ div#main,
   line-height: 56px; /*＝幅と高さ*/
   font-size: 18px; /*サイズ*/
   padding-top: 0ex;
+}
+
+/*背景画像の設定をする*/
+.bgImage {
+  background: url(assets/images/login.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden; /*ブラー効果でボヤけた部分を非表示*/
+}
+
+/*:beforeにぼかし効果を設定する*/
+.bgImage:before {
+  content: "";
+  background: inherit; /*.bgImageで設定した背景画像を継承する*/
+  filter: blur(5px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1; /*重なり順序を一番下にしておく*/
 }
