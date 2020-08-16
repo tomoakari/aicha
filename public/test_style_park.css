@@ -396,7 +396,7 @@ div#main,
 }
 
 .fab-rainbow {
-  background: linear-gradient(#3cb371, #ffd700, #da70d6);
+  background: linear-gradient(-135deg, #1e90ff, #ffd700, #da70d6);
 }
 
 /*背景画像の設定をする*/
