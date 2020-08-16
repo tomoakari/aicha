@@ -368,11 +368,13 @@ $("#unmutebutton").on("click", () => {
   if (classStr.indexOf("unavailable") !== -1) {
     toastr.error("他の参加者が話し中です。");
   } else {
+    $("#mic_switch_on_se").get(0).play();
     startVoice();
   }
 });
 
 $("#mutebutton").on("click", () => {
+  $("#mic_switch_off_se").get(0).play();
   stopVoice();
 });
 
@@ -461,7 +463,6 @@ function startVoice() {
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
   $("#userlist_myname").addClass("nowtalking");
-  $("#mic_switch_on_se").get(0).play();
 }
 function stopVoice() {
   sendReleaseSignal();
@@ -471,7 +472,6 @@ function stopVoice() {
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
   $("#userlist_myname").removeClass("nowtalking");
-  $("#mic_switch_off_se").get(0).play();
 }
 
 // ビデオON/OFFボタン
