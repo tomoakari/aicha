@@ -1035,6 +1035,6 @@ function closePalette() {
 
 function setInk(classname) {
   const cc = classname;
-
-  $("#colorselectbutton").addClass(cc);
+  $("#palette-icon").removeClass("*");
+  $("#palette-icon").addClass(cc);
 }
