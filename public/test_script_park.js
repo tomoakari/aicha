@@ -1041,7 +1041,7 @@ function closePalette() {
 }
 
 function setInk(classname) {
-  const cc = classname;
+  var cc = classname;
   $("#palette-icon").removeClass();
   $("#palette-icon").addClass(cc);
 }
