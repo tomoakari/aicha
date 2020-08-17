@@ -773,7 +773,11 @@ function prepareNewConnection(id) {
   // -- add local stream --
   if (localStream) {
     console.log("Adding local stream...");
-    peer.addStream(localStream);
+    // peer.addStream(localStream);
+
+    localStream.getTracks().forEach((track) => {
+      peerConnection.addTrack(track, localStream);
+    });
   } else {
     console.warn("no local stream, but continue.");
   }
