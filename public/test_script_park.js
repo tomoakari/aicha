@@ -442,6 +442,9 @@ function connectVideo() {
     .catch(function (error) {
       // error
       console.error("getUserMedia error:", error);
+      toastr.error(
+        "Chromeブラウザを使用してください。他のブラウザは使用できません"
+      );
       return;
     });
   return false;
