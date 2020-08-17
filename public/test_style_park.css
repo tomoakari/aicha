@@ -439,7 +439,10 @@ td.pdg0 {
   position: fixed;
   bottom: 100px;
   left: 30%;
+}
+.palette-inner {
   display: flex;
+  padding: 0px;
 }
 
 .mini-balloon {
