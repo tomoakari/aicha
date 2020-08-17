@@ -425,28 +425,46 @@ div#main,
 }
 
 .palette-balloon {
-  width: 200px; /*幅*/
+  width: 300px; /*幅*/
   height: 100px; /*高さ*/
   background: #ffffff; /*背景色*/
   text-align: center; /*中央寄せ*/
   border-radius: 50%; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
-  box-shadow: 10px 10px 2px -30 rgba(0, 0, 0, 0.5),
-    10px 10px 0 0 #ffffff 0 2px 2px -30 rgba(0, 0, 0, 0.12),
-    0 2px 2px 0 rgba(0, 0, 0, 0.24);
-  padding-top: 0ex;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
+  padding-top: 22px;
+  position: fixed;
+  bottom: 100px;
+  left: 30%;
+}
+
+.mini-balloon {
+  width: 60px; /*幅*/
+  height: 30px; /*高さ*/
+  background: #ffffff; /*背景色*/
+  text-align: center; /*中央寄せ*/
+  border-radius: 50%; /*角丸く*/
+  transition: 0.3s; /*滑らかな動きに*/
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
+  position: fixed;
+  bottom: 20px;
+  left: 30%;
 }
 
 .ink-circle {
   width: 56px; /*幅*/
   height: 56px; /*高さ*/
-  background: #03a9f4; /*背景色*/
   text-align: center; /*中央寄せ*/
-  border-radius: 20% 80% 20% 40%; /*角丸く*/
+  border-radius: 20% 70% 20% 20%; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24); /*影*/
   padding-top: 0ex;
-  margin-left: 10px;
+}
+.ml60 {
+  margin-left: 60px;
+}
+.ink-red {
+  background: radial-gradient(#dcdcdc, #393939);
 }
 .ink-red {
   background: radial-gradient(#f2b9a1, #ea6264);
