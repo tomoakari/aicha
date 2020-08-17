@@ -1041,7 +1041,6 @@ function closePalette() {
 }
 
 function setInk(classname) {
-  var cc = classname;
-  $("#palette-icon").removeClass();
-  $("#palette-icon").addClass(cc);
+  $("#palette-icon").removeClass().addClass(classname);
+  // $("#palette-icon").addClass(classname);
 }
