@@ -439,16 +439,16 @@ div#main,
 }
 
 .mini-balloon {
-  width: 60px; /*幅*/
-  height: 30px; /*高さ*/
+  width: 80px; /*幅*/
+  height: 40px; /*高さ*/
   background: #ffffff; /*背景色*/
   text-align: center; /*中央寄せ*/
   border-radius: 50%; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
   position: fixed;
-  bottom: 20px;
-  left: 30%;
+  bottom: 70px;
+  left: 35%;
 }
 
 .ink-circle {
@@ -463,7 +463,7 @@ div#main,
 .ml60 {
   margin-left: 60px;
 }
-.ink-red {
+.ink-black {
   background: radial-gradient(#dcdcdc, #393939);
 }
 .ink-red {
