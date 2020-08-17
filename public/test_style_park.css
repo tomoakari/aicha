@@ -493,3 +493,7 @@ td.pdg0 {
 .text-green {
   color: #2e8b57;
 }
+
+.fab-palette i {
+  color: initial;
+}
