@@ -424,6 +424,9 @@ div#main,
   z-index: -1; /*重なり順序を一番下にしておく*/
 }
 
+td.pdg0 {
+  padding: 0px;
+}
 .palette-balloon {
   width: 300px; /*幅*/
   height: 100px; /*高さ*/
