@@ -401,15 +401,19 @@ function togglePalette() {
 }
 
 $("#ink-black").on("click", () => {
+  alert("text-black");
   setInk("text-black");
 });
 $("#ink-red").on("click", () => {
+  alert("text-red");
   setInk("text-red");
 });
 $("#ink-blue").on("click", () => {
+  alert("text-blue");
   setInk("text-blue");
 });
 $("#ink-green").on("click", () => {
+  alert("text-green");
   setInk("text-green");
 });
 
