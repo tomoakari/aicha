@@ -434,7 +434,6 @@ div#main,
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
   padding-top: 22px;
   position: fixed;
-  z-index: 600px;
   bottom: 100px;
   left: 30%;
 }
@@ -448,7 +447,6 @@ div#main,
   transition: 0.3s; /*滑らかな動きに*/
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
   position: fixed;
-  z-index: 500px;
   bottom: 70px;
   left: 35%;
 }

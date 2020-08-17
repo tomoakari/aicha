@@ -1010,6 +1010,12 @@ function setSendTime(timeInt) {
   sendTimeArr.push(timeInt);
 }
 
-function openPalette() {}
+function openPalette() {
+  $("#mini-balloon").removeClass("hidden");
+  $("#palette-balloon").removeClass("hidden");
+}
 
-function closePalette() {}
+function closePalette() {
+  $("#mini-balloon").addClass("hidden");
+  $("#palette-balloon").addClass("hidden");
+}
