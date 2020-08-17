@@ -392,9 +392,11 @@ function togglePalette() {
   if ($("#colorselectbutton").hasClass("fab-disable")) {
     closePalette();
     $("#colorselectbutton").removeClass("fab-disable");
+    $("#colorselectbutton").addClass("fab-rainbow");
   } else {
     openPalette();
     $("#colorselectbutton").addClass("fab-disable");
+    $("#colorselectbutton").removeClass("fab-rainbow");
   }
 }
 
