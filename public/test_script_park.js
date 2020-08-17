@@ -401,16 +401,16 @@ function togglePalette() {
 }
 
 $("#ink-black").on("click", () => {
-  setInk("ink-black");
+  setInk("text-black");
 });
 $("#ink-red").on("click", () => {
-  setInk("ink-red");
+  setInk("text-red");
 });
 $("#ink-blue").on("click", () => {
-  setInk("ink-blue");
+  setInk("text-blue");
 });
 $("#ink-green").on("click", () => {
-  setInk("ink-green");
+  setInk("text-green");
 });
 
 // connect video
@@ -1035,6 +1035,6 @@ function closePalette() {
 
 function setInk(classname) {
   const cc = classname;
-  $("#palette-icon").removeClass("*");
+  $("#palette-icon").removeClass();
   $("#palette-icon").addClass(cc);
 }
