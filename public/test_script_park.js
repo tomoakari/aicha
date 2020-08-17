@@ -384,6 +384,20 @@ $(window).on("beforeunload", () => {
   sendLeaveRoom();
 });
 
+$("#colorselectbutton").on("click", () => {
+  togglePalette();
+});
+
+function togglePalette() {
+  if ($("#colorselectbutton").hasClass("fab-disable")) {
+    closePalette();
+    $("#colorselectbutton").removeClass("fab-disable");
+  } else {
+    openPalette();
+    $("#colorselectbutton").addClass("fab-disable");
+  }
+}
+
 // connect video
 function connectVideo() {
   var videoParam = {
@@ -993,3 +1007,7 @@ function setSendTime(timeInt) {
   // 配列の末尾に時間を格納
   sendTimeArr.push(timeInt);
 }
+
+function openPalette() {}
+
+function closePalette() {}
