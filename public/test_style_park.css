@@ -463,6 +463,9 @@ div#main,
 .ml60 {
   margin-left: 60px;
 }
+.ml30 {
+  margin-left: 30px;
+}
 .ink-black {
   background: radial-gradient(#dcdcdc, #393939);
 }
