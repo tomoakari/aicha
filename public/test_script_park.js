@@ -400,6 +400,19 @@ function togglePalette() {
   }
 }
 
+$("#ink-black").on("click", () => {
+  setInk("ink-black");
+});
+$("#ink-red").on("click", () => {
+  setInk("ink-red");
+});
+$("#ink-blue").on("click", () => {
+  setInk("ink-blue");
+});
+$("#ink-green").on("click", () => {
+  setInk("ink-green");
+});
+
 // connect video
 function connectVideo() {
   var videoParam = {
@@ -1018,4 +1031,10 @@ function openPalette() {
 function closePalette() {
   $("#mini-balloon").addClass("hidden");
   $("#palette-balloon").addClass("hidden");
+}
+
+function setInk(classname) {
+  const cc = classname;
+
+  $("#colorselectbutton").addClass(cc);
 }
