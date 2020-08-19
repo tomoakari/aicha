@@ -29,6 +29,7 @@
       </div>
     </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
       // 簡易入力チェック
       function checkParams(form) {
@@ -40,6 +41,11 @@
           alert("名前には「-」を使用できません。");
           return false;
         } else {
+          Swal.fire(
+            "Welcome to Aicha!!",
+            "aichaを使用するときは以下のことにご注意ください。",
+            "success"
+          );
           return true;
         }
       }
