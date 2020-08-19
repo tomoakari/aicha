@@ -41,26 +41,29 @@
           alert("名前には「-」を使用できません。");
           return false;
         } else {
-          Swal.fire({
-            title: "Welcome to Aicha!",
-            icon: "success",
-            html:
-              "Aichaはブラウザの機能を使ってビデオチャットができます。<br/>" +
-              "使えるブラウザ" +
-              "<ul><li>PC…Chrome、safari</li><li>Android…だいたいOK（Chrome推奨）</li></ul>" +
-              "使えないブラウザ" +
-              "<ul><li>PC…Edge、InternetExplorer</li><li>iOS…使えません</li></ul>" +
-              "Roomに入ったら、『カメラとマイクへのアクセス』を「許可」にしてください。",
-            showCloseButton: true,
-            showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText: '<i class="fa fa-thumbs-up"></i> ばっちり!!',
-            confirmButtonAriaLabel: "Thumbs up, OK!!",
-            cancelButtonText: "入り直す",
-            cancelButtonAriaLabel: "Thumbs down",
-          });
+          return true;
         }
       }
+      window.onload = function () {
+        Swal.fire({
+          title: "Welcome to Aicha!",
+          icon: "success",
+          html:
+            "Aichaはブラウザの機能を使ってビデオチャットができます。<br/>" +
+            "使えるブラウザ" +
+            "<ul><li>PC…Chrome、safari</li><li>Android…だいたいOK（Chrome推奨）</li></ul>" +
+            "使えないブラウザ" +
+            "<ul><li>PC…Edge、InternetExplorer</li><li>iOS…使えません</li></ul>" +
+            "Roomに入ったら、『カメラとマイクへのアクセス』を「許可」にしてください。",
+          showCloseButton: true,
+          showCancelButton: true,
+          focusConfirm: false,
+          confirmButtonText: '<i class="fa fa-thumbs-up"></i> ばっちり!!',
+          confirmButtonAriaLabel: "Thumbs up, OK!!",
+          cancelButtonText: "入り直す",
+          cancelButtonAriaLabel: "Thumbs down",
+        });
+      };
     </script>
   </body>
 </html>
