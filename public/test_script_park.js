@@ -1042,5 +1042,5 @@ function closePalette() {
 
 function setInk(classname) {
   $("#palette-icon").removeClass().addClass(classname);
-  $("#chat_color").val(classname);
+  $("#chat_color").val("classname");
 }
