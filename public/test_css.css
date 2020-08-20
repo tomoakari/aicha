@@ -158,3 +158,6 @@ body {
 .swal2-html-container ul li {
   text-align: left;
 }
+.swal2-html-container {
+  font-size: inherit;
+}
