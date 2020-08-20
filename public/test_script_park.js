@@ -554,6 +554,29 @@ function sendChat() {
   return false;
 }
 
+function sendChat2() {
+  if ($("#input_msg").val().length == 0) {
+    toastr.error("文字を入力してください");
+  } else {
+    if (checkSendRestrict()) {
+      var content = {
+        user_id: "wakaran",
+        user_name: $("#user_name").val(),
+        message: $("#input_msg").val(),
+        chat_color: $("#chat_color").attr("class"),
+      };
+      socket.emit("chat", JSON.stringify(content));
+      chatVue.addContent2(content);
+      $("#input_msg").val("");
+    } else {
+      toastr.error(
+        "連続投稿は禁止されています。しばらくしてからお試しください。"
+      );
+    }
+  }
+  return false;
+}
+
 function sendBeing() {
   var message = $("#user_name").val() + "---" + socket.id;
   socket.emit("being", message);
