@@ -46,22 +46,24 @@
       }
       window.onload = function () {
         Swal.fire({
-          title: "※メンテナンス中です　",
+          title: "あいちゃへようこそ！",
           html:
-            "Sorry, you can not use now... m(_ _;)m<br/>" +
-            "Aichaはブラウザの機能を使ってのんびりビデオチャットができるページです。<br/>" +
-            "<h3>使えるブラウザ</h3>" +
-            "<ul><li>PC…Chrome、safari</li><li>Android…だいたいOK（Chrome推奨）</li></ul>" +
-            "<h3>使えないブラウザ</h3>" +
-            "<ul><li>PC…Edge、InternetExplorer</li><li>iOS…使えません</li></ul>" +
-            "ルームページで<strong>『カメラとマイクへのアクセス』を「許可」</strong>にしてください。",
+            "あいちゃはインターネットを通じて新しい仲間に出会ったり、同じ趣味の人と楽しく交流できる空間です。<br/>" +
+            "《最新情報》" +
+            "随時機能アップデート中！" +
+            "<h3>【推奨環境】</h3>" +
+            "<ul><li>PC・Mac … Google Chrome、Safari</li><li>Google Chrome</li></ul>" +
+            "その他は不安定になることがあります。" +
+            "<h3>【非対応】</h3>" +
+            "<ul><li>iOS(iPhone、iPad等)</li></ul>" +
+            "<p>※使用前の注意</p>" +
+            "音声、映像機能を利用するには、ログイン後に表示される<strong>『カメラとマイクへのアクセス』</strong>『Javascript』を<strong>許可</strong>してください。" +
+            "音声、映像が使えない場合は、各ブラウザの設定より再設定してください。",
           showCloseButton: false,
-          showCancelButton: true,
+          showCancelButton: false,
           focusConfirm: false,
-          confirmButtonText: '<i class="fa fa-thumbs-up"></i> ばっちり!!',
+          confirmButtonText: '<i class="fa fa-thumbs-up"></i>確認しました',
           confirmButtonAriaLabel: "Thumbs up, OK!!",
-          cancelButtonText: "入り直す",
-          cancelButtonAriaLabel: "Thumbs down",
           reverseButtons: true,
           allowOutsideClick: false,
         });
