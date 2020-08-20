@@ -145,8 +145,7 @@ var chatVue = new Vue({
       // 混乱するので今の時点では編集してしまうことにしました。
       alert("start addContent2()");
       alert("content: " + content);
-      var data = JSON.parse(d);
-      alert(d);
+      var data = JSON.parse(content);
       const text =
         "<span class=" +
         data.chat_color +
