@@ -950,7 +950,8 @@ window.onload = function () {
   socket.emit("chat", text);
 
   var systemmesage =
-    "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
+    //"ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
+    "※メンテナンス中です";
   chatVue.addContent(systemmesage);
 
   setInterval(function () {
