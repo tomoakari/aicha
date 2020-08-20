@@ -402,15 +402,19 @@ function togglePalette() {
 
 $("#ink-black").on("click", () => {
   setInk("text-black");
+  togglePalette();
 });
 $("#ink-red").on("click", () => {
   setInk("text-red");
+  togglePalette();
 });
 $("#ink-blue").on("click", () => {
   setInk("text-blue");
+  togglePalette();
 });
 $("#ink-green").on("click", () => {
   setInk("text-green");
+  togglePalette();
 });
 
 // connect video
