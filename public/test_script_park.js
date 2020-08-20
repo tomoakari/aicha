@@ -566,7 +566,7 @@ function sendChat2() {
         chat_color: $("#chat_color").attr("class"),
       };
       socket.emit("chat", JSON.stringify(content));
-      chatVue.addContent2(content);
+      chatVue.addContent2(JSON.stringify(content));
       $("#input_msg").val("");
     } else {
       toastr.error(
