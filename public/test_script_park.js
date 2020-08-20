@@ -951,7 +951,7 @@ window.onload = function () {
 
   var systemmesage =
     //"ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
-    "※メンテナンス中です";
+    "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
   chatVue.addContent(systemmesage);
 
   setInterval(function () {
