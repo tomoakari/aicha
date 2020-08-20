@@ -143,6 +143,8 @@ var chatVue = new Vue({
     addContent2: function (content) {
       // できればdataとconputedViewは分けたいところだけど、
       // 混乱するので今の時点では編集してしまうことにしました。
+      alert("start addContent2()");
+      alert("content: " + content);
       var data = JSON.parse(d);
       alert(d);
       const text =
