@@ -101,12 +101,6 @@ var chatVue = new Vue({
         // text: "ルームに参加しました。左下のカメラボタンでスタートしてください。"
       },
     ],
-    chatContents: [
-      {
-        // id: 1,
-        // text: "ルームに参加しました。左下のカメラボタンでスタートしてください。"
-      },
-    ],
   },
 
   computed: {
@@ -150,6 +144,7 @@ var chatVue = new Vue({
       // できればdataとconputedViewは分けたいところだけど、
       // 混乱するので今の時点では編集してしまうことにしました。
       var data = JSON.parse(d);
+      alert(d);
       const text =
         "<span class=" +
         data.chat_color +
@@ -158,7 +153,7 @@ var chatVue = new Vue({
         " : " +
         data.message +
         "</span>";
-
+      alert(text);
       var date = new Date();
       var a = date.getTime();
       var nowtime = Math.floor(a / 1000);
