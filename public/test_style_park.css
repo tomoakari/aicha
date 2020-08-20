@@ -95,7 +95,7 @@ div.chatarea {
   width: 100%;
   overflow: auto;
   padding: 5px;
-  height: calc(100vh - 220px);
+  height: calc(100vh - 240px);
 }
 
 .flex {
@@ -152,6 +152,7 @@ video {
 
 .optionalvideo {
   /*margin-bottom: 57px;*/
+  margin-right: 4px;
 }
 /*
 .dummyvideo {
@@ -165,7 +166,7 @@ video {
 */
 
 .membername {
-  font-size: 1px;
+  font-size: 14px;
   color: #696969;
   text-align: center;
   padding: 0px;
@@ -284,7 +285,7 @@ form {
 */
 
 table.flametable {
-  margin-top: 140px;
+  margin-top: 144px;
   margin-bottom: 0px;
   position: relative;
   z-index: 500;
