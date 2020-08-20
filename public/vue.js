@@ -143,24 +143,16 @@ var chatVue = new Vue({
     addContent2: function (content) {
       // できればdataとconputedViewは分けたいところだけど、
       // 混乱するので今の時点では編集してしまうことにしました。
-      alert("start addContent2()");
-      alert("content: " + content);
+
       var data = JSON.parse(content);
-      const text =
-        "<span class=" +
-        data.chat_color +
-        ">" +
-        data.user_name +
-        " : " +
-        data.message +
-        "</span>";
-      alert(text);
+      const text = data.user_name + " : " + data.message;
       var date = new Date();
       var a = date.getTime();
       var nowtime = Math.floor(a / 1000);
       var newMessage = {
         id: nowtime,
         text: text,
+        chat_color: data.chat_color,
       };
       this.contents.push(newMessage);
       // this.scrollBottom();
