@@ -31,7 +31,7 @@ var express = require("express");
 var app = express();
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
-var port = process.env.PORT || 8443;
+var port = process.env.PORT || 8444; //aiceは8443
 
 /*
 // エクスプレスサーバ・ソケットサーバの基本設定
@@ -58,10 +58,10 @@ const crypto = require("crypto");
  */
 
 // あいちゃ
-app.get("/aicha", (request, response) => {
+app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/test_index.html");
 });
-app.post("/aicha", (request, response) => {
+app.post("/", (request, response) => {
   var table_id = crypto
     .createHash("md5")
     .update(request.body.table_name)
@@ -75,61 +75,6 @@ app.post("/aicha", (request, response) => {
   };
   // レンダリングを行う
   response.render("./test_room.ejs", data);
-});
-
-// mtgトップ
-app.get("/", (request, response) => {
-  const testmode = 0; // 0:通常モード、 1:テストモード
-
-  if (testmode == 1) {
-    var data = {
-      user_name: "name",
-      table_id: "table_id",
-      table_name: "table_name",
-    };
-    response.render("./table.ejs", data);
-  } else if (testmode == 2) {
-    var data = {
-      user_name: "name",
-      table_id: "table_id",
-      table_name: "table_name",
-    };
-    response.render("./room.ejs", data);
-  } else if (testmode == 0) {
-    response.sendFile(__dirname + "/views/index.html");
-  }
-});
-
-// パークアクセス時にAichaにリダイレクトする
-app.get("/chat", (request, response) => {
-  response.redirect("/aicha");
-});
-
-// AIFORUS用トップ
-app.get("/aiforus", (request, response) => {
-  response.sendFile(__dirname + "/views/index_aiforus.html");
-});
-
-// デモ用トップ
-app.get("/demo", (request, response) => {
-  response.sendFile(__dirname + "/views/index_demo.html");
-});
-
-// mtg部屋
-app.post("/", (request, response) => {
-  var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
-
-  var data = {
-    user_name: request.body.user_name,
-    table_id: table_id,
-    table_name: request.body.table_name,
-  };
-  // レンダリングを行う
-  // response.render("./table.ejs", data); //旧バージョン
-  response.render("./room_mtg.ejs", data);
 });
 
 // ファイル置き場
