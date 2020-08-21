@@ -21,8 +21,8 @@ https.createServer(options, function (req,res) {
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
-var ssl_server_key = "/etc/letsencrypt/live/www.aice.cloud/privkey.pem";
-var ssl_server_crt = "/etc/letsencrypt/live/www.aice.cloud/fullchain.pem";
+var ssl_server_key = "/etc/letsencrypt/live/aicha.aice.cloud/privkey.pem";
+var ssl_server_crt = "/etc/letsencrypt/live/aicha.aice.cloud/fullchain.pem";
 var options = {
   key: fs.readFileSync(ssl_server_key),
   cert: fs.readFileSync(ssl_server_crt),
