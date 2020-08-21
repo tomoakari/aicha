@@ -42,6 +42,7 @@ var io = require("socket.io")(server);
 var port = process.env.PORT || 3000;
 */
 
+app.set("views", __dirname + "views");
 // テンプレートエンジン
 app.set("view engine", "ejs");
 
