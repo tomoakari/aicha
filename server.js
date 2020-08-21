@@ -74,8 +74,7 @@ app.post("/", (request, response) => {
     table_name: request.body.table_name,
   };
   // レンダリングを行う
-  // response.render("./test_room.ejs", data);
-  response.render("test_room.ejs", data);
+  response.render("./test_room.ejs", data);
 });
 
 // ファイル置き場
