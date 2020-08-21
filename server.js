@@ -18,15 +18,14 @@ https.createServer(options, function (req,res) {
 }).listen(sslport);
 */
 
-
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
-var fs = require('fs');
-var ssl_server_key = '/etc/letsencrypt/live/www.aice.cloud/privkey.pem';
-var ssl_server_crt = '/etc/letsencrypt/live/www.aice.cloud/fullchain.pem';
+var fs = require("fs");
+var ssl_server_key = "/etc/letsencrypt/live/www.aice.cloud/privkey.pem";
+var ssl_server_crt = "/etc/letsencrypt/live/www.aice.cloud/fullchain.pem";
 var options = {
   key: fs.readFileSync(ssl_server_key),
-  cert: fs.readFileSync(ssl_server_crt)
+  cert: fs.readFileSync(ssl_server_crt),
 };
 var express = require("express");
 var app = express();
@@ -58,11 +57,11 @@ const crypto = require("crypto");
  * ルーティング
  */
 
- // テスト
-app.get("/test", (request, response) => {
-  response.sendFile(__dirname + "/views/test_index.html");  
+// あいちゃ
+app.get("/aicha", (request, response) => {
+  response.sendFile(__dirname + "/views/test_index.html");
 });
-app.post("/test", (request, response) => {
+app.post("/aicha", (request, response) => {
   var table_id = crypto
     .createHash("md5")
     .update(request.body.table_name)
@@ -72,63 +71,48 @@ app.post("/test", (request, response) => {
     roomlist: getRoomList(),
     user_name: request.body.user_name,
     table_id: table_id,
-    table_name: request.body.table_name
+    table_name: request.body.table_name,
   };
   // レンダリングを行う
   response.render("./test_room.ejs", data);
 });
 
-
 // mtgトップ
 app.get("/", (request, response) => {
-  
   const testmode = 0; // 0:通常モード、 1:テストモード
-  
-  if(testmode==1){
+
+  if (testmode == 1) {
     var data = {
-        user_name: 'name',
-        table_id: 'table_id',
-        table_name: 'table_name'
+      user_name: "name",
+      table_id: "table_id",
+      table_name: "table_name",
     };
-    response.render("./table.ejs", data);  
-  }else if(testmode==2){
+    response.render("./table.ejs", data);
+  } else if (testmode == 2) {
     var data = {
-        user_name: 'name',
-        table_id: 'table_id',
-        table_name: 'table_name'
+      user_name: "name",
+      table_id: "table_id",
+      table_name: "table_name",
     };
-    response.render("./room.ejs", data);  
-  }else if(testmode==0){
-    response.sendFile(__dirname + "/views/index.html");  
+    response.render("./room.ejs", data);
+  } else if (testmode == 0) {
+    response.sendFile(__dirname + "/views/index.html");
   }
-  
 });
 
-// パークトップ
-app.get("/aicha", (request, response) => {
-  
-  const testmode = 1; // 0:通常モード、 1:テストモード
-  
-  if(testmode==1){
-    const data = getRoomList2();
-    response.render("./index_park.ejs", data);    
-  }else{
-    response.sendFile(__dirname + "/views/index_park.html");  
-  }
-});
 // パークアクセス時にAichaにリダイレクトする
 app.get("/chat", (request, response) => {
-  response.redirect('/aicha');
+  response.redirect("/aicha");
 });
 
 // AIFORUS用トップ
 app.get("/aiforus", (request, response) => {
-    response.sendFile(__dirname + "/views/index_aiforus.html");  
+  response.sendFile(__dirname + "/views/index_aiforus.html");
 });
 
 // デモ用トップ
 app.get("/demo", (request, response) => {
-  response.sendFile(__dirname + "/views/index_demo.html");  
+  response.sendFile(__dirname + "/views/index_demo.html");
 });
 
 // mtg部屋
@@ -141,42 +125,25 @@ app.post("/", (request, response) => {
   var data = {
     user_name: request.body.user_name,
     table_id: table_id,
-    table_name: request.body.table_name
+    table_name: request.body.table_name,
   };
   // レンダリングを行う
   // response.render("./table.ejs", data); //旧バージョン
   response.render("./room_mtg.ejs", data);
 });
 
-// パーク部屋
-app.post("/aicha", (request, response) => {
-  var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
-
-  var data = {
-    roomlist: getRoomList(),
-    user_name: request.body.user_name,
-    table_id: table_id,
-    table_name: request.body.table_name
-  };
-  // レンダリングを行う
-  response.render("./room_park.ejs", data);
-});
-
 // ファイル置き場
 app.use(express.static("public"));
 
 // リッスン開始
-server.listen(port, function() {
+server.listen(port, function () {
   console.log("Server listening at port %d", port);
 });
 
 // ソケットの設定
-io.on("connection", function(socket) {
+io.on("connection", function (socket) {
   // ---- multi room ----
-  socket.on("enter", function(roomname) {
+  socket.on("enter", function (roomname) {
     socket.join(roomname);
     console.log("id=" + socket.id + " enter room=" + roomname);
     setRoomname(roomname);
@@ -206,7 +173,7 @@ io.on("connection", function(socket) {
 
   // When a user send a SDP message
   // broadcast to all users in the room
-  socket.on("message", function(message) {
+  socket.on("message", function (message) {
     var date = new Date();
     message.from = socket.id;
     //console.log(date + 'id=' + socket.id + ' Received Message: ' + JSON.stringify(message));
@@ -225,7 +192,7 @@ io.on("connection", function(socket) {
 
   // When the user hangs up
   // broadcast bye signal to all users in the room
-  socket.on("disconnect", function() {
+  socket.on("disconnect", function () {
     // close user connection
     console.log(new Date() + " Peer disconnected. id=" + socket.id);
 
@@ -240,7 +207,7 @@ io.on("connection", function(socket) {
   });
 
   // チャットメッセージの配信
-  socket.on("chat", function(message) {
+  socket.on("chat", function (message) {
     console.log(" chat send. socket.id= " + socket.id + "message= " + message);
     message.from = socket.id;
 
@@ -249,7 +216,7 @@ io.on("connection", function(socket) {
   });
 
   // ログインメッセージの配信
-  socket.on("alert", function(message) {
+  socket.on("alert", function (message) {
     message.from = socket.id;
 
     // broadcast in room
@@ -257,81 +224,93 @@ io.on("connection", function(socket) {
   });
 
   // PINGの配信
-  socket.on("being", function(message) {
+  socket.on("being", function (message) {
     //message.from = socket.id;
     console.log("being received. " + message);
     emitMessage("being", message);
   });
 
   // マイク使用シグナルの配信
-  socket.on("talkSignal", function(message) {
+  socket.on("talkSignal", function (message) {
     emitMessage("talkSignal", message);
   });
   // マイクリリースシグナルの配信
-  socket.on("releaseSignal", function(message) {
+  socket.on("releaseSignal", function (message) {
     emitMessage("releaseSignal", message);
   });
 
   // 退出シグナルの配信
-  socket.on("leaveSignal", function(message) {
+  socket.on("leaveSignal", function (message) {
     emitMessage("leaveSignal", message);
   });
-  
 });
 
 // DBから部屋リストを取得
-function getRoomList(){
+function getRoomList() {
   var data = [
     {
-      "roomname": "ロビー",
-      "membercount":""
-    },{
-      "roomname": "IT",
-      "membercount":""
-    },{
-      "roomname": "政治",
-      "membercount":""
-    },{
-      "roomname": "音楽",
-      "membercount":""
-    },{
-      "roomname": "アニメ",
-      "membercount":""
-    },{
-      "roomname": "旅行",
-      "membercount":""
-    },{
-      "roomname": "出会い",
-      "membercount":""
-    }];
+      roomname: "ロビー",
+      membercount: "",
+    },
+    {
+      roomname: "IT",
+      membercount: "",
+    },
+    {
+      roomname: "政治",
+      membercount: "",
+    },
+    {
+      roomname: "音楽",
+      membercount: "",
+    },
+    {
+      roomname: "アニメ",
+      membercount: "",
+    },
+    {
+      roomname: "旅行",
+      membercount: "",
+    },
+    {
+      roomname: "出会い",
+      membercount: "",
+    },
+  ];
   return data;
-}// DBから部屋リストを取得
-function getRoomList2(){
+} // DBから部屋リストを取得
+function getRoomList2() {
   var data = {
-    "roomlist":[{
-      "roomname": "ロビー",
-      "membercount":""
-    },{
-      "roomname": "IT",
-      "membercount":""
-    },{
-      "roomname": "政治",
-      "membercount":""
-    },{
-      "roomname": "音楽",
-      "membercount":""
-    },{
-      "roomname": "アニメ",
-      "membercount":""
-    },{
-      "roomname": "旅行",
-      "membercount":""
-    },{
-      "roomname": "出会い",
-      "membercount":""
-    }]
+    roomlist: [
+      {
+        roomname: "ロビー",
+        membercount: "",
+      },
+      {
+        roomname: "IT",
+        membercount: "",
+      },
+      {
+        roomname: "政治",
+        membercount: "",
+      },
+      {
+        roomname: "音楽",
+        membercount: "",
+      },
+      {
+        roomname: "アニメ",
+        membercount: "",
+      },
+      {
+        roomname: "旅行",
+        membercount: "",
+      },
+      {
+        roomname: "出会い",
+        membercount: "",
+      },
+    ],
   };
   return data;
 }
-
-
