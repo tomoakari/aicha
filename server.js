@@ -43,6 +43,8 @@ var port = process.env.PORT || 3000;
 */
 
 app.set("views", __dirname + "/views");
+app.set("public", __dirname + "/public");
+
 // テンプレートエンジン
 app.set("view engine", "ejs");
 
