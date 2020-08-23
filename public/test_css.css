@@ -170,4 +170,7 @@ body {
 }
 .popupnuws {
   background: #f5f5f5;
+  padding: 1px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
