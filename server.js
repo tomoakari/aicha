@@ -82,8 +82,9 @@ app.post("/", (request, response) => {
 });
 
 // ファイル置き場
-app.use("/public", express.static("public"));
 //app.use(express.static("public"));
+//app.use("/public", express.static("public"));
+app.use("/public", express.static(__dirname + "/public"));
 
 // リッスン開始
 server.listen(port, function () {
