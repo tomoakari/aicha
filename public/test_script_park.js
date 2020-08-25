@@ -358,7 +358,7 @@ $("#removebutton").on("click", () => {
   $("#alert_se").get(0).play();
   window.setTimeout(function () {
     window.location.href = "/";
-  }, 6);
+  }, 6000);
 });
 
 $("#startbutton").on("click", () => {
