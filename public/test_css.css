@@ -175,6 +175,11 @@ body {
   margin-bottom: 20px;
 }
 
+.title a,
+.kiyakulink a {
+  color: #ffffff;
+}
+
 .kiyakulink {
   width: 260px;
   text-align: center;
