@@ -174,3 +174,8 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.kiyakulink {
+  width: 260px;
+  text-align: center;
+}
