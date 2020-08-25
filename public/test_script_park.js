@@ -348,6 +348,19 @@ function addBlankVideoElement() {
 /**
  * イベントリスナ
  */
+$("#removebutton").on("click", () => {
+  stopVideo();
+  sendLeaveUser();
+  stopVoice();
+  sendLeaveRoom();
+  hangUp();
+  toastr.info("退室して、安全にあいちゃの接続を切りました。");
+  $("#alert_se").get(0).play();
+  window.setTimeout(function () {
+    window.location.href = "/";
+  }, 6);
+});
+
 $("#startbutton").on("click", () => {
   startVideo();
 });
