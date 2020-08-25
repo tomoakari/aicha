@@ -349,16 +349,7 @@ function addBlankVideoElement() {
  * イベントリスナ
  */
 $("#removebutton").on("click", () => {
-  stopVideo();
-  sendLeaveUser();
-  stopVoice();
-  sendLeaveRoom();
-  hangUp();
-  toastr.info("退室して、安全にあいちゃの接続を切りました。");
-  $("#alert_se").get(0).play();
-  window.setTimeout(function () {
-    window.location.href = "/";
-  }, 6000);
+  removeaicha();
 });
 
 $("#startbutton").on("click", () => {
@@ -1084,4 +1075,37 @@ function closePalette() {
 function setInk(classname) {
   $("#chat_color").removeClass().addClass(classname);
   $("#palette-icon").removeClass().addClass(classname);
+}
+
+/**
+ * 退室処理
+ */
+function removeaicha() {
+  Swal.fire({
+    title: "退室してよろしいですか？",
+    icon: "warning",
+    html: "完全にログアウトして、ログイン画面に戻ります。",
+    showCloseButton: false,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: "はい",
+    confirmButtonAriaLabel: "OK",
+    cancelButtonText: "いいえ",
+    cancelButtonAriaLabel: "No",
+    reverseButtons: true,
+    allowOutsideClick: true,
+  }).then((result) => {
+    if (result.value) {
+      stopVideo();
+      sendLeaveUser();
+      stopVoice();
+      sendLeaveRoom();
+      hangUp();
+      toastr.info("退室して、安全にあいちゃの接続を切りました。");
+      $("#alert_se").get(0).play();
+      window.setTimeout(function () {
+        window.location.href = "/";
+      }, 6000);
+    }
+  });
 }
