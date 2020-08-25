@@ -2192,7 +2192,10 @@ button,
 /* Footer */
 #footer .copyright {
   color: #9fa3a6;
-  font-size: 0.9em; }
+  font-size: 0.9em; 
+  margin: 0px;
+  border-top: solid #aaaaaa 1px;
+  padding-top: 10px;}
   #footer .copyright a {
     color: inherit; }
 
