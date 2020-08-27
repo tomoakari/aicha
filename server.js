@@ -1,25 +1,6 @@
-/*
-var https = require('https');
-var fs = require('fs');
-var ssl_server_key = '/etc/letsencrypt/live/www.aice.cloud/privkey.pem';
-var ssl_server_crt = '/etc/letsencrypt/live/www.aice.cloud/fullchain.pem';
-var sslport = 8443;
-
-var options = {
-        key: fs.readFileSync(ssl_server_key),
-        cert: fs.readFileSync(ssl_server_crt)
-};
-
-https.createServer(options, function (req,res) {
-        res.writeHead(200, {
-                'Content-Type': 'text/plain'
-        });
-        res.end("Hello, world\n");
-}).listen(sslport);
-*/
-
-// SSL版・エクスプレスサーバ・ソケットサーバの基本設定
-// SSL準備
+/**
+ * SSL基本設定
+ */
 var fs = require("fs");
 var ssl_server_key = "/etc/letsencrypt/live/aicha.aice.cloud/privkey.pem";
 var ssl_server_crt = "/etc/letsencrypt/live/aicha.aice.cloud/fullchain.pem";
@@ -27,20 +8,15 @@ var options = {
   key: fs.readFileSync(ssl_server_key),
   cert: fs.readFileSync(ssl_server_crt),
 };
+
+/**
+ * Expressサーバの基本設定
+ */
 var express = require("express");
 var app = express();
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
 var port = process.env.PORT || 8444; //aiceは8443
-
-/*
-// エクスプレスサーバ・ソケットサーバの基本設定
-var express = require("express");
-var app = express();
-var server = require("http").createServer(app);
-var io = require("socket.io")(server);
-var port = process.env.PORT || 3000;
-*/
 
 app.set("views", __dirname + "/views");
 app.set("public", __dirname + "/public");
@@ -76,15 +52,10 @@ app.post("/", (request, response) => {
     table_id: table_id,
     table_name: request.body.table_name,
   };
-  // レンダリングを行う
-  // response.render("./test_room.ejs", data);
   response.render("test_room.ejs", data);
 });
 
 // ファイル置き場
-//app.use(express.static("public"));
-//app.use("/public", express.static("public"));
-//app.use("/public", express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/public"));
 
 // リッスン開始
@@ -92,7 +63,9 @@ server.listen(port, function () {
   console.log("Server listening at port %d", port);
 });
 
-// ソケットの設定
+/**
+ * ソケットの設定
+ */
 io.on("connection", function (socket) {
   // ---- multi room ----
   socket.on("enter", function (roomname) {
