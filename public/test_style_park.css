@@ -341,8 +341,8 @@ div#main,
 }
 
 .nowtalking {
-  text-shadow: turquoise 1px 1px 15px, turquoise -1px 1px 15px,
-    turquoise 1px -1px 15px, royalblue -1px -1px 15px;
+  text-shadow: #ff69b4 1px 1px 15px, #ff69b4 -1px 1px 15px,
+    #ff69b4 1px -1px 15px, #c71585 -1px -1px 15px;
 }
 
 .unavailable {
