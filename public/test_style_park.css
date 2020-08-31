@@ -395,7 +395,7 @@ div#main,
 
 .fab-disable {
   /* background: linear-gradient(#dc143c, #ff69b4); */
-  animation: flashing 3s infinite;
+  animation: flashing 1s infinite;
 }
 @keyframes flashing {
   0% {
