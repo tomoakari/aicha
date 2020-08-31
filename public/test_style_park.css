@@ -394,18 +394,18 @@ div#main,
 }
 
 .fab-disable {
-  /* background: linear-gradient(#dc143c, #ff69b4); */
-  animation: flashing 1s infinite;
+  background: linear-gradient(#dc143c, #ff69b4);
+  animation: flashing 2s infinite;
 }
 @keyframes flashing {
   0% {
-    background: #660000;
+    box-shadow: 0 0px 0px 0 #ff69b4;
   }
   50% {
-    background: #dc143c;
+    box-shadow: 0 0px 10px 0 #ff69b4;
   }
   100% {
-    background: #660000;
+    box-shadow: 0 0px 0px 0 #ff69b4;
   }
 }
 
