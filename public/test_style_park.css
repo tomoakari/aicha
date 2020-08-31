@@ -390,7 +390,7 @@ div#main,
 }
 
 .fab-green {
-  background: linear-gradient(#3cb371, #adff2f);
+  background: linear-gradient(#1e90ff, #40e0d0);
 }
 
 .fab-disable {
@@ -399,13 +399,13 @@ div#main,
 }
 @keyframes flashing {
   0% {
-    background: #dc143c;
+    background: #660000;
   }
   50% {
-    background: #ffc0cb;
+    background: #dc143c;
   }
   100% {
-    background: #dc143c;
+    background: #660000;
   }
 }
 
