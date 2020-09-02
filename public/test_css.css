@@ -1,9 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100, 200, 400);
-@import url(
-  https://fonts.googleapis.com/css?family=Source + Sans + Pro:700,
+@import url(https://fonts.googleapis.com/css?family=Source + Sans + Pro:700,
   400,
-  300
-);
+  300);
 body {
   margin: 0;
   padding: 0;
@@ -165,6 +163,7 @@ body {
 
 .pertationline {
   border-bottom: #696969 1px solid;
+  margin: 20px 0px;
 }
 .popupnuws ul li {
   font-size: 14px;
