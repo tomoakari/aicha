@@ -257,7 +257,7 @@ function getRoomList2() {
  */
 const DB_NAME = "aicha";
 const USER_NAME = "aichauser";
-const PASSWORD = "aichauser";
+const PASSWORD = "Aicha_user2020";
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(DB_NAME, USER_NAME, PASSWORD, {
   dialect: "mysql",
