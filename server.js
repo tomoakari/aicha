@@ -333,7 +333,7 @@ const RoomModel = sequelize.define(
     tableName: "rooms", //明示的にテーブル名を指定
   }
 );
-
+/*
 exports.find = async function (whereData) {
   return await UserModel.findAll({
     where: whereData,
@@ -352,5 +352,27 @@ exports.update = async function (updateData, whereCondition, updateFields) {
 };
 
 exports.create = async function (userData) {
+  return await UserModel.create(userData);
+};
+*/
+
+find = async function (whereData) {
+  return await UserModel.findAll({
+    where: whereData,
+  });
+};
+
+get = async function (userId) {
+  return await UserModel.findByPk(userId);
+};
+
+update = async function (updateData, whereCondition, updateFields) {
+  return await UserModel.update(updateData, {
+    where: whereCondition,
+    fields: updateFields,
+  });
+};
+
+create = async function (userData) {
   return await UserModel.create(userData);
 };
