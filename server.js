@@ -168,6 +168,14 @@ io.on("connection", function (socket) {
   socket.on("leaveSignal", function (message) {
     emitMessage("leaveSignal", message);
   });
+
+  // DBアクセステスト
+  socket.on("dbtest", function(){
+    const createData = { name: '神山アリス'} //更新データ
+    const result = await mysqlUser.create(createData)
+  });
+
+
 });
 
 // DBから部屋リストを取得
@@ -239,3 +247,114 @@ function getRoomList2() {
   };
   return data;
 }
+
+/**
+ * ****************************************************************************
+ * DBアクセス
+ * ****************************************************************************
+ */
+
+/**
+ * Sequelizeの定義
+ */
+const DB_NAME = "aicha";
+const USER_NAME = "aichauser";
+const PASSWORD = "aichauser";
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(DB_NAME, USER_NAME, PASSWORD, {
+  dialect: "mysql",
+});
+
+/**
+ * Userモデルクラス
+ * create table user (id int primary key auto_increment, name varchar(32), created_at datetime, updated_at datetime, deleted_at datetime );
+ */
+const UserModel = sequelize.define(
+  "users",
+  {
+    id: {
+      field: "id",
+      type: Sequelize.INTEGER(11),
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      field: "name",
+      type: Sequelize.STRING(32),
+      allowNull: true,
+    },
+    /*
+    mail: {
+      field: 'mail',
+      type: Sequelize.STRING(32),
+      allowNull: true
+    },
+    sex: {
+      field: 'sex',
+      type: Sequelize.INTEGER(11),
+      default: 0
+    },
+    */
+  },
+  {
+    createdAt: true,
+    updatedAt: true,
+    deletedAt: true,
+    tableName: "users", //明示的にテーブル名を指定
+  }
+);
+
+/**
+ * Roomモデルクラス
+ */
+const RoomModel = sequelize.define(
+  "rooms",
+  {
+    id: {
+      field: "id",
+      type: Sequelize.INTEGER(11),
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      field: "name",
+      type: Sequelize.STRING(32),
+      allowNull: true,
+    },
+    hashedName: {
+      field: "hashed_name",
+      type: Sequelize.STRING(32),
+      allowNull: true,
+    },
+  },
+  {
+    timestamps: true,
+    createdAt: true,
+    updatedAt: true,
+    deletedAt: true,
+    tableName: "rooms", //明示的にテーブル名を指定
+  }
+);
+
+exports.find = async function (whereData) {
+  return await UserModel.findAll({
+    where: whereData,
+  });
+};
+
+exports.get = async function (userId) {
+  return await UserModel.findByPk(userId);
+};
+
+exports.update = async function (updateData, whereCondition, updateFields) {
+  return await UserModel.update(updateData, {
+    where: whereCondition,
+    fields: updateFields,
+  });
+};
+
+exports.create = async function (userData) {
+  return await UserModel.create(userData);
+};
+
+

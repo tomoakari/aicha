@@ -1109,3 +1109,8 @@ function removeaicha() {
     }
   });
 }
+
+function sendTest() {
+  socket.emit("dbtest", "");
+  return false;
+}
