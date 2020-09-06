@@ -170,12 +170,10 @@ io.on("connection", function (socket) {
   });
 
   // DBアクセステスト
-  socket.on("dbtest", function(){
-    const createData = { name: '神山アリス'} //更新データ
-    const result = await create(createData)
+  socket.on("dbtest", function () {
+    const createData = { name: "神山アリス" }; //更新データ
+    create(createData);
   });
-
-
 });
 
 // DBから部屋リストを取得
@@ -356,5 +354,3 @@ exports.update = async function (updateData, whereCondition, updateFields) {
 exports.create = async function (userData) {
   return await UserModel.create(userData);
 };
-
-
