@@ -172,7 +172,7 @@ io.on("connection", function (socket) {
   // DBアクセステスト
   socket.on("dbtest", function(){
     const createData = { name: '神山アリス'} //更新データ
-    const result = await mysqlUser.create(createData)
+    const result = await create(createData)
   });
 
 
