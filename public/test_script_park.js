@@ -145,6 +145,7 @@ socket.on("releaseSignal", function (msg) {
 });
 
 socket.on("roomlist", function (msg) {
+  console.log("受信：" + msg);
   roomVue.updateRoomList(msg);
 });
 
@@ -1124,6 +1125,7 @@ function sendTest() {
 }
 
 function sendUpdateRoomlist() {
+  console.log("sendUpdateRoomlist()");
   socket.emit("roomList");
 }
 
