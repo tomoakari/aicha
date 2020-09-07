@@ -995,10 +995,10 @@ function copyToClipboard() {
   alert("コピーできました！ : " + copyTarget.value);
 }
 
-function jumpOtherRoom(value) {
-  alert(value);
+function jumpOtherRoom(e) {
+  alert(e.value);
   const param = {
-    table_name: value,
+    table_name: e.value,
     user_name: $("#user_name").val(),
   };
   execPost("", param);
