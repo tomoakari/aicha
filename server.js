@@ -194,16 +194,15 @@ io.on("connection", function (socket) {
     };
 
     console.log("roomlist___socket.id : " + socket.id);
-    io.to(socket.id).emit("roomList", "io.to(socket.id).emit");
-    socket.to(socket.id).emit("roomList", "socket.to(socket.id).emit");
-    socket.emit("roomList", "socket.emit");
-    /*
+    io.to(socket.id).emit("alert", "io.to(socket.id).emit");
+    socket.to(socket.id).emit("alert", "socket.to(socket.id).emit");
+    socket.emit("alert", "socket.emit");
+
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
-      socket.to(socket.id).emit("roomList", "rooms");
+      socket.to(socket.id).emit("alert", "rooms");
     });
-    */
   });
 
   // ルームの新規登録
