@@ -62,10 +62,9 @@ app.get("/adminroom", (request, response) => {
 });
 app.post("/adminroom", (request, response) => {
   var data = {
-    room_name: request.body.room_name,
-    user_name: request.body.user_name,
-    category_id: request.body.category_id,
+    name: request.body.room_name,
     category_name: request.body.category_name,
+    category_id: request.body.category_id,
     default_flg: request.body.default_flg,
     create_user_id: request.body.create_user_id,
   };
@@ -338,9 +337,10 @@ const UserModel = sequelize.define(
    name varchar(32), 
    hashed_name varchar(32),
    category_name varchar(32),
+   category_id int,
    create_user_id int,
    default_flg int,
-   created_at datetime, updated_at datetime, deleted_at datetime );
+   createdAt datetime, updatedAt datetime, deletedAt datetime );
  */
 const RoomModel = sequelize.define(
   "rooms",
