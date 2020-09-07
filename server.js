@@ -193,8 +193,9 @@ io.on("connection", function (socket) {
       default_flg: 1,
     };
     findRoom(wheredata).then((rooms) => {
-      console.log("検索結果：" + JSON.stringify(rooms));
-      emitMessage("roomList", JSON.stringify(rooms));
+      // emitMessage("roomList", JSON.stringify(rooms));
+      // 送信者に向かって返す
+      socket.to(socket.id).emit("roomList", JSON.stringify(rooms));
     });
   });
 
