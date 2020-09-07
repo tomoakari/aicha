@@ -169,7 +169,7 @@
                 <ul>
                   <li id="updateRoomlist">部屋表示テスト</li>
                   <template v-for="room in roomlist">
-                    <li onclick="jumpOtherRoom(this); return false;" v-bind:value="room.room_name">
+                    <li onclick="jumpOtherRoom(this.value); return false;" v-bind:value="room.room_name">
                       {{ room.room_name }}
                     </li>
                   </template>
