@@ -181,10 +181,10 @@ io.on("connection", function (socket) {
   socket.on("createroom", function (message) {
     var data = JSON.parse(message);
     const hashed_name = crypto
-    .createHash("md5")
-    .update(data.room_name)
-    .digest("hex");
-    const createData = { 
+      .createHash("md5")
+      .update(data.room_name)
+      .digest("hex");
+    const createData = {
       name: data.room_name,
       hashed_name: hashed_name,
       create_user_id: data.user_id,
@@ -209,8 +209,8 @@ io.on("connection", function (socket) {
   socket.on("leaveroom", function (message) {
     var data = JSON.parse(message);
     const whereData = {
-      room_id = data.room_id,
-      user_id: data.user_id
+      room_id: data.room_id,
+      user_id: data.user_id,
     };
     deleteEnroll(whereData);
   });
@@ -251,17 +251,10 @@ function getRoomList() {
   return data;
 } // DBから部屋リストを取得
 function getRoomList2() {
-
-  findRoom(wheredata).
-  then(rooms => {
-    
-  });
-
-
+  findRoom(wheredata).then((rooms) => {});
 
   return data;
 }
-
 
 /**
  * ****************************************************************************
@@ -394,13 +387,12 @@ const EnrollModel = sequelize.define(
   }
 );
 
-RoomModel.associate = function(models) {
-  RoomModel.hasMany(models.EnrollModel, {foreignKey: 'roomId'});
+RoomModel.associate = function (models) {
+  RoomModel.hasMany(models.EnrollModel, { foreignKey: "roomId" });
 };
-UserModel.associate = function(models) {
-  UserModel.hasMany(models.EnrollModel, {foreignKey: 'userId'});
+UserModel.associate = function (models) {
+  UserModel.hasMany(models.EnrollModel, { foreignKey: "userId" });
 };
-
 
 /**
  * Userテーブルへのアクセスメソッド
@@ -466,6 +458,6 @@ createEnroll = async function (roomData) {
 };
 deleteEnroll = async function (whereData) {
   return await EnrollModel.destroy({
-    where: whereData
+    where: whereData,
   });
 };
