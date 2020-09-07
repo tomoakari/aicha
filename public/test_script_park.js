@@ -1125,7 +1125,6 @@ function sendTest() {
 }
 
 function sendUpdateRoomlist() {
-  console.log("sendUpdateRoomlist()");
   socket.emit("roomList");
 }
 
