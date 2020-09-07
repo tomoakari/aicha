@@ -169,10 +169,50 @@ io.on("connection", function (socket) {
     emitMessage("leaveSignal", message);
   });
 
+  /*
   // DBアクセステスト
   socket.on("dbtest", function () {
     const createData = { name: "神山アリス" }; //更新データ
-    create(createData);
+    createUser(createData);
+  });
+  */
+
+  // ルームの新規登録
+  socket.on("createroom", function (message) {
+    var data = JSON.parse(message);
+    const hashed_name = crypto
+    .createHash("md5")
+    .update(data.room_name)
+    .digest("hex");
+    const createData = { 
+      name: data.room_name,
+      hashed_name: hashed_name,
+      create_user_id: data.user_id,
+      category_name: data.category_name,
+      default_flg: 0,
+    };
+    createRoom(createData);
+  });
+
+  // ルームの人数追加
+  // ※動作確認後、「enter」に統合しますたぶん
+  socket.on("joinroom", function (message) {
+    var data = JSON.parse(message);
+    const createData = {
+      room_id: data.room_id,
+      user_name: data.user_name,
+      user_id: data.user_id,
+    };
+    createEnroll(createData);
+  });
+  // ルームの人数削除
+  socket.on("leaveroom", function (message) {
+    var data = JSON.parse(message);
+    const whereData = {
+      room_id = data.room_id,
+      user_id: data.user_id
+    };
+    deleteEnroll(whereData);
   });
 });
 
@@ -211,40 +251,17 @@ function getRoomList() {
   return data;
 } // DBから部屋リストを取得
 function getRoomList2() {
-  var data = {
-    roomlist: [
-      {
-        roomname: "ロビー",
-        membercount: "",
-      },
-      {
-        roomname: "IT",
-        membercount: "",
-      },
-      {
-        roomname: "政治",
-        membercount: "",
-      },
-      {
-        roomname: "音楽",
-        membercount: "",
-      },
-      {
-        roomname: "アニメ",
-        membercount: "",
-      },
-      {
-        roomname: "旅行",
-        membercount: "",
-      },
-      {
-        roomname: "出会い",
-        membercount: "",
-      },
-    ],
-  };
+
+  findRoom(wheredata).
+  then(rooms => {
+    
+  });
+
+
+
   return data;
 }
+
 
 /**
  * ****************************************************************************
@@ -324,55 +341,131 @@ const RoomModel = sequelize.define(
       type: Sequelize.STRING(32),
       allowNull: true,
     },
+    categoryName: {
+      field: "category_name",
+      type: Sequelize.STRING(32),
+      allowNull: true,
+    },
+    createUserId: {
+      field: "create_user_id",
+      type: Sequelize.INTEGER(11),
+      allowNull: true,
+    },
+    defaultFlg: {
+      field: "default_flg",
+      type: Sequelize.INTEGER(11),
+      allowNull: true,
+    },
   },
   {
-    timestamps: true,
     createdAt: true,
     updatedAt: true,
     deletedAt: true,
     tableName: "rooms", //明示的にテーブル名を指定
   }
 );
-/*
-exports.find = async function (whereData) {
+
+/**
+ * Enrollモデルクラス
+ */
+const EnrollModel = sequelize.define(
+  "enrolls",
+  {
+    id: {
+      field: "id",
+      type: Sequelize.INTEGER(11),
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    roomId: {
+      field: "room_id",
+      type: Sequelize.INTEGER(11),
+    },
+    userId: {
+      field: "user_id",
+      type: Sequelize.INTEGER(11),
+    },
+  },
+  {
+    createdAt: true,
+    updatedAt: true,
+    deletedAt: true,
+    tableName: "enrolls", //明示的にテーブル名を指定
+  }
+);
+
+RoomModel.associate = function(models) {
+  RoomModel.hasMany(models.EnrollModel, {foreignKey: 'roomId'});
+};
+UserModel.associate = function(models) {
+  UserModel.hasMany(models.EnrollModel, {foreignKey: 'userId'});
+};
+
+
+/**
+ * Userテーブルへのアクセスメソッド
+ */
+findUser = async function (whereData) {
   return await UserModel.findAll({
     where: whereData,
   });
 };
-
-exports.get = async function (userId) {
+getUser = async function (userId) {
   return await UserModel.findByPk(userId);
 };
-
-exports.update = async function (updateData, whereCondition, updateFields) {
+updateUser = async function (updateData, whereCondition, updateFields) {
   return await UserModel.update(updateData, {
     where: whereCondition,
     fields: updateFields,
   });
 };
-
-exports.create = async function (userData) {
+createUser = async function (userData) {
   return await UserModel.create(userData);
 };
-*/
 
-find = async function (whereData) {
-  return await UserModel.findAll({
+/**
+ * Roomテーブルへのアクセスメソッド
+ */
+findRoom = async function (whereData) {
+  return await RoomModel.findAll({
     where: whereData,
   });
 };
-
-get = async function (userId) {
-  return await UserModel.findByPk(userId);
+getRoom = async function (userId) {
+  return await RoomModel.findByPk(userId);
 };
-
-update = async function (updateData, whereCondition, updateFields) {
-  return await UserModel.update(updateData, {
+updateRoom = async function (updateData, whereCondition, updateFields) {
+  return await RoomModel.update(updateData, {
     where: whereCondition,
     fields: updateFields,
   });
 };
+createRoom = async function (roomData) {
+  return await RoomModel.create(roomData);
+};
 
-create = async function (userData) {
-  return await UserModel.create(userData);
+/**
+ * Enrollテーブルへのアクセスメソッド
+ */
+findEnroll = async function (whereData) {
+  return await EnrollModel.findAll({
+    where: whereData,
+  });
+};
+getEnroll = async function (userId) {
+  return await EnrollModel.findByPk(userId);
+};
+updateEnroll = async function (updateData, whereCondition, updateFields) {
+  return await EnrollModel.update(updateData, {
+    where: whereCondition,
+    fields: updateFields,
+  });
+};
+createEnroll = async function (roomData) {
+  return await EnrollModel.create(roomData);
+};
+deleteEnroll = async function (whereData) {
+  return await EnrollModel.destroy({
+    where: whereData
+  });
 };
