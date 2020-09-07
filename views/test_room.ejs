@@ -166,14 +166,12 @@
 
                 <ul>
                   <li id="updateRoomlist">部屋表示テスト</li>
-                  <template v-for="room" in roomlist">
-                    <li onclick="jumpOtherRoom('{{ room.room_name}} '); return false;">
+                  <template v-for="room in roomlist">
+                    <li>
                       {{ room.room_name }}
                     </li>
                   </template>
                 </ul>
-
-
               </nav>
             </div>
 

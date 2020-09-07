@@ -196,7 +196,7 @@ var roomVue = new Vue({
       rooms.forEach((room, index) => {
         var data = {
           room_id: room.room_id,
-          room_name: room.room_name,
+          room_name: room.name,
           category_name: room.category_name,
           category_id: room.category_id,
           // enroll_count: "enroll_count", // 人数はいったん置いておく
