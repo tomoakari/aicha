@@ -154,6 +154,7 @@
                   <h2 onclick="sendTest();"><%- table_name %></h2>
                 </header>
 
+                <!--
                 <ul>
                   <% roomlist.forEach(function(value, key){ %>
                   <li
@@ -163,17 +164,18 @@
                   </li>
                   <% }) %>
                 </ul>
-
+                -->
+                
                 <ul>
                   <li id="updateRoomlist">部屋表示テスト</li>
                   <template v-for="room in roomlist">
-                    <li>
+                    <li onclick="jumpOtherRoom('{{ room.room_name }}'); return false;">
                       {{ room.room_name }}
                     </li>
                   </template>
                 </ul>
-              </nav>
-            </div>
+              </na'v> 
+            </di'v>
 
             <!-- Footer -->
             <footer id="footer" class="sidefooter">
