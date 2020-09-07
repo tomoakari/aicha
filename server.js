@@ -356,22 +356,22 @@ const RoomModel = sequelize.define(
       type: Sequelize.STRING(32),
       allowNull: true,
     },
-    hashedName: {
+    hashed_name: {
       field: "hashed_name",
       type: Sequelize.STRING(32),
       allowNull: true,
     },
-    categoryName: {
+    category_name: {
       field: "category_name",
       type: Sequelize.STRING(32),
       allowNull: true,
     },
-    createUserId: {
+    create_user_id: {
       field: "create_user_id",
       type: Sequelize.INTEGER(11),
       allowNull: true,
     },
-    defaultFlg: {
+    default_flg: {
       field: "default_flg",
       type: Sequelize.INTEGER(11),
       allowNull: true,
