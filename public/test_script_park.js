@@ -995,9 +995,9 @@ function copyToClipboard() {
   alert("コピーできました！ : " + copyTarget.value);
 }
 
-function jumpOtherRoom(roomname) {
+function jumpOtherRoom(element) {
   const param = {
-    table_name: roomname,
+    table_name: element.value,
     user_name: $("#user_name").val(),
   };
   execPost("", param);
