@@ -144,7 +144,7 @@ socket.on("releaseSignal", function (msg) {
   $("#unmutebutton").removeClass("unavailable");
 });
 
-socket.on("roomlist", function (msg) {
+socket.on("roomList", function (msg) {
   console.log("受信：" + msg);
   roomVue.updateRoomList(msg);
 });

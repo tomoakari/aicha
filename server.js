@@ -193,14 +193,10 @@ io.on("connection", function (socket) {
       default_flg: 1,
     };
 
-    console.log("roomlist___socket.id : " + socket.id);
-    //io.to(socket.id).emit("alert", "io.to(socket.id).emit");
-    //socket.emit("alert", "socket.emit");
-
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
-      socket.emit("alert", JSON.stringify(rooms));
+      socket.emit("roomList", JSON.stringify(rooms));
     });
   });
 
