@@ -194,14 +194,13 @@ io.on("connection", function (socket) {
     };
 
     console.log("roomlist___socket.id : " + socket.id);
-    io.to(socket.id).emit("alert", "io.to(socket.id).emit");
-    socket.to(socket.id).emit("alert", "socket.to(socket.id).emit");
-    socket.emit("alert", "socket.emit");
+    //io.to(socket.id).emit("alert", "io.to(socket.id).emit");
+    //socket.emit("alert", "socket.emit");
 
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
-      socket.to(socket.id).emit("alert", "rooms");
+      socket.emit("alert", JSON.stringify(rooms));
     });
   });
 
