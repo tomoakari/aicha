@@ -193,7 +193,10 @@ io.on("connection", function (socket) {
       default_flg: 1,
     };
 
-    io.to(socket.id).emit("roomList", "だみー");
+    console.log("roomlist___socket.id : " + socket.id);
+    io.to(socket.id).emit("roomList", "io.to(socket.id).emit");
+    socket.to(socket.id).emit("roomList", "socket.to(socket.id).emit");
+    socket.emit("roomList", "socket.emit");
     /*
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
