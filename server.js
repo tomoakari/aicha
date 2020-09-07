@@ -192,12 +192,15 @@ io.on("connection", function (socket) {
     wheredata = {
       default_flg: 1,
     };
+
+    socket.to(socket.id).emit("roomList", "だみー");
+    /*
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
       socket.to(socket.id).emit("roomList", "rooms");
     });
-    socket.to(socket.id).emit("roomList", "だみー");
+    */
   });
 
   // ルームの新規登録
