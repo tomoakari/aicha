@@ -170,44 +170,24 @@ var chatVue = new Vue({
 });
 
 /**
- * 
-const MAX_KEEP_TIME = 300000;
-const timerVue = new Vue({
-  el: '#timerApp',
-  data: {
-    message: '',
-    count :''
-  },
-  computed: {
-    isTimeOver: function(){
-      if(countDown <= 0){
-        return true;
-      }else{
-        stopCount();
-        return false;
-      }
-    }
-  },
-  methods: {
-    startCount: function(){
-      setInterval();
-    },
-    stopCount: function(){
-    }
-  }
-})
-
-setInterval(function () {//一秒間に一回再取得
-  // ミリ秒からdurationオブジェクトを生成
-  const duration = moment.duration( MAX_KEEP_TIME );
-
-  // 日・時・分・秒を取得
-  const days = Math.floor( duration.asDays());
-  const hours   = duration.hours();
-  const minutes = duration.minutes();
-  const seconds = duration.seconds();
-
-  //カウントダウンの結果を変数に代入
-  timerVue.message = 'あと' + minutes + '分' + seconds + '秒';
-}, 1000);
+ * ルームリストを管理するVue
  */
+var roomVue = new Vue({
+  el: "#roomlist",
+
+  data: {
+    roomlist: [
+      /*
+      {
+        room_id: "room_id",
+        room_name: "room_name",
+        category_name: "category_name",
+        category_id: "category_id",
+        enroll_count: "enroll_count"
+      },
+      */
+    ],
+  },
+  computed: {},
+  methods: {},
+});

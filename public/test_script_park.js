@@ -1114,3 +1114,33 @@ function sendTest() {
   socket.emit("dbtest", "");
   return false;
 }
+
+function sendJoinroom() {
+  var message = {
+    // user_id: "wakaran",
+    session_id: "wakaran",
+    room_id: "room_id",
+  };
+
+  socket.emit("joinroom", JSON.stringify(message));
+
+  // chatVue.addContent2(JSON.stringify(content));
+  // $("#input_msg").val("");
+
+  return false;
+}
+
+function sendleaveroom() {
+  var message = {
+    // user_id: "wakaran",
+    session_id: "wakaran",
+    room_id: "room_id",
+  };
+
+  socket.emit("leaveroom", JSON.stringify(message));
+
+  // chatVue.addContent2(JSON.stringify(content));
+  // $("#input_msg").val("");
+
+  return false;
+}

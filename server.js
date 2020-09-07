@@ -33,7 +33,9 @@ app.use(bodyParser.json());
 const crypto = require("crypto");
 
 /**
+ * ************************************************************
  * ルーティング
+ * ************************************************************
  */
 
 // あいちゃ
@@ -53,6 +55,22 @@ app.post("/", (request, response) => {
     table_name: request.body.table_name,
   };
   response.render("test_room.ejs", data);
+});
+// 秘密の管理ページ
+app.get("/adminroom", (request, response) => {
+  response.sendFile(__dirname + "/views/adminroom.html");
+});
+app.post("/adminroom", (request, response) => {
+  var data = {
+    room_name: request.body.room_name,
+    user_name: request.body.user_name,
+    category_id: request.body.category_id,
+    category_name: request.body.category_name,
+    default_flg: request.body.default_flg,
+    create_user_id: request.body.create_user_id,
+  };
+  createRoom(data);
+  response.sendFile(__dirname + "/views/adminroom.html");
 });
 
 // ファイル置き場
@@ -200,8 +218,8 @@ io.on("connection", function (socket) {
     var data = JSON.parse(message);
     const createData = {
       room_id: data.room_id,
-      user_name: data.user_name,
-      user_id: data.user_id,
+      // user_id: data.user_id, //今はuserテーブルを使わないので
+      session_id: data.session_id,
     };
     createEnroll(createData);
   });
@@ -210,7 +228,8 @@ io.on("connection", function (socket) {
     var data = JSON.parse(message);
     const whereData = {
       room_id: data.room_id,
-      user_id: data.user_id,
+      // user_id: data.user_id, //今はuserテーブルを使わないので
+      session_id: data.session_id,
     };
     deleteEnroll(whereData);
   });
@@ -275,7 +294,7 @@ const sequelize = new Sequelize(DB_NAME, USER_NAME, PASSWORD, {
 
 /**
  * Userモデルクラス
- * create table user (id int primary key auto_increment, name varchar(32), created_at datetime, updated_at datetime, deleted_at datetime );
+ * create table users (id int primary key auto_increment, name varchar(32), created_at datetime, updated_at datetime, deleted_at datetime );
  */
 const UserModel = sequelize.define(
   "users",
@@ -314,6 +333,14 @@ const UserModel = sequelize.define(
 
 /**
  * Roomモデルクラス
+ create table rooms (
+   id int primary key auto_increment, 
+   name varchar(32), 
+   hashed_name varchar(32),
+   category_name varchar(32),
+   create_user_id int,
+   default_flg int,
+   created_at datetime, updated_at datetime, deleted_at datetime );
  */
 const RoomModel = sequelize.define(
   "rooms",
@@ -377,6 +404,10 @@ const EnrollModel = sequelize.define(
     userId: {
       field: "user_id",
       type: Sequelize.INTEGER(11),
+    },
+    sessionId: {
+      field: "session_id",
+      type: Sequelize.STRING(32),
     },
   },
   {
