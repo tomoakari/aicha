@@ -195,8 +195,7 @@ io.on("connection", function (socket) {
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
-      console.log("socket.id : " + socket.id);
-      socket.to(socket.id).emit("roomList", JSON.stringify(rooms));
+      socket.to(socket.id).emit("roomList", rooms);
     });
   });
 
