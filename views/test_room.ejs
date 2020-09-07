@@ -165,11 +165,11 @@
                   <% }) %>
                 </ul>
                 -->
-                
+
                 <ul>
                   <li id="updateRoomlist">部屋表示テスト</li>
                   <template v-for="room in roomlist">
-                    <li onclick="jumpOtherRoom('{{ room.room_name }}'); return false;">
+                    <li onclick="jumpOtherRoom({{ room.room_name }}); return false;">
                       {{ room.room_name }}
                     </li>
                   </template>
