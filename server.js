@@ -193,7 +193,7 @@ io.on("connection", function (socket) {
       default_flg: 1,
     };
 
-    socket.to(socket.id).emit("roomList", "だみー");
+    socket.emit("roomList", "だみー");
     /*
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
