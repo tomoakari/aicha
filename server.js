@@ -186,13 +186,14 @@ io.on("connection", function (socket) {
     emitMessage("leaveSignal", message);
   });
 
-  /*
-  // DBアクセステスト
-  socket.on("dbtest", function () {
-    const createData = { name: "神山アリス" }; //更新データ
-    createUser(createData);
+  // ルーム一覧を取得
+  // とりあえず全部取得
+  socket.on("roomList", function (message) {
+    wheredata = {};
+    findRoom(wheredata).then((rooms) => {
+      emitMessage("roomList", JSON.stringify(rooms));
+    });
   });
-  */
 
   // ルームの新規登録
   socket.on("createroom", function (message) {
@@ -269,9 +270,10 @@ function getRoomList() {
   return data;
 } // DBから部屋リストを取得
 function getRoomList2() {
-  findRoom(wheredata).then((rooms) => {});
-
-  return data;
+  wheredata = {};
+  findRoom(wheredata).then((rooms) => {
+    return rooms;
+  });
 }
 
 /**

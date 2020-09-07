@@ -189,5 +189,20 @@ var roomVue = new Vue({
     ],
   },
   computed: {},
-  methods: {},
+  methods: {
+    updateRoomList: function (msg) {
+      var rooms = JSON.parse(msg);
+
+      rooms.forEach((room, index) => {
+        var data = {
+          room_id: room.room_id,
+          room_name: room.room_name,
+          category_name: room.category_name,
+          category_id: room.category_id,
+          // enroll_count: "enroll_count", // 人数はいったん置いておく
+        };
+        this.roomlist.push(data);
+      });
+    },
+  },
 });

@@ -144,6 +144,10 @@ socket.on("releaseSignal", function (msg) {
   $("#unmutebutton").removeClass("unavailable");
 });
 
+socket.on("roomlist", function (msg) {
+  roomVue.updateRoomList(msg);
+});
+
 // --- broadcast message to all members in room
 function emitRoom(msg) {
   socket.emit("message", msg);
@@ -419,6 +423,10 @@ $("#ink-blue").on("click", () => {
 $("#ink-green").on("click", () => {
   setInk("text-green");
   togglePalette();
+});
+
+$("#updateRoomlist").on("click", () => {
+  sendUpdateRoomlist();
 });
 
 // connect video
@@ -1113,6 +1121,10 @@ function removeaicha() {
 function sendTest() {
   socket.emit("dbtest", "");
   return false;
+}
+
+function sendUpdateRoomlist() {
+  socket.emit("roomList");
 }
 
 function sendJoinroom() {
