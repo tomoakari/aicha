@@ -151,20 +151,8 @@
             <div class="roundclearbox">
               <nav id="roomlist">
                 <header class="major">
-                  <h2 onclick="sendTest();"><%- table_name %>　<i class="fas fa-sync-alt" id="updateRoomlist></i></h2>
+                  <h2 onclick="sendTest();"><%- table_name %>　<i class="fas fa-sync-alt" id="updateRoomlist"></i></h2>
                 </header>
-
-                <!--
-                <ul>
-                  <% roomlist.forEach(function(value, key){ %>
-                  <li
-                    onclick="jumpOtherRoom('<%= value.roomname %>'); return false;"
-                  >
-                    <a><%= value.roomname %></a>
-                  </li>
-                  <% }) %>
-                </ul>
-                -->
 
                 <ul>
                   <template v-for="room in roomlist">
