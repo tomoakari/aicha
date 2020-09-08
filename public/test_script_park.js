@@ -355,6 +355,10 @@ function addBlankVideoElement() {
 /**
  * イベントリスナ
  */
+$("#createroombutton").on("click", () => {
+  popRoomCreateWindow();
+});
+
 $("#removebutton").on("click", () => {
   removeaicha();
 });
