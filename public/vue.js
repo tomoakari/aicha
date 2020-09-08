@@ -187,9 +187,35 @@ var roomVue = new Vue({
       },
       */
     ],
+    categorylist: [
+      /*
+      {
+        category_id: "category.id",
+        category_name: "category.name",
+        order_no: "category.order_no",
+      },
+      */
+    ],
   },
   computed: {},
   methods: {
+    updateCategoryList: function (msg) {
+      var categories = JSON.parse(msg);
+
+      this.categorylist = [];
+
+      categories.forEach((category, index) => {
+        var data = {
+          category_id: category.id,
+          category_name: category.name,
+          order_no: category.order_no,
+        };
+        this.categorylist.push(data);
+      });
+    },
+    setCategory: function (event) {
+      alert(event);
+    },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
 

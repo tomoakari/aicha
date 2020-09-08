@@ -151,18 +151,37 @@
             <div class="roundclearbox">
               <nav id="roomlist">
                 <header class="major">
-                  <h2 onclick="sendTest();"><%- table_name %>　<i class="fas fa-sync-alt" id="updateRoomlist"></i></h2>
+                  <h2 onclick="sendTest();">
+                    <%- table_name %>　<i
+                      class="fas fa-sync-alt"
+                      id="updateRoomlist"
+                    ></i>
+                  </h2>
                 </header>
 
                 <ul>
+                  <template v-for="cat in categorylist">
+                    <li
+                      v-on:click="setCategory(cat.category_id);"
+                      v-bind:value="cat.category_id"
+                    >
+                      {{ cat.category_name }}
+                    </li>
+                  </template>
+                </ul>
+
+                <ul>
                   <template v-for="room in roomlist">
-                    <li v-on:click="jumpRoom($event); return false;" v-bind:value="room.room_name">
+                    <li
+                      v-on:click="jumpRoom($event); return false;"
+                      v-bind:value="room.room_name"
+                    >
                       {{ room.room_name }}
                     </li>
                   </template>
                 </ul>
-              </na'v> 
-            </di'v>
+              </nav>
+            </div>
 
             <!-- Footer -->
             <footer id="footer" class="sidefooter">

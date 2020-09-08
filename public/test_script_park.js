@@ -144,6 +144,9 @@ socket.on("releaseSignal", function (msg) {
   $("#unmutebutton").removeClass("unavailable");
 });
 
+socket.on("categoryList", function (msg) {
+  roomVue.updateCategoryList(msg);
+});
 socket.on("roomList", function (msg) {
   roomVue.updateRoomList(msg);
 });
@@ -975,6 +978,9 @@ window.onload = function () {
 
   connectVideo();
 
+  // カテゴリーリストの取得
+  sendUpdateCategorylist();
+
   // ルームリストの更新
   sendUpdateRoomlist();
 };
@@ -1126,6 +1132,10 @@ function sendTest() {
   return false;
 }
 
+// ルーム情報を取得
+function sendUpdateCategorylist() {
+  socket.emit("categoryList");
+}
 function sendUpdateRoomlist() {
   socket.emit("roomList");
 }

@@ -197,6 +197,18 @@ io.on("connection", function (socket) {
     emitMessage("leaveSignal", message);
   });
 
+  // カテゴリ一覧を取得
+  socket.on("categoryList", function (message) {
+    wheredata = {
+      order: ["order_no", "ASC"],
+    };
+
+    findCategory(wheredata).then((categories) => {
+      // 送信者に向かって返す
+      socket.emit("categoryList", JSON.stringify(categories));
+    });
+  });
+
   // ルーム一覧を取得
   // とりあえず全部取得
   socket.on("roomList", function (message) {
