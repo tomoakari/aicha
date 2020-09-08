@@ -146,6 +146,7 @@ socket.on("releaseSignal", function (msg) {
 
 socket.on("categoryList", function (msg) {
   roomVue.updateCategoryList(msg);
+  roomcreateVue.updateCategoryList(msg);
 });
 socket.on("roomList", function (msg) {
   roomVue.updateRoomList(msg);

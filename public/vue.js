@@ -287,3 +287,37 @@ var roomVue = new Vue({
     },
   },
 });
+
+/**
+ * ルームリストを管理するVue
+ */
+var roomcreateVue = new Vue({
+  el: "#roomcreate",
+
+  data: {
+    categorylist: [
+      /*
+      {
+        category_id: "category.id",
+        category_name: "category.name",
+        order_no: "category.order_no",
+      },
+      */
+    ],
+    selected: "",
+  },
+  methods: {
+    updateCategoryList: function (msg) {
+      var categories = JSON.parse(msg);
+      this.categorylist = [];
+      categories.forEach((category, index) => {
+        var data = {
+          category_id: category.id,
+          category_name: category.name,
+          order_no: category.order_no,
+        };
+        this.categorylist.push(data);
+      });
+    },
+  },
+});
