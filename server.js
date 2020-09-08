@@ -394,6 +394,11 @@ const RoomModel = sequelize.define(
       type: Sequelize.STRING(32),
       allowNull: true,
     },
+    category_id: {
+      field: "category_id",
+      type: Sequelize.INTEGER(11),
+      allowNull: true,
+    },
     create_user_id: {
       field: "create_user_id",
       type: Sequelize.INTEGER(11),
