@@ -215,7 +215,7 @@ var roomVue = new Vue({
         );
         return result;
       } else {
-        return this.roomlist;
+        return [];
       }
     },
   },
