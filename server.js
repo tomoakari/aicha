@@ -199,9 +199,7 @@ io.on("connection", function (socket) {
 
   // カテゴリ一覧を取得
   socket.on("categoryList", function (message) {
-    wheredata = {
-      order: [["order_no", "ASC"]],
-    };
+    wheredata = {};
 
     findCategory(wheredata).then((categories) => {
       // 送信者に向かって返す
