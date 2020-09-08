@@ -205,7 +205,7 @@ var roomVue = new Vue({
       });
     },
     jumpRoom: function (event) {
-      alert(event);
+      alert(event.target);
     },
   },
 });
