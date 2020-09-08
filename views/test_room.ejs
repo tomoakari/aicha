@@ -171,7 +171,7 @@
                 </ul>
 
                 <ul>
-                  <template v-for="room in roomlist">
+                  <template v-for="room in sortedRoomlist">
                     <li
                       v-on:click="jumpRoom($event); return false;"
                       v-bind:value="room.room_name"

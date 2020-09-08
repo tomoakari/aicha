@@ -196,14 +196,27 @@ var roomVue = new Vue({
       },
       */
     ],
+    category_id: 0,
   },
-  computed: {},
+  computed: {
+    sortedRoomlist: function () {
+      if (this.category_id > 0) {
+        var resultlist = [];
+        this.roomlist.forEach((room) => {
+          if (room.category_id == this.category_id) {
+            resultlist.push(room);
+          }
+        });
+        return resultlist;
+      } else {
+        return roomlist;
+      }
+    },
+  },
   methods: {
     updateCategoryList: function (msg) {
       var categories = JSON.parse(msg);
-
       this.categorylist = [];
-
       categories.forEach((category, index) => {
         var data = {
           category_id: category.id,
@@ -213,8 +226,8 @@ var roomVue = new Vue({
         this.categorylist.push(data);
       });
     },
-    setCategory: function (event) {
-      alert(event);
+    setCategory: function (id) {
+      this.category_id = id;
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
