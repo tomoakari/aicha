@@ -2025,7 +2025,7 @@ button,
       left: 0;
       position: fixed;
       top: 0;
-      z-index: 10000; }
+      z-index: 1000; }
       #sidebar.inactive {
         box-shadow: none; }
       #sidebar > .inner {
