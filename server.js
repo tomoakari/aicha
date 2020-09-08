@@ -71,6 +71,17 @@ app.post("/adminroom", (request, response) => {
   createRoom(data);
   response.sendFile(__dirname + "/views/adminroom.html");
 });
+app.get("/admincategory", (request, response) => {
+  response.sendFile(__dirname + "/views/admincategory.html");
+});
+app.post("/admincategory", (request, response) => {
+  var data = {
+    name: request.body.category_name,
+    order_no: request.body.order_no,
+  };
+  createCategory(data);
+  response.sendFile(__dirname + "/views/admincategory.html");
+});
 
 // ファイル置き場
 app.use(express.static(__dirname + "/public"));
@@ -534,6 +545,32 @@ createEnroll = async function (roomData) {
 };
 deleteEnroll = async function (whereData) {
   return await EnrollModel.destroy({
+    where: whereData,
+  });
+};
+
+/**
+ * Categoryテーブルへのアクセスメソッド
+ */
+findCategory = async function (whereData) {
+  return await CategoryModel.findAll({
+    where: whereData,
+  });
+};
+getCategory = async function (categoryId) {
+  return await CategoryModel.findByPk(categoryId);
+};
+updateCategory = async function (updateData, whereCondition, updateFields) {
+  return await CategoryModel.update(updateData, {
+    where: whereCondition,
+    fields: updateFields,
+  });
+};
+createCategory = async function (categoryData) {
+  return await CategoryModel.create(categoryData);
+};
+deleteCategory = async function (whereData) {
+  return await CategoryModel.destroy({
     where: whereData,
   });
 };
