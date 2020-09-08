@@ -209,7 +209,7 @@ var roomVue = new Vue({
         });
         return resultlist;
       } else {
-        return roomlist;
+        return this.roomlist;
       }
     },
   },
