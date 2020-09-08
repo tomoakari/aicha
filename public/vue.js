@@ -201,6 +201,7 @@ var roomVue = new Vue({
   computed: {
     sortedRoomlist: function () {
       if (this.category_id > 0) {
+        /*
         var resultlist = [];
         this.roomlist.forEach((room) => {
           if (room.category_id == this.category_id) {
@@ -208,6 +209,11 @@ var roomVue = new Vue({
           }
         });
         return resultlist;
+        */
+        const result = this.roomlist.filter(
+          (room) => room.category_id === this.category_id
+        );
+        return result;
       } else {
         return this.roomlist;
       }
