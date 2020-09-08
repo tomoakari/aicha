@@ -533,8 +533,8 @@ td.pdg0 {
   margin: 0px;
 }
 
-.roomnametitle {
-  margin-bottom: 0.5em;
+h2.roomnametitle {
+  margin-bottom: 0px !important;
 }
 .roomlistmargin {
   margin-left: 15px;
