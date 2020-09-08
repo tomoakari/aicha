@@ -239,27 +239,72 @@
     <script>
       var popRoomCreateWindow = function () {
         Swal.fire({
-          title: "ルームを作る",
-          html:
-            "<div id='roomcreate'>" +
-            "<form method='post' action=''>" +
-            "<input type='text' placeholder='ルーム名' name='room_name' />" +
-            "<select v-model='selected'>" +
-            "<option disabled value=''>カテゴリー</option>" +
-            "<option v-for='cat in categorylist' v-bind:value='cat.category_id' v-bind:key='cat.category_id'>" +
-            "  {{ cat.category_name }} " +
-            "</option>" +
-            "</select>" +
-            "<input type='text' placeholder='カテゴリ名' name='category_name' />" +
-            "<button>OK</button></form></div>",
-
-          showCloseButton: false,
-          showCancelButton: false,
-          focusConfirm: false,
-          confirmButtonText: '<i class="fa fa-thumbs-up"></i>確認しました',
-          confirmButtonAriaLabel: "Thumbs up, OK!!",
-          reverseButtons: true,
-          allowOutsideClick: true,
+          title: "ルームを作成する",
+          text: "ルームを作成したいカテゴリーを選んでください。",
+          input: "select",
+          inputOptions: {
+            1: "趣味",
+            2: "地域",
+            3: "世代",
+            4: "語り",
+            5: "その他",
+          },
+          confirmButtonText: "OK",
+          showCancelButton: true,
+          cancelButtonText: "やめる",
+        }).then((category_id) => {
+          Swal.fire({
+            title: "ルームを作成する",
+            text: "ルーム名を入力してください。",
+            input: "text",
+            confirmButtonText: "OK",
+            preConfirm: (name) => {
+              return fetch(
+                `//aicha.aice.cloud/createroom/?cat=${category_id.value}&name=${name}`
+              )
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(response.statusText);
+                  }
+                  return response.json();
+                })
+                .catch((error) => {
+                  Swal.showValidationMessage(
+                    `このルーム名はすでにあるようです。`
+                  );
+                });
+            },
+            allowOutsideClick: () => !Swal.isLoading(),
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: `ルームができました`,
+                confirmButtonText: "さっそく入室する",
+              }).then((result) => {
+                const param = {
+                  table_name: result.room_name,
+                  user_name: $("#user_name").val(),
+                };
+                var form = document.createElement("form");
+                form.setAttribute("action", "");
+                form.setAttribute("method", "post");
+                form.style.display = "none";
+                document.body.appendChild(form);
+                // パラメタの設定
+                if (data !== undefined) {
+                  for (var paramName in data) {
+                    var input = document.createElement("input");
+                    input.setAttribute("type", "hidden");
+                    input.setAttribute("name", paramName);
+                    input.setAttribute("value", data[paramName]);
+                    form.appendChild(input);
+                  }
+                }
+                // submit
+                form.submit();
+              });
+            }
+          });
         });
       };
     </script>
