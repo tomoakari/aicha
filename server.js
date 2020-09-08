@@ -425,6 +425,44 @@ const EnrollModel = sequelize.define(
   }
 );
 
+/**
+ * Categoryモデルクラス
+ create table categories (
+   id int primary key auto_increment, 
+   name varchar(32),
+   order_no int,
+   createdAt datetime, updatedAt datetime, deletedAt datetime );
+
+   insert categories set name="世代",order_no=3;
+ */
+const CategoryModel = sequelize.define(
+  "categories",
+  {
+    id: {
+      field: "id",
+      type: Sequelize.INTEGER(11),
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      field: "name",
+      type: Sequelize.STRING(32),
+      allowNull: true,
+    },
+    order_no: {
+      field: "order_no",
+      type: Sequelize.INTEGER(11),
+      allowNull: true,
+    },
+  },
+  {
+    createdAt: true,
+    updatedAt: true,
+    deletedAt: true,
+    tableName: "categories", //明示的にテーブル名を指定
+  }
+);
+
 RoomModel.associate = function (models) {
   RoomModel.hasMany(models.EnrollModel, { foreignKey: "roomId" });
 };

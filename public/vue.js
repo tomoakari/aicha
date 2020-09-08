@@ -193,6 +193,8 @@ var roomVue = new Vue({
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
 
+      this.roomlist = [];
+
       rooms.forEach((room, index) => {
         var data = {
           room_id: room.room_id,

@@ -974,6 +974,9 @@ window.onload = function () {
   }, 5000);
 
   connectVideo();
+
+  // ルームリストの更新
+  sendUpdateRoomlist();
 };
 
 $("#chatToggle").on("click", function () {
