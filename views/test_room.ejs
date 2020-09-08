@@ -151,7 +151,7 @@
             <div class="roundclearbox">
               <nav id="roomlist">
                 <header class="major">
-                  <h2 onclick="sendTest();">
+                  <h2 class="roomnametitle">
                     <%- table_name %>　<i
                       class="fas fa-sync-alt"
                       id="updateRoomlist"
@@ -169,14 +169,15 @@
                     </li>
                   </template>
                 </ul>
-                {{ category_id }}
+
                 <ul>
                   <template v-for="room in sortedRoomlist">
                     <li
+                      class="roomlistmargin"
                       v-on:click="jumpRoom($event); return false;"
                       v-bind:value="room.room_name"
                     >
-                      {{ room.category_id }} ＋ {{ room.room_name }}
+                      {{ room.room_name }}
                     </li>
                   </template>
                 </ul>

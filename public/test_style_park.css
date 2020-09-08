@@ -532,3 +532,10 @@ td.pdg0 {
   text-align: center;
   margin: 0px;
 }
+
+.roomnametitle {
+  margin-bottom: 0.5em;
+}
+.roomlistmargin {
+  margin-left: 15px;
+}
