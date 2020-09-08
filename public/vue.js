@@ -204,5 +204,8 @@ var roomVue = new Vue({
         this.roomlist.push(data);
       });
     },
+    jumpRoom: function (event) {
+      alert(event.value);
+    },
   },
 });

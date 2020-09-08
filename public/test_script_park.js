@@ -995,7 +995,6 @@ function copyToClipboard() {
 }
 
 function jumpOtherRoom(e) {
-  alert(e.value);
   const param = {
     table_name: e.value,
     user_name: $("#user_name").val(),
