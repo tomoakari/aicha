@@ -58,13 +58,8 @@ app.post("/", (request, response) => {
 });
 app.get("/createroom", (request, response) => {
   const category_id = request.body.cat;
-  const category_name = request.body.name;
-  // const resultData = chackAndCreateRoom(category_id, category_name);
-  const resultData = {
-    result: "success",
-    category_name: "テストカテ",
-    room_name: "あたらしいルーム",
-  };
+  const room_name = request.body.name;
+  const resultData = chackAndCreateRoom(category_id, room_name);
   response.json(resultData);
 });
 
@@ -311,6 +306,54 @@ function getRoomList2() {
   wheredata = {};
   findRoom(wheredata).then((rooms) => {
     return rooms;
+  });
+}
+
+/**
+ * 部屋を新規作成する
+ */
+function chackAndCreateRoom(category_id, room_name) {
+  // トランザクション開始
+  sequelize.transaction(async function (tx) {
+    // 名前被りの確認
+    await RoomModel.findAll({
+      where: { name: room_name },
+      transaction: tx,
+    }).then((roomlist) => {
+      var ids = [];
+      roomlist.forEach((room) => {
+        ids.push(room.id);
+      });
+      EnrollModel.findAll({
+        group: "room_id",
+        where: {
+          id: ids,
+          // deletedAtが正しく動いてれば、削除済みのユーザはカウントしないハズ…
+        },
+        transaction: tx,
+      }).then((livingroomlist) => {
+        // 入室者がいるルームが一つでもあれば、エラーで返す
+        if (livingroomlist.length) {
+          // Object.keys(livingroomlist)かも
+          return false;
+        } else {
+          // 入室者がいるルームが一つもなければ、作成する
+          var data = {
+            name: room_name,
+            category_name: "いらなくない？",
+            category_id: category_id,
+            default_flg: 0,
+            create_user_id: "",
+          };
+          createRoom(data);
+          // だみーなので
+          const result = {
+            room_name: room_name,
+          };
+          return result;
+        }
+      });
+    });
   });
 }
 
