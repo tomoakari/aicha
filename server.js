@@ -60,8 +60,8 @@ app.get("/createroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
   console.log("request:" + category_id + " / " + room_name);
-  const resultData = chackAndCreateRoom(category_id, room_name);
-  response.json(resultData);
+  //const resultData = chackAndCreateRoom(category_id, room_name);
+  response.json(chackAndCreateRoom(category_id, room_name));
 });
 
 // 秘密の管理ページ
@@ -343,7 +343,6 @@ function chackAndCreateRoom(category_id, room_name) {
             create_user_id: "",
           };
           createRoom(data);
-          // だみーなので
           const result = {
             room_name: room_name,
           };
