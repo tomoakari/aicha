@@ -285,7 +285,7 @@
                   "カテゴリー：" +
                   result.value.room_name,
                 confirmButtonText: "さっそく入室する",
-                preConfirm: (result) => {
+                preConfirm: () => {
                   var roomdata = {
                     room_name: result.value.room_name,
                     category_name: result.value.category_name,
