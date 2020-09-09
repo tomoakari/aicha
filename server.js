@@ -325,7 +325,7 @@ function chackAndCreateRoom(category_id, room_name) {
       roomlist.forEach((room) => {
         ids.push(room.id);
       });
-      EnrollModel.findAll({
+      await EnrollModel.findAll({
         group: "room_id",
         where: {
           id: ids,
