@@ -60,8 +60,12 @@ app.get("/createroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
   console.log("request:" + category_id + " / " + room_name);
-  //const resultData = chackAndCreateRoom(category_id, room_name);
-  response.json(chackAndCreateRoom(category_id, room_name));
+  const resultData = chackAndCreateRoom(category_id, room_name);
+  response.json({
+    statusText: "てすとだぞ",
+    ok: true,
+    room_name: "てすとるーむ",
+  });
 });
 
 // 秘密の管理ページ
