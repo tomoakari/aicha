@@ -218,9 +218,7 @@ io.on("connection", function (socket) {
   // ルーム一覧を取得
   // とりあえず全部取得
   socket.on("roomList", function (message) {
-    wheredata = {
-      default_flg: 1,
-    };
+    wheredata = {};
 
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
