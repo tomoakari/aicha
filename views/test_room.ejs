@@ -266,6 +266,7 @@
                   if (!response.ok) {
                     throw new Error(response.statusText);
                   }
+                  console.log("response:" + response);
                   return response.json();
                 })
                 .catch((error) => {
