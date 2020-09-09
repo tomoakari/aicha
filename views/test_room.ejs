@@ -278,12 +278,20 @@
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire({
+                icon: "success",
                 title: `ルームができました`,
                 text:
                   result.value.category_name +
                   "カテゴリー：" +
                   result.value.room_name,
                 confirmButtonText: "さっそく入室する",
+                preConfirm: (result) => {
+                  var roomdata = {
+                    room_name: result.value.room_name,
+                    category_name: result.value.category_name,
+                  };
+                  return roomdata;
+                },
               }).then((result) => {
                 console.log(JSON.stringify(result));
                 const param = {
@@ -296,7 +304,7 @@
                 form.style.display = "none";
                 document.body.appendChild(form);
                 // パラメタの設定
-                if (data !== undefined) {
+                if (param !== undefined) {
                   for (var paramName in data) {
                     var input = document.createElement("input");
                     input.setAttribute("type", "hidden");
