@@ -279,7 +279,7 @@
             if (result.isConfirmed) {
               Swal.fire({
                 title: `ルームができました`,
-                text: "${result.category_name}カテゴリー：${result.room_name}",
+                text: result.category_name + "カテゴリー：" + result.room_name,
                 confirmButtonText: "さっそく入室する",
               }).then((result) => {
                 const param = {
