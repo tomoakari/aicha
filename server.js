@@ -319,19 +319,17 @@ function chackAndCreateRoom(category_id, room_name) {
     // 名前被りの確認
     await RoomModel.findAll({
       where: { name: room_name },
-      transaction: tx,
     }).then((roomlist) => {
       var ids = [];
       roomlist.forEach((room) => {
         ids.push(room.id);
       });
-      await EnrollModel.findAll({
+      EnrollModel.findAll({
         group: "room_id",
         where: {
           id: ids,
           // deletedAtが正しく動いてれば、削除済みのユーザはカウントしないハズ…
         },
-        transaction: tx,
       }).then((livingroomlist) => {
         // 入室者がいるルームが一つでもあれば、エラーで返す
         if (livingroomlist.length) {
