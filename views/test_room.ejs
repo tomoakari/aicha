@@ -276,15 +276,18 @@
             },
             allowOutsideClick: () => !Swal.isLoading(),
           }).then((result) => {
-            console.log(JSON.stringify(result));
             if (result.isConfirmed) {
               Swal.fire({
                 title: `ルームができました`,
-                text: result.category_name + "カテゴリー：" + result.room_name,
+                text:
+                  result.value.category_name +
+                  "カテゴリー：" +
+                  result.value.room_name,
                 confirmButtonText: "さっそく入室する",
               }).then((result) => {
+                console.log(JSON.stringify(result));
                 const param = {
-                  table_name: result.room_name,
+                  table_name: result.value.room_name,
                   user_name: $("#user_name").val(),
                 };
                 var form = document.createElement("form");
