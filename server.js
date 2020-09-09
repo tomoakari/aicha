@@ -59,7 +59,12 @@ app.post("/", (request, response) => {
 app.get("/createroom", (request, response) => {
   const category_id = request.body.cat;
   const category_name = request.body.name;
-  const resultData = chackAndCreateRoom(category_id, category_name);
+  // const resultData = chackAndCreateRoom(category_id, category_name);
+  const resultData = {
+    result: "success",
+    category_name: "テストカテ",
+    room_name: "あたらしいルーム",
+  };
   response.json(resultData);
 });
 
