@@ -266,7 +266,6 @@
                   if (!response.ok) {
                     throw new Error(response.statusText);
                   }
-                  console.log("response:" + response.json());
                   return response.json();
                 })
                 .catch((error) => {
@@ -277,6 +276,7 @@
             },
             allowOutsideClick: () => !Swal.isLoading(),
           }).then((result) => {
+            console.log(JSON.stringify(result));
             if (result.isConfirmed) {
               Swal.fire({
                 title: `ルームができました`,
