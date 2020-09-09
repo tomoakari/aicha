@@ -59,6 +59,7 @@ app.post("/", (request, response) => {
 app.get("/createroom", (request, response) => {
   const category_id = request.body.cat;
   const room_name = request.body.name;
+  console.log("request:" + category_id + " / " + room_name);
   const resultData = chackAndCreateRoom(category_id, room_name);
   response.json(resultData);
 });
