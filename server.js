@@ -57,8 +57,8 @@ app.post("/", (request, response) => {
   response.render("test_room.ejs", data);
 });
 app.get("/createroom", (request, response) => {
-  const category_id = request.body.cat;
-  const room_name = request.body.name;
+  const category_id = request.query.cat;
+  const room_name = request.query.name;
   console.log("request:" + category_id + " / " + room_name);
   const resultData = chackAndCreateRoom(category_id, room_name);
   response.json(resultData);
