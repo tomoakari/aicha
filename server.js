@@ -474,6 +474,12 @@ const RoomModel = sequelize.define(
 
 /**
  * Enrollモデルクラス
+ create table enrolls (
+   id int primary key auto_increment, 
+   room_id int,
+   user_id int,
+   session_id varchar(32),
+   createdAt datetime, updatedAt datetime, deletedAt datetime );
  */
 const EnrollModel = sequelize.define(
   "enrolls",
@@ -484,15 +490,15 @@ const EnrollModel = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    roomId: {
+    room_id: {
       field: "room_id",
       type: Sequelize.INTEGER(11),
     },
-    userId: {
+    user_id: {
       field: "user_id",
       type: Sequelize.INTEGER(11),
     },
-    sessionId: {
+    session_id: {
       field: "session_id",
       type: Sequelize.STRING(32),
     },
