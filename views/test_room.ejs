@@ -305,11 +305,11 @@
                 document.body.appendChild(form);
                 // パラメタの設定
                 if (param !== undefined) {
-                  for (var paramName in data) {
+                  for (var paramName in param) {
                     var input = document.createElement("input");
                     input.setAttribute("type", "hidden");
                     input.setAttribute("name", paramName);
-                    input.setAttribute("value", data[paramName]);
+                    input.setAttribute("value", param[paramName]);
                     form.appendChild(input);
                   }
                 }
