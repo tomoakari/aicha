@@ -357,7 +357,7 @@ function addBlankVideoElement() {
  * イベントリスナ
  */
 $("#createroombutton").on("click", () => {
-  popRoomCreateWindow();
+  popRoomCreateWindow("aaa");
 });
 
 $("#removebutton").on("click", () => {

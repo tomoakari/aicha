@@ -56,6 +56,13 @@ app.post("/", (request, response) => {
   };
   response.render("test_room.ejs", data);
 });
+app.get("/createroom", (request, response) => {
+  const category_id = request.body.cat;
+  const category_name = request.body.name;
+  const resultData = chackAndCreateRoom(category_id, category_name);
+  response.json(resultData);
+});
+
 // 秘密の管理ページ
 app.get("/adminroom", (request, response) => {
   response.sendFile(__dirname + "/views/adminroom.html");

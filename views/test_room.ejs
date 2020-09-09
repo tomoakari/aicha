@@ -237,9 +237,9 @@
     <!-- スイートアラート -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
-      var popRoomCreateWindow = function () {
+      var popRoomCreateWindow = function (test) {
         Swal.fire({
-          title: "ルームを作成する",
+          title: "ルームを作成する${test}",
           text: "ルームを作成したいカテゴリーを選んでください。",
           input: "select",
           inputOptions: {
