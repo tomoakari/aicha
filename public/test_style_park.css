@@ -541,3 +541,8 @@ h2.roomnametitle {
   border: 1px solid #696969;
   border-radius: 5px;
 }
+
+.roomlistbox {
+  max-height: 200px;
+  overflow: scroll;
+}

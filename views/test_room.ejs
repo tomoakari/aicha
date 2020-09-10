@@ -150,12 +150,7 @@
           <div class="inner" id="roomlist">
             <div class="roundclearbox">
               <header class="major">
-                <h2 class="roomnametitle">
-                  ルームリスト<i
-                    class="fas fa-sync-alt"
-                    id="updateRoomlist"
-                  ></i>
-                </h2>
+                <h2 class="roomnametitle">カテゴリー</h2>
               </header>
               <ul>
                 <template v-for="cat in categorylist">
@@ -171,7 +166,13 @@
               </ul>
             </div>
 
-            <div class="roundclearbox">
+            <div class="roundclearbox roomlistbox">
+              <header class="major">
+                <h2 class="roomnametitle">
+                  ルームリスト
+                  <i class="fas fa-sync-alt" id="updateRoomlist"></i>
+                </h2>
+              </header>
               <ul>
                 <template v-for="room in sortedRoomlist">
                   <li
