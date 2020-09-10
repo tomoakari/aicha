@@ -61,7 +61,14 @@ app.get("/createroom", (request, response) => {
   const room_name = request.query.name;
   console.log("request:" + category_id + " / " + room_name);
   const resultData = chackAndCreateRoom(category_id, room_name);
-  response.json(resultData);
+
+  const result = {
+    statusText: "OK",
+    ok: true,
+    room_name: room_name,
+  };
+
+  response.json(result);
 });
 
 // 秘密の管理ページ

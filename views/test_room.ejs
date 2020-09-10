@@ -264,7 +264,7 @@
                 `//aicha.aice.cloud/createroom/?cat=${category_id.value}&name=${name}`
               )
                 .then((response) => {
-                  console.log("res:" + JSON.stringify(response));
+                  console.log("response:" + JSON.stringify(response));
                   if (!response.ok) {
                     throw new Error(response.statusText);
                   }
