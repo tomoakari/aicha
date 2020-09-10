@@ -286,7 +286,11 @@
               Swal.fire({
                 icon: "success",
                 title: `ルームができました`,
-                text: result.value.room_name,
+                // text: result.value.room_name,
+                html:
+                  result.value.room_name +
+                  "<br/>" +
+                  "ルームの有効期限は24時間です。チャットをお楽しみください。",
                 confirmButtonText: "さっそく入室する",
                 preConfirm: () => {
                   var roomdata = {
