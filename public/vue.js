@@ -236,7 +236,7 @@ var roomVue = new Vue({
       this.category_id = id;
     },
     setSelectedCategory: function (this) {
-      $(this).addclass("ddd");
+      this.addclass("ddd");
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
