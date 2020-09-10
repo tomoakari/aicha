@@ -149,42 +149,37 @@
         <div class="bgImage">
           <div class="inner" id="roomlist">
             <div class="roundclearbox">
-              <nav>
-                <header class="major">
-                  <h2 class="roomnametitle">
-                    ルームリスト<i
-                      class="fas fa-sync-alt"
-                      id="updateRoomlist"
-                    ></i>
-                  </h2>
-                </header>
-
-                <ul>
-                  <template v-for="cat in categorylist">
-                    <li
-                      v-on:click="setCategory(cat.category_id);"
-                      v-bind:value="cat.category_id"
-                    >
-                      {{ cat.category_name }}
-                    </li>
-                  </template>
-                </ul>
-              </nav>
+              <header class="major">
+                <h2 class="roomnametitle">
+                  ルームリスト<i
+                    class="fas fa-sync-alt"
+                    id="updateRoomlist"
+                  ></i>
+                </h2>
+              </header>
+              <ul>
+                <template v-for="cat in categorylist">
+                  <li
+                    v-on:click="setCategory(cat.category_id); setSelectedCategory(this);"
+                    v-bind:value="cat.category_id"
+                  >
+                    {{ cat.category_name }}
+                  </li>
+                </template>
+              </ul>
             </div>
 
             <div class="roundclearbox">
-              <nav>
-                <ul>
-                  <template v-for="room in sortedRoomlist">
-                    <li
-                      v-on:click="jumpRoom($event); return false;"
-                      v-bind:value="room.room_name"
-                    >
-                      {{ room.room_name }}
-                    </li>
-                  </template>
-                </ul>
-              </nav>
+              <ul>
+                <template v-for="room in sortedRoomlist">
+                  <li
+                    v-on:click="jumpRoom($event); return false;"
+                    v-bind:value="room.room_name"
+                  >
+                    {{ room.room_name }}
+                  </li>
+                </template>
+              </ul>
             </div>
 
             <!-- Footer -->

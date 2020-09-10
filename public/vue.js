@@ -232,8 +232,11 @@ var roomVue = new Vue({
         this.categorylist.push(data);
       });
     },
-    setCategory: function (id) {
+    setCategory: function () {
       this.category_id = id;
+    },
+    setSelectedCategory: function (this) {
+      $(this).addclass("ddd");
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
