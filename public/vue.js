@@ -233,8 +233,12 @@ var roomVue = new Vue({
       });
     },
     setCategory: function (id) {
-      alert(id);
-      //this.category_id = id;
+      this.category_id = id;
+
+      $(".category_li").each(function (idx, elm) {
+        $(elm).removeClass("selectedCategory");
+      });
+      $("#categorylist_" + id).addclass("selectedCategory");
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);

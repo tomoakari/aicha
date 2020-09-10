@@ -536,3 +536,8 @@ td.pdg0 {
 h2.roomnametitle {
   margin-bottom: 0px !important;
 }
+
+.selectedCategory {
+  border: 1px solid #696969;
+  border-radius: 5px;
+}
