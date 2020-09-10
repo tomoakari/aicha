@@ -232,11 +232,9 @@ var roomVue = new Vue({
         this.categorylist.push(data);
       });
     },
-    setCategory: function () {
-      this.category_id = id;
-    },
-    setSelectedCategory: function (elm) {
-      alert(elm);
+    setCategory: function (id) {
+      alert(id);
+      //this.category_id = id;
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
@@ -287,40 +285,6 @@ var roomVue = new Vue({
       }
       // submit
       form.submit();
-    },
-  },
-});
-
-/**
- * ルームリストを管理するVue
- */
-var roomcreateVue = new Vue({
-  el: "#roomcreate",
-
-  data: {
-    categorylist: [
-      /*
-      {
-        category_id: "category.id",
-        category_name: "category.name",
-        order_no: "category.order_no",
-      },
-      */
-    ],
-    selected: "",
-  },
-  methods: {
-    updateCategoryList: function (msg) {
-      var categories = JSON.parse(msg);
-      this.categorylist = [];
-      categories.forEach((category, index) => {
-        var data = {
-          category_id: category.id,
-          category_name: category.name,
-          order_no: category.order_no,
-        };
-        this.categorylist.push(data);
-      });
     },
   },
 });

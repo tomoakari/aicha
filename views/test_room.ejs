@@ -160,7 +160,7 @@
               <ul>
                 <template v-for="cat in categorylist">
                   <li
-                    v-on:click="setCategory(cat.category_id); setSelectedCategory(this);"
+                    v-on:click="setCategory(this); "
                     v-bind:value="cat.category_id"
                   >
                     {{ cat.category_name }}
