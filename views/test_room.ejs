@@ -147,12 +147,12 @@
       <!-- サイドバー -->
       <div id="sidebar">
         <div class="bgImage">
-          <div class="inner">
+          <div class="inner" id="roomlist">
             <div class="roundclearbox">
-              <nav id="roomlist">
+              <nav>
                 <header class="major">
                   <h2 class="roomnametitle">
-                    <%- table_name %>　<i
+                    ルームリスト<i
                       class="fas fa-sync-alt"
                       id="updateRoomlist"
                     ></i>
@@ -169,11 +169,14 @@
                     </li>
                   </template>
                 </ul>
+              </nav>
+            </div>
 
+            <div class="roundclearbox">
+              <nav>
                 <ul>
                   <template v-for="room in sortedRoomlist">
                     <li
-                      class="roomlistmargin"
                       v-on:click="jumpRoom($event); return false;"
                       v-bind:value="room.room_name"
                     >
@@ -205,6 +208,7 @@
     <!-- リソースなど -->
     <div class="hidden">
       <input id="table_id" value="<%- table_id %>" />
+      <input id="room_name" value="<%- table_name %>　" />
       <input id="user_id" value="" />
       <input id="user_name" value="<%- user_name %>" />
       <input id="chat_color" class="text-black" />

@@ -977,6 +977,10 @@ window.onload = function () {
   // "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
   chatVue.addContent(systemmesage);
 
+  const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
+  toastr.info(selfsystemmessage);
+  $("#alert_se").get(0).play();
+
   setInterval(function () {
     sendBeing();
   }, 5000);
