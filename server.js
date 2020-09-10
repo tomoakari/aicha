@@ -365,6 +365,10 @@ function chackAndCreateRoom(category_id, room_name) {
 /**
  * ****************************************************************************
  * DBアクセス
+ *
+ * ※文字コードでエラーになったとき
+ * alter table posts modify title varchar(255) character set utf8;
+ * alter table posts character set utf8;
  * ****************************************************************************
  */
 

@@ -257,6 +257,11 @@
             text: "ルーム名を入力してください。",
             input: "text",
             confirmButtonText: "OK",
+            inputValidator: (value) => {
+              if (!value) {
+                return "わかりやすい名前をつけてね。";
+              }
+            },
             preConfirm: (name) => {
               return fetch(
                 `//aicha.aice.cloud/createroom/?cat=${category_id.value}&name=${name}`
