@@ -544,5 +544,5 @@ h2.roomnametitle {
 
 .roomlistbox {
   max-height: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
