@@ -420,7 +420,7 @@ div#main,
 
 /*背景画像の設定をする*/
 .bgImage {
-  background: url(assets/images/login.jpg) no-repeat center;
+  background: url(https://aice.cloud/aicha/loginpic.jpg) no-repeat center;
   background-size: cover;
   position: relative;
   z-index: 0;
