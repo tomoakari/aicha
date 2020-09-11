@@ -235,7 +235,7 @@ io.on("connection", function (socket) {
     const limitStr =
       year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
-    console.lig("limitStr: " + limitStr);
+    console.log("limitStr: " + limitStr);
     console.log(
       "(new Date() - 12 * 60 * 60 * 1000): " +
         (new Date() - 12 * 60 * 60 * 1000)
