@@ -245,7 +245,7 @@ io.on("connection", function (socket) {
     wheredata = {
       where: {
         createdAt: {
-          [Op.gt]: new Date(new Date() - 12 * 60 * 60 * 1000),
+          [Op.gt]: limitStr,
         },
       },
     };
