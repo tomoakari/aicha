@@ -40,7 +40,8 @@ const crypto = require("crypto");
 
 // あいちゃ
 app.get("/", (request, response) => {
-  var ip = request.headers["x-forwarded-for"] || req.connection.remoteAddress;
+  var ip =
+    request.headers["x-forwarded-for"] || request.connection.remoteAddress;
   console.log("ipaddress: " + ip);
   response.sendFile(__dirname + "/views/test_index.html");
 });
