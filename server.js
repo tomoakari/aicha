@@ -225,7 +225,25 @@ io.on("connection", function (socket) {
   // ルーム一覧を取得
   // とりあえず全部取得
   socket.on("roomList", function (message) {
-    wheredata = {};
+    var today = new Date();
+    const limitDate = today.setHours(-12);
+
+    var year = limitDate.getFullYear();
+    var month = limitDate.getMonth() + 1;
+    var day = limitDate.getDate();
+    var hour = limitDate.getHours();
+    var minut = limitDate.getMinutes();
+    var seccond = limitDate.getSeconds();
+    const limitStr =
+      year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
+
+    wheredata = {
+      where: {
+        createdAt: {
+          [Op.gt]: new Date(new Date() - 12 * 60 * 60 * 1000),
+        },
+      },
+    };
 
     findRoom(wheredata).then((rooms) => {
       // emitMessage("roomList", JSON.stringify(rooms));
@@ -273,47 +291,6 @@ io.on("connection", function (socket) {
     deleteEnroll(whereData);
   });
 });
-
-// DBから部屋リストを取得
-function getRoomList() {
-  var data = [
-    {
-      roomname: "ロビー",
-      membercount: "",
-    },
-    {
-      roomname: "IT",
-      membercount: "",
-    },
-    {
-      roomname: "政治",
-      membercount: "",
-    },
-    {
-      roomname: "音楽",
-      membercount: "",
-    },
-    {
-      roomname: "アニメ",
-      membercount: "",
-    },
-    {
-      roomname: "旅行",
-      membercount: "",
-    },
-    {
-      roomname: "出会い",
-      membercount: "",
-    },
-  ];
-  return data;
-} // DBから部屋リストを取得
-function getRoomList2() {
-  wheredata = {};
-  findRoom(wheredata).then((rooms) => {
-    return rooms;
-  });
-}
 
 /**
  * 部屋を新規作成する
