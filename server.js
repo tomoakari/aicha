@@ -49,7 +49,6 @@ app.post("/", (request, response) => {
     .digest("hex");
 
   var data = {
-    roomlist: getRoomList(),
     user_name: request.body.user_name,
     table_id: table_id,
     table_name: request.body.table_name,
