@@ -225,7 +225,7 @@ io.on("connection", function (socket) {
   // とりあえず全部取得
   socket.on("roomList", function (message) {
     var today = new Date();
-    const limitDate = today.setHours(-12);
+    var limitDate = today.setHours(today.getHours() - 12);
     var year = limitDate.getFullYear();
     var month = limitDate.getMonth() + 1;
     var day = limitDate.getDate();
