@@ -224,14 +224,14 @@ io.on("connection", function (socket) {
   // ルーム一覧を取得
   // とりあえず全部取得
   socket.on("roomList", function (message) {
-    var today = new Date();
-    var limitDate = today.setHours(today.getHours() - 12);
-    var year = limitDate.getFullYear();
-    var month = limitDate.getMonth() + 1;
-    var day = limitDate.getDate();
-    var hour = limitDate.getHours();
-    var minut = limitDate.getMinutes();
-    var seccond = limitDate.getSeconds();
+    var dt = new Date();
+    dt.setHours(dt.getHours() - 12);
+    var year = dt.getFullYear();
+    var month = dt.getMonth() + 1;
+    var day = dt.getDate();
+    var hour = dt.getHours();
+    var minut = dt.getMinutes();
+    var seccond = dt.getSeconds();
     const limitStr =
       year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
