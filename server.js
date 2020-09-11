@@ -224,9 +224,9 @@ io.on("connection", function (socket) {
   // ルーム一覧を取得
   // とりあえず全部取得
   socket.on("roomList", function (message) {
+    /*
     var today = new Date();
     const limitDate = today.setHours(-12);
-
     var year = limitDate.getFullYear();
     var month = limitDate.getMonth() + 1;
     var day = limitDate.getDate();
@@ -235,7 +235,8 @@ io.on("connection", function (socket) {
     var seccond = limitDate.getSeconds();
     const limitStr =
       year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
-
+    */
+    const { Op } = require("sequelize");
     wheredata = {
       where: {
         createdAt: {
