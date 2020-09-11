@@ -235,12 +235,6 @@ io.on("connection", function (socket) {
     const limitStr =
       year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
-    console.log("limitStr: " + limitStr);
-    console.log(
-      "(new Date() - 12 * 60 * 60 * 1000): " +
-        (new Date() - 12 * 60 * 60 * 1000)
-    );
-
     const { Op } = require("sequelize");
     wheredata = {
       createdAt: {
@@ -324,7 +318,7 @@ function chackAndCreateRoom(category_id, room_name) {
           // 入室者がいるルームが一つもなければ、作成する
           var data = {
             name: room_name,
-            category_name: "いらなくない？",
+            category_name: "",
             category_id: category_id,
             default_flg: 0,
             create_user_id: "",
