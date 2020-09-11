@@ -243,10 +243,8 @@ io.on("connection", function (socket) {
 
     const { Op } = require("sequelize");
     wheredata = {
-      where: {
-        createdAt: {
-          [Op.gt]: limitStr,
-        },
+      createdAt: {
+        [Op.gt]: limitStr,
       },
     };
 
