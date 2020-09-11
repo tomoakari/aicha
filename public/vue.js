@@ -4,7 +4,9 @@
 const vueSeamless = window.vueSeamlessScroll;
 
 /**
+ * **********************************************************
  * ルームメンバーを管理するVue
+ * **********************************************************
  */
 var memberVue = new Vue({
   el: "#app",
@@ -170,7 +172,9 @@ var chatVue = new Vue({
 });
 
 /**
+ * **********************************************************
  * ルームリストを管理するVue
+ * **********************************************************
  */
 var roomVue = new Vue({
   el: "#roomlist",
@@ -201,18 +205,22 @@ var roomVue = new Vue({
   computed: {
     sortedRoomlist: function () {
       if (this.category_id > 0) {
-        /*
-        var resultlist = [];
-        this.roomlist.forEach((room) => {
-          if (room.category_id == this.category_id) {
-            resultlist.push(room);
-          }
-        });
-        return resultlist;
-        */
+        var today = new Date();
+        // var year = today.getFullYear();
+        // var month = today.getMonth() + 1;
+        // var day = today.getDate();
+        var hour = today.getHours();
+        var minut = today.getMinutes();
+        // var seccond = today.getSeconds();
+        // var textdate = year + '年' + month + '月' + day + '日';
+        var textdate = hour + "時" + minut + "分";
+
         const result = this.roomlist.filter(
           (room) => room.category_id === this.category_id
         );
+
+        const notExpired = result.filter((room) => room.createdAt);
+
         return result;
       } else {
         return [];

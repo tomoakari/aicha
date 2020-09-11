@@ -546,3 +546,6 @@ h2.roomnametitle {
   max-height: 200px;
   overflow-y: scroll;
 }
+.roomlistbox::-webkit-scrollbar {
+  display: none;
+}
