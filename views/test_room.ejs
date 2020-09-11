@@ -166,7 +166,7 @@
               </ul>
             </div>
 
-            <div class="roundclearbox roomlistbox">
+            <div v-show="category_id > 0" class="roundclearbox roomlistbox">
               <header class="major">
                 <h2 class="roomnametitle">
                   ルームリスト
@@ -289,8 +289,7 @@
                 // text: result.value.room_name,
                 html:
                   result.value.room_name +
-                  "<br/>" +
-                  "ルームの有効期限は24時間です。チャットをお楽しみください。",
+                  "<br/>ルームの有効期限は24時間です。<br/>あいちゃをお楽しみください。",
                 confirmButtonText: "さっそく入室する",
                 preConfirm: () => {
                   var roomdata = {
