@@ -396,6 +396,7 @@ div#main,
 .fab-disable {
   background: linear-gradient(#dc143c, #ff69b4);
   animation: flashing 3s infinite;
+  animation: flashing2 3s infinite;
   /* box-shadow: 0 0px 20px 0 #ff69b4; */
 }
 @keyframes flashing {
@@ -403,7 +404,21 @@ div#main,
     box-shadow: 0 0px 0px 0 #ff69b4;
   }
   50% {
-    box-shadow: 0 0px 20px 0 #ff69b4;
+    box-shadow: 0 0px 40px 0 #ff69b4;
+  }
+  100% {
+    box-shadow: 0 0px 0px 0 #ff69b4;
+  }
+}
+@keyframes flashing2 {
+  0% {
+    box-shadow: 0 0px 0px 0 #ff69b4;
+  }
+  5% {
+    box-shadow: 0 0px 0px 0 #ff69b4;
+  }
+  55% {
+    box-shadow: 0 0px 40px 0 #ff69b4;
   }
   100% {
     box-shadow: 0 0px 0px 0 #ff69b4;
