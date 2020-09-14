@@ -347,10 +347,8 @@ function addBlankVideoElement() {
   );
 }
 
-// function
-
 // ----------------------------------------------------------------
-// ---------------------- ボタン操作  -----------------------
+// ---------------------- ボタン操作 --------------------------------
 // ----------------------------------------------------------------
 
 /**
@@ -519,6 +517,7 @@ function startVoice() {
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
   $("#userlist_myname").addClass("nowtalking");
+  $("#local_video").addClass("videoflash");
 }
 function stopVoice() {
   sendReleaseSignal();
@@ -528,6 +527,7 @@ function stopVoice() {
   $("#unmutebutton").removeClass("hidden");
   $("#mutebutton").addClass("hidden");
   $("#userlist_myname").removeClass("nowtalking");
+  $("#local_video").removeClass("videoflash");
 }
 
 // ビデオON/OFFボタン

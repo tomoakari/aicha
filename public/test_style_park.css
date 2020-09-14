@@ -401,11 +401,8 @@ div#main,
   0% {
     box-shadow: 0 0px 0px 0 #ff69b4;
   }
-  50% {
-    box-shadow: 0 0px 20px 0 #ff69b4;
-  }
   100% {
-    box-shadow: 0 0px 0px 0 #ff69b4;
+    box-shadow: 0 0px 20px 0 #ff69b4;
   }
 }
 @keyframes flashing2 {
@@ -415,6 +412,9 @@ div#main,
   100% {
     box-shadow: 0px 0px 0px 120px rgba(255, 105, 180, 0.1);
   }
+}
+.videoflash {
+  animation: flashing 3s infinite ease-out;
 }
 
 .fab-rainbow {
