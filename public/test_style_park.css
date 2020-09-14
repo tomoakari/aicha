@@ -422,11 +422,10 @@ div#main,
 }
 @keyframes waving {
   0% {
-    border: 0px #ff69b4;
+    border: 0px solid #ff69b4;
   }
   100% {
-    border: 100px #ff69b4;
-    opacity: 0;
+    border: 100px solid #ff69b4;
   }
 }
 
