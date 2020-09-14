@@ -395,7 +395,7 @@ div#main,
 
 .fab-disable {
   background: linear-gradient(#dc143c, #ff69b4);
-  /*animation: flashing2 3s infinite ease-out;*/
+  animation: flashing2 3s infinite ease-out;
 }
 @keyframes flashing {
   0% {
@@ -410,22 +410,11 @@ div#main,
 }
 @keyframes flashing2 {
   0% {
-    box-shadow: 0 0px 0px 0 #ff69b4;
+    box-shadow: 0px 0px 0px 0px #ff69b4;
   }
   100% {
-    box-shadow: 0 0px 50px 0 #ff69b4;
-  }
-}
-.innerbutton {
-  background: none;
-  animation: waving 3s infinite ease-out;
-}
-@keyframes waving {
-  0% {
-    border: 0px solid #ff69b4;
-  }
-  100% {
-    border: 100px solid #ff69b4;
+    box-shadow: 0px 0px 0px 100px #ff69b4;
+    opacity: 0;
   }
 }
 
