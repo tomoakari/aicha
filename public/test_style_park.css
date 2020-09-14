@@ -410,11 +410,10 @@ div#main,
 }
 @keyframes flashing2 {
   0% {
-    box-shadow: 0px 0px 0px 0px #ff69b4;
+    box-shadow: 0px 0px 0px 0px rgba(255, 105, 180, 1);
   }
   100% {
-    box-shadow: 0px 0px 0px 120px #ff69b4;
-    opacity: 0.2;
+    box-shadow: 0px 0px 0px 120px rgba(255, 105, 180, 0.1);
   }
 }
 
