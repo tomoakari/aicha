@@ -396,7 +396,6 @@ div#main,
 .fab-disable {
   background: linear-gradient(#dc143c, #ff69b4);
   animation: flashing2 3s infinite ease-out;
-  /* box-shadow: 0 0px 20px 0 #ff69b4; */
 }
 @keyframes flashing {
   0% {
@@ -415,7 +414,6 @@ div#main,
   }
   100% {
     box-shadow: 0 0px 50px 0 #ff69b4;
-    opacity: 0.1;
   }
 }
 
