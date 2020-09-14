@@ -412,16 +412,16 @@ div#main,
 }
 @keyframes flashing2 {
   0% {
-    box-shadow: 0 0px 0px 0 #ff69b4;
+    box-shadow: 0 0px 0px 0 #ffffff;
   }
   5% {
-    box-shadow: 0 0px 0px 0 #ff69b4;
+    box-shadow: 0 0px 0px 0 #ffffff;
   }
   55% {
-    box-shadow: 0 0px 40px 0 #ff69b4;
+    box-shadow: 0 0px 40px 0 #ffffff;
   }
   100% {
-    box-shadow: 0 0px 0px 0 #ff69b4;
+    box-shadow: 0 0px 0px 0 #ffffff;
   }
 }
 
