@@ -430,6 +430,22 @@ $("#ink-green").on("click", () => {
   setInk("text-green");
   togglePalette();
 });
+$("#ink-brown").on("click", () => {
+  setInk("text-brown");
+  togglePalette();
+});
+$("#ink-pink").on("click", () => {
+  setInk("text-pink");
+  togglePalette();
+});
+$("#ink-purple").on("click", () => {
+  setInk("text-purple");
+  togglePalette();
+});
+$("#ink-emerald").on("click", () => {
+  setInk("text-emerald");
+  togglePalette();
+});
 
 $("#updateRoomlist").on("click", () => {
   sendUpdateRoomlist();

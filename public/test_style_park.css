@@ -454,11 +454,11 @@ td.pdg0 {
   padding: 0px;
 }
 .palette-balloon {
-  width: 300px; /*幅*/
+  width: 600px; /*幅*/
   height: 100px; /*高さ*/
   background: #ffffff; /*背景色*/
   text-align: center; /*中央寄せ*/
-  border-radius: 50%; /*角丸く*/
+  border-radius: 45px; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
   padding-top: 22px;
@@ -481,7 +481,7 @@ td.pdg0 {
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.24);
   position: fixed;
   bottom: 70px;
-  left: 35%;
+  margin-left: 80px;
 }
 
 .ink-circle {
@@ -511,6 +511,18 @@ td.pdg0 {
 .ink-green {
   background: radial-gradient(#40e0d0, #2e8b57);
 }
+.ink-brown {
+  background: radial-gradient(#ffb066, #cb711b);
+}
+.ink-pink {
+  background: radial-gradient(#ff99d1, #e4007f);
+}
+.ink-purple {
+  background: radial-gradient(#ca99ff, #a462ea);
+}
+.ink-emerald {
+  background: radial-gradient(#21fffb, #1bcbc9);
+}
 .text-black {
   color: #696969;
 }
@@ -522,6 +534,18 @@ td.pdg0 {
 }
 .text-green {
   color: #2e8b57;
+}
+.text-brown {
+  color: #cb711b;
+}
+.text-pink {
+  color: #e862ea;
+}
+.text-purple {
+  color: #a462ea;
+}
+.text-emerald {
+  color: #1bcbc9;
 }
 
 .fab-palette i {
