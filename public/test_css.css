@@ -154,13 +154,15 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.puwrapper {
+  font-size: 14px;
+}
 .swal2-html-container ul li {
   text-align: left;
 }
 .swal2-html-container {
   font-size: inherit;
 }
-
 .pertationline {
   border-bottom: #696969 1px solid;
   margin: 20px 0px;
