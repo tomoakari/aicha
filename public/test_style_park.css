@@ -454,7 +454,6 @@ td.pdg0 {
   padding: 0px;
 }
 .palette-balloon {
-  width: 600px; /*幅*/
   height: 100px; /*高さ*/
   background: #ffffff; /*背景色*/
   text-align: center; /*中央寄せ*/
@@ -464,7 +463,6 @@ td.pdg0 {
   padding-top: 22px;
   position: fixed;
   bottom: 100px;
-  left: 30%;
 }
 .palette-inner {
   display: flex;
@@ -498,6 +496,9 @@ td.pdg0 {
 }
 .ml30 {
   margin-left: 30px;
+}
+.mr30 {
+  margin-right: 30px;
 }
 .ink-black {
   background: radial-gradient(#dcdcdc, #393939);
