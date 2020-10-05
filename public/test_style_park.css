@@ -529,15 +529,19 @@ td.pdg0 {
 }
 .text-red {
   color: #ea6264;
+  font-weight: 600;
 }
 .text-blue {
   color: #4169e1;
+  font-weight: 700;
 }
 .text-green {
   color: #2e8b57;
+  font-weight: 800;
 }
 .text-brown {
   color: #cb711b;
+  font-weight: 900;
 }
 .text-pink {
   color: #e862ea;
