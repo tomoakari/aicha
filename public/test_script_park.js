@@ -448,6 +448,11 @@ $("#ink-emerald").on("click", () => {
 });
 
 $("#updateRoomlist").on("click", () => {
+  $("#updateRoomlist").addClass("fa-spin");
+  setTimeout(() => {
+    $("#updateRoomlist").removeClass("fa-spin");
+  }, 1500);
+  $("#update_se").get(0).play();
   sendUpdateRoomlist();
 });
 
@@ -1220,7 +1225,7 @@ function showLinkWindow(msg) {
     title: "招待リンク",
     // icon: "info",
     html:
-      `<p>このURLから新しい参加者を招待することができます</p>` +
+      `<p>このURLからこのルームに招待することができます</p>` +
       `<input class="linkinputtext" value="` +
       url +
       `"/>`,
