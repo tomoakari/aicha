@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>あいちゃログイン</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/test_css.css" type="text/css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-174561230-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-174561230-1");
+    </script>
+  </head>
+
+  <body>
+    <div class="body"></div>
+    <div class="grad"></div>
+    <div class="header">
+      <div class="title">
+        <p>あいちゃ</p>
+        Powered by <a href="https://aice.cloud" target="_blank">AICE.CLOUD</a>
+      </div>
+    </div>
+    <form
+      method="post"
+      action=""
+      class="entry"
+      onsubmit="return checkParams(this);"
+    >
+      <div class="login">
+        <p>「<%- room_name %>」に招待されています。</p>
+        <input
+          type="hidden"
+          id="table_name"
+          name="table_name"
+          value="<%- room_name %>"
+        />
+        <input type="text" placeholder="あいちゃネーム" name="user_name" />
+
+        <button>Login</button>
+        <p class="kiyakulink">
+          <a href="https://aice.cloud/aicha/kiyaku.txt" target="_blank"
+            >利用規約</a
+          >
+        </p>
+      </div>
+    </form>
+
+    <footer>Copyright © 2019 AIForus,Inc.</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+      // 簡易入力チェック
+      function checkParams(form) {
+        var obj = form.elements.user_name;
+        if (obj.value == "") {
+          alert("名前を入力してください。");
+          return false;
+        } else if (obj.value.indexOf("-") !== -1) {
+          alert("名前には「-」を使用できません。");
+          return false;
+        } else {
+          return true;
+        }
+      }
+      window.onload = function () {
+        Swal.fire({
+          title: "あいちゃへようこそ！",
+          html:
+            "<div class='puwrapper'>" +
+            "あいちゃはインターネットを通じ新しい仲間に出会ったり同じ趣味の人と楽しく交流できる空間です。<br/>" +
+            "<h5>《最新情報》</h5>" +
+            "<div class='popupnews'><ul>" +
+            "<li>ルーム追加機能を追加しました。（9/8更新）</li>" +
+            "</ul></div>" +
+            "<div class='pertationline'></div>" +
+            "<h5>※使用前の注意</h5>" +
+            "音声、映像機能を利用するには、ログイン後、<br>" +
+            "<strong>『カメラとマイクへのアクセス』『Javascript』" +
+            "を許可</strong>してください。" +
+            "音声、映像が使えない場合は、各ブラウザの設定より再設定してください。" +
+            "<div class='pertationline'></div>" +
+            "<h5>【推奨環境】</h5>" +
+            "<ul><li>PC・Mac … Google Chrome、Safari</li></ul>" +
+            "<h5>【未対応】</h5>" +
+            "<ul><li>iOS(iPhone、iPad等) … 音声、映像に対応準備中です。</li><li>Android　… レイアウト順次対応予定です。</li></ul>" +
+            "</div>",
+          showCloseButton: false,
+          showCancelButton: false,
+          focusConfirm: false,
+          confirmButtonText: '<i class="fa fa-thumbs-up"></i>確認しました',
+          confirmButtonAriaLabel: "Thumbs up, OK!!",
+          reverseButtons: true,
+          allowOutsideClick: false,
+        });
+      };
+    </script>
+  </body>
+</html>

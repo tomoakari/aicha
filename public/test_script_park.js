@@ -451,6 +451,10 @@ $("#updateRoomlist").on("click", () => {
   sendUpdateRoomlist();
 });
 
+$("#invitebutton").on("click", () => {
+  sendLinkRequest();
+});
+
 // connect video
 function connectVideo() {
   var videoParam = {
@@ -1193,4 +1197,35 @@ function sendleaveroom() {
   // $("#input_msg").val("");
 
   return false;
+}
+
+function sendLinkRequest() {
+  var data = {
+    room_name: $("#room_name").val(),
+    password: $("#password").val(),
+  };
+  // socket.emit("roomhash", data);
+  showLinkWindow(data);
+}
+function showLinkWindow(msg) {
+  /*
+  const root = document.location.href;
+  const url = root + "?secret=" + msg;
+  */
+  const root = document.location.href;
+  const url =
+    root + "?room_name=" + msg.room_name + "&password=" + msg.password;
+  Swal.fire({
+    title: "招待リンク",
+    // icon: "info",
+    html:
+      `<p>このURLから新しい参加者を招待することができます</p>` +
+      `<input class="linkinputtext" value="` +
+      url +
+      `"/>`,
+    focusConfirm: false,
+    confirmButtonText: "閉じる",
+    confirmButtonAriaLabel: "Close",
+    allowOutsideClick: true,
+  });
 }

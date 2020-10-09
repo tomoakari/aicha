@@ -40,10 +40,17 @@ const crypto = require("crypto");
 
 // あいちゃ
 app.get("/", (request, response) => {
-  var ip =
-    request.headers["x-forwarded-for"] || request.connection.remoteAddress;
-  console.log("ipaddress: " + ip);
-  response.sendFile(__dirname + "/views/test_index.html");
+  // パラメータがあれば招待用トップを表示
+  if (request.query.room_name) {
+    var data = {
+      room_name: request.query.room_name,
+      //password: request.query.password,
+    };
+    response.render("./index_invited.ejs", data);
+  } else {
+    // パラメータがなければ普通にトップを表示
+    response.sendFile(__dirname + "/views/test_index.html");
+  }
 });
 app.post("/", (request, response) => {
   var table_id = crypto
