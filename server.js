@@ -42,11 +42,16 @@ const crypto = require("crypto");
 app.get("/", (request, response) => {
   // パラメータがあれば招待用トップを表示
   if (request.query.room_name) {
-    var data = {
-      room_name: request.query.room_name,
-      //password: request.query.password,
-    };
-    response.render("./index_invited.ejs", data);
+    if (chackAndUpdateRoom(request.query.room_name)) {
+      var data = {
+        room_name: request.query.room_name,
+        //password: request.query.password,
+      };
+      response.render("./index_invited.ejs", data);
+    } else {
+      // パラメータがNGなら普通にトップを表示
+      response.sendFile(__dirname + "/views/test_index.html");
+    }
   } else {
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/test_index.html");
@@ -247,7 +252,7 @@ io.on("connection", function (socket) {
 
     const { Op } = require("sequelize");
     wheredata = {
-      createdAt: {
+      updatedAt: {
         [Op.gt]: limitStr,
       },
     };
@@ -342,6 +347,39 @@ function chackAndCreateRoom(category_id, room_name) {
           return result;
         }
       });
+    });
+  });
+}
+
+/**
+ * 部屋の存在確認して有効期間を更新する
+ */
+function chackAndUpdateRoom(room_name) {
+  // トランザクション開始
+  sequelize.transaction(async function (tx) {
+    // 名前被りの確認
+    await RoomModel.findAll({
+      where: { name: room_name },
+    }).then((roomlist) => {
+      var ids = [];
+      roomlist.forEach((room) => {
+        ids.push(room.id);
+      });
+
+      if (ids) {
+        var data = {};
+        var whereCondition = {
+          id: ids[ids.length - 1],
+        };
+        var updateFields = "updatedAt";
+        // updateData, whereCondition, updateFields
+        // updateRoom(data, whereCondition, updateFields).then((result) => {
+        //   return result;
+        // });
+        updateRoom(data, whereCondition, updateFields);
+        return true;
+      }
+      return false;
     });
   });
 }
