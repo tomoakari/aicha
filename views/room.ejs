@@ -266,7 +266,7 @@
                 `//aicha.aice.cloud/checkandcreateroom/?cat=${category_id.value}&name=${name}`
               )
                 .then((response) => {
-                  console.log("response:" + JSON.stringify(response.body));
+                  console.log("response:" + JSON.stringify(response.json().body));
                   if (!response.ok) {
                     throw new Error(response.statusText);
                   }
