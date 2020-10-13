@@ -81,7 +81,6 @@ app.post("/", (request, response) => {
 app.get("/createroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
-  console.log("request:" + category_id + " / " + room_name);
   const resultData = chackAndCreateRoom(category_id, room_name);
 
   const result = {
@@ -96,7 +95,6 @@ app.get("/createroom", (request, response) => {
 app.get("/testcreateroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
-  console.log("request:" + category_id + " / " + room_name);
   /*
   const resultData = test_chackAndCreateRoom(category_id, room_name);
   const result = {
@@ -232,8 +230,6 @@ io.on("connection", function (socket) {
 
   // PINGの配信
   socket.on("being", function (message) {
-    //message.from = socket.id;
-    console.log("being received. " + message);
     emitMessage("being", message);
   });
 
@@ -404,7 +400,7 @@ function test_chackAndCreateRoom(category_id, room_name) {
 
         var data = {
           name: room_name,
-          hashed_name: table_id,
+          hashed_name: "aaaaaa",
           category_name: "",
           category_id: category_id,
           default_flg: 0,
