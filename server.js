@@ -104,11 +104,13 @@ app.get("/testcreateroom", (request, response) => {
   };
   response.json(result);
 */
-
+  /*
   test_chackAndCreateRoom(category_id, room_name).then((result) => {
     console.log("7");
     response.json(result);
   });
+  */
+  response.json(test_chackAndCreateRoom(category_id, room_name));
 });
 
 // 秘密の管理ページ
