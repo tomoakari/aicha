@@ -105,7 +105,7 @@ app.get("/testcreateroom", async (request, response) => {
   response.json(result);
 */
 
-  await test_chackAndCreateRoom(category_id, room_name).then((result) => {
+  test_chackAndCreateRoom(category_id, room_name).then((result) => {
     console.log("7");
     response.json(result);
   });
