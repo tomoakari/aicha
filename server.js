@@ -398,26 +398,36 @@ async function test_chackAndCreateRoom(category_id, room_name) {
           ok: false,
           room_name: room_name,
         };
+        return result;
       } else {
         // 存在していない場合
         var table_id = crypto.createHash("md5").update(room_name).digest("hex");
 
         var data = {
           name: room_name,
-          hashed_name: "aaaaaa",
+          hashed_name: table_id,
           category_name: "",
           category_id: category_id,
           default_flg: 0,
           create_user_id: "",
         };
-        createRoom(data);
-
-        result = {
-          statusText: "kkk",
-          ok: true,
-          room_name: room_name,
-        };
-        return result;
+        createRoom(data)
+          .then(() => {
+            result = {
+              statusText: "OK",
+              ok: true,
+              room_name: room_name,
+            };
+            return result;
+          })
+          .catch((err) => {
+            result = {
+              statusText: err,
+              ok: false,
+              room_name: room_name,
+            };
+            return result;
+          });
       }
     });
   });
