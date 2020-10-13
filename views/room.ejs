@@ -266,7 +266,17 @@
                 `//aicha.aice.cloud/checkandcreateroom/?cat=${category_id.value}&name=${name}`
               )
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => {
+                if (!data.ok) {
+                    throw new Error(data.statusText);
+                  }
+                  return data;
+              })
+              .catch((error) => {
+                  Swal.showValidationMessage(
+                    error
+                  );
+                });
               
               /*
                 .then((response) => {
