@@ -117,6 +117,31 @@ app.get("/testcreateroom", async (request, response) => {
         room_name: room_name,
       };
       return response.json(result);
+    } else {
+      // まだ存在していない場合
+      var table_id = crypto.createHash("md5").update(room_name).digest("hex");
+
+      var data = {
+        name: room_name,
+        hashed_name: table_id,
+        category_name: "",
+        category_id: category_id,
+        default_flg: 0,
+        create_user_id: "",
+      };
+      var crt = await RoomModel.create(data);
+      return response.json(crt);
+      /*
+          .then(() => {
+            console.log("5");
+            result = {
+              statusText: "OK",
+              ok: true,
+              room_name: room_name,
+            };
+            return result;
+          })
+          */
     }
   } catch (err) {
     response.json(err);
