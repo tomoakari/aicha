@@ -133,7 +133,7 @@ app.get("/createroom", async (request, response) => {
       var crtResult = await RoomModel.create(data);
 
       var successresult = {
-        statusText: "OOK",
+        statusText: "OK",
         ok: true,
         room_name: crtResult.name,
       };
