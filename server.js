@@ -105,7 +105,19 @@ app.get("/testcreateroom", async (request, response) => {
   response.json(result);
 */
   try {
-    response.json(test_chackAndCreateRoom(category_id, room_name));
+    var roomlist = await RoomModel.findAll({
+      where: { name: room_name },
+    });
+
+    if (roomlist.length > 0) {
+      // すでに存在していた場合
+      result = {
+        statusText: "NG",
+        ok: false,
+        room_name: room_name,
+      };
+      return response.json(result);
+    }
   } catch (err) {
     response.json(err);
   }
@@ -385,47 +397,60 @@ function chackAndCreateRoom(category_id, room_name) {
 }
 
 async function test_chackAndCreateRoom(category_id, room_name) {
-  console.log("1");
-  // 名前被りの確認
-  var roomlist = await RoomModel.findAll({
-    where: { name: room_name },
+  // トランザクション開始
+  sequelize.transaction(async function (tx) {
+    console.log("1");
+    // 名前被りの確認
+    await RoomModel.findAll({
+      where: { name: room_name },
+    }).then((roomlist) => {
+      console.log("2");
+      console.log(roomlist);
+      var result;
+      if (roomlist.length > 0) {
+        console.log("3");
+        // すでに存在していた場合
+        result = {
+          statusText: "NG",
+          ok: false,
+          room_name: room_name,
+        };
+        return result;
+      } else {
+        // 存在していない場合
+        console.log("4");
+        var table_id = crypto.createHash("md5").update(room_name).digest("hex");
+
+        var data = {
+          name: room_name,
+          hashed_name: table_id,
+          category_name: "",
+          category_id: category_id,
+          default_flg: 0,
+          create_user_id: "",
+        };
+        createRoom(data)
+          .then(() => {
+            console.log("5");
+            result = {
+              statusText: "OK",
+              ok: true,
+              room_name: room_name,
+            };
+            return result;
+          })
+          .catch((err) => {
+            console.log("6");
+            result = {
+              statusText: err,
+              ok: false,
+              room_name: room_name,
+            };
+            return result;
+          });
+      }
+    });
   });
-
-  console.log("2");
-  console.log(roomlist);
-  var result;
-  if (roomlist.length > 0) {
-    console.log("3");
-    // すでに存在していた場合
-    result = {
-      statusText: "NG",
-      ok: false,
-      room_name: room_name,
-    };
-    return result;
-  } else {
-    // 存在していない場合
-    console.log("4");
-    var table_id = crypto.createHash("md5").update(room_name).digest("hex");
-
-    var data = {
-      name: room_name,
-      hashed_name: table_id,
-      category_name: "",
-      category_id: category_id,
-      default_flg: 0,
-      create_user_id: "",
-    };
-    await createRoom(data);
-
-    console.log("5");
-    result = {
-      statusText: "OK",
-      ok: true,
-      room_name: room_name,
-    };
-    return result;
-  }
 }
 
 /**
