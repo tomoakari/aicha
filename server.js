@@ -92,7 +92,7 @@ app.get("/createroom", (request, response) => {
   response.json(result);
 });
 
-app.get("/testcreateroom", (request, response) => {
+app.get("/testcreateroom", async (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
   /*
