@@ -267,7 +267,7 @@
               )
                 .then((response) => {
                   console.log("response:" + JSON.stringify(response));
-                  if (response.ok) {
+                  if (response.ok=="true") {
                     return response.json();
                   }else{
                     throw new Error(response.statusText);
