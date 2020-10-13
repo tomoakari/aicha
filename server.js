@@ -111,8 +111,8 @@ app.get("/testcreateroom", async (request, response) => {
 
     if (roomlist.length > 0) {
       // すでに存在していた場合
-      result = {
-        statusText: "NG",
+      var result = {
+        statusText: "すでに登録されています。",
         ok: false,
         room_name: room_name,
       };
@@ -129,22 +129,22 @@ app.get("/testcreateroom", async (request, response) => {
         default_flg: 0,
         create_user_id: "",
       };
-      var crt = await RoomModel.create(data);
-      return response.json(crt);
-      /*
-          .then(() => {
-            console.log("5");
-            result = {
-              statusText: "OK",
-              ok: true,
-              room_name: room_name,
-            };
-            return result;
-          })
-          */
+      var crtResult = await RoomModel.create(data);
+
+      var result = {
+        statusText: "OK",
+        ok: true,
+        room_name: crtResult.name,
+      };
+      return response.json(result);
     }
   } catch (err) {
-    response.json(err);
+    var result = {
+      statusText: "うまく登録できませんでした。ERROR:" + err,
+      ok: false,
+      room_name: room_name,
+    };
+    return response.json(result);
   }
 });
 
