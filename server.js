@@ -38,7 +38,7 @@ const crypto = require("crypto");
  * ************************************************************
  */
 
-// あいちゃ
+// ログイン画面
 app.get("/", (request, response) => {
   // パラメータがあれば招待用トップを表示
   if (request.query.room_name) {
@@ -50,13 +50,14 @@ app.get("/", (request, response) => {
       response.render("./index_invited.ejs", data);
     } else {
       // パラメータがNGなら普通にトップを表示
-      response.sendFile(__dirname + "/views/test_index.html");
+      response.sendFile(__dirname + "/views/index.html");
     }
   } else {
     // パラメータがなければ普通にトップを表示
-    response.sendFile(__dirname + "/views/test_index.html");
+    response.sendFile(__dirname + "/views/index.html");
   }
 });
+// ルーム画面
 app.post("/", (request, response) => {
   var table_id = crypto
     .createHash("md5")
@@ -68,7 +69,7 @@ app.post("/", (request, response) => {
     table_id: table_id,
     table_name: request.body.table_name,
   };
-  response.render("test_room.ejs", data);
+  response.render("room.ejs", data);
 });
 app.get("/createroom", (request, response) => {
   const category_id = request.query.cat;
