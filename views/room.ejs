@@ -267,14 +267,16 @@
               )
                 .then((response) => {
                   console.log("response:" + JSON.stringify(response));
-                  if (!response.ok) {
+                  if (response.ok) {
+                    return response.json();
+                  }else{
                     throw new Error(response.statusText);
                   }
-                  return response.json();
+                  
                 })
                 .catch((error) => {
                   Swal.showValidationMessage(
-                    `このルーム名はすでにあるようです。`
+                    error
                   );
                 });
             },

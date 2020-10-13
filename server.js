@@ -78,7 +78,7 @@ app.post("/", (request, response) => {
 /**
  * 部屋を作成する
  */
-app.get("/createroom", (request, response) => {
+app.get("/OLD_createroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
   const resultData = chackAndCreateRoom(category_id, room_name);
@@ -92,18 +92,19 @@ app.get("/createroom", (request, response) => {
   response.json(result);
 });
 
-app.get("/testcreateroom", async (request, response) => {
+app.get("/createroom", async (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
-  /*
-  const resultData = test_chackAndCreateRoom(category_id, room_name);
-  const result = {
-    statusText: "OK",
-    ok: true,
-    room_name: room_name,
-  };
-  response.json(result);
-*/
+
+  if (room_name == "") {
+    var result = {
+      statusText: "うまく登録できませんでした。",
+      ok: false,
+      room_name: room_name,
+    };
+    return response.json(result);
+  }
+
   try {
     var roomlist = await RoomModel.findAll({
       where: { name: room_name },
@@ -112,7 +113,7 @@ app.get("/testcreateroom", async (request, response) => {
     if (roomlist.length > 0) {
       // すでに存在していた場合
       var result = {
-        statusText: "すでに登録されています。",
+        statusText: "このルーム名はすでにあるようです。",
         ok: false,
         room_name: room_name,
       };
