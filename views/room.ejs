@@ -267,6 +267,7 @@
               )
               .then(response => response.json())
               .then(data => {
+                console.log("data.ok:" + data.ok);
                 if (!data.ok) {
                     throw new Error(data.statusText);
                   }
