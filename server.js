@@ -102,8 +102,12 @@ app.get("/testcreateroom", (request, response) => {
     ok: true,
     room_name: room_name,
   };
+  response.json(result);
 */
-  response.json(test_chackAndCreateRoom(category_id, room_name));
+
+  test_chackAndCreateRoom(category_id, room_name).then((result) => {
+    response.json(result);
+  });
 });
 
 // 秘密の管理ページ
@@ -379,7 +383,7 @@ function chackAndCreateRoom(category_id, room_name) {
   });
 }
 
-function test_chackAndCreateRoom(category_id, room_name) {
+async function test_chackAndCreateRoom(category_id, room_name) {
   // トランザクション開始
   sequelize.transaction(async function (tx) {
     // 名前被りの確認
