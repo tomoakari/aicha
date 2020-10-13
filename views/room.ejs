@@ -263,7 +263,7 @@
             },
             preConfirm: (name) => {
               return fetch(
-                `//aicha.aice.cloud/createroom/?cat=${category_id.value}&name=${name}`
+                `//aicha.aice.cloud/checkandcreateroom/?cat=${category_id.value}&name=${name}`
               )
                 .then((response) => {
                   console.log("response:" + response.room_name);
