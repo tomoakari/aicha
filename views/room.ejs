@@ -266,7 +266,7 @@
                 `//aicha.aice.cloud/checkandcreateroom/?cat=${category_id.value}&name=${name}`
               )
                 .then((rps) => {
-                  console.log("response:" + rps.statusText);
+                  console.log("response:" + rps.json());
                   if (rps.ok) {
                     return rps.json();
                   }else{
