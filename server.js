@@ -112,12 +112,12 @@ app.get("/createroom", async (request, response) => {
 
     if (roomlist.length > 0) {
       // すでに存在していた場合
-      var result = {
+      var yetresult = {
         statusText: "このルーム名はすでにあるようです。",
         ok: false,
         room_name: room_name,
       };
-      return response.json(result);
+      return response.json(yetresult);
     } else {
       // まだ存在していない場合
       var table_id = crypto.createHash("md5").update(room_name).digest("hex");
@@ -132,20 +132,20 @@ app.get("/createroom", async (request, response) => {
       };
       var crtResult = await RoomModel.create(data);
 
-      var result = {
+      var successresult = {
         statusText: "OK",
         ok: true,
         room_name: crtResult.name,
       };
-      return response.json(result);
+      return response.json(successresult);
     }
   } catch (err) {
-    var result = {
+    var errresult = {
       statusText: "うまく登録できませんでした。ERROR:" + err,
       ok: false,
       room_name: room_name,
     };
-    return response.json(result);
+    return response.json(errresult);
   }
 });
 
