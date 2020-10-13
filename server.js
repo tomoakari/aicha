@@ -393,8 +393,9 @@ async function test_chackAndCreateRoom(category_id, room_name) {
       where: { name: room_name },
     }).then((roomlist) => {
       console.log("2");
+      console.log(roomlist);
       var result;
-      if (roomlist) {
+      if (roomlist.length > 0) {
         console.log("3");
         // すでに存在していた場合
         result = {
