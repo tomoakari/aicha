@@ -236,7 +236,7 @@ var roomVue = new Vue({
       $(".category_li").each(function (idx, elm) {
         $(elm).removeClass("selectedCategory");
       });
-      $("#categorylist_").addclass("selectedCategory");
+      $("#categorylist_" + id).addclass("selectedCategory");
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
