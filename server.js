@@ -106,6 +106,7 @@ app.get("/testcreateroom", (request, response) => {
 */
 
   test_chackAndCreateRoom(category_id, room_name).then((result) => {
+    console.log("7");
     response.json(result);
   });
 });
@@ -386,12 +387,15 @@ function chackAndCreateRoom(category_id, room_name) {
 async function test_chackAndCreateRoom(category_id, room_name) {
   // トランザクション開始
   sequelize.transaction(async function (tx) {
+    console.log("1");
     // 名前被りの確認
     await RoomModel.findAll({
       where: { name: room_name },
     }).then((roomlist) => {
+      console.log("2");
       var result;
       if (roomlist) {
+        console.log("3");
         // すでに存在していた場合
         result = {
           statusText: "NG",
@@ -401,6 +405,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
         return result;
       } else {
         // 存在していない場合
+        console.log("4");
         var table_id = crypto.createHash("md5").update(room_name).digest("hex");
 
         var data = {
@@ -413,6 +418,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
         };
         createRoom(data)
           .then(() => {
+            console.log("5");
             result = {
               statusText: "OK",
               ok: true,
@@ -421,6 +427,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
             return result;
           })
           .catch((err) => {
+            console.log("6");
             result = {
               statusText: err,
               ok: false,
