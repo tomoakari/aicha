@@ -409,7 +409,7 @@ function test_chackAndCreateRoom(category_id, room_name) {
         createRoom(data);
 
         result = {
-          statusText: "OK",
+          statusText: "kkk",
           ok: true,
           room_name: room_name,
         };
