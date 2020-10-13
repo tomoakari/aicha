@@ -1,5 +1,7 @@
 /**
+ * ************************************************************
  * SSL基本設定
+ * ************************************************************
  */
 var fs = require("fs");
 var ssl_server_key = "/etc/letsencrypt/live/aicha.aice.cloud/privkey.pem";
@@ -10,7 +12,9 @@ var options = {
 };
 
 /**
+ * ************************************************************
  * Expressサーバの基本設定
+ * ************************************************************
  */
 var express = require("express");
 var app = express();
@@ -71,6 +75,9 @@ app.post("/", (request, response) => {
   };
   response.render("room.ejs", data);
 });
+/**
+ * 部屋を作成する
+ */
 app.get("/createroom", (request, response) => {
   const category_id = request.query.cat;
   const room_name = request.query.name;
@@ -84,6 +91,21 @@ app.get("/createroom", (request, response) => {
   };
 
   response.json(result);
+});
+
+app.get("/testcreateroom", (request, response) => {
+  const category_id = request.query.cat;
+  const room_name = request.query.name;
+  console.log("request:" + category_id + " / " + room_name);
+  /*
+  const resultData = test_chackAndCreateRoom(category_id, room_name);
+  const result = {
+    statusText: "OK",
+    ok: true,
+    room_name: room_name,
+  };
+*/
+  response.json(test_chackAndCreateRoom(category_id, room_name));
 });
 
 // 秘密の管理ページ
@@ -122,7 +144,9 @@ server.listen(port, function () {
 });
 
 /**
+ * ************************************************************
  * ソケットの設定
+ * ************************************************************
  */
 io.on("connection", function (socket) {
   // ---- multi room ----
@@ -307,6 +331,12 @@ io.on("connection", function (socket) {
 });
 
 /**
+ * ************************************************************
+ * データアクセスメソッド
+ * ************************************************************
+ */
+
+/**
  * 部屋を新規作成する
  */
 function chackAndCreateRoom(category_id, room_name) {
@@ -353,6 +383,46 @@ function chackAndCreateRoom(category_id, room_name) {
   });
 }
 
+function test_chackAndCreateRoom(category_id, room_name) {
+  // トランザクション開始
+  sequelize.transaction(async function (tx) {
+    // 名前被りの確認
+    await RoomModel.findAll({
+      where: { name: room_name },
+    }).then((roomlist) => {
+      var result;
+      if (roomlist) {
+        // すでに存在していた場合
+        result = {
+          statusText: "NG",
+          ok: false,
+          room_name: room_name,
+        };
+      } else {
+        // 存在していない場合
+        var table_id = crypto.createHash("md5").update(room_name).digest("hex");
+
+        var data = {
+          name: room_name,
+          hashed_name: table_id,
+          category_name: "",
+          category_id: category_id,
+          default_flg: 0,
+          create_user_id: "",
+        };
+        createRoom(data);
+
+        result = {
+          statusText: "OK",
+          ok: true,
+          room_name: room_name,
+        };
+        return result;
+      }
+    });
+  });
+}
+
 /**
  * 部屋の存在確認して有効期間を更新する
  */
@@ -379,6 +449,39 @@ function chackAndUpdateRoom(room_name) {
         //   return result;
         // });
         updateRoom(data, whereCondition, updateFields);
+        return true;
+      }
+      return false;
+    });
+  });
+}
+
+function test_checkAndUpdateRoom(room_name) {
+  // トランザクション開始
+  sequelize.transaction(async function (tx) {
+    // 名前被りの確認
+    await RoomModel.findOne({
+      where: { name: room_name },
+    }).then((roomlist) => {
+      var ids = [];
+      roomlist.forEach((room) => {
+        ids.push(room.id);
+      });
+
+      if (ids) {
+        var data = {};
+        var whereCondition = {
+          id: ids[ids.length - 1],
+        };
+        //var updateFields = "updatedAt";
+        // updateData, whereCondition, updateFields
+        // updateRoom(data, whereCondition, updateFields).then((result) => {
+        //   return result;
+        // });
+        RoomModel.update(updateData, {
+          where: whereCondition,
+          //fields: updateFields,
+        });
         return true;
       }
       return false;
