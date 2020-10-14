@@ -1002,6 +1002,10 @@ window.onload = function () {
   // "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
   chatVue.addContent(systemmesage);
 
+  var tipsmesage =
+    "Tips：ルームリストはスクロールで全てのルームを表示できます。";
+  chatVue.addContent(tipsmesage);
+
   const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
   toastr.info(selfsystemmessage);
   $("#alert_se").get(0).play();
