@@ -49,19 +49,21 @@ app.get("/", async(request, response) => {
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/index.html");
   }else{
-    if (await chackAndUpdateRoom(request.query.room_name)) {
-      console.log("5");
-      var data = {
-        room_name: request.query.room_name,
-        //password: request.query.password,
-      };
-      console.log("6");
-      response.render("./index_invited.ejs", data);
-    }else {
-      console.log("7");
-      // パラメータがNGなら普通にトップを表示
-      response.sendFile(__dirname + "/views/index.html");
-    }
+    chackAndUpdateRoom(request.query.room_name).then((isOk)=>{
+      if (isOk) {
+        console.log("5");
+        var data = {
+          room_name: request.query.room_name,
+          //password: request.query.password,
+        };
+        console.log("6");
+        response.render("./index_invited.ejs", data);
+      } else {
+        console.log("7");
+        // パラメータがNGなら普通にトップを表示
+        response.sendFile(__dirname + "/views/index.html");
+      }
+    })
   }
   /*
   // パラメータがあれば招待用トップを表示
