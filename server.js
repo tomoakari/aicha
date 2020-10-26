@@ -508,7 +508,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
 /**
  * 部屋の存在確認して有効期間を更新する
  */
-await function chackAndUpdateRoom(room_name) {
+async function chackAndUpdateRoom(room_name) {
   console.log("1");
   // トランザクション開始
   sequelize.transaction(async function (tx) {
