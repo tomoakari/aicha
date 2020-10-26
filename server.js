@@ -47,16 +47,20 @@ app.get("/", (request, response) => {
   // パラメータがあれば招待用トップを表示
   if (request.query.room_name) {
     if (chackAndUpdateRoom(request.query.room_name)) {
+      console.log("5");
       var data = {
         room_name: request.query.room_name,
         //password: request.query.password,
       };
+      console.log("6");
       response.render("./index_invited.ejs", data);
     } else {
+      console.log("7");
       // パラメータがNGなら普通にトップを表示
       response.sendFile(__dirname + "/views/index.html");
     }
   } else {
+    console.log("8");
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/index.html");
   }
