@@ -483,6 +483,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
  * 部屋の存在確認して有効期間を更新する
  */
 function chackAndUpdateRoom(room_name) {
+  console.log("1");
   // トランザクション開始
   sequelize.transaction(async function (tx) {
     // 名前被りの確認
@@ -493,8 +494,9 @@ function chackAndUpdateRoom(room_name) {
       roomlist.forEach((room) => {
         ids.push(room.id);
       });
-
-      if (ids) {
+      console.log("2");
+      if (ids.length) {
+        console.log("ids.length:" + ids.length);
         var data = {};
         var whereCondition = {
           id: ids[ids.length - 1],
@@ -505,8 +507,11 @@ function chackAndUpdateRoom(room_name) {
         //   return result;
         // });
         updateRoom(data, whereCondition, updateFields);
+        console.log("3");
         return true;
       }
+
+      console.log("4");
       return false;
     });
   });
