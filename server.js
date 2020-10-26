@@ -43,7 +43,27 @@ const crypto = require("crypto");
  */
 
 // ログイン画面
-app.get("/", (request, response) => {
+app.get("/", async(request, response) => {
+
+  if(!request.query.room_name){
+    // パラメータがなければ普通にトップを表示
+    response.sendFile(__dirname + "/views/index.html");
+  }else{
+    if (await chackAndUpdateRoom(request.query.room_name)) {
+      console.log("5");
+      var data = {
+        room_name: request.query.room_name,
+        //password: request.query.password,
+      };
+      console.log("6");
+      response.render("./index_invited.ejs", data);
+    }else {
+      console.log("7");
+      // パラメータがNGなら普通にトップを表示
+      response.sendFile(__dirname + "/views/index.html");
+    }
+  }
+  /*
   // パラメータがあれば招待用トップを表示
   if (request.query.room_name) {
     if (chackAndUpdateRoom(request.query.room_name)) {
@@ -64,7 +84,9 @@ app.get("/", (request, response) => {
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/index.html");
   }
+  */
 });
+
 // ルーム画面
 app.post("/", (request, response) => {
   var table_id = crypto
@@ -486,7 +508,7 @@ async function test_chackAndCreateRoom(category_id, room_name) {
 /**
  * 部屋の存在確認して有効期間を更新する
  */
-function chackAndUpdateRoom(room_name) {
+await function chackAndUpdateRoom(room_name) {
   console.log("1");
   // トランザクション開始
   sequelize.transaction(async function (tx) {
