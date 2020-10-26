@@ -49,7 +49,8 @@ app.get("/", async(request, response) => {
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/index.html");
   }else{
-    chackAndUpdateRoom(request.query.room_name).then((isOk)=>{
+    await chackAndUpdateRoom(request.query.room_name)
+    .then((isOk)=>{
       if (isOk) {
         console.log("5");
         var data = {
