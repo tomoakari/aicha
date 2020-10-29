@@ -169,17 +169,31 @@ app.get("/checkandcreateroom", async (request, response) => {
     return response.json(result);
   }
 
+  var dt = new Date();
+  dt.setHours(dt.getHours() - 12);
+  var year = dt.getFullYear();
+  var month = dt.getMonth() + 1;
+  var day = dt.getDate();
+  var hour = dt.getHours();
+  var minut = dt.getMinutes();
+  var seccond = dt.getSeconds();
+  const limitStr =
+    year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
+
+
+  const { Op } = require("sequelize");
+    wheredata = {
+      name: room_name,
+      createdAt: {
+        // updatedAt: {
+        [Op.gt]: limitStr,
+      },
+    };
+
   try {
     var roomlist = await RoomModel.findAll({
       // where: { name: room_name },
-      where: {
-        [Op.and]: [
-          { name: room_name },
-          { createdAt: {
-            [Op.gt]: new Date(new Date() - 24 * 60 * 60 * 1000)
-          }}
-        ]
-      }
+      where: wheredata
     });
 
     console.log("roomlist:" + roomlist);
