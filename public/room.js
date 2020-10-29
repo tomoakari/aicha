@@ -1209,27 +1209,27 @@ function sendleaveroom() {
 }
 
 function sendLinkRequest() {
+  /*
   var data = {
     room_name: $("#room_name").val(),
     password: $("#password").val(),
   };
-  // socket.emit("roomhash", data);
-  showLinkWindow(data);
-}
-function showLinkWindow(msg) {
-  /*
-  const root = document.location.href;
-  const url = root + "?secret=" + msg;
   */
+  // socket.emit("roomhash", data);
+  const secret = $("#table_id").val();
+  showLinkWindow(secret);
+}
+function showLinkWindow(secret) {
+
   const root = document.location.href;
   const url =
-    // root + "?room_name=" + msg.room_name + "&password=" + msg.password;
-    root + "?room_name=" + msg.room_name;
+    // root + "?room_name=" + msg.room_name;
+    root + "?secret=" + secret;
   Swal.fire({
     title: "招待リンク",
     // icon: "info",
     html:
-      `<p>このURLからこのルームに招待することができます</p>` +
+      `<p>以下のURLからこのルームに招待することができます</p>` +
       `<input class="linkinputtext" value="` +
       url +
       `"/>`,

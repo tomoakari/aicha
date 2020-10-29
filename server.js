@@ -45,49 +45,84 @@ const crypto = require("crypto");
 // ログイン画面
 app.get("/", async(request, response) => {
 
-  if(!request.query.room_name){
+
+  /*
+  const hashed_name = request.query.secret;
+  const category_id = request.query.cat;
+  const room_name = request.query.name;
+
+  // パラメータがなければそのままトップへ
+  if (!hashed_name) {
+    response.sendFile(__dirname + "/views/index.html");
+  }
+
+  try {
+    var roomlist = await RoomModel.findAll({
+      where: { hashed_name: hashed_name },
+      // 検索条件に新しいものを追加する
+    });
+
+    if (roomlist.length > 0) {
+      // すでに存在していた場合、有効期限を更新して遷移する
+
+    } else {
+      // まだ存在していない場合
+      var table_id = crypto.createHash("md5").update(room_name).digest("hex");
+
+      var data = {
+        name: room_name,
+        hashed_name: table_id,
+        category_name: "",
+        category_id: category_id,
+        default_flg: 0,
+        create_user_id: "",
+      };
+      var crtResult = await RoomModel.create(data);
+
+      var successresult = {
+        statusText: "OK",
+        ok: true,
+        room_name: crtResult.name,
+      };
+      return response.json(successresult);
+    }
+  } catch (err) {
+    var errresult = {
+      statusText: "うまく登録できませんでした。ERROR:" + err,
+      ok: false,
+      room_name: room_name,
+    };
+    return response.json(errresult);
+  }
+
+*/
+
+
+
+
+
+
+
+
+  if(!request.query.secret){
     // パラメータがなければ普通にトップを表示
     response.sendFile(__dirname + "/views/index.html");
   }else{
-    await chackAndUpdateRoom(request.query.room_name)
+    await chackAndUpdateRoom(request.query.secret)
     .then((isOk)=>{
       if (isOk) {
-        console.log("5");
         var data = {
           room_name: request.query.room_name,
           //password: request.query.password,
         };
-        console.log("6");
         response.render("./index_invited.ejs", data);
       } else {
-        console.log("7");
         // パラメータがNGなら普通にトップを表示
         response.sendFile(__dirname + "/views/index.html");
       }
     })
   }
-  /*
-  // パラメータがあれば招待用トップを表示
-  if (request.query.room_name) {
-    if (chackAndUpdateRoom(request.query.room_name)) {
-      console.log("5");
-      var data = {
-        room_name: request.query.room_name,
-        //password: request.query.password,
-      };
-      console.log("6");
-      response.render("./index_invited.ejs", data);
-    } else {
-      console.log("7");
-      // パラメータがNGなら普通にトップを表示
-      response.sendFile(__dirname + "/views/index.html");
-    }
-  } else {
-    console.log("8");
-    // パラメータがなければ普通にトップを表示
-    response.sendFile(__dirname + "/views/index.html");
-  }
-  */
+ 
 });
 
 // ルーム画面
@@ -136,8 +171,18 @@ app.get("/checkandcreateroom", async (request, response) => {
 
   try {
     var roomlist = await RoomModel.findAll({
-      where: { name: room_name },
+      // where: { name: room_name },
+      where: {
+        [Op.and]: [
+          { name: room_name },
+          { createdAt: {
+            [Op.gt]: new Date(new Date() - 24 * 60 * 60 * 1000)
+          }}
+        ]
+      }
     });
+
+    console.log("roomlist:" + roomlist);
 
     if (roomlist.length > 0) {
       // すでに存在していた場合
