@@ -169,6 +169,7 @@
               <ul>
                 <template v-for="room in sortedRoomlist">
                   <li
+                    class="category_li"
                     v-on:click="jumpRoom($event); return false;"
                     v-bind:value="room.room_name"
                   >
