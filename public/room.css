@@ -596,3 +596,9 @@ h2.roomnametitle i {
 .copyright {
   width: 280px;
 }
+
+.aichatitle {
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+}
