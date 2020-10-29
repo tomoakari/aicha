@@ -604,3 +604,7 @@ h2.roomnametitle i {
   color: #ffffff;
   opacity: 0.6;
 }
+
+.category_li:hover {
+  border-bottom: solid 1px #696969;
+}
