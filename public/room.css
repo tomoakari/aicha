@@ -354,7 +354,7 @@ div#main,
 
 .roundclearbox {
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
 }
