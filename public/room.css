@@ -278,7 +278,8 @@ form {
 
 .sidefooter {
   position: absolute;
-  bottom: 20px;
+  bottom: 8px;
+  width: 100%;
 }
 
 /*
@@ -557,7 +558,7 @@ td.pdg0 {
 
 .removebutton {
   padding: 10px;
-  margin: 10px 20px 10px 10px;
+  margin: 10px 20px 10px 0px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -594,7 +595,7 @@ h2.roomnametitle i {
 }
 
 .copyright {
-  width: 280px;
+  text-align: center;
 }
 
 .aichatitle {
