@@ -91,8 +91,12 @@ app.get("/", async(request, response) => {
           fields: updateFields,
         });
         */
+       var room_name;
+       roomlist.forEach((room) => {
+        room_name = room.name;
+      });
         var data = {
-          room_name: roomlist[0].name,
+          room_name: room_name,
         };
         // ルーム名を持ってトップに遷移
         response.render("./index_invited.ejs", data);
