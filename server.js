@@ -46,83 +46,67 @@ const crypto = require("crypto");
 app.get("/", async(request, response) => {
 
 
-  /*
+  
   const hashed_name = request.query.secret;
   const category_id = request.query.cat;
   const room_name = request.query.name;
 
-  // パラメータがなければそのままトップへ
+  // パラメータがなければ普通のトップへ
   if (!hashed_name) {
     response.sendFile(__dirname + "/views/index.html");
   }
 
+  // 以下、パラメータがある場合
   try {
-    var roomlist = await RoomModel.findAll({
-      where: { hashed_name: hashed_name },
-      // 検索条件に新しいものを追加する
-    });
+    // アクティブな部屋があるかどうか検索する
+    var dt = new Date();
+    dt.setHours(dt.getHours() - 12);
+    var year = dt.getFullYear();
+    var month = dt.getMonth() + 1;
+    var day = dt.getDate();
+    var hour = dt.getHours();
+    var minut = dt.getMinutes();
+    var seccond = dt.getSeconds();
+    const limitStr =
+    year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
-    if (roomlist.length > 0) {
-      // すでに存在していた場合、有効期限を更新して遷移する
-
-    } else {
-      // まだ存在していない場合
-      var table_id = crypto.createHash("md5").update(room_name).digest("hex");
-
-      var data = {
-        name: room_name,
-        hashed_name: table_id,
-        category_name: "",
-        category_id: category_id,
-        default_flg: 0,
-        create_user_id: "",
-      };
-      var crtResult = await RoomModel.create(data);
-
-      var successresult = {
-        statusText: "OK",
-        ok: true,
-        room_name: crtResult.name,
-      };
-      return response.json(successresult);
-    }
-  } catch (err) {
-    var errresult = {
-      statusText: "うまく登録できませんでした。ERROR:" + err,
-      ok: false,
-      room_name: room_name,
+    const { Op } = require("sequelize");
+    wheredata = {
+      name: room_name,
+      createdAt: {
+        [Op.gt]: limitStr,
+      },
     };
-    return response.json(errresult);
-  }
 
-*/
+    await RoomModel.findAll({
+      where: wheredata
+    }).then((roomlist) => {
 
-
-
-
-
-
-
-
-  if(!request.query.secret){
-    // パラメータがなければ普通にトップを表示
-    response.sendFile(__dirname + "/views/index.html");
-  }else{
-    await chackAndUpdateRoom(request.query.secret)
-    .then((isOk)=>{
-      if (isOk) {
+      if (roomlist.length > 0) {
+        /*
+        // 存在していた場合、有効期限を更新して遷移する
+        // …としたいところだが、いったん更新ナシで
+        RoomModel.update(updateData, {
+          where: whereCondition,
+          fields: updateFields,
+        });
+        */
         var data = {
-          room_name: request.query.room_name,
-          //password: request.query.password,
+          room_name: roomlist[0].name,
         };
+        // ルーム名を持ってトップに遷移
         response.render("./index_invited.ejs", data);
+  
       } else {
-        // パラメータがNGなら普通にトップを表示
+        // 存在していなかった場合、普通のトップへ
         response.sendFile(__dirname + "/views/index.html");
       }
-    })
-  }
- 
+    });
+  }catch(err){
+    // なにかエラーがあったら普通にトップへ
+        Console.log(err);
+        response.sendFile(__dirname + "/views/index.html");
+  } 
 });
 
 // ルーム画面
@@ -656,6 +640,7 @@ const USER_NAME = "aichauser";
 const PASSWORD = "Aicha_user2020";
 const Sequelize = require("sequelize");
 const { nextTick } = require("process");
+const { Console } = require("console");
 const sequelize = new Sequelize(DB_NAME, USER_NAME, PASSWORD, {
   dialect: "mysql",
 });
