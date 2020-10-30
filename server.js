@@ -104,7 +104,7 @@ app.get("/", async(request, response) => {
     });
   }catch(err){
     // なにかエラーがあったら普通にトップへ
-        Console.log(err);
+        console.log(err);
         response.sendFile(__dirname + "/views/index.html");
   } 
 });
