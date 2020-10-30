@@ -45,11 +45,7 @@ const crypto = require("crypto");
 // ログイン画面
 app.get("/", async(request, response) => {
 
-
-  
   const hashed_name = request.query.secret;
-  const category_id = request.query.cat;
-  const room_name = request.query.name;
 
   // パラメータがなければ普通のトップへ
   if (!hashed_name) {
@@ -72,7 +68,7 @@ app.get("/", async(request, response) => {
 
     const { Op } = require("sequelize");
     wheredata = {
-      name: room_name,
+      hashed_name: hashed_name,
       createdAt: {
         [Op.gt]: limitStr,
       },
