@@ -460,6 +460,13 @@ $("#invitebutton").on("click", () => {
   sendLinkRequest();
 });
 
+$(".optionalvideo").on("click", () => {
+  
+});
+
+
+
+
 // connect video
 function connectVideo() {
   var videoParam = {
