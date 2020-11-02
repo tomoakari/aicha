@@ -1990,7 +1990,7 @@ button,
       font-weight: 900; }
     #sidebar .toggle:before {
       /*content: '\f0c9';*/
-      content: '\f015';
+      content: '\f02e';
       font-size: 2rem;
       height: inherit;
       left: 0;
