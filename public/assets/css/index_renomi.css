@@ -209,9 +209,16 @@ footer {
   top: 100px;
 }
 .windowarea {
+  margin-top: 150px;
 }
 .searviceSelectWindow {
   position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#notInvitedWindow {
+  margin-left: 40px;
 }
 .glass {
   width: 200px;
