@@ -105,7 +105,9 @@
       }
       window.onload = function () {
         if($("#room_name").val()){
-          $("#lobby").addClass("hidden");
+          $("#notInvitedWindow").addClass("hidden");
+        }else{
+          $("#isInvitedWindow").addClass("hidden");
         }
         /*
         Swal.fire({
