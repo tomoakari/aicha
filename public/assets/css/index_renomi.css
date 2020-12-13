@@ -197,14 +197,20 @@ footer {
   padding: 10px;
   text-align: center;
 }
+
+body {
+  display: flex;
+}
 .searviceSelectWindow {
   position: relative;
 }
 .glass {
-  width: 300px;
+  width: 200px;
   height: 500px;
   background: linear-gradient(90deg, #ffd700, #ffa500, #ffff00);
-  border: 0px 30px 40px 30px solid #dcdcdc;
+  border-right: 30px solid #dcdcdc;
+  border-bottom: 40px solid #dcdcdc;
+  border-left: 30px solid #dcdcdc;
   padding: 50px;
   margin: auto;
 }
