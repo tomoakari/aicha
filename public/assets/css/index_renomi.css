@@ -234,7 +234,7 @@ footer {
   padding: 50px;
   margin: 50px;
 }
-#compartment > div.glass {
+.invited_glass {
   margin-left: auto;
   margin-right: auto;
 }
