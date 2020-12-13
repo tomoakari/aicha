@@ -73,20 +73,7 @@ app.post("/renomi", (request, response) => {
       table_name: "りのみ"
     }
 
-  }else if(request.body.room_name == "renomilobby"){
-    // 大部屋の場合
-    var table_id = crypto
-    .createHash("md5")
-    .update(request.body.room_name)
-    .digest("hex");
-
-    data = {
-      user_name: request.body.user_name,
-      table_id: table_id,
-      table_name: "りのみ"
-    }
-    
-  }else if(request.body.room_name == "renomi"){
+  }else if(request.body.room_name === "renomi"){
     // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
     var table_id = crypto
@@ -99,6 +86,19 @@ app.post("/renomi", (request, response) => {
       table_id: table_id,
       table_name: "りのみ"
     }
+  }else{
+    // 大部屋の場合
+    var table_id = crypto
+    .createHash("md5")
+    .update(request.body.room_name)
+    .digest("hex");
+
+    data = {
+      user_name: request.body.user_name,
+      table_id: table_id,
+      table_name: "りのみ"
+    }
+
   }
 
   // レンダリングを行う
