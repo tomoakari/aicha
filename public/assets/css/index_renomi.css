@@ -238,14 +238,14 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
-input[text] {
+input[type="text"] {
   border: none;
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 20px;
   color: #d3d3d3;
 }
-input[button] {
+input[type="button"] {
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 20px;
