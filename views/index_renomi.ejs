@@ -92,7 +92,7 @@
       function enterInvited(){
         const params = {
           hashed_name: $("#hashed_name").val(),
-          room_name: "renomi",
+          table_name: "renomi",
           user_name: $("#invited_user_name").val()
         }
         post("", params);
@@ -100,7 +100,7 @@
       function enterLobby(){
         const params = {
           hashed_name: "",
-          room_name: "renomilobby",
+          table_name: "renomilobby",
           user_name: $("#lobby_user_name").val()
         }
         post("", params);
@@ -108,7 +108,7 @@
       function enterCompartment(){
         const params = {
           hashed_name: "",
-          room_name: "renomi",
+          table_name: "renomi",
           user_name: $("#new_user_name").val()
         }
         post("", params);
