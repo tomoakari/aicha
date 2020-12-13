@@ -25,58 +25,52 @@
     <div class="renomititle">
       <h2>りのみ　by あいちゃ</h2>
     </div>
-    <!--
-    <div class="body"></div>
-    <div class="grad"></div>
-    <div class="header">
-      <div class="title">
-        <p>あいちゃ</p>
-        Powered by <a href="https://aice.cloud" target="_blank">AICE.CLOUD</a>
-      </div>
-    </div>
-    -->
 
     <div class="windowarea">
-<!-- 招待されている時 -->
-<div id="isInvitedWindow">
-  <div id="compartment" class="searviceSelectWindow">
-    <div class="glass">
-      <p>「<%- room_name %>」ルームに招待されています。</p>
-      <input
-        type="hidden"
-        id="room_name"
-        name="room_name"
-        value="<%- room_name %>"
-      />
-      <input type="text" placeholder="ニックネーム" name="user_name" />
-      <button onclick="checkParams(this);">お待ち合わせでーす</button>
-    </div>
-  </div>  
-</div>
+      <!-- 招待されている時 -->
+      <div id="isInvitedWindow">
+        <div id="compartment" class="searviceSelectWindow">
+          <div class="glass">/
+            <p>「<%- room_name %>」ルームに招待されています。</p>
+            <input
+              type="hidden"
+              id="invited_room_name"
+              value="<%- room_name %>"
+            />
+            <input
+              type="hidden"
+              id="invited_password"
+              value="<%- password %>"
+            />
+            <input type="text" placeholder="ニックネーム" name="invited_user_name" />
+            <button onclick="enterInvited();">お待ち合わせでーす</button>
+          </div>
+        </div>  
+      </div>
 
-<!-- 招待されていない時 -->
-<div id="notInvitedWindow">
-  <div id="lobby" class="searviceSelectWindow">
-    <div class="glass">
-      <h2>大部屋に入る</h2>
-      <input
-        type="hidden"
-        name="room_name"
-        value="lobby"
-      />
-      <input type="text" placeholder="ニックネーム" name="user_name" />
-      <button onclick="checkParams(this);">大部屋入りまーす</button>
-    </div>
-  </div>
-  <div id="compartment" class="searviceSelectWindow">
-    <div class="glass">
-      <h2>個室に入る</h2>
-      <input type="text" placeholder="部屋名" name="room_name" />
-      <input type="text" placeholder="ニックネーム" name="user_name" />
-      <button onclick="checkParams(this);">新規さん個室入りまーす</button>
-    </div>
-  </div>
-</div>
+      <!-- 招待されていない時 -->
+      <div id="notInvitedWindow">
+        <div id="lobby" class="searviceSelectWindow">
+          <div class="glass">
+            <h2>大部屋に入る</h2>
+            <input
+              type="hidden"
+              name="room_name"
+              value="lobby"
+            />
+            <input type="text" placeholder="ニックネーム" id="lobby_user_name" />
+            <button onclick="enterLobby();">大部屋入りまーす</button>
+          </div>
+        </div>
+        <div id="compartment" class="searviceSelectWindow">
+          <div class="glass">
+            <h2>個室に入る</h2>
+            <input type="text" placeholder="部屋名" id="new_room_name" />
+            <input type="text" placeholder="ニックネーム" id="new_user_name" />
+            <button onclick="enterCompartment();">新規さん個室入りまーす</button>
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -109,43 +103,59 @@
           return true;
         }
       }
+      function enterLobby(){
+        const params = {
+          password: "",
+          room_name: "lobby",
+          user_name: $("#lobby_user_name").val()
+        }
+        post("/", params);
+      }
+      function enterCompartment(){
+        const params = {
+          password: "",
+          room_name: $("#new_room_name").val(),
+          user_name: $("#new_user_name").val()
+        }
+        post("/", params);
+      }
+      function enterInvited(){
+        const params = {
+          password: $("#password").val(),
+          room_name: $("#invited_room_name").val(),
+          user_name: $("#invited_user_name").val()
+        }
+        post("/", params);
+      }
+
+      function post(path, params, method='post') {
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+
+        for (const key in params) {
+          if (params.hasOwnProperty(key)) {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = key;
+            hiddenField.value = params[key];
+
+            form.appendChild(hiddenField);
+          }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+      }
+
       window.onload = function () {
         if($("#room_name").val()){
           $("#notInvitedWindow").addClass("hidden");
         }else{
           $("#isInvitedWindow").addClass("hidden");
         }
-        /*
-        Swal.fire({
-          title: "あいちゃへようこそ！",
-          html:
-            "<div class='puwrapper'>" +
-            "あいちゃはインターネットを通じ新しい仲間に出会ったり同じ趣味の人と楽しく交流できる空間です。<br/>" +
-            "<h5>《最新情報》</h5>" +
-            "<div class='popupnews'><ul>" +
-            "<li>正式サービスを開始しました（10/14更新）</li>" +
-            "</ul></div>" +
-            "<div class='pertationline'></div>" +
-            "<h5>※使用前の注意</h5>" +
-            "音声、映像機能を利用するには、ログイン後、<br>" +
-            "<strong>『カメラとマイクへのアクセス』『Javascript』" +
-            "を許可</strong>してください。" +
-            "音声、映像が使えない場合は、各ブラウザの設定より再設定してください。" +
-            "<div class='pertationline'></div>" +
-            "<h5>【推奨環境】</h5>" +
-            "<ul><li>PC・Mac … Google Chrome、Safari</li></ul>" +
-            "<h5>【未対応】</h5>" +
-            "<ul><li>iOS(iPhone、iPad等) … 音声、映像に対応準備中です。</li><li>Android　… レイアウト順次対応予定です。</li></ul>" +
-            "</div>",
-          showCloseButton: false,
-          showCancelButton: false,
-          focusConfirm: false,
-          confirmButtonText: '<i class="fa fa-thumbs-up"></i>確認しました',
-          confirmButtonAriaLabel: "Thumbs up, OK!!",
-          reverseButtons: true,
-          allowOutsideClick: false,
-        });
-        */
       };
     </script>
   </body>
