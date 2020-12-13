@@ -207,10 +207,8 @@ footer {
   text-align: center;
   margin-bottom: 50px;
   top: 50px;
-  left: 20px;
 }
 .windowarea {
-  margin-top: 100px;
 }
 .searviceSelectWindow {
   position: relative;
@@ -218,7 +216,6 @@ footer {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  left: 20px;
 }
 #notInvitedWindow {
   display: flex;
@@ -248,4 +245,14 @@ button {
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 20px;
+}
+.forNewBe {
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+}
+.forNewBe > span {
+  border: 2px solid;
+  padding: 7px;
+  border-radius: 20px;
 }
