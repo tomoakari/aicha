@@ -42,6 +42,46 @@ const crypto = require("crypto");
  * ************************************************************
  */
 
+ // キャンペーンログイン画面
+app.get("/renomi", (request, response) => {
+  try {
+    var data = {
+      room_name: request.query.room_name,
+      password: request.query.password,
+    };
+  } catch {
+    // エラー時は何事もなくカラで表示
+    var data = {
+      room_name: "",
+      password: "",
+    };
+  }
+  response.render("./index_renomi.ejs", data);
+});
+// キャンペーンルーム画面
+app.post("/renomi", (request, response) => {
+  var pw;
+  if (request.body.password) {
+    pw = request.body.password;
+  } else {
+    pw = Math.floor(Math.random() * 10000000);
+  }
+  var room_id = crypto
+    .createHash("md5")
+    .update(request.body.room_name + pw)
+    .digest("hex");
+
+  var data = {
+    user_name: request.body.user_name,
+    room_id: room_id,
+    room_name: request.body.room_name,
+    password: pw,
+  };
+  // レンダリングを行う
+  response.render("./room_renomi.ejs", data);
+});
+
+
 // ログイン画面
 app.get("/", async(request, response) => {
 
@@ -54,25 +94,7 @@ app.get("/", async(request, response) => {
 
   // 以下、パラメータがある場合
   try {
-    // アクティブな部屋があるかどうか検索する
-    var dt = new Date();
-    dt.setHours(dt.getHours() - 12);
-    var year = dt.getFullYear();
-    var month = dt.getMonth() + 1;
-    var day = dt.getDate();
-    var hour = dt.getHours();
-    var minut = dt.getMinutes();
-    var seccond = dt.getSeconds();
-    const limitStr =
-    year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
-
-    const { Op } = require("sequelize");
-    wheredata = {
-      hashed_name: hashed_name,
-      createdAt: {
-        [Op.gt]: limitStr,
-      },
-    };
+    
 
     await RoomModel.findAll({
       where: wheredata
