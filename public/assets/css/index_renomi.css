@@ -221,7 +221,6 @@ footer {
   left: 20px;
 }
 #notInvitedWindow {
-  margin-left: 40px;
   display: flex;
 }
 .glass {
@@ -245,7 +244,7 @@ input[type="text"] {
   margin-bottom: 20px;
   color: #d3d3d3;
 }
-input[type="button"] {
+button {
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 20px;
