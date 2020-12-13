@@ -203,7 +203,7 @@ footer {
 .glass {
   width: 300px;
   height: 500px;
-  background: linear-gradient(#ffd700, #ffa500, #ffff00);
+  background: linear-gradient(90deg, #ffd700, #ffa500, #ffff00);
   border: 0px 30px 40px 30px solid #dcdcdc;
   padding: 50px;
   margin: auto;
