@@ -213,6 +213,7 @@ footer {
 }
 .searviceSelectWindow {
   position: relative;
+  z-index: 2;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
