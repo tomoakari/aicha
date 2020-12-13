@@ -198,12 +198,17 @@ footer {
   text-align: center;
 }
 
+.renomititle {
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+}
 .searviceSelectWindow {
   position: relative;
 }
 .glass {
   width: 200px;
-  height: 400px;
+  height: 200px;
   background: linear-gradient(90deg, #ffd700, #ffa500, #ffff00);
   border-right: 30px solid rgba(255, 255, 255, 0.9);
   border-bottom: 40px solid rgba(255, 255, 255, 0.9);
