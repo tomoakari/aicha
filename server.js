@@ -73,12 +73,12 @@ app.post("/renomi", (request, response) => {
       table_name: "りのみ"
     }
 
-  }else if(request.body.room_name === "renomi"){
+  }else if(request.body.table_name === "renomi"){
     // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
     var table_id = crypto
     .createHash("md5")
-    .update(request.body.room_name + pw)
+    .update("りのみ" + pw)
     .digest("hex");
 
     data = {
@@ -90,7 +90,7 @@ app.post("/renomi", (request, response) => {
     // 大部屋の場合
     var table_id = crypto
     .createHash("md5")
-    .update(request.body.room_name)
+    .update(request.body.table_name)
     .digest("hex");
 
     data = {
