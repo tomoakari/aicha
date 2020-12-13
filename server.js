@@ -42,41 +42,69 @@ const crypto = require("crypto");
  * ************************************************************
  */
 
+ /**
+  * りのみキャンペーンページでは、部屋名の概念がなくなります
+  * つまり、ランダム生成のtable_idのみ使用します。
+  */
  // キャンペーンログイン画面
 app.get("/renomi", (request, response) => {
+
   try {
     var data = {
-      room_name: request.query.room_name,
-      password: request.query.password,
+      hashed_name: request.query.secret,
     };
   } catch {
-    // エラー時は何事もなくカラで表示
     var data = {
-      room_name: "",
-      password: "",
+      hashed_name: "",
     };
   }
   response.render("./index_renomi.ejs", data);
 });
 // キャンペーンルーム画面
 app.post("/renomi", (request, response) => {
-  var pw;
-  if (request.body.password) {
-    pw = request.body.password;
-  } else {
-    pw = Math.floor(Math.random() * 10000000);
+
+  var data = {};
+
+  // 招待されていた場合
+  if(request.body.hashed_name){
+    data = {
+      user_name: request.body.user_name,
+      table_id: hashed_name,
+      table_name: "りのみ"
+    }
   }
-  var room_id = crypto
+
+  // 大部屋の場合
+  if(request.body.room_name == "renomilobby"){
+    var table_id = crypto
+    .createHash("md5")
+    .update(request.body.room_name)
+    .digest("hex");
+
+    data = {
+      user_name: request.body.user_name,
+      table_id: hashed_name,
+      table_name: "りのみ"
+    }
+  }
+
+  // 個室新規作成の場合
+  if(request.body.room_name == "renomilobby"){
+
+    var pw = Math.floor(Math.random() * 10000000);
+
+    var table_id = crypto
     .createHash("md5")
     .update(request.body.room_name + pw)
     .digest("hex");
 
-  var data = {
-    user_name: request.body.user_name,
-    room_id: room_id,
-    room_name: request.body.room_name,
-    password: pw,
-  };
+    data = {
+      user_name: request.body.user_name,
+      table_id: table_id,
+      table_name: "りのみ"
+    }
+  }
+
   // レンダリングを行う
   response.render("./room_renomi.ejs", data);
 });
@@ -94,8 +122,6 @@ app.get("/", async(request, response) => {
 
   // 以下、パラメータがある場合
   try {
-    
-
     await RoomModel.findAll({
       where: wheredata
     }).then((roomlist) => {
@@ -145,6 +171,7 @@ app.post("/", (request, response) => {
   };
   response.render("room.ejs", data);
 });
+
 /**
  * 部屋を作成する
  */

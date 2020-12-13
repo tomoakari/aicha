@@ -31,16 +31,11 @@
       <div id="isInvitedWindow">
         <div id="compartment" class="searviceSelectWindow">
           <div class="glass">/
-            <p>「<%- room_name %>」ルームに招待されています。</p>
+            <p>個室に招待されています。</p>
             <input
               type="hidden"
-              id="invited_room_name"
-              value="<%- room_name %>"
-            />
-            <input
-              type="hidden"
-              id="invited_password"
-              value="<%- password %>"
+              id="hashed_name"
+              value="<%- hashed_name %>"
             />
             <input type="text" placeholder="ニックネーム" name="invited_user_name" />
             <button onclick="enterInvited();">お待ち合わせでーす</button>
@@ -53,11 +48,6 @@
         <div id="lobby" class="searviceSelectWindow">
           <div class="glass">
             <h2>大部屋に入る</h2>
-            <input
-              type="hidden"
-              name="room_name"
-              value="lobby"
-            />
             <input type="text" placeholder="ニックネーム" id="lobby_user_name" />
             <button onclick="enterLobby();">大部屋入りまーす</button>
           </div>
@@ -65,22 +55,18 @@
         <div id="compartment" class="searviceSelectWindow">
           <div class="glass">
             <h2>個室に入る</h2>
-            <input type="text" placeholder="部屋名" id="new_room_name" />
             <input type="text" placeholder="ニックネーム" id="new_user_name" />
             <button onclick="enterCompartment();">新規さん個室入りまーす</button>
           </div>
         </div>
       </div>
-
     </div>
 
-    
-    
-        <p class="kiyakulink">
-          <a href="https://aice.cloud/aicha/kiyaku.txt" target="_blank"
-            >利用規約</a
-          >
-        </p>
+    <p class="kiyakulink">
+      <a href="https://aice.cloud/aicha/kiyaku.txt" target="_blank"
+        >利用規約</a
+      >
+    </p>
      
     <footer>
       Copyright © 2020
@@ -103,30 +89,31 @@
           return true;
         }
       }
+      function enterInvited(){
+        const params = {
+          hashed_name: $("#hashed_name").val(),
+          room_name: "renomi",
+          user_name: $("#invited_user_name").val()
+        }
+        post("/", params);
+      }
       function enterLobby(){
         const params = {
-          password: "",
-          room_name: "lobby",
+          hashed_name: "",
+          room_name: "renomilobby",
           user_name: $("#lobby_user_name").val()
         }
         post("/", params);
       }
       function enterCompartment(){
         const params = {
-          password: "",
-          room_name: $("#new_room_name").val(),
+          hashed_name: "",
+          room_name: "renomi",
           user_name: $("#new_user_name").val()
         }
         post("/", params);
       }
-      function enterInvited(){
-        const params = {
-          password: $("#password").val(),
-          room_name: $("#invited_room_name").val(),
-          user_name: $("#invited_user_name").val()
-        }
-        post("/", params);
-      }
+      
 
       function post(path, params, method='post') {
         // The rest of this code assumes you are not using a library.
