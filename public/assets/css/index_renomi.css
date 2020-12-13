@@ -219,6 +219,7 @@ footer {
 }
 #notInvitedWindow {
   margin-left: 40px;
+  display: flex;
 }
 .glass {
   width: 200px;
