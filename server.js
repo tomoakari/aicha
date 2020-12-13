@@ -65,17 +65,16 @@ app.post("/renomi", (request, response) => {
 
   var data = {};
 
-  // 招待されていた場合
   if(request.body.hashed_name){
+    // 招待されていた場合
     data = {
       user_name: request.body.user_name,
       table_id: hashed_name,
       table_name: "りのみ"
     }
-  }
 
-  // 大部屋の場合
-  if(request.body.room_name == "renomilobby"){
+  }else if(request.body.room_name == "renomilobby"){
+    // 大部屋の場合
     var table_id = crypto
     .createHash("md5")
     .update(request.body.room_name)
@@ -83,16 +82,13 @@ app.post("/renomi", (request, response) => {
 
     data = {
       user_name: request.body.user_name,
-      table_id: hashed_name,
+      table_id: table_id,
       table_name: "りのみ"
     }
-  }
-
-  // 個室新規作成の場合
-  if(request.body.room_name == "renomilobby"){
-
+    
+  }else if(request.body.room_name == "renomi"){
+    // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
-
     var table_id = crypto
     .createHash("md5")
     .update(request.body.room_name + pw)
