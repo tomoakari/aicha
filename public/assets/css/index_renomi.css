@@ -207,7 +207,7 @@ footer {
   text-align: center;
   margin-bottom: 50px;
   top: 100px;
-  left: 40px;
+  left: 20px;
 }
 .windowarea {
   margin-top: 150px;
@@ -218,6 +218,7 @@ footer {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  left: 20px;
 }
 #notInvitedWindow {
   margin-left: 40px;
@@ -232,4 +233,8 @@ footer {
   border-left: 30px solid #f0ffff;
   padding: 50px;
   margin: 50px;
+}
+#isInviteWindow .glass {
+  margin-left: auto;
+  margin-right: auto;
 }
