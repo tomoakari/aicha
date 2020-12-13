@@ -35,7 +35,7 @@
     <!-- 招待されている時 -->
     <div id="isInvitedWindow">
       <div id="compartment" class="searviceSelectWindow">
-        <div>
+        <div class="glass">
           <p>「<%- room_name %>」ルームに招待されています。</p>
           <input
             type="hidden"
@@ -52,7 +52,7 @@
     <!-- 招待されていない時 -->
     <div id="notInvitedWindow">
       <div id="lobby" class="searviceSelectWindow">
-        <div>
+        <div class="glass">
           <input
             type="hidden"
             name="room_name"
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div id="compartment" class="searviceSelectWindow">
-        <div>
+        <div class="glass">
           <p>個室に入る</p>
           <input type="text" placeholder="部屋名" name="room_name" />
           <input type="text" placeholder="ニックネーム" name="user_name" />
