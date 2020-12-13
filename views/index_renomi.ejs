@@ -36,46 +36,50 @@
     </div>
     -->
 
-    <!-- 招待されている時 -->
-    <div id="isInvitedWindow">
-      <div id="compartment" class="searviceSelectWindow">
-        <div class="glass">
-          <p>「<%- room_name %>」ルームに招待されています。</p>
-          <input
-            type="hidden"
-            id="room_name"
-            name="room_name"
-            value="<%- room_name %>"
-          />
-          <input type="text" placeholder="ニックネーム" name="user_name" />
-          <button onclick="checkParams(this);">お待ち合わせでーす</button>
-        </div>
-      </div>  
+    <div class="windowarea">
+<!-- 招待されている時 -->
+<div id="isInvitedWindow">
+  <div id="compartment" class="searviceSelectWindow">
+    <div class="glass">
+      <p>「<%- room_name %>」ルームに招待されています。</p>
+      <input
+        type="hidden"
+        id="room_name"
+        name="room_name"
+        value="<%- room_name %>"
+      />
+      <input type="text" placeholder="ニックネーム" name="user_name" />
+      <button onclick="checkParams(this);">お待ち合わせでーす</button>
     </div>
-    
-    <!-- 招待されていない時 -->
-    <div id="notInvitedWindow">
-      <div id="lobby" class="searviceSelectWindow">
-        <div class="glass">
-          <input
-            type="hidden"
-            name="room_name"
-            value="lobby"
-          />
-          <input type="text" placeholder="ニックネーム" name="user_name" />
-          <button onclick="checkParams(this);">大部屋入りまーす</button>
-        </div>
-      </div>
-      <div id="compartment" class="searviceSelectWindow">
-        <div class="glass">
-          <p>個室に入る</p>
-          <input type="text" placeholder="部屋名" name="room_name" />
-          <input type="text" placeholder="ニックネーム" name="user_name" />
-          <button onclick="checkParams(this);">新規さん個室入りまーす</button>
-        </div>
-      </div>
+  </div>  
+</div>
+
+<!-- 招待されていない時 -->
+<div id="notInvitedWindow">
+  <div id="lobby" class="searviceSelectWindow">
+    <div class="glass">
+      <input
+        type="hidden"
+        name="room_name"
+        value="lobby"
+      />
+      <input type="text" placeholder="ニックネーム" name="user_name" />
+      <button onclick="checkParams(this);">大部屋入りまーす</button>
+    </div>
+  </div>
+  <div id="compartment" class="searviceSelectWindow">
+    <div class="glass">
+      <p>個室に入る</p>
+      <input type="text" placeholder="部屋名" name="room_name" />
+      <input type="text" placeholder="ニックネーム" name="user_name" />
+      <button onclick="checkParams(this);">新規さん個室入りまーす</button>
+    </div>
+  </div>
+</div>
+
     </div>
 
+    
     
         <p class="kiyakulink">
           <a href="https://aice.cloud/aicha/kiyaku.txt" target="_blank"
