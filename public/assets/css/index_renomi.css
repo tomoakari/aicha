@@ -214,9 +214,9 @@ footer {
   width: 200px;
   height: 200px;
   background: linear-gradient(90deg, #ffd700, #ffa500, #ffff00);
-  border-right: 30px solid rgba(255, 255, 255, 0.6);
-  border-bottom: 40px solid rgba(255, 255, 255, 0.6);
-  border-left: 30px solid rgba(255, 255, 255, 0.6);
+  border-right: 30px solid #f0ffff;
+  border-bottom: 40px solid #f0ffff;
+  border-left: 30px solid #f0ffff;
   padding: 50px;
   margin: 50px;
 }
