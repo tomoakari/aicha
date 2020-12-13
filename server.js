@@ -69,7 +69,7 @@ app.post("/renomi", (request, response) => {
     // 招待されていた場合
     data = {
       user_name: request.body.user_name,
-      table_id: hashed_name,
+      table_id: request.body.hashed_name,
       table_name: "りのみ"
     }
 
