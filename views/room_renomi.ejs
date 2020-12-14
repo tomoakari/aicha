@@ -8,9 +8,7 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
-
-    <link rel="stylesheet" href="/room.css" />
-
+    <link rel="stylesheet" href="assets/css/room_renomi.css" />
     <link
       href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
       rel="stylesheet"
@@ -35,7 +33,7 @@
           </div>
           <table class="flametable">
             <tr>
-              <td class="leftarea">
+              <td>
                 <div class="chatarea" id="chatscrollarea">
                   <ul id="chatapp">
                     <template v-for="item in contents">
@@ -44,7 +42,9 @@
                   </ul>
                 </div>
               </td>
-              <td class="rightarea" id="app">
+            </tr>
+            <tr>
+              <td id="app">
                 <div class="">
                   <nav class="">
                     <header class="major">
@@ -54,14 +54,6 @@
                     </header>
                   </nav>
 
-                  <!--
-                  <ul>
-                    <li><%- user_name %></li>
-                    <li v-for="member in loginmembers" :key="member.user_id">
-                      {{ member.user_name }}
-                    </li>
-                  </ul>
-                  -->
                   <ul>
                     <li id="userlist_myname"><%- user_name %></li>
                     <template v-for="member in loginmembers">
