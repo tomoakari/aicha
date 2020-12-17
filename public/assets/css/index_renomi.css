@@ -230,6 +230,7 @@ footer {
   border-left: 30px solid #f0ffff;
   padding: 50px;
   margin: 30px;
+  border-radius: 0px 0px 30px 30px;
 }
 .invited_glass {
   margin-left: auto;
