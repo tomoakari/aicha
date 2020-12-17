@@ -270,21 +270,19 @@ button {
 @keyframes cheersleft {
   0% {
   }
-  20% {
-    margin-left: 40px;
-    transform: scale(1.2) rotate(20deg);
+  50% {
   }
-  22% {
-    transform: scale(1.2) rotate(10deg);
+  55% {
+    transform: rotate(20deg);
+    margin-bottom: 50px;
   }
-  30% {
-    transform: scale(1.2) rotate(20deg);
+  70% {
+    transform: rotate(0deg);
+    margin-bottom: 70px;
   }
-  34% {
-    transform: scale(1) rotate(0deg);
+  80% {
+    margin-bottom: 30px;
   }
   100% {
-    margin-left: 30px;
-    transform: scale(1) rotate(0deg);
   }
 }
