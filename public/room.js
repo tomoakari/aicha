@@ -1246,3 +1246,7 @@ function showLinkWindow(secret) {
     allowOutsideClick: true,
   });
 }
+
+function test(){
+  var test = {"data":{"success":false,"code":500,"data":null,"message":null},"status":200,"statusText":"","headers":{"content-type":"application/json"},"config":{"url":"http://47.74.56.36:8080/api/v1/users/user1","method":"get","headers":{"Accept":"application/json, text/plain, */*"},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1},"request":{}}
+}
