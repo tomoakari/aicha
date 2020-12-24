@@ -92,7 +92,20 @@
           return true;
         }
       }
+      function checkName(name) {
+        if (name == "") {
+          alert("名前を入力してください。");
+          return false;
+        } else if (name("-") !== -1) {
+          alert("名前には「-」を使用できません。");
+          return false;
+        } else {
+          return true;
+        }
+      }
+      
       function enterInvited(){
+        if(!checkName($("#invited_user_name").val())) return;
         const params = {
           hashed_name: $("#hashed_name").val(),
           table_name: "renomi",
@@ -101,6 +114,7 @@
         post("", params);
       }
       function enterLobby(){
+        if(!checkName($("#lobby_user_name").val())) return;
         const params = {
           hashed_name: "",
           table_name: "renomilobby",
@@ -109,6 +123,7 @@
         post("", params);
       }
       function enterCompartment(){
+        if(!checkName($("#new_user_name").val())) return;
         const params = {
           hashed_name: "",
           table_name: "renomi",
