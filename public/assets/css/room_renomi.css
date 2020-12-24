@@ -94,7 +94,7 @@ div.chatarea {
   width: 100%;
   overflow: auto;
   padding: 5px;
-  /*height: calc(100vh - 240px);*/
+  height: calc(100vh - 240px);
   font-weight: bold;
 }
 
