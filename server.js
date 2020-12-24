@@ -96,7 +96,7 @@ app.post("/onnomi", (request, response) => {
     data = {
       user_name: request.body.user_name,
       table_id: table_id,
-      table_name: "おんのみ"
+      table_name: "おんのみロビー"
     }
 
   }
