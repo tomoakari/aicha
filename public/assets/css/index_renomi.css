@@ -209,6 +209,19 @@ footer {
   top: 50px;
   z-index: 2;
 }
+.renomititle > p {
+  color: #ffe4e1;
+}
+.renomititle > h2 {
+  font-size: 20px;
+}
+.renomititle > h1 {
+  font-size: 24px;
+}
+.renomititle > h1 > span {
+  font-size: 26px;
+}
+
 .windowarea {
 }
 .searviceSelectWindow {
