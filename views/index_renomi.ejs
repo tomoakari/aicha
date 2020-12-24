@@ -116,7 +116,7 @@
         if(!checkName($("#invited_user_name").val())) return;
         const params = {
           hashed_name: $("#hashed_name").val(),
-          table_name: "renomi",
+          table_name: "onnomi",
           user_name: $("#invited_user_name").val()
         }
         post("", params);
@@ -125,7 +125,7 @@
         if(!checkName($("#lobby_user_name").val())) return;
         const params = {
           hashed_name: "",
-          table_name: "renomilobby",
+          table_name: "onnomilobby",
           user_name: $("#lobby_user_name").val()
         }
         post("", params);
@@ -134,7 +134,7 @@
         if(!checkName($("#new_user_name").val())) return;
         const params = {
           hashed_name: "",
-          table_name: "renomi",
+          table_name: "onnomi",
           user_name: $("#new_user_name").val()
         }
         post("", params);

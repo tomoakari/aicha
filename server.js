@@ -47,7 +47,7 @@ const crypto = require("crypto");
   * つまり、ランダム生成のtable_idのみ使用します。
   */
  // キャンペーンログイン画面
-app.get("/renomi", (request, response) => {
+app.get("/onnomi", (request, response) => {
 
   try {
     var data = {
@@ -61,7 +61,7 @@ app.get("/renomi", (request, response) => {
   response.render("./index_renomi.ejs", data);
 });
 // キャンペーンルーム画面
-app.post("/renomi", (request, response) => {
+app.post("/onnomi", (request, response) => {
 
   var data = {};
 
@@ -70,21 +70,21 @@ app.post("/renomi", (request, response) => {
     data = {
       user_name: request.body.user_name,
       table_id: request.body.hashed_name,
-      table_name: "りのみ"
+      table_name: "おんのみ"
     }
 
-  }else if(request.body.table_name === "renomi"){
+  }else if(request.body.table_name === "onnomi"){
     // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
     var table_id = crypto
     .createHash("md5")
-    .update("りのみ" + pw)
+    .update("おんのみ" + pw)
     .digest("hex");
 
     data = {
       user_name: request.body.user_name,
       table_id: table_id,
-      table_name: "りのみ"
+      table_name: "おんのみ"
     }
   }else{
     // 大部屋の場合
@@ -96,7 +96,7 @@ app.post("/renomi", (request, response) => {
     data = {
       user_name: request.body.user_name,
       table_id: table_id,
-      table_name: "りのみ"
+      table_name: "おんのみ"
     }
 
   }
