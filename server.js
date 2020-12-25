@@ -60,6 +60,7 @@ app.get("/onnomi", (request, response) => {
   }
   response.render("./index_renomi.ejs", data);
 });
+
 // キャンペーンルーム画面
 app.post("/onnomi", (request, response) => {
 
@@ -98,12 +99,85 @@ app.post("/onnomi", (request, response) => {
       table_id: table_id,
       table_name: "おんのみロビー"
     }
-
   }
 
   // レンダリングを行う
   response.render("./room_renomi.ejs", data);
 });
+
+
+
+
+
+
+
+
+
+ // キャンペーンログイン画面
+ app.get("/onnomi2", (request, response) => {
+
+  try {
+    var data = {
+      hashed_name: request.query.secret,
+    };
+  } catch {
+    var data = {
+      hashed_name: "",
+    };
+  }
+  response.render("./index_renomi.ejs", data);
+});
+
+// キャンペーンルーム画面
+app.post("/onnomi2", (request, response) => {
+
+  var data = {};
+
+  if(request.body.hashed_name){
+    // 招待されていた場合
+    data = {
+      user_name: request.body.user_name,
+      table_id: request.body.hashed_name,
+      table_name: "おんのみ"
+    }
+
+  }else if(request.body.table_name === "onnomi"){
+    // 個室新規作成の場合
+    var pw = Math.floor(Math.random() * 10000000);
+    var table_id = crypto
+    .createHash("md5")
+    .update("おんのみ" + pw)
+    .digest("hex");
+
+    data = {
+      user_name: request.body.user_name,
+      table_id: table_id,
+      table_name: "おんのみ"
+    }
+  }else{
+    // 大部屋の場合
+    var table_id = crypto
+    .createHash("md5")
+    .update(request.body.table_name)
+    .digest("hex");
+
+    data = {
+      user_name: request.body.user_name,
+      table_id: table_id,
+      table_name: "おんのみロビー"
+    }
+  }
+
+  // レンダリングを行う
+  // response.render("./room_renomi.ejs", data);
+  response.redirect('/')
+
+});
+
+
+
+
+
 
 
 // ログイン画面
