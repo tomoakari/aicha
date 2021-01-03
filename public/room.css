@@ -610,3 +610,10 @@ h2.roomnametitle i {
 .category_li:hover {
   border-bottom: solid 1px #696969;
 }
+
+.doublebutton {
+  width: 140px;
+}
+.textnexttodoublebutton {
+  width: cals(100% - 140px);
+}
