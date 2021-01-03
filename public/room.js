@@ -542,7 +542,8 @@ function stopVideo() {
 
 // マイクON/OFFボタン
 function startVoice() {
-  sendTalkSignal();
+  // 誰でも話せるようにする
+  // sendTalkSignal();
 
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
@@ -552,7 +553,8 @@ function startVoice() {
   $("#local_video").addClass("videoflash");
 }
 function stopVoice() {
-  sendReleaseSignal();
+  // 誰でも話せるようにする
+  // sendReleaseSignal();
 
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
