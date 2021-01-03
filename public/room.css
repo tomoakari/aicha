@@ -331,6 +331,7 @@ div#wrapper,
 div#main,
 .flametable > tbody > tr > td {
   padding-top: 0px;
+  height: 100%;
 }
 
 .roomselect {
