@@ -615,5 +615,5 @@ h2.roomnametitle i {
   width: 140px;
 }
 .textnexttodoublebutton {
-  width: cals(100% - 140px);
+  width: calc(100% - 140px);
 }
