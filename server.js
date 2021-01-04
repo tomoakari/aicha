@@ -192,8 +192,28 @@ app.get("/", async(request, response) => {
 
   // 以下、パラメータがある場合
   try {
+    // アクティブな部屋があるかどうか検索する
+    var dt = new Date();
+    dt.setHours(dt.getHours() - 12);
+    var year = dt.getFullYear();
+    var month = dt.getMonth() + 1;
+    var day = dt.getDate();
+    var hour = dt.getHours();
+    var minut = dt.getMinutes();
+    var seccond = dt.getSeconds();
+    const limitStr =
+    year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
+
+    const { Op } = require("sequelize");
+    wheredata = {
+      hashed_name: hashed_name,
+      createdAt: {
+        [Op.gt]: limitStr,
+      },
+    };
+
     await RoomModel.findAll({
-      where: { hashed_name: hashed_name }
+      where: wheredata
     }).then((roomlist) => {
 
       if (roomlist.length > 0) {
