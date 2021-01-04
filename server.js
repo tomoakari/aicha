@@ -193,7 +193,7 @@ app.get("/", async(request, response) => {
   // 以下、パラメータがある場合
   try {
     await RoomModel.findAll({
-      where: wheredata
+      where: { hashed_name: hashed_name }
     }).then((roomlist) => {
 
       if (roomlist.length > 0) {
