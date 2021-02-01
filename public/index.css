@@ -179,6 +179,9 @@ body {
 a {
   color: #ffffff;
 }
+a.kiyaku {
+  color: #545454;
+}
 
 .kiyakulink {
   width: 260px;
