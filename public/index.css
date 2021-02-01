@@ -154,12 +154,23 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
+h2#swal2-title.swal2-title {
+  font-size: 22.5px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-weight: 700;
+}
+
 .puwrapper {
-  font-size: 14px;
+  font-size: 10.5px;
   text-align: left;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
   font-weight: 500;
+}
+.subtitle {
+  font-size: 12px;
+  text-align: center;
 }
 .ta-c {
   text-align: center;
