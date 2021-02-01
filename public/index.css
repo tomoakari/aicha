@@ -162,18 +162,18 @@ h2#swal2-title.swal2-title {
 }
 
 .puwrapper {
-  font-size: 10.5px;
+  font-size: 12px;
   text-align: left;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
   font-weight: 500;
 }
 .subtitle {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 .puwrapper h5 {
-  font-size: 10.5px;
+  font-size: 12px;
 }
 .ta-c {
   text-align: center;
