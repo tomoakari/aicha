@@ -176,9 +176,7 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
-
-.title a,
-.kiyakulink a {
+a {
   color: #ffffff;
 }
 
