@@ -156,6 +156,10 @@ body {
 
 .puwrapper {
   font-size: 14px;
+  text-align: left;
+}
+.ta-c {
+  text-align: center;
 }
 .swal2-html-container ul li {
   text-align: left;
@@ -164,8 +168,8 @@ body {
   font-size: inherit;
 }
 .pertationline {
-  border-bottom: #696969 1px solid;
-  margin: 20px 0px;
+  /* border-bottom: #696969 1px solid; */
+  margin: 25px 0px;
 }
 .popupnuws ul li {
   font-size: 14px;
