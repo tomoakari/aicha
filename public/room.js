@@ -1059,14 +1059,8 @@ window.onload = function () {
   // "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
   chatVue.addContent(systemmesage);
 
-  var tipsmesage = "Tips：ルームリストはスクロール可能です。";
-  var cammicmessage = "カメラ、マイクが使えない場合は、画面左のカメラマイク設定をご確認ください。";
+  var tipsmesage = "Tips：ルームリストはスクロール可能です。カメラ、マイクが使えない場合は、画面左のカメラマイク設定をご確認ください。";
   chatVue.addContent(tipsmesage);
-
-  setTimeout(
-    () => {
-      chatVue.addContent(cammicmessage);
-    }, 2000)
 
   const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
   toastr.info(selfsystemmessage);
