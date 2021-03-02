@@ -474,11 +474,7 @@ function showSettingTab() {
   if(userAgent.indexOf('edge') != -1) {
     Swal.fire({
         html:
-          `<p>` +
-          `<a href="edge://settings/content/all">` +
-          `設定画面` +
-          `</a>` +
-          `</p>`,
+          `<a href="https://support.microsoft.com/ja-jp/windows/windows-10-%E3%81%A7%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%A8%E3%83%9E%E3%82%A4%E3%82%AF-%E3%81%8A%E3%82%88%E3%81%B3%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC-a83257bc-e990-d54a-d212-b5e41beba857">Edgeのカメラ設定</a>`,
         focusConfirm: false,
         confirmButtonText: "閉じる",
         confirmButtonAriaLabel: "Close",
@@ -487,7 +483,7 @@ function showSettingTab() {
   } else if (userAgent.indexOf('chrome') != -1) {
       Swal.fire({
         html:
-          `<a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F">設定画面</a>`,
+          `<a href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja" target="_blank">Chromeのカメラ設定</a>`,
         focusConfirm: false,
         confirmButtonText: "閉じる",
         confirmButtonAriaLabel: "Close",
@@ -495,7 +491,7 @@ function showSettingTab() {
       });
   } else if(userAgent.indexOf('safari') != -1) {
       Swal.fire({
-        html: `<p>safariのアドレス欄の右端にあるビデオマークを押して、"aicha.aice.cloud"で常に許可 を選択してください。</p>`,
+        html: `<a href="https://support.apple.com/ja-jp/guide/safari/ibrwe2159f50/mac" target="_blank">safariのカメラ設定</a>`,
         focusConfirm: false,
         confirmButtonText: "閉じる",
         confirmButtonAriaLabel: "Close",
@@ -504,11 +500,7 @@ function showSettingTab() {
   } else if (userAgent.indexOf('firefox') != -1) {
     Swal.fire({
         html:
-          `<p>` +
-          `<a href="about:preferences#privacy"` +
-          `設定画面` +
-          `</a>` +
-          `</p>`,
+          `<a href="https://support.mozilla.org/ja/kb/how-manage-your-camera-and-microphone-permissions" target="_blank">Firefoxでのカメラ設定</a>`,
         focusConfirm: false,
         confirmButtonText: "閉じる",
         confirmButtonAriaLabel: "Close",
