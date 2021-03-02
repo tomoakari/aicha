@@ -130,7 +130,7 @@ socket.on("talkSignal", function (msg) {
   $("#userlist_" + words[1]).addClass("nowtalking");
 
   // マイクボタンを使用不可にする
-  $("#unmutebutton").addClass("unavailable");
+  // $("#unmutebutton").addClass("unavailable");
 });
 
 socket.on("releaseSignal", function (msg) {
@@ -141,7 +141,7 @@ socket.on("releaseSignal", function (msg) {
   $("#userlist_" + words[1]).removeClass("nowtalking");
 
   // マイクボタンを使用可にする
-  $("#unmutebutton").removeClass("unavailable");
+  // $("#unmutebutton").removeClass("unavailable");
 });
 
 socket.on("categoryList", function (msg) {
@@ -599,7 +599,7 @@ function stopVideo() {
 // マイクON/OFFボタン
 function startVoice() {
   // 誰でも話せるようにする
-  // sendTalkSignal();
+  sendTalkSignal();
 
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
@@ -610,7 +610,7 @@ function startVoice() {
 }
 function stopVoice() {
   // 誰でも話せるようにする
-  // sendReleaseSignal();
+  sendReleaseSignal();
 
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
