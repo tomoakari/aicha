@@ -472,9 +472,31 @@ $(".optionalvideo").on("click", () => {
 function showSettingTab() {
   var userAgent = window.navigator.userAgent.toLowerCase();
   if(userAgent.indexOf('edge') != -1) {
-      window.open('edge://settings/content/all');
-  } else if(userAgent.indexOf('chrome') != -1) {
-      window.open('chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F');
+    Swal.fire({
+        html:
+          `<p>` +
+          `<a href="edge://settings/content/all">` +
+          `設定画面` +
+          `</a>` +
+          `</p>`,
+        focusConfirm: false,
+        confirmButtonText: "閉じる",
+        confirmButtonAriaLabel: "Close",
+        allowOutsideClick: true,
+      });
+  } else if (userAgent.indexOf('chrome') != -1) {
+      Swal.fire({
+        html:
+          `<p>` +
+          `<a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F"` +
+          `設定画面` +
+          `</a>` +
+          `</p>`,
+        focusConfirm: false,
+        confirmButtonText: "閉じる",
+        confirmButtonAriaLabel: "Close",
+        allowOutsideClick: true,
+      });
   } else if(userAgent.indexOf('safari') != -1) {
       Swal.fire({
         html: `<p>safariのアドレス欄の右端にあるビデオマークを押して、"aicha.aice.cloud"で常に許可 を選択してください。</p>`,
@@ -483,8 +505,19 @@ function showSettingTab() {
         confirmButtonAriaLabel: "Close",
         allowOutsideClick: true,
       });
-  } else if(userAgent.indexOf('firefox') != -1) {
-      window.open('about:preferences#privacy');
+  } else if (userAgent.indexOf('firefox') != -1) {
+    Swal.fire({
+        html:
+          `<p>` +
+          `<a href="about:preferences#privacy"` +
+          `設定画面` +
+          `</a>` +
+          `</p>`,
+        focusConfirm: false,
+        confirmButtonText: "閉じる",
+        confirmButtonAriaLabel: "Close",
+        allowOutsideClick: true,
+      });
   } else if(userAgent.indexOf('opera') != -1) {
       console.log('Opera is not supported');
   } else {
