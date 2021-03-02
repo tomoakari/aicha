@@ -487,9 +487,7 @@ function showSettingTab() {
   } else if (userAgent.indexOf('chrome') != -1) {
       Swal.fire({
         html:
-          `設定画面：<a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F"` +
-          `設定画面` +
-          `</a>`,
+          `<a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F">設定画面</a>`,
         focusConfirm: false,
         confirmButtonText: "閉じる",
         confirmButtonAriaLabel: "Close",
