@@ -358,6 +358,11 @@ $("#createroombutton").on("click", () => {
   popRoomCreateWindow();
 });
 
+$("#cameramicbutton").on("click", () => {
+  showSettingTab();
+});
+
+
 $("#removebutton").on("click", () => {
   removeaicha();
 });
@@ -464,6 +469,28 @@ $(".optionalvideo").on("click", () => {
   
 });
 
+function showSettingTab() {
+  var userAgent = window.navigator.userAgent.toLowerCase();
+  if(userAgent.indexOf('edge') != -1) {
+      window.open('edge://settings/content/all');
+  } else if(userAgent.indexOf('chrome') != -1) {
+      window.open('chrome://settings/content/siteDetails?site=https%3A%2F%2Faicha.aice.cloud%2F');
+  } else if(userAgent.indexOf('safari') != -1) {
+      Swal.fire({
+        html: `<p>safariのアドレス欄の右端にあるビデオマークを押して、"aicha.aice.cloud"で常に許可 を選択してください。</p>`,
+        focusConfirm: false,
+        confirmButtonText: "閉じる",
+        confirmButtonAriaLabel: "Close",
+        allowOutsideClick: true,
+      });
+  } else if(userAgent.indexOf('firefox') != -1) {
+      window.open('about:preferences#privacy');
+  } else if(userAgent.indexOf('opera') != -1) {
+      console.log('Opera is not supported');
+  } else {
+      console.log('not supported');
+  }
+}
 
 
 
@@ -1011,9 +1038,14 @@ window.onload = function () {
   // "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
   chatVue.addContent(systemmesage);
 
-  var tipsmesage =
-    "Tips：ルームリストはスクロールで全てのルームを表示できます。";
+  var tipsmesage = "Tips：ルームリストはスクロール可能です。";
+  var cammicmessage = "カメラ、マイクが使えない場合は、画面左のカメラマイク設定をご確認ください。";
   chatVue.addContent(tipsmesage);
+
+  setTimeout(
+    () => {
+      chatVue.addContent(cammicmessage);
+    }, 2000)
 
   const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
   toastr.info(selfsystemmessage);
