@@ -1207,6 +1207,8 @@ function removeaicha() {
     allowOutsideClick: true,
   }).then((result) => {
     if (result.value) {
+      var text = $("#user_name").val() + "さんが退室しました。";
+      socket.emit("alert", text);
       stopVideo();
       sendLeaveUser();
       stopVoice();
