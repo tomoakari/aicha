@@ -2045,11 +2045,12 @@ button,
           height: 4em;
           width: 100%; }
       #sidebar .toggle {
-        text-indent: 6em;
-        width: 6em; }
+        text-indent: 4em;
+        width: 3em;
+        cursor: pointer; }
         #sidebar .toggle:before {
           font-size: 1.5rem;
-          margin-left: -0.4375em; }
+          /* margin-left: -0.4375em;*/ }
       body.is-preload #sidebar {
         display: none; } }
   @media screen and (max-width: 736px) {
