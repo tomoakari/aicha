@@ -585,8 +585,21 @@ h2.roomnametitle i {
   max-height: 200px;
   overflow-y: scroll;
 }
+/*
 .roomlistbox::-webkit-scrollbar {
   display: none;
+}
+*/
+.chat::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.chat::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+.chat::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #0068b7;
 }
 
 .linkinputtext {
