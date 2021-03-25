@@ -599,7 +599,7 @@ h2.roomnametitle i {
 }
 .roomlistbox::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: #0068b7;
+  background: linear-gradient(#1e90ff, #40e0d0);
 }
 
 .linkinputtext {
