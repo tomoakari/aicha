@@ -2018,7 +2018,7 @@ button,
         left: 24em;
         line-height: 6.25em;
         text-indent: 5em;
-        width: 3em; }
+        width: 30px; }
         #sidebar .toggle:before {
           font-size: 1.5rem; }
       #sidebar.inactive {
@@ -2048,7 +2048,7 @@ button,
           width: 100%; }
       #sidebar .toggle {
         text-indent: 4em;
-        width: 3em;
+        width: 30px;
         cursor: pointer; }
         #sidebar .toggle:before {
           font-size: 1.5rem;
