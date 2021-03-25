@@ -590,14 +590,14 @@ h2.roomnametitle i {
   display: none;
 }
 */
-.chat::-webkit-scrollbar {
+.roomlistbox::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-.chat::-webkit-scrollbar-track {
+.roomlistbox::-webkit-scrollbar-track {
   border-radius: 5px;
 }
-.chat::-webkit-scrollbar-thumb {
+.roomlistbox::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #0068b7;
 }
