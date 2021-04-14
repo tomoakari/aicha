@@ -7,6 +7,26 @@ function _assert(desc, v) {
   }
 }
 
+var ua = window.navigator.userAgent.toLowerCase();
+alert(ua)
+var osStr = ""
+if(ua.indexOf("windows nt") !== -1) {
+  alert("os:windows")
+  osStr = "windows"
+} else if(ua.indexOf("android") !== -1) {
+  alert("os:android")
+  osStr = "android"
+} else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
+  alert("os:ios")
+  osStr = "ios"
+} else if(ua.indexOf("mac os x") !== -1) {
+  alert("os:mac")
+  osStr = "mac"
+} else {
+  alert("os:other")
+  osStr = "other"
+}
+
 // デバイスのメディアにアクセス
 let localVideo = document.getElementById("local_video");
 let localStream = null;
@@ -1064,7 +1084,9 @@ window.onload = function () {
 
   const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
   toastr.info(selfsystemmessage);
-  $("#alert_se").get(0).play();
+  if (osStr !== "ios") {
+    $("#alert_se").get(0).play(); 
+  }
 
   setInterval(function () {
     sendBeing();
