@@ -293,19 +293,11 @@ var roomVue = new Vue({
 
 /**
  * ルームリストを管理するVue
- */
 var roomcreateVue = new Vue({
   el: "#roomcreate",
 
   data: {
     categorylist: [
-      /*
-      {
-        category_id: "category.id",
-        category_name: "category.name",
-        order_no: "category.order_no",
-      },
-      */
     ],
     selected: "",
   },
@@ -324,3 +316,4 @@ var roomcreateVue = new Vue({
     },
   },
 });
+ */
