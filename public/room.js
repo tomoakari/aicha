@@ -368,18 +368,27 @@ function addBlankVideoElement() {
 /**
  * イベントリスナ
  */
+/*
 $("#createroombutton").on("click", () => {
   popRoomCreateWindow();
 });
+*/
+function clickCreateroombutton() {
+  popRoomCreateWindow();
+}
 
 $("#cameramicbutton").on("click", () => {
   showSettingTab();
 });
 
-
+/*
 $("#removebutton").on("click", () => {
   removeaicha();
 });
+*/
+function clickRemovebutton() {
+  removeaicha();
+}
 
 $("#startbutton").on("click", () => {
   startVideo();
@@ -475,10 +484,12 @@ $("#updateRoomlist").on("click", () => {
   sendUpdateRoomlist();
 });
 
+/*
 $("#invitebutton").on("click", () => {
   sendLinkRequest();
 });
-function testInvitebutton() {
+*/
+function clickInvitebutton() {
   sendLinkRequest();
 }
 
