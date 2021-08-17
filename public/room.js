@@ -475,8 +475,7 @@ $("#updateRoomlist").on("click", () => {
   sendUpdateRoomlist();
 });
 
-$("#invitebutton").on("click", () => {
-  alert("invitebutton!!");
+$("#invitebutton__").on("click", () => {
   sendLinkRequest();
 });
 
