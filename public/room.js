@@ -9,13 +9,13 @@ function _assert(desc, v) {
 
 var ua = window.navigator.userAgent.toLowerCase();
 var osStr = ""
-if(ua.indexOf("windows nt") !== -1) {
+if (ua.indexOf("windows nt") !== -1) {
   osStr = "windows"
-} else if(ua.indexOf("android") !== -1) {
+} else if (ua.indexOf("android") !== -1) {
   osStr = "android"
-} else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
+} else if (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1 || ua.indexOf("version") !== -1) {
   osStr = "ios"
-} else if(ua.indexOf("mac os x") !== -1) {
+} else if (ua.indexOf("mac os x") !== -1) {
   osStr = "mac"
 } else {
   osStr = "other"
@@ -476,54 +476,55 @@ $("#updateRoomlist").on("click", () => {
 });
 
 $("#invitebutton").on("click", () => {
+  alert("invitebutton!!");
   sendLinkRequest();
 });
 
 $(".optionalvideo").on("click", () => {
-  
+
 });
 
 function showSettingTab() {
   var userAgent = window.navigator.userAgent.toLowerCase();
-  if(userAgent.indexOf('edge') != -1) {
+  if (userAgent.indexOf('edge') != -1) {
     Swal.fire({
-        html:
-          `<a href="https://support.microsoft.com/ja-jp/windows/windows-10-%E3%81%A7%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%A8%E3%83%9E%E3%82%A4%E3%82%AF-%E3%81%8A%E3%82%88%E3%81%B3%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC-a83257bc-e990-d54a-d212-b5e41beba857">Edgeのカメラ設定</a>`,
-        focusConfirm: false,
-        confirmButtonText: "閉じる",
-        confirmButtonAriaLabel: "Close",
-        allowOutsideClick: true,
-      });
+      html:
+        `<a href="https://support.microsoft.com/ja-jp/windows/windows-10-%E3%81%A7%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%A8%E3%83%9E%E3%82%A4%E3%82%AF-%E3%81%8A%E3%82%88%E3%81%B3%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC-a83257bc-e990-d54a-d212-b5e41beba857">Edgeのカメラ設定</a>`,
+      focusConfirm: false,
+      confirmButtonText: "閉じる",
+      confirmButtonAriaLabel: "Close",
+      allowOutsideClick: true,
+    });
   } else if (userAgent.indexOf('chrome') != -1) {
-      Swal.fire({
-        html:
-          `<a href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja" target="_blank">Chromeのカメラ設定</a>`,
-        focusConfirm: false,
-        confirmButtonText: "閉じる",
-        confirmButtonAriaLabel: "Close",
-        allowOutsideClick: true,
-      });
-  } else if(userAgent.indexOf('safari') != -1) {
-      Swal.fire({
-        html: `<a href="https://support.apple.com/ja-jp/guide/safari/ibrwe2159f50/mac" target="_blank">safariのカメラ設定</a>`,
-        focusConfirm: false,
-        confirmButtonText: "閉じる",
-        confirmButtonAriaLabel: "Close",
-        allowOutsideClick: true,
-      });
+    Swal.fire({
+      html:
+        `<a href="https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=ja" target="_blank">Chromeのカメラ設定</a>`,
+      focusConfirm: false,
+      confirmButtonText: "閉じる",
+      confirmButtonAriaLabel: "Close",
+      allowOutsideClick: true,
+    });
+  } else if (userAgent.indexOf('safari') != -1) {
+    Swal.fire({
+      html: `<a href="https://support.apple.com/ja-jp/guide/safari/ibrwe2159f50/mac" target="_blank">safariのカメラ設定</a>`,
+      focusConfirm: false,
+      confirmButtonText: "閉じる",
+      confirmButtonAriaLabel: "Close",
+      allowOutsideClick: true,
+    });
   } else if (userAgent.indexOf('firefox') != -1) {
     Swal.fire({
-        html:
-          `<a href="https://support.mozilla.org/ja/kb/how-manage-your-camera-and-microphone-permissions" target="_blank">Firefoxでのカメラ設定</a>`,
-        focusConfirm: false,
-        confirmButtonText: "閉じる",
-        confirmButtonAriaLabel: "Close",
-        allowOutsideClick: true,
-      });
-  } else if(userAgent.indexOf('opera') != -1) {
-      console.log('Opera is not supported');
+      html:
+        `<a href="https://support.mozilla.org/ja/kb/how-manage-your-camera-and-microphone-permissions" target="_blank">Firefoxでのカメラ設定</a>`,
+      focusConfirm: false,
+      confirmButtonText: "閉じる",
+      confirmButtonAriaLabel: "Close",
+      allowOutsideClick: true,
+    });
+  } else if (userAgent.indexOf('opera') != -1) {
+    console.log('Opera is not supported');
   } else {
-      console.log('not supported');
+    console.log('not supported');
   }
 }
 
@@ -1079,7 +1080,7 @@ window.onload = function () {
   const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
   toastr.info(selfsystemmessage);
   if (osStr !== "ios") {
-    $("#alert_se").get(0).play(); 
+    $("#alert_se").get(0).play();
   }
 
   setInterval(function () {
@@ -1314,6 +1315,6 @@ function showLinkWindow(secret) {
   });
 }
 
-function test(){
-  var test = {"data":{"success":false,"code":500,"data":null,"message":null},"status":200,"statusText":"","headers":{"content-type":"application/json"},"config":{"url":"http://47.74.56.36:8080/api/v1/users/user1","method":"get","headers":{"Accept":"application/json, text/plain, */*"},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1},"request":{}}
+function test() {
+  var test = { "data": { "success": false, "code": 500, "data": null, "message": null }, "status": 200, "statusText": "", "headers": { "content-type": "application/json" }, "config": { "url": "http://47.74.56.36:8080/api/v1/users/user1", "method": "get", "headers": { "Accept": "application/json, text/plain, */*" }, "transformRequest": [null], "transformResponse": [null], "timeout": 0, "xsrfCookieName": "XSRF-TOKEN", "xsrfHeaderName": "X-XSRF-TOKEN", "maxContentLength": -1, "maxBodyLength": -1 }, "request": {} }
 }
