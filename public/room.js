@@ -475,9 +475,12 @@ $("#updateRoomlist").on("click", () => {
   sendUpdateRoomlist();
 });
 
-$("#invitebutton__").on("click", () => {
+$("#invitebutton").on("click", () => {
   sendLinkRequest();
 });
+function testInvitebutton() {
+  sendLinkRequest();
+}
 
 $(".optionalvideo").on("click", () => {
 
