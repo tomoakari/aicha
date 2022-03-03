@@ -86,7 +86,7 @@ const app = Vue.createApp({
     },
   },
 });
-const vue = app.mount('#app')
+const memberVue = app.mount('#app')
 
 /**
  * チャットのコンテンツを制御するVue
