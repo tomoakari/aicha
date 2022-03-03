@@ -5,16 +5,19 @@
  * **********************************************************
  */
 const app = Vue.createApp({
-  data: {
-    members: [
-      /*
-      {
-        user_id: "uid",
-        user_name: "name1",
-        timestamp: "1111111111"
-      }
-      */
-    ],
+  data() {
+    return {
+      members: [
+        /*
+        {
+          user_id: "uid",
+          user_name: "name1",
+          timestamp: "1111111111"
+        }
+        */
+      ],
+    }
+
   },
 
   computed: {
@@ -89,13 +92,15 @@ const vue = app.mount('#app')
  * チャットのコンテンツを制御するVue
  */
 const chatApp = Vue.createApp({
-  data: {
-    contents: [
-      {
-        // id: 1,
-        // text: "ルームに参加しました。左下のカメラボタンでスタートしてください。"
-      },
-    ],
+  data() {
+    return {
+      contents: [
+        {
+          // id: 1,
+          // text: "ルームに参加しました。左下のカメラボタンでスタートしてください。"
+        }
+      ]
+    }
   },
 
   computed: {
@@ -169,28 +174,31 @@ const chatVue = chatApp.mount('#chatapp')
  * **********************************************************
  */
 const roomApp = Vue.createApp({
-  data: {
-    roomlist: [
-      /*
-      {
-        room_id: "room_id",
-        room_name: "room_name",
-        category_name: "category_name",
-        category_id: "category_id",
-        enroll_count: "enroll_count"
-      },
-      */
-    ],
-    categorylist: [
-      /*
-      {
-        category_id: "category.id",
-        category_name: "category.name",
-        order_no: "category.order_no",
-      },
-      */
-    ],
-    category_id: 0,
+  data() {
+    return {
+      roomlist: [
+        /*
+        {
+          room_id: "room_id",
+          room_name: "room_name",
+          category_name: "category_name",
+          category_id: "category_id",
+          enroll_count: "enroll_count"
+        },
+        */
+      ],
+      categorylist: [
+        /*
+        {
+          category_id: "category.id",
+          category_name: "category.name",
+          order_no: "category.order_no",
+        },
+        */
+      ],
+      category_id: 0,
+    }
+
   },
   computed: {
     sortedRoomlist: function () {
