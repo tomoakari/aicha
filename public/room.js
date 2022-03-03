@@ -56,7 +56,7 @@ RTCSessionDescription =
 
 // ----- use socket.io ---
 let port = 3000;
-let socket = io();
+let socket = io("https://aicha.aice.cloud:8444");
 let room = getRoomName();
 
 socket.on("connect", function (evt) {
