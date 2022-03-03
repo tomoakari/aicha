@@ -8,9 +8,7 @@ const vueSeamless = window.vueSeamlessScroll;
  * ルームメンバーを管理するVue
  * **********************************************************
  */
-var memberVue = new Vue({
-  el: "#app",
-
+const app = Vue.createApp({
   data: {
     members: [
       /*
@@ -57,7 +55,7 @@ var memberVue = new Vue({
       // 一致するものがあったらtimestampを更新
       this.members.forEach((member, index) => {
         if (member.user_id === user_id) {
-          this.$set(this.members[index], "timestamp", nowtime);
+          this.members[index].timestamp = nowtime;
           exist_count++;
         }
       });
@@ -82,7 +80,7 @@ var memberVue = new Vue({
       // 一致するものがあったらtimestampを0にする
       this.members.forEach((member, index) => {
         if (member.user_id === user_id) {
-          this.$set(this.members[index], "timestamp", 0);
+          this.members[index].timestamp = 0;
           exist_count++;
         }
       });
@@ -137,9 +135,8 @@ var chatVue = new Vue({
       this.contents.push(newMessage);
       // this.scrollBottom();
 
-      var $this = this;
-      Vue.nextTick(function () {
-        $this.scrollToEnd();
+      this.$nextTick(function () {
+        this.scrollToEnd();
       });
     },
     addContent2: function (content) {
@@ -159,9 +156,8 @@ var chatVue = new Vue({
       this.contents.push(newMessage);
       // this.scrollBottom();
 
-      var $this = this;
-      Vue.nextTick(function () {
-        $this.scrollToEnd();
+      this.$nextTick(function () {
+        this.scrollToEnd();
       });
     },
     scrollToEnd: function () {
@@ -290,6 +286,8 @@ var roomVue = new Vue({
     },
   },
 });
+
+const vue = app.mount('#app')
 
 /**
  * ルームリストを管理するVue
