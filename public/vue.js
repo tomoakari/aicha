@@ -83,6 +83,7 @@ const app = Vue.createApp({
     },
   },
 });
+const vue = app.mount('#app')
 
 /**
  * チャットのコンテンツを制御するVue
@@ -160,6 +161,7 @@ const chatApp = Vue.createApp({
     },
   },
 });
+const chatVue = chatApp.mount('#chatapp')
 
 /**
  * **********************************************************
@@ -278,8 +280,6 @@ const roomApp = Vue.createApp({
     },
   },
 });
-const vue = app.mount('#app')
-const chatVue = chatApp.mount('#chatapp')
 const roomVue = roomApp.mount('#roomlist')
 
 
