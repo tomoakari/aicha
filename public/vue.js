@@ -91,7 +91,7 @@ const app = Vue.createApp({
 /**
  * チャットのコンテンツを制御するVue
  */
-var chatVue = new Vue({
+const chatApp = Vue.createApp({
   el: "#chatapp",
 
   data: {
@@ -286,8 +286,8 @@ var roomVue = new Vue({
     },
   },
 });
-
 const vue = app.mount('#app')
+const chatVue = chatapp.mount('#chatapp')
 
 /**
  * ルームリストを管理するVue
