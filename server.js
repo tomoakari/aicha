@@ -42,11 +42,11 @@ const crypto = require("crypto");
  * ************************************************************
  */
 
- /**
-  * りのみキャンペーンページでは、部屋名の概念がなくなります
-  * つまり、ランダム生成のtable_idのみ使用します。
-  */
- // キャンペーンログイン画面
+/**
+ * りのみキャンペーンページでは、部屋名の概念がなくなります
+ * つまり、ランダム生成のtable_idのみ使用します。
+ */
+// キャンペーンログイン画面
 app.get("/onnomi", (request, response) => {
 
   try {
@@ -66,7 +66,7 @@ app.post("/onnomi", (request, response) => {
 
   var data = {};
 
-  if(request.body.hashed_name){
+  if (request.body.hashed_name) {
     // 招待されていた場合
     data = {
       user_name: request.body.user_name,
@@ -74,25 +74,25 @@ app.post("/onnomi", (request, response) => {
       table_name: "おんのみ"
     }
 
-  }else if(request.body.table_name === "onnomi"){
+  } else if (request.body.table_name === "onnomi") {
     // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
     var table_id = crypto
-    .createHash("md5")
-    .update("おんのみ" + pw)
-    .digest("hex");
+      .createHash("md5")
+      .update("おんのみ" + pw)
+      .digest("hex");
 
     data = {
       user_name: request.body.user_name,
       table_id: table_id,
       table_name: "おんのみ"
     }
-  }else{
+  } else {
     // 大部屋の場合
     var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
+      .createHash("md5")
+      .update(request.body.table_name)
+      .digest("hex");
 
     data = {
       user_name: request.body.user_name,
@@ -113,8 +113,8 @@ app.post("/onnomi", (request, response) => {
 
 
 
- // キャンペーンログイン画面
- app.get("/onnomi2", (request, response) => {
+// キャンペーンログイン画面
+app.get("/onnomi2", (request, response) => {
 
   try {
     var data = {
@@ -133,7 +133,7 @@ app.post("/onnomi2", (request, response) => {
 
   var data = {};
 
-  if(request.body.hashed_name){
+  if (request.body.hashed_name) {
     // 招待されていた場合
     data = {
       user_name: request.body.user_name,
@@ -141,25 +141,25 @@ app.post("/onnomi2", (request, response) => {
       table_name: "おんのみ"
     }
 
-  }else if(request.body.table_name === "onnomi"){
+  } else if (request.body.table_name === "onnomi") {
     // 個室新規作成の場合
     var pw = Math.floor(Math.random() * 10000000);
     var table_id = crypto
-    .createHash("md5")
-    .update("おんのみ" + pw)
-    .digest("hex");
+      .createHash("md5")
+      .update("おんのみ" + pw)
+      .digest("hex");
 
     data = {
       user_name: request.body.user_name,
       table_id: table_id,
       table_name: "おんのみ"
     }
-  }else{
+  } else {
     // 大部屋の場合
     var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
+      .createHash("md5")
+      .update(request.body.table_name)
+      .digest("hex");
 
     data = {
       user_name: request.body.user_name,
@@ -181,7 +181,7 @@ app.post("/onnomi2", (request, response) => {
 
 
 // ログイン画面
-app.get("/", async(request, response) => {
+app.get("/", async (request, response) => {
 
   const hashed_name = request.query.secret;
 
@@ -202,7 +202,7 @@ app.get("/", async(request, response) => {
     var minut = dt.getMinutes();
     var seccond = dt.getSeconds();
     const limitStr =
-    year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
+      year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
     const { Op } = require("sequelize");
     wheredata = {
@@ -225,26 +225,26 @@ app.get("/", async(request, response) => {
           fields: updateFields,
         });
         */
-       var room_name;
-       roomlist.forEach((room) => {
-        room_name = room.name;
-      });
+        var room_name;
+        roomlist.forEach((room) => {
+          room_name = room.name;
+        });
         var data = {
           room_name: room_name,
         };
         // ルーム名を持ってトップに遷移
         response.render("./index_invited.ejs", data);
-  
+
       } else {
         // 存在していなかった場合、普通のトップへ
         response.sendFile(__dirname + "/views/index.html");
       }
     });
-  }catch(err){
+  } catch (err) {
     // なにかエラーがあったら普通にトップへ
-        console.log(err);
-        response.sendFile(__dirname + "/views/index.html");
-  } 
+    console.log(err);
+    response.sendFile(__dirname + "/views/index.html");
+  }
 });
 
 // ルーム画面
@@ -305,13 +305,13 @@ app.get("/checkandcreateroom", async (request, response) => {
 
 
   const { Op } = require("sequelize");
-    wheredata = {
-      name: room_name,
-      createdAt: {
-        // updatedAt: {
-        [Op.gt]: limitStr,
-      },
-    };
+  wheredata = {
+    name: room_name,
+    createdAt: {
+      // updatedAt: {
+      [Op.gt]: limitStr,
+    },
+  };
 
   try {
     var roomlist = await RoomModel.findAll({
@@ -930,7 +930,11 @@ const EnrollModel = sequelize.define(
    order_no int,
    createdAt datetime, updatedAt datetime, deletedAt datetime );
 
+   insert categories set name="趣味",order_no=1;
+   insert categories set name="地域",order_no=2;
    insert categories set name="世代",order_no=3;
+   insert categories set name="語り",order_no=4;
+   insert categories set name="その他",order_no=5;
  */
 const CategoryModel = sequelize.define(
   "categories",
