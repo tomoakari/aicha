@@ -339,7 +339,7 @@ app.get("/checkandcreateroom", async (request, response) => {
         category_name: "",
         category_id: category_id,
         default_flg: 0,
-        create_user_id: "",
+        create_user_id: 0,
       };
       var crtResult = await RoomModel.create(data);
 
