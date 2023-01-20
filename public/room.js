@@ -1318,16 +1318,34 @@ function showLinkWindow(secret) {
     // icon: "info",
     html:
       `<p>以下のURLからこのルームに招待することができます</p>` +
-      `<input class="linkinputtext" value="` +
+      `<input id="copyTarget" class="linkinputtext" value="` +
       url +
       `"/>`,
     focusConfirm: false,
-    confirmButtonText: "閉じる",
+    confirmButtonText: "コピーする",
     confirmButtonAriaLabel: "Close",
     allowOutsideClick: true,
+  }).then(result=>{
+    if(result.value){
+      copyToClipboard()
+    }
   });
 }
 
 function test() {
   var test = { "data": { "success": false, "code": 500, "data": null, "message": null }, "status": 200, "statusText": "", "headers": { "content-type": "application/json" }, "config": { "url": "http://47.74.56.36:8080/api/v1/users/user1", "method": "get", "headers": { "Accept": "application/json, text/plain, */*" }, "transformRequest": [null], "transformResponse": [null], "timeout": 0, "xsrfCookieName": "XSRF-TOKEN", "xsrfHeaderName": "X-XSRF-TOKEN", "maxContentLength": -1, "maxBodyLength": -1 }, "request": {} }
+}
+
+function copyToClipboard() {
+  // コピー対象をJavaScript上で変数として定義する
+  var copyTarget = document.getElementById("copyTarget");
+
+  // コピー対象のテキストを選択する
+  copyTarget.select();
+
+  // 選択しているテキストをクリップボードにコピーする
+  document.execCommand("Copy");
+
+  // コピーをお知らせする
+  alert("招待URLをクリップボードにコピーしました");
 }
