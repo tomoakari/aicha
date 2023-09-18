@@ -537,8 +537,6 @@ io.on("connection", function (socket) {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
       socket.emit("roomList", JSON.stringify(rooms));
-    }).catch((err)=>{
-      socket.emit("roomList", "");
     });
   });
 
