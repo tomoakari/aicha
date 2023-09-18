@@ -186,7 +186,7 @@ app.get("/", async (request, response) => {
   const hashed_name = request.query.secret;
 
   // パラメータがなければ普通のトップへ
-  if (!hashed_name) {
+  if (!hashed_name || typeof hashed_name === 'undefined') {
     response.sendFile(__dirname + "/views/index.html");
   }
 
@@ -537,6 +537,8 @@ io.on("connection", function (socket) {
       // emitMessage("roomList", JSON.stringify(rooms));
       // 送信者に向かって返す
       socket.emit("roomList", JSON.stringify(rooms));
+    }).catch((err)=>{
+      socket.emit("roomList", "");
     });
   });
 
