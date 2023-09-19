@@ -189,61 +189,66 @@ app.get("/", async (request, response) => {
   if (!hashed_name || typeof hashed_name === 'undefined') {
     response.sendFile(__dirname + "/views/index.html");
   }
+  else{
+    // 以下、パラメータがある場合
+    try {
+      // アクティブな部屋があるかどうか検索する
+      var dt = new Date();
+      dt.setHours(dt.getHours() - 12);
+      var year = dt.getFullYear();
+      var month = dt.getMonth() + 1;
+      var day = dt.getDate();
+      var hour = dt.getHours();
+      var minut = dt.getMinutes();
+      var seccond = dt.getSeconds();
+      const limitStr =
+        year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
 
-  // 以下、パラメータがある場合
-  try {
-    // アクティブな部屋があるかどうか検索する
-    var dt = new Date();
-    dt.setHours(dt.getHours() - 12);
-    var year = dt.getFullYear();
-    var month = dt.getMonth() + 1;
-    var day = dt.getDate();
-    var hour = dt.getHours();
-    var minut = dt.getMinutes();
-    var seccond = dt.getSeconds();
-    const limitStr =
-      year + "-" + month + "-" + day + " " + hour + ":" + minut + ":" + seccond;
+      const { Op } = require("sequelize");
+      wheredata = {
+        hashed_name: hashed_name,
+        createdAt: {
+          [Op.gt]: limitStr,
+        },
+      };
 
-    const { Op } = require("sequelize");
-    wheredata = {
-      hashed_name: hashed_name,
-      createdAt: {
-        [Op.gt]: limitStr,
-      },
-    };
+      await RoomModel.findAll({
+        where: wheredata
+      }).then((roomlist) => {
 
-    await RoomModel.findAll({
-      where: wheredata
-    }).then((roomlist) => {
+        if (roomlist.length > 0) {
+          /*
+          // 存在していた場合、有効期限を更新して遷移する
+          // …としたいところだが、いったん更新ナシで
+          RoomModel.update(updateData, {
+            where: whereCondition,
+            fields: updateFields,
+          });
+          */
+          var room_name;
+          roomlist.forEach((room) => {
+            room_name = room.name;
+          });
+          var data = {
+            room_name: room_name,
+          };
+          // ルーム名を持ってトップに遷移
+          response.render("./index_invited.ejs", data);
 
-      if (roomlist.length > 0) {
-        /*
-        // 存在していた場合、有効期限を更新して遷移する
-        // …としたいところだが、いったん更新ナシで
-        RoomModel.update(updateData, {
-          where: whereCondition,
-          fields: updateFields,
-        });
-        */
-        var room_name;
-        roomlist.forEach((room) => {
-          room_name = room.name;
-        });
-        var data = {
-          room_name: room_name,
-        };
-        // ルーム名を持ってトップに遷移
-        response.render("./index_invited.ejs", data);
-
-      } else {
-        // 存在していなかった場合、普通のトップへ
+        } else {
+          // 存在していなかった場合、普通のトップへ
+          response.sendFile(__dirname + "/views/index.html");
+        }
+      }).catch((err)=>{
+        // なにかエラーがあったら普通にトップへ
+        console.log(err);
         response.sendFile(__dirname + "/views/index.html");
-      }
-    });
-  } catch (err) {
-    // なにかエラーがあったら普通にトップへ
-    console.log(err);
-    response.sendFile(__dirname + "/views/index.html");
+      });
+    } catch (err) {
+      // なにかエラーがあったら普通にトップへ
+      console.log(err);
+      response.sendFile(__dirname + "/views/index.html");
+    }
   }
 });
 
