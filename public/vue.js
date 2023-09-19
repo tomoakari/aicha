@@ -55,12 +55,12 @@ const app = Vue.createApp({
       this.members.forEach((member, index) => {
         if (member.user_id === user_id) {
           this.members[index].timestamp = nowtime;
-          exist_count++;
+          this.exist_count++;
         }
       });
 
       // 新規メンバーならmemberに追加
-      if (exist_count == 0) {
+      if (this.exist_count == 0) {
         const new_member = {
           user_id: user_id,
           user_name: user_name,
@@ -80,7 +80,7 @@ const app = Vue.createApp({
       this.members.forEach((member, index) => {
         if (member.user_id === user_id) {
           this.members[index].timestamp = 0;
-          exist_count++;
+          this.exist_count++;
         }
       });
     },
