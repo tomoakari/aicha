@@ -234,7 +234,7 @@ const roomApp = Vue.createApp({
       $(".category_li").each(function (idx, elm) {
         $(elm).removeClass("selectedCategory");
       });
-      $("#categorylist_" + id).addclass("selectedCategory");
+      $("#categorylist_" + id).addClass("selectedCategory");
     },
     updateRoomList: function (msg) {
       var rooms = JSON.parse(msg);
