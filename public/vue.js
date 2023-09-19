@@ -16,6 +16,7 @@ const app = Vue.createApp({
         }
         */
       ],
+      exist_count: 0,
     }
 
   },
@@ -49,7 +50,6 @@ const app = Vue.createApp({
       var date = new Date();
       var a = date.getTime();
       var nowtime = Math.floor(a / 1000);
-      var exist_count = 0;
 
       // 一致するものがあったらtimestampを更新
       this.members.forEach((member, index) => {
