@@ -208,7 +208,7 @@ app.get("/", async (request, response) => {
       wheredata = {
         hashed_name: hashed_name,
         createdAt: {
-          [Op.gt]: limitStr,
+          [Op.gt]: new Date(limitStr).toISOString()
         },
       };
 
@@ -314,7 +314,7 @@ app.get("/checkandcreateroom", async (request, response) => {
     name: room_name,
     createdAt: {
       // updatedAt: {
-      [Op.gt]: limitStr,
+      [Op.gt]: new Date(limitStr).toISOString(),
     },
   };
 
@@ -534,7 +534,7 @@ io.on("connection", function (socket) {
     wheredata = {
       createdAt: {
         // updatedAt: {
-        [Op.gt]: limitStr,
+        [Op.gt]: new Date(limitStr).toISOString(),
       },
     };
 
