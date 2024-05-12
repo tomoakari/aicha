@@ -390,6 +390,10 @@ function clickRemovebutton() {
   removeaicha();
 }
 
+$("#videoAreaButton").on("click", () => {
+  $("#main").toggleClass("hidevideo");
+});
+
 $("#startbutton").on("click", () => {
   startVideo();
 });

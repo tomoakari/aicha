@@ -637,3 +637,32 @@ h2.roomnametitle i {
 .textnexttodoublebutton {
   width: calc(100% - 140px);
 }
+
+
+/*
+ * ビデオエリアをデフォルトで不可視化する
+ */
+ .hidevideo > .inner > .videoArea{
+  display: none;
+}
+.hidevideo > .inner > .flametable{
+  margin-top: 10px !important;
+}
+.hidevideo > .inner > .flametable > tbody > tr > td > .chatarea{
+  height: calc(100vh - 100px) !important;
+}
+
+.videoAreaButton{
+  position: fixed;
+  z-index: 10000;
+  background: #ffffff;
+  padding: 1px 20px;
+  box-shadow: 0 0 5px #808080;
+  color: #808080;
+  border-radius: 0px 0px 10px 10px;
+  top: 0px;
+  left: calc(50% - 20px);
+}
+.videoAreaButton:hover{
+  cursor: pointer;
+}
