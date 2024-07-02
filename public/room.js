@@ -697,14 +697,24 @@ function sendChat2() {
     toastr.error("文字を入力してください");
   } else {
     if (checkSendRestrict()) {
-      var content = {
+
+      var input = cleanWord($("#input_msg").val());
+      var sendcontent = {
+        user_id: "wakaran",
+        user_name: $("#user_name").val(),
+        message: input,
+        chat_color: $("#chat_color").attr("class"),
+      };
+
+      var mycontent = {
         user_id: "wakaran",
         user_name: $("#user_name").val(),
         message: $("#input_msg").val(),
         chat_color: $("#chat_color").attr("class"),
       };
-      socket.emit("chat", JSON.stringify(content));
-      chatVue.addContent2(JSON.stringify(content));
+
+      socket.emit("chat", JSON.stringify(sendcontent));
+      chatVue.addContent2(JSON.stringify(mycontent));
       $("#input_msg").val("");
     } else {
       toastr.error(
@@ -713,6 +723,19 @@ function sendChat2() {
     }
   }
   return false;
+}
+
+/**
+ * NGワードの設定
+ */
+const NG_WORDS = ["死ね", "しね", "殺す", "ころす", "馬鹿", "バカ"];
+
+function cleanWord(str){
+  var result = str
+  NG_WORDS.forEach((word)=>{
+    result = result.replace(word, "**")
+  })
+  return result;
 }
 
 function sendBeing() {
