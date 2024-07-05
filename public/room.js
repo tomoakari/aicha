@@ -123,6 +123,7 @@ socket.on("alert", function (msg) {
 });
 
 socket.on("being", function (msg) {
+  console.log("在室Ping：" + msg)
   var text = msg;
   const words = text.split("---");
   // 名前欄を更新する
