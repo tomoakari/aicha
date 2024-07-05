@@ -1095,37 +1095,45 @@ function callMe() {
 }
 
 window.onload = function () {
+
   var today = new Date();
-  // var year = today.getFullYear();
-  // var month = today.getMonth() + 1;
-  // var day = today.getDate();
   var hour = today.getHours();
   var minut = today.getMinutes();
-  // var seccond = today.getSeconds();
-  // var textdate = year + '年' + month + '月' + day + '日';
   var textdate = hour + "時" + minut + "分";
 
-  var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
-  socket.emit("alert", text);
-  socket.emit("chat", text);
+  try{
+    var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
+    socket.emit("alert", text);
+    socket.emit("chat", text);
 
-  var systemmesage =
-    "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
-  // "※メンテナンス中です　Sorry, you can not use now... m(_ _;)m";
-  chatVue.addContent(systemmesage);
+    var systemmesage =
+      "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
+    chatVue.addContent(systemmesage);
 
-  var tipsmesage = "Tips：ルームリストはスクロール可能です。カメラ、マイクが使えない場合は、ブラウザのカメラマイク設定をご確認ください。";
-  chatVue.addContent(tipsmesage);
+    var tipsmesage = "Tips：ルームリストはスクロール可能です。カメラ、マイクが使えない場合は、ブラウザのカメラマイク設定をご確認ください。";
+    chatVue.addContent(tipsmesage);
 
-  const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
-  toastr.info(selfsystemmessage);
-  if (osStr !== "ios") {
-    $("#alert_se").get(0).play();
+    const selfsystemmessage = $("#room_name").val() + "ルームに入室しました。";
+    toastr.info(selfsystemmessage);
+  }catch(e){
+    console.log("ログイン時の投稿ができませんでした：" + e)
   }
 
-  setInterval(function () {
-    sendBeing();
-  }, 5000);
+  try{
+    if (osStr !== "ios") {
+      $("#alert_se").get(0).play();
+    }
+  }catch(e){
+    console.log("ログイン音が鳴りませんでした：" + e)
+  }
+  
+  try{
+    setInterval(function () {
+      sendBeing();
+    }, 5000);
+  }catch(e){
+    console.log("pingが発信されていません")
+  }
 
   connectVideo();
 

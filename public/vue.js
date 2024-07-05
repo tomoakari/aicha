@@ -142,8 +142,17 @@ const chatApp = Vue.createApp({
     addContent2: function (content) {
       // できればdataとconputedViewは分けたいところだけど、
       // 混乱するので今の時点では編集してしまうことにしました。
-
-      var data = JSON.parse(content);
+      var data
+      try{
+        data = JSON.parse(content);
+      }catch(e){
+        data = {
+          user_name: "system",
+          message: content,
+          chat_color: ""
+        }
+      }
+      
       const text = data.user_name + " : " + data.message;
       var date = new Date();
       var a = date.getTime();
